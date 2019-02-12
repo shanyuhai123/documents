@@ -1,0 +1,24 @@
+{
+  "name": "documents",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanyuhai123/documents.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shanyuhai123/documents/issues"
+  },
+  "homepage": "https://github.com/shanyuhai123/documents#readme",
+  "devDependencies": {
+    "vuepress": "^0.14.8"
+  }
+}
