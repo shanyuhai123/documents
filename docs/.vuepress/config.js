@@ -1,6 +1,16 @@
 module.exports = {
   title: '飞跃高山与大洋的鱼',
+  description: '飞跃高山与大洋的鱼的文档, vuepress 文档',
+  locales: {
+    '/': {
+      lang: 'zh-CN', 
+    }
+  },
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.png' }]
+  ],
   themeConfig: {
+    lastUpdated: '上次更新',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
