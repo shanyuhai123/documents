@@ -11,6 +11,9 @@ module.exports = {
   ],
   themeConfig: {
     lastUpdated: '上次更新',
+    repo: 'shanyuhai123/documents',
+    editLinks: true,
+    editLinkText: '编辑文档！',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
