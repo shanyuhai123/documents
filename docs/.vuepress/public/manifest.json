@@ -1,0 +1,15 @@
+{
+  "name": "飞跃高山与大洋的鱼",
+  "short_name": "山与海",
+  "description": "飞跃高山与大洋的鱼的文档",
+  "icons": [
+    {
+      "src": "/avatar.jpg",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "background_color": "#2196f3",
+  "display": "standalone",
+  "start_url": "index.html"
+}

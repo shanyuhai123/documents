@@ -7,13 +7,22 @@ module.exports = {
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/favicon.png' }]
+    ['link', { rel: 'icon', href: '/favicon.png' }],
+    ['link', { rel: 'manifest', href: '/manifest.json' }]
   ],
+  serviceWorker: true,
   themeConfig: {
     lastUpdated: '上次更新',
     repo: 'shanyuhai123/documents',
     editLinks: true,
     editLinkText: '编辑文档！',
+    docsDir: 'docs',
+    serviceWorker: {
+      updatePopup: { 
+        message: "内容已更新", 
+        buttonText: "刷新" 
+      }
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
