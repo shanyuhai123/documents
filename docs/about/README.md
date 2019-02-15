@@ -12,3 +12,10 @@ navbar: false
 这是一个更新内容
 这是一个更新内容
 这是一个更新内容
+
+hello world! 升级 VuePress 版本
+hello world! 升级 VuePress 版本
+
+增加评论 哈哈哈
+
+<Valine></Valine>

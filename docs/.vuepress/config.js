@@ -10,19 +10,21 @@ module.exports = {
     ['link', { rel: 'icon', href: '/favicon.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }]
   ],
-  serviceWorker: true,
+  plugins: {
+    '@vuepress/pwa': {
+      serviceWorker: true,
+      updatePopup: {
+        message: "发现新内容可用.",
+        buttonText: "刷新"
+      }
+    }
+  },
   themeConfig: {
     lastUpdated: '上次更新',
     repo: 'shanyuhai123/documents',
     editLinks: true,
     editLinkText: '编辑文档！',
     docsDir: 'docs',
-    serviceWorker: {
-      updatePopup: { 
-        message: "内容已更新", 
-        buttonText: "刷新" 
-      }
-    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
