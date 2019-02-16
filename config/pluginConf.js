@@ -1,3 +1,5 @@
+const secretKeyConf = require('./secretKeyConf.js');
+
 module.exports = {
   '@vuepress/pwa': {
     serviceWorker: true,
@@ -6,4 +8,8 @@ module.exports = {
       buttonText: "刷新"
     }
   },
+  '@vuepress/back-to-top': true,
+  '@vuepress/google-analytics': {
+    'ga': secretKeyConf.ga
+  }
 };
