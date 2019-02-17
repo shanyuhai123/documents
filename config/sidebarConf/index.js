@@ -1,6 +1,7 @@
 const css = require('./css/index.js');
 const javascript = require('./javascript/index.js');
 const guide = require('./guide/index.js');
+const git = require('./base/git/index.js');
 
 /**
  * 侧边栏的配置
@@ -10,6 +11,7 @@ const guide = require('./guide/index.js');
  * 应当将 /frontend/css 写在更上方
  */
 module.exports = {
+  '/base/git/': git,
   '/css/': css,
 
   '/javascript/': javascript,

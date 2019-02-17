@@ -2,8 +2,9 @@ module.exports = [
   { text: 'Home', link: '/' },
   { text: 'Guide', link: '/guide/' },
   { text: '基础', items: [
-    { text: 'Algorithm', link: '/algorithm/' },
-    { text: 'Interview', link: '/interview/' },
+    { text: 'Algorithm', link: '/base/algorithm/' },
+    { text: 'Interview', link: '/base/interview/' },
+    { text: 'Git', link: '/base/git/' },
   ]},
   { text: '系统', items: [
     { text: 'Windows', link: '/windows/' },
