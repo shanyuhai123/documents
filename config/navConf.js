@@ -1,16 +1,30 @@
 module.exports = [
   { text: 'Home', link: '/' },
   { text: 'Guide', link: '/guide/' },
+  { text: '基础', items: [
+    { text: 'Algorithm', link: '/algorithm/' },
+    { text: 'Interview', link: '/interview/' },
+  ]},
+  { text: '系统', items: [
+    { text: 'Windows', link: '/windows/' },
+    { text: 'Manjaro', link: '/manjaro/' },
+  ]},
   {
-    text: 'Languages',
+    text: '开发',
     items: [
-      { text: 'Chinese', link: '/language/chinese/' },
-      { text: 'Japanese', link: '/language/japanese/' },
-      { text: '亚洲', items: [
-        { text: 'Chinese', link: '/language/chinese/' },
-        { text: 'Japanese', link: '/language/japanese/' },
+      { text: 'FrontEnd', items: [
+        { text: 'JavaScript', link: '/javascript/' },
+        { text: 'CSS', link: '/css/' },
+      ]},
+      { text: 'BackEnd', items: [
+        { text: 'Koa', link: '/koa/' },
+        { text: 'MongoDB', link: '/mongodb/' },
       ] },
     ]
   },
-  { text: 'External', link: 'https://google.com' },
+  { text: '实验', items: [
+    { text: '特性', link: '/features/' },
+    { text: '待办', link: '/todos/' },
+    { text: '源码阅读', link: '/source-reading/' },
+  ]},
 ];
