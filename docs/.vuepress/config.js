@@ -1,5 +1,6 @@
 const pluginConf = require('../../config/pluginConf.js');
 const navConf = require('../../config/navConf.js');
+const secretKeyConf = require('../../config/secretKeyConf.js');
 const sidebarConf = require('../../config/sidebarConf/index.js');
 
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/favicon-32x32.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }],
+    ['meta', { name: 'google-site-verification', content: secretKeyConf.googleSearchConsole}]
   ],
   plugins: pluginConf,
   themeConfig: {
