@@ -2,6 +2,7 @@ const css = require('./css/index.js');
 const javascript = require('./javascript/index.js');
 const guide = require('./guide/index.js');
 const git = require('./base/git/index.js');
+const interview = require('./base/interview/index.js');
 
 /**
  * 侧边栏的配置
@@ -12,6 +13,8 @@ const git = require('./base/git/index.js');
  */
 module.exports = {
   '/base/git/': git,
+  '/base/interview/': interview,
+
   '/css/': css,
 
   '/javascript/': javascript,
