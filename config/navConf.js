@@ -7,8 +7,8 @@ module.exports = [
     { text: 'Git', link: '/base/git/' },
   ]},
   { text: '系统', items: [
-    { text: 'Windows', link: '/windows/' },
-    { text: 'Manjaro', link: '/manjaro/' },
+    { text: 'Windows', link: '/os/windows/' },
+    { text: 'Manjaro', link: '/os/manjaro/' },
   ]},
   {
     text: '开发',
