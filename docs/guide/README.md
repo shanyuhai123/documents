@@ -1,6 +1,6 @@
 # 介绍
 
-该文档是由 VuePress 搭建的, 搭建过程录制为了视频  
+该文档是由 VuePress 搭建的, 搭建过程录制了视频  
 
 :tada: [视频地址](https://www.bilibili.com/video/av43316513/) :tada:
 

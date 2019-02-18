@@ -20,12 +20,14 @@ module.exports = [
       { text: 'BackEnd', items: [
         { text: 'Koa', link: '/koa/' },
         { text: 'MongoDB', link: '/mongodb/' },
+        { text: 'Nginx', link: '/nginx/' },
       ] },
     ]
   },
-  { text: '实验', items: [
+  { text: '更多', items: [
     { text: '特性', link: '/features/' },
     { text: '待办', link: '/todos/' },
     { text: '源码阅读', link: '/source-reading/' },
+    { text: 'RESUME', link: 'http://resume.shanyuhai.top' },
   ]},
 ];
