@@ -21,5 +21,5 @@ module.exports = {
     docsDir: 'docs',
     nav: navConf,
     sidebar: sidebarConf
-  }
+  },
 }

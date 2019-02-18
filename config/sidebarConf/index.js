@@ -5,6 +5,8 @@ const git = require('./base/git/index.js');
 const interview = require('./base/interview/index.js');
 const windows = require('./OS/windows/index.js');
 const manjaro = require('./OS/manjaro/index.js');
+const features = require('./more/features/index.js');
+
 
 /**
  * 侧边栏的配置
@@ -21,6 +23,9 @@ module.exports = {
   // 操作系统 OS
   '/OS/manjaro/': manjaro,
   '/OS/windows/': windows,
+
+  // 更多
+  '/more/features/': features,
 
   // 指南 guide
   '/guide/': guide,

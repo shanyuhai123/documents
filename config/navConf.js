@@ -25,8 +25,8 @@ module.exports = [
     ]
   },
   { text: '更多', items: [
-    { text: '特性', link: '/features/' },
-    { text: '待办', link: '/todos/' },
+    { text: '特性', link: '/more/features/' },
+    { text: '待办', link: '/more/todos/' },
     { text: '源码阅读', link: '/source-reading/' },
     { text: 'RESUME', link: 'http://resume.shanyuhai.top' },
   ]},
