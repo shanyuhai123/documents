@@ -66,7 +66,7 @@ export default {
 
 <style lang="stylus" scoped>
 .ValineComment {
-  margin: 0 1rem;
+  padding 0 10rem;
 }
 .leancloud-visitors {
   display inline-block
