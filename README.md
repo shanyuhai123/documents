@@ -22,3 +22,37 @@ yarn deploy # 或者 npm run deploy
 因为本地尚未推送 Valine 的 appId 和 appKey
 所以需要在 config 目录下新建 secretKeyConf.js 文件并暴露先关内容
 
+### 1. secretKeyConf 配置项
+
+```bash
+# Valine
+1. appId
+2. appKey
+# google analytics
+3. ga
+# google 网站认证
+4. googleSearchConsole
+```
+
+### 2. 修改 node_modules 文件
+
+1. 在默认主题上添加 Valine 组件
+
+   路径为 
+
+   ```bash
+   # node_modules/@vuepress/theme-default/components/Page.vue
+   ```
+
+   修改内容为
+
+   ```vue
+       </div>
+   
+       <slot name="bottom"/>
+       <!-- 仅需添加 <Valine></Valine> 即可 -->
+       <Valine></Valine>
+     </main>
+   </template>
+   ```
+
