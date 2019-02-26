@@ -14,13 +14,14 @@ module.exports = [
     text: '开发',
     items: [
       { text: 'FrontEnd', items: [
-        { text: 'JavaScript', link: '/javascript/' },
-        { text: 'CSS', link: '/css/' },
+        { text: 'JavaScript', link: '/frontEnd/javascript/' },
+        { text: 'CSS', link: '/frontEnd/css/' },
+        { text: 'Webpack', link: '/frontEnd/webpack/' },
       ]},
       { text: 'BackEnd', items: [
-        { text: 'Koa', link: '/koa/' },
-        { text: 'MongoDB', link: '/mongodb/' },
-        { text: 'Nginx', link: '/nginx/' },
+        { text: 'Koa', link: '/BackEnd/koa/' },
+        { text: 'MongoDB', link: '/BackEnd/mongodb/' },
+        { text: 'Nginx', link: '/BackEnd/nginx/' },
       ] },
     ]
   },
