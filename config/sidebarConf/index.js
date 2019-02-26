@@ -11,6 +11,7 @@ const manjaro = require('./OS/manjaro/index.js');
 
 // 前端
 const webpack = require('./FrontEnd/webpack/index.js');
+const javascript = require('./FrontEnd/javascript/index.js');
 // 后端
 
 // 更多
@@ -39,6 +40,7 @@ module.exports = {
   /* 开发 */
   // 前端
   '/FrontEnd/webpack/': webpack,
+  '/FrontEnd/javascript/': javascript,
   // 后端
 
   // 更多
