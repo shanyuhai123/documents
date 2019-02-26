@@ -10,7 +10,7 @@ const windows = require('./OS/windows/index.js');
 const manjaro = require('./OS/manjaro/index.js');
 
 // 前端
-// const javascript = require();
+const webpack = require('./FrontEnd/webpack/index.js');
 // 后端
 
 // 更多
@@ -25,6 +25,9 @@ const features = require('./More/features/index.js');
  * 应当将 /frontend/css 写在更上方
  */
 module.exports = {
+  // 指南 Guide
+  '/guide/': guide,
+
   // 基础 Base
   '/Base/git/': git,
   '/Base/interview/': interview,
@@ -33,11 +36,14 @@ module.exports = {
   '/OS/manjaro/': manjaro,
   '/OS/windows/': windows,
 
+  /* 开发 */
+  // 前端
+  '/FrontEnd/webpack/': webpack,
+  // 后端
+
   // 更多
   '/More/features/': features,
 
-  // 指南 Guide
-  '/guide/': guide,
 
 
   // 根目录下的 sidebar, 对于所有未匹配到的都会应用该 sidebar

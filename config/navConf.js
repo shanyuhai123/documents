@@ -14,9 +14,9 @@ module.exports = [
     text: '开发',
     items: [
       { text: 'FrontEnd', items: [
-        { text: 'JavaScript', link: '/frontEnd/javascript/' },
-        { text: 'CSS', link: '/frontEnd/css/' },
-        { text: 'Webpack', link: '/frontEnd/webpack/' },
+        { text: 'JavaScript', link: '/FrontEnd/javascript/' },
+        { text: 'CSS', link: '/FrontEnd/css/' },
+        { text: 'Webpack', link: '/FrontEnd/webpack/' },
       ]},
       { text: 'BackEnd', items: [
         { text: 'Koa', link: '/BackEnd/koa/' },
