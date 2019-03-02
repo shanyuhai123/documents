@@ -1,16 +1,14 @@
 /**
- * 该文件为获取一个目录下的所有文件名
- * 2019-02-27 手动获取某个目录下的所有文件名
+ * 该文件用于获取一个目录下的所有文件名
+ * 2019-03-02 手动获取某个目录下的所有文件名
  */
 
 const { readdir, writeFile } = require('fs');
 const { resolve } = require('path');
 
-// 目录地址
-const testFolder = '/home/yuan/Projects/documents/docs/FrontEnd/javascript';
+const FOLDERPATH = '/home/yuan/Projects/documents/docs/FrontEnd/javascript';
 
-
-readdir(testFolder, (err, files) => {
+readdir(FOLDERPATH, (err, files) => {
   let filenames = [];
   files.forEach(file => {
     if (file === 'README.md') {
@@ -22,8 +20,7 @@ readdir(testFolder, (err, files) => {
     filenames.push(file);
   });
 
-  // 使用 writeFile 要求第二个参数类型是 string 或者 buffer, 会导致变成字符串
   writeFile(resolve(__dirname, './filenames.js'), `[${filenames}]`, () => {
-    console.log('文件名导出完成');
-  });
-})
+    console.log('文件名获取完成.');
+  })
+});
