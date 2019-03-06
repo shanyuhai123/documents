@@ -11,9 +11,13 @@ const windows = require('./OS/windows/index.js');
 const manjaro = require('./OS/manjaro/index.js');
 
 // 前端
-const webpack = require('./FrontEnd/webpack/index.js');
 const javascript = require('./FrontEnd/javascript/index.js');
+const webpack = require('./FrontEnd/webpack/index.js');
+const css = require('./FrontEnd/css/index.js');
 // 后端
+const koa = require('./BackEnd/koa/index.js');
+const mongodb =require('./BackEnd/mongodb/index.js');
+const nginx = require('./BackEnd/nginx/index.js');
 
 // 更多
 const features = require('./More/features/index.js');
@@ -41,9 +45,13 @@ module.exports = {
 
   /* 开发 */
   // 前端
-  '/FrontEnd/webpack/': webpack,
   '/FrontEnd/javascript/': javascript,
+  '/FrontEnd/webpack/': webpack,
+  '/FrontEnd/css/': css,
   // 后端
+  '/BackEnd/koa/': koa,
+  '/BackEnd/mongodb/': mongodb,
+  '/BackEnd/nginx/': nginx,
 
   // 更多
   '/More/features/': features,
