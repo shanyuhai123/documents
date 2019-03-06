@@ -2,14 +2,13 @@
 title: 切换多个 github 账号
 ---
 
-## 介绍
+## 1. 使用场景
 
-经常的我们会在电脑上使用多个 github 账号
-自己的, 公司的, 还有其他的
+在很多情况下，常常要对多个 github 账号进行切换。比如，自己的、公司的、小号。
 
-## 切换步骤
+## 2. 切换步骤
 
-1. 创建 ssh key 可以查看 [创建 SSH Key](/base/git/Generate%20SSH%20key)
+1. 创建 ssh key 可以查看 [创建 SSH Key](/base/git/01-generate-ssh-key)
 
 2. 将 public key 上传至服务器(名字随意即可)
 
@@ -46,8 +45,5 @@ title: 切换多个 github 账号
 
 6. push 项目
 
-   因为在一开始 clone 的时候已经配置好了
+   因为在一开始 clone 的时候已经配置好了，所以 push 时就无需配置了。不过我们还需要 `git config` 修改一下本地的 `user.name` 和 `user.email` 来保证是同一个人修改了, 否则会应用全局的 `config` 设置
 
-   所以 push 时就无需配置了
-
-   不过我们还需要 `git config` 修改一下本地的 `user.name` 和 `user.email` 来保证是同一个人修改了, 否则会应用全局的 config 设置

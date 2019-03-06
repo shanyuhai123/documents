@@ -2,14 +2,7 @@
 title: 创建 SSH Key
 ---
 
-## 介绍
-
-用于创建 SSH Key  
-
-在 github 中有详细提示  
-https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
-
-## 创建 SSH Key 步骤
+## 1. 创建 SSH Key 步骤
 
 ```bash
 # 1. 利用邮箱生成 ssh key
@@ -21,7 +14,7 @@ Enter passphrase (empty for no passphrase): [Type a passphrase]
 Enter same passphrase again: [Type passphrase again]
 ```
 
-## 修复 ssh-add 存在的问题 :tada:
+## 2. 修复 ssh-add 存在的问题 :tada:
 
 ```bash
 # 1. 生成新的 rsa 后需要链接到 ssh
