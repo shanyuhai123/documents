@@ -4,6 +4,7 @@ module.exports = [
   { text: '基础', items: [
     { text: 'Algorithm', link: '/base/algorithm/' },
     { text: 'Interview', link: '/base/interview/' },
+    { text: 'Clean', link: '/base/clean/' },
     { text: 'Git', link: '/base/git/' },
   ]},
   { text: '系统', items: [

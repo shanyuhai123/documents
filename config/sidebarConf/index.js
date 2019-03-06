@@ -5,6 +5,7 @@ const guide = require('./Guide/index.js');
 const git = require('./Base/git/index.js');
 const interview = require('./Base/interview/index.js');
 const algorithm = require('./Base/algorithm/index.js');
+const clean = require('./Base/clean/index.js');
 
 // 操作系统
 const windows = require('./OS/windows/index.js');
@@ -37,6 +38,7 @@ module.exports = {
   // 基础 Base
   '/Base/git/': git,
   '/Base/interview/': interview,
+  '/Base/clean/': clean,
   '/Base/algorithm/': algorithm,
 
   // 操作系统 OS
