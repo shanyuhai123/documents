@@ -16,6 +16,8 @@ const centos = require('./OS/centos/index.js');
 const javascript = require('./FrontEnd/javascript/index.js');
 const webpack = require('./FrontEnd/webpack/index.js');
 const css = require('./FrontEnd/css/index.js');
+const nodejs = require('./FrontEnd/nodejs/index.js');
+
 // 后端
 const koa = require('./BackEnd/koa/index.js');
 const mongodb =require('./BackEnd/mongodb/index.js');
@@ -52,6 +54,7 @@ module.exports = {
   '/FrontEnd/javascript/': javascript,
   '/FrontEnd/webpack/': webpack,
   '/FrontEnd/css/': css,
+  '/FrontEnd/nodejs/': nodejs,
   // 后端
   '/BackEnd/koa/': koa,
   '/BackEnd/mongodb/': mongodb,
