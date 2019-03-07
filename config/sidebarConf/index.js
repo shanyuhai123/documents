@@ -10,6 +10,7 @@ const clean = require('./Base/clean/index.js');
 // 操作系统
 const windows = require('./OS/windows/index.js');
 const manjaro = require('./OS/manjaro/index.js');
+const centos = require('./OS/centos/index.js');
 
 // 前端
 const javascript = require('./FrontEnd/javascript/index.js');
@@ -44,6 +45,7 @@ module.exports = {
   // 操作系统 OS
   '/OS/manjaro/': manjaro,
   '/OS/windows/': windows,
+  '/OS/centos/': centos,
 
   /* 开发 */
   // 前端
