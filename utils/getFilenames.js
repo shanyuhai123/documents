@@ -7,7 +7,7 @@
 const { readdir, writeFile } = require('fs');
 const { resolve } = require('path');
 
-const FOLDERPATH = '/home/yuan/Projects/documents/docs/OS/centos';
+const FOLDERPATH = '/home/yuan/Projects/documents/docs/More/services';
 
 readdir(FOLDERPATH, (err, files) => {
   let filenames = [];

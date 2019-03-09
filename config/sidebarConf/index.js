@@ -25,6 +25,7 @@ const nginx = require('./BackEnd/nginx/index.js');
 
 // 更多
 const features = require('./More/features/index.js');
+const services = require('./More/services/index.js');
 
 
 /**
@@ -62,6 +63,7 @@ module.exports = {
 
   // 更多
   '/More/features/': features,
+  '/More/services/': services,
 
 
 
