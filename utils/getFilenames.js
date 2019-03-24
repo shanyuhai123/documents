@@ -7,7 +7,7 @@
 const { readdir, writeFile } = require('fs');
 const { resolve } = require('path');
 
-const FOLDERPATH = '/home/yuan/Projects/documents/docs/More/services';
+const FOLDERPATH = '/home/yuan/Projects/documents/docs/Base/git';
 
 readdir(FOLDERPATH, (err, files) => {
   let filenames = [];
