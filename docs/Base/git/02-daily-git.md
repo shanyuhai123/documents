@@ -85,6 +85,27 @@ git rm file1
 
 
 
+## 创建分支
+
+上面有了删除分支，当然也要有创建分支，创建分支往往会基于某个分支来创建：
+
+```bash
+# 本地
+# 基于当前分支创建
+git checkout master
+git checkout -b branch1
+# 基于 branch2 分支创建
+git checkout -b branch1 branch2
+
+# 远程
+# 基于 branch1 分支创建（一般会将命名相同，方便 push）
+git checkout -b branch1 origin/branch1
+```
+
+在这里补充一个想法，想要 `git push` 成功的关键是 `fast-forward` 。
+
+
+
 ## 查看日志
 
 > 参数可以组合，更强大。
@@ -353,5 +374,96 @@ git remote add name file:///xxx/xxx/your_project/name.git
 
 # 推送
 git push name
+```
+
+
+
+## 合并
+
+合并方式往往会使用两种：merge、rebase。
+
+### merge 合并
+
+举个例子，将分支 2 合并到分支 1：
+
+```bash
+git checkout branch1
+# 本地
+git merge branch2
+# 远程
+git merge origin/branch2
+
+# 合并无关联的分支（即没有共同的祖先）
+git merge branch2 --allow-unrelated-histories
+```
+
+合并相同的分支：
+
+```bash
+# 相同的分支当然是一个本地，一个远程
+git checkout branch1
+
+# 不同文件
+git merge origin/branch1
+# 相同文件不同区域
+git merge origin/branch1
+# 相同文件相同区域
+# 这时 git 无法自动合并，需要手工上了
+# 命令行或者图形化界面均可
+# 修改完成
+git commit -am"resolved the conflict"
+# 文件名发生变更(单方修改文件名)
+# git 能够自动处理
+git merge origin/branch1
+# 文件名发生变更（双方/多方修改文件名）
+# git 能够识别为修改了文件名，但是冲突需要手动解决
+# 去除不需要的文件
+git rm file1 file2
+# 将需要的文件保存到暂存区并提交 commit
+git commit -am"resolved the conflict"
+```
+
+### rebase 合并
+
+很多公司并不喜欢多条分支交错的感觉（不够直观），采用 rebase 方式可以使记录保持一条线性。
+
+处理远程：
+
+```bash
+# 切换到对应分支
+git checkout branch1
+
+# 处理远程分支 branch2
+git rebase origin/branch2 
+
+# 解决冲突的文件
+vim file1
+vim xxx
+# 解决完冲突继续 rebase
+git rebase --continue
+# 继续解决冲突，重复上方 vim 操作
+# git rebase 就是这点麻烦，你在 branch1 的 commit 有几次，就会发生几次 rebase，因为 rebase 是把所有的 commit 记录都同步到 master 分支
+
+# 上面解决冲突的方式很麻烦，万一你在 branch1 有十几个 commit 那…
+# 所以 git 也提供 Rerere 工具
+# 启用工具
+git config --global rerere.enabled true
+# 先使用 merge 记录操作
+git merge origin/branch2
+# 提示有冲突需要解决
+vim file1
+git add .
+git commit -am"conflict record"
+# 回退处理
+git reset --hard HEAD~1
+# 继续使用 rebase 来合并
+git rebase origin/branch2 
+# git 会按照之前的 rerere 的规则自动处理冲突
+# 仅需要对比一下文件是否按所想的处理了
+vim file1
+git add file1
+# 继续 rebase
+git rebase --continue
+# 重复 vim - continue 操作
 ```
 
