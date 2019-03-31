@@ -17,7 +17,7 @@ module.exports = [
     items: [
       { text: 'FrontEnd', items: [
         { text: 'JavaScript', link: '/FrontEnd/javascript/' },
-        { text: 'CSS', link: '/FrontEnd/css/' },
+        { text: 'CSS', link: 'https://css.shanyuhai.top/' },
         { text: 'Webpack', link: '/FrontEnd/webpack/' },
         { text: 'Nodejs', link: '/FrontEnd/nodejs/' },
       ]},
