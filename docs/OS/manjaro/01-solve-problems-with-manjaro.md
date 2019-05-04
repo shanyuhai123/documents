@@ -15,3 +15,29 @@ title: Manjaro 的日常
 :::
 
 ![录屏闪烁](/OS/manjaro/os_manjaro_5_20190218171136.png)
+
+## 2. 禁用笔记本键盘
+
+### 问题情况
+
+之前键盘进过水导致会启用按键失灵，所以需要禁用自带的键盘。
+
+### 解决方案
+
+::: tip 初级方案  
+```bash
+# manjaro 下 xinput 被 xorg-xinput 替代
+sudo pacman -S xorg-xinput
+# 查看设备列表
+xinput list
+# 查看笔记本键盘信息 
+xinput list-props 'AT Translated Set 2 keyboard'
+# Device Enabled (147): 1 =》 `1` 表示维禁用
+xinput set-prop 17 'Device Enabled' 0
+# 再次查看设备信息即可
+```
+:::
+
+::: danger 终极方案
+`关电源` > `打开后盖` > `拆除笔记本键盘排线`
+:::
