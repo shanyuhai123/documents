@@ -41,3 +41,17 @@ xinput set-prop 17 'Device Enabled' 0
 ::: danger 终极方案
 `关电源` > `打开后盖` > `拆除笔记本键盘排线`
 :::
+
+## 3. 修复 TeamViewer 无法连接
+
+### 问题情况
+
+使用 TeamViewer 提示：未就绪，请检查您的连接。
+
+### 解决方案
+
+::: tip 一行解决
+```sh
+sudo teamviewer --daemon enable
+```
+:::
