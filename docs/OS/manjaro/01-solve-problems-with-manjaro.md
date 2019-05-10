@@ -55,3 +55,21 @@ xinput set-prop 17 'Device Enabled' 0
 sudo teamviewer --daemon enable
 ```
 :::
+
+## 4. 连接 Windows Server
+
+### 问题情况
+
+需要在 Linux 系统下连接 Windows Server。
+
+### 解决方案
+
+::: tip 步骤
+1. 首先需要安装 `rdesktop`
+2. 接着直接使用 `rdesktop ip:port -u username`
+:::
+::: danger 注：
+1. 添加 -f 参数可以以全屏模式进入
+2. 在全屏模式下按 `ctrl+alt+enter` 可以退出全屏（这个才是想记录的……）
+3. 其余参数见谷歌
+:::
