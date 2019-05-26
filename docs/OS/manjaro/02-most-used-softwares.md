@@ -1,0 +1,59 @@
+---
+title: 常用软件
+---
+
+## 1. TeamViewer
+
+### 介绍
+
+远程桌面访问解决方案，远程支持，在线协作。
+
+### 使用中存在的问题
+
+使用 TeamViewer 提示：未就绪，请检查您的连接。
+
+### 解决方案
+
+::: tip 一行解决
+```sh
+sudo teamviewer --daemon enable
+```
+:::
+
+## 2. rdesktop
+
+### 介绍
+
+一个开源 `UNIX` 客户端，用于连接到 `Windows` 远程桌面服务，能够本地使用远程桌面协议（RDP）来呈现用户的 `Windows` 桌面。
+
+### 使用方式
+
+::: tip 步骤
+1. 首先需要安装 `rdesktop`
+2. 接着直接使用 `rdesktop ip:port -u username`
+:::
+::: danger 注：
+1. 添加 -f 参数可以以全屏模式进入
+2. 在全屏模式下按 `ctrl+alt+enter` 可以退出全屏（这个才是想记录的……）
+3. 其余参数见谷歌
+:::
+
+## 3. FileZilla Client
+
+### 介绍
+
+一个免费的软件跨平台FTP应用程序，由 `FileZilla Client` 和 `FileZilla Server` 组成。
+
+### 使用中存在的问题
+
+连接的文件夹及文件存在中文乱码问题。
+
+### 解决方案
+
+::: tip 步骤
+1. 点击左上角 `文件`
+2. 点击站点管理器
+3. 点击字符集
+4. 选择 `强制 UTF-8`
+5. 确定
+:::

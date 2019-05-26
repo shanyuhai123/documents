@@ -41,35 +41,3 @@ xinput set-prop 17 'Device Enabled' 0
 ::: danger 终极方案
 `关电源` > `打开后盖` > `拆除笔记本键盘排线`
 :::
-
-## 3. 修复 TeamViewer 无法连接
-
-### 问题情况
-
-使用 TeamViewer 提示：未就绪，请检查您的连接。
-
-### 解决方案
-
-::: tip 一行解决
-```sh
-sudo teamviewer --daemon enable
-```
-:::
-
-## 4. 连接 Windows Server
-
-### 问题情况
-
-需要在 Linux 系统下连接 Windows Server。
-
-### 解决方案
-
-::: tip 步骤
-1. 首先需要安装 `rdesktop`
-2. 接着直接使用 `rdesktop ip:port -u username`
-:::
-::: danger 注：
-1. 添加 -f 参数可以以全屏模式进入
-2. 在全屏模式下按 `ctrl+alt+enter` 可以退出全屏（这个才是想记录的……）
-3. 其余参数见谷歌
-:::
