@@ -57,3 +57,36 @@ sudo teamviewer --daemon enable
 4. 选择 `强制 UTF-8`
 5. 确定
 :::
+
+1. 
+
+## 4. Zsh
+
+### 介绍
+
+一个更为酷炫的 shell，当然在服务器你还是老老实实的使用 bash，一切求稳。
+
+### 使用中存在的问题
+
+从 zsh 切换到 bash 需要重启电脑，要重新执行的时 `.zshrec` 而不是 `.bashrc`
+
+### 解决方案
+
+::: tip 操作
+
+```bash
+# 从 bash 切换到 zsh
+exec zsh
+source .zshrc
+# 从 zsh 切换到 bash
+exec bash
+source .bashrc
+# 设置开机启动的默认
+chsh -s /bin/bash
+chsh -s /bin/zsh
+# 可以在 shells 中查看有哪些可以切换
+cat /etc/shells
+```
+
+:::
+
