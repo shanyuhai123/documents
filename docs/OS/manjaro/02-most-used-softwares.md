@@ -58,8 +58,6 @@ sudo teamviewer --daemon enable
 5. 确定
 :::
 
-1. 
-
 ## 4. Zsh
 
 ### 介绍
@@ -73,7 +71,6 @@ sudo teamviewer --daemon enable
 ### 解决方案
 
 ::: tip 操作
-
 ```bash
 # 从 bash 切换到 zsh
 exec zsh
@@ -87,6 +84,13 @@ chsh -s /bin/zsh
 # 可以在 shells 中查看有哪些可以切换
 cat /etc/shells
 ```
+:::
+::: danger 注：
+zsh 在使用时会存在一些问题:
+
+1. 当使用 `source ~/.zshrc` 切换主题时，`command not found: fortune`
+
+   安装 `fortune-mod` 即可
 
 :::
 
