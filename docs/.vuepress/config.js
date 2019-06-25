@@ -20,6 +20,10 @@ module.exports = {
     editLinkText: '编辑文档！',
     docsDir: 'docs',
     nav: navConf,
-    sidebar: sidebarConf
+    sidebar: sidebarConf,
+    algolia: {
+      apiKey: '8b552055fb68ffc808bfbd3f98a1dbe2',
+      indexName: 'shanyuhai_documents'
+    }
   },
 }
