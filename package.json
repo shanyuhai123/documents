@@ -6,7 +6,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "deploy": "bash deploy.sh",
+    "cname": "bash cname.sh",
     "getname": "node utils/getFilenames.js"
   },
   "repository": {

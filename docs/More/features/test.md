@@ -19,3 +19,5 @@ title: VuePress 特性测试
   color: red;
 }
 </style>
+
+新增了 TRAVIS-CI
