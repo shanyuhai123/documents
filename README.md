@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/shanyuhai123/documents.svg?branch=master)](https://travis-ci.org/shanyuhai123/documents)
+
 ## 介绍
 这是一个 VuePress 搭建的文档
 具体如何搭建 VuePress 文档可以通过我录制的视频来学习, 视频地址为 https://www.bilibili.com/video/av43316513/
