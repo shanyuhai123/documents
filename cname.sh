@@ -5,4 +5,4 @@
 set -e
 
 cd docs/.vuepress/dist
-echo 'css.shanyuhai.top' > CNAME
+echo 'docs.shanyuhai.top' > CNAME
