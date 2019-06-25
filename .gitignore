@@ -62,6 +62,6 @@ typings/
 .next
 
 # secretKeyConf
-secretKeyConf.js
+# secretKeyConf.js
 docs/.vuepress/dist
 docs/.vuepress/dist/
