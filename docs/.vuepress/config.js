@@ -24,7 +24,11 @@ module.exports = {
     algolia: {
       appId: 'M698VCXCJN',
       apiKey: '8b552055fb68ffc808bfbd3f98a1dbe2',
-      indexName: 'shanyuhai_documents'
+      indexName: 'shanyuhai_documents',
+      algoliaOptions: {
+        hitsPerPage: 10,
+        facetFilters: ""
+      }
     }
   },
 }
