@@ -10,7 +10,7 @@ module.exports = [
   { text: '系统', items: [
     { text: 'Manjaro', link: '/os/manjaro/' },
     { text: 'Windows', link: '/os/windows/' },
-    { text: 'CentOS', link: '/os/centos/' },
+    { text: 'Ubuntu', link: '/os/ubuntu/' },
   ]},
   {
     text: '开发',
