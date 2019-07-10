@@ -19,44 +19,7 @@ yarn docs:dev # 或者 npm run docs:dev
 yarn deploy # 或者 npm run deploy
 ```
 
-## 配置
-在使用该项目之前需要进行配置
-因为本地尚未推送 Valine 的 appId 和 appKey
-所以需要在 config 目录下新建 secretKeyConf.js 文件并暴露先关内容
+## 说明
 
-### 1. secretKeyConf 配置项
-
-```bash
-# Valine
-1. appId
-2. appKey
-# google analytics
-3. ga
-# google 网站认证
-4. googleSearchConsole
-```
-
-### 2. 修改 node_modules 文件
-
-1. 在默认主题上添加 Valine 组件
-
-   路径为 
-
-   ```bash
-   # node_modules/@vuepress/theme-default/components/Page.vue
-   ```
-
-   修改内容为
-
-   ```vue
-       </div>
-   
-       <slot name="bottom"/>
-       <!-- 仅需添加 <Valine></Valine> 即可 -->
-       <Valine></Valine>
-     </main>
-   </template>
-   ```
-
-   Valine 已移除
-
+最近将评论模块删除了，因为觉得文档属于更加个人的东西，如果真的有需要自然会有在 Issue 中留言的。
+关于隐私的一些配置，也开放出来了，当然我是强烈不推荐这种行为，之后会进一步思考如何和 Travis CI 来进行配置避免这种行为。
