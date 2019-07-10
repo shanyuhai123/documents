@@ -23,11 +23,6 @@ const koa = require('./BackEnd/koa/index.js');
 const mongodb =require('./BackEnd/mongodb/index.js');
 const nginx = require('./BackEnd/nginx/index.js');
 
-// 更多
-const features = require('./More/features/index.js');
-const services = require('./More/services/index.js');
-
-
 /**
  * 侧边栏的配置
  * 当路由深度越深时应当排序在更前方
@@ -60,12 +55,6 @@ module.exports = {
   '/BackEnd/koa/': koa,
   '/BackEnd/mongodb/': mongodb,
   '/BackEnd/nginx/': nginx,
-
-  // 更多
-  '/More/features/': features,
-  '/More/services/': services,
-
-
 
   // 根目录下的 sidebar, 对于所有未匹配到的都会应用该 sidebar
   // '/': [''] // 此处选择禁用
