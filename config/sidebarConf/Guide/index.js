@@ -1,6 +1,7 @@
-const utils = require('../../../utils/index.js');
-const children = ['','01-style-guide','02-about'];
+const genSidebar = require('../../../utils/genSidebar.js');
+const filenames = require('../../filenames.json');
+const children = filenames.guide;
 
 module.exports = [
-  utils.genSidebar('关于文档', children, false, 2),
+  genSidebar('关于文档', children, false, 2),
 ];

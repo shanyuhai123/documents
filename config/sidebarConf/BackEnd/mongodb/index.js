@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = [''];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.BackEnd.mongodb;
 
 module.exports = [
-  utils.genSidebar('MongoDB', children, false),
+  genSidebar('MongoDB', children, false),
 ];

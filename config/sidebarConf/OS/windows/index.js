@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = [''];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.OS.windows;
 
 module.exports = [
-  utils.genSidebar('Windows', children, false),
+  genSidebar('Windows', children, false),
 ];

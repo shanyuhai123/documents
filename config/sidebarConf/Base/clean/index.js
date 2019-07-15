@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = ['','01-javascript'];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.Base.clean;
 
 module.exports = [
-  utils.genSidebar('Clean', children, false),
+  genSidebar('Clean', children, false),
 ];

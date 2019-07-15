@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = [''];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.FrontEnd.css;
 
 module.exports = [
-  utils.genSidebar('CSS', children, false),
+  genSidebar('CSS', children, false),
 ];

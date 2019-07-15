@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = ['','01-add-user','02-login-with-rsa-key','03-upload-file-to-server','04-clone-project-to-server','05-fix-date'];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.OS.ubuntu;
 
 module.exports = [
-  utils.genSidebar('Ubuntu', children, false),
+  genSidebar('Ubuntu', children, false),
 ];

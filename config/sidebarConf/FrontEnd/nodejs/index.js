@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = ['', '01-install-nodejs'];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.FrontEnd.nodejs;
 
 module.exports = [
-  utils.genSidebar('Nodejs', children, false),
+  genSidebar('Nodejs', children, false),
 ];

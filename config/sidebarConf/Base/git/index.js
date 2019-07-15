@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = ['','01-git-concept','02-daily-git','03-generate-ssh-key','04-switch-multiple-github-accounts','05-download-huge-project-from-github'];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.Base.git;
 
 module.exports = [
-  utils.genSidebar('Git', children, false),
+  genSidebar('Git', children, false),
 ];

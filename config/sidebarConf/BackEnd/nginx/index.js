@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = ['','01-install-nginx','02-explain-the-main-configuration-file-of-nginx','03-nginx-basic-operation','04-ubuntu-installs-the-latest-version-of-nginx'];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.BackEnd.nginx;
 
 module.exports = [
-  utils.genSidebar('Nginx', children, false),
+  genSidebar('Nginx', children, false),
 ];

@@ -1,6 +1,7 @@
-const utils = require('../../../../utils/index.js');
-const children = ['','01-how-to-install-manjaro-on-virtualbox','02-manjaro-configuration','03-solve-problems-with-manjaro','04-most-used-softwares'];
+const genSidebar = require('../../../../utils/genSidebar.js');
+const filenames = require('../../../filenames.json');
+const children = filenames.OS.manjaro;
 
 module.exports = [
-  utils.genSidebar('Manjaro', children, false),
+  genSidebar('Manjaro', children, false),
 ];
