@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Webpack 的 loader 配置 | 飞跃高山与大洋的鱼</title>
+    <meta name="description" content="飞跃高山与大洋的鱼的文档, vuepress 文档">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon-32x32.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="Ld_AEWr30siza2LmmZ12csitRGsSj9gqqEAch0UXkTc">
+    
+    <link rel="preload" href="/assets/css/0.styles.b3afae91.css" as="style"><link rel="preload" href="/assets/js/app.4d4f18da.js" as="script"><link rel="preload" href="/assets/js/3.1b5ab947.js" as="script"><link rel="preload" href="/assets/js/33.30ee37e0.js" as="script"><link rel="preload" href="/assets/js/4.f42ac96d.js" as="script"><link rel="prefetch" href="/assets/js/10.074ecd96.js"><link rel="prefetch" href="/assets/js/11.6e078e61.js"><link rel="prefetch" href="/assets/js/12.b8a42daf.js"><link rel="prefetch" href="/assets/js/13.d96e5bca.js"><link rel="prefetch" href="/assets/js/14.5967bd5c.js"><link rel="prefetch" href="/assets/js/15.95969346.js"><link rel="prefetch" href="/assets/js/16.445c4cfe.js"><link rel="prefetch" href="/assets/js/17.b132399a.js"><link rel="prefetch" href="/assets/js/18.20aeac38.js"><link rel="prefetch" href="/assets/js/19.09c5f04e.js"><link rel="prefetch" href="/assets/js/20.d4a54d9a.js"><link rel="prefetch" href="/assets/js/21.41a9fbe4.js"><link rel="prefetch" href="/assets/js/22.ec9070c2.js"><link rel="prefetch" href="/assets/js/23.017de62c.js"><link rel="prefetch" href="/assets/js/24.533b363d.js"><link rel="prefetch" href="/assets/js/25.282c6646.js"><link rel="prefetch" href="/assets/js/26.32eb9b1a.js"><link rel="prefetch" href="/assets/js/27.9404b4a8.js"><link rel="prefetch" href="/assets/js/28.4d2cb599.js"><link rel="prefetch" href="/assets/js/29.3235521d.js"><link rel="prefetch" href="/assets/js/30.7283e14b.js"><link rel="prefetch" href="/assets/js/31.517dfbf2.js"><link rel="prefetch" href="/assets/js/32.074649ad.js"><link rel="prefetch" href="/assets/js/34.1effb3b2.js"><link rel="prefetch" href="/assets/js/35.dd125fe8.js"><link rel="prefetch" href="/assets/js/36.2978a324.js"><link rel="prefetch" href="/assets/js/37.38beca23.js"><link rel="prefetch" href="/assets/js/38.1569c2ec.js"><link rel="prefetch" href="/assets/js/39.bede6a12.js"><link rel="prefetch" href="/assets/js/40.16ec019e.js"><link rel="prefetch" href="/assets/js/41.1ef15134.js"><link rel="prefetch" href="/assets/js/42.d236036a.js"><link rel="prefetch" href="/assets/js/43.7f201275.js"><link rel="prefetch" href="/assets/js/44.f9eeeae2.js"><link rel="prefetch" href="/assets/js/45.1ed5808e.js"><link rel="prefetch" href="/assets/js/46.e89f330d.js"><link rel="prefetch" href="/assets/js/47.e3ec6c1b.js"><link rel="prefetch" href="/assets/js/48.028bad7e.js"><link rel="prefetch" href="/assets/js/49.0b2c6787.js"><link rel="prefetch" href="/assets/js/5.c33cb045.js"><link rel="prefetch" href="/assets/js/50.a5f41969.js"><link rel="prefetch" href="/assets/js/51.c807efc2.js"><link rel="prefetch" href="/assets/js/52.3b6ab428.js"><link rel="prefetch" href="/assets/js/53.51b6fa99.js"><link rel="prefetch" href="/assets/js/54.b7d20a2c.js"><link rel="prefetch" href="/assets/js/55.75f4da62.js"><link rel="prefetch" href="/assets/js/56.ba244085.js"><link rel="prefetch" href="/assets/js/57.e2cd78e4.js"><link rel="prefetch" href="/assets/js/58.7cff3dd7.js"><link rel="prefetch" href="/assets/js/59.69999ed5.js"><link rel="prefetch" href="/assets/js/6.6006b8ec.js"><link rel="prefetch" href="/assets/js/60.97c24c7a.js"><link rel="prefetch" href="/assets/js/61.34b5c51f.js"><link rel="prefetch" href="/assets/js/62.f6f97006.js"><link rel="prefetch" href="/assets/js/63.43ca150d.js"><link rel="prefetch" href="/assets/js/64.31215eba.js"><link rel="prefetch" href="/assets/js/7.c63dcbfc.js"><link rel="prefetch" href="/assets/js/8.670b7f22.js"><link rel="prefetch" href="/assets/js/9.f6b633b6.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.1814c30c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b3afae91.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">飞跃高山与大洋的鱼</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">系统</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/os/manjaro/" class="nav-link">Manjaro</a></li><li class="dropdown-item"><!----> <a href="/os/windows/" class="nav-link">Windows</a></li><li class="dropdown-item"><!----> <a href="/os/ubuntu/" class="nav-link">Ubuntu</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/javascript/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="https://css.shanyuhai.top/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSS
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/frontend/webpack/" class="nav-link router-link-active">Webpack</a></li><li class="dropdown-item"><!----> <a href="/frontend/nodejs/" class="nav-link">Nodejs</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/koa/" class="nav-link">Koa</a></li><li class="dropdown-item"><!----> <a href="/backend/mongodb/" class="nav-link">MongoDB</a></li><li class="dropdown-item"><!----> <a href="/backend/nginx/" class="nav-link">Nginx</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link">Git</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/algorithm/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/more/interview/" class="nav-link">面试题</a></li><li class="dropdown-item"><!----> <a href="/more/clean/" class="nav-link">风格指南</a></li></ul></div></div> <a href="https://github.com/shanyuhai123/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">系统</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/os/manjaro/" class="nav-link">Manjaro</a></li><li class="dropdown-item"><!----> <a href="/os/windows/" class="nav-link">Windows</a></li><li class="dropdown-item"><!----> <a href="/os/ubuntu/" class="nav-link">Ubuntu</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/javascript/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="https://css.shanyuhai.top/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSS
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/frontend/webpack/" class="nav-link router-link-active">Webpack</a></li><li class="dropdown-item"><!----> <a href="/frontend/nodejs/" class="nav-link">Nodejs</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/koa/" class="nav-link">Koa</a></li><li class="dropdown-item"><!----> <a href="/backend/mongodb/" class="nav-link">MongoDB</a></li><li class="dropdown-item"><!----> <a href="/backend/nginx/" class="nav-link">Nginx</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link">Git</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/algorithm/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/more/interview/" class="nav-link">面试题</a></li><li class="dropdown-item"><!----> <a href="/more/clean/" class="nav-link">风格指南</a></li></ul></div></div> <a href="https://github.com/shanyuhai123/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Webpack</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/frontend/webpack/" class="sidebar-link">首页</a></li><li><a href="/frontend/webpack/01-loader.html" class="active sidebar-link">Webpack 的 loader 配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/frontend/webpack/01-loader.html#_1-加载-css" class="sidebar-link">1. 加载 CSS</a></li><li class="sidebar-sub-header"><a href="/frontend/webpack/01-loader.html#_2-加载-images" class="sidebar-link">2. 加载 Images</a></li><li class="sidebar-sub-header"><a href="/frontend/webpack/01-loader.html#_3-加载-font-字体" class="sidebar-link">3. 加载 Font(字体)</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_1-加载-css"><a href="#_1-加载-css" aria-hidden="true" class="header-anchor">#</a> 1. 加载 CSS</h2> <div class="danger custom-block"><p class="custom-block-title">所需依赖</p> <p>🎉 LOADERS</p> <ol><li><code>less-loader/sass-loader/stylus-loader</code></li> <li><code>postcss-loader</code></li> <li><code>css-loader</code></li> <li><code>style-loader/</code></li> <li><code>MiniCssExtractPlugin.loader</code></li></ol> <p>🎉 PLUGINS</p> <ol><li><code>mini-css-extract-plugin</code></li> <li><code>autoprefixer</code></li></ol></div> <h3 id="加载-css-的两种形式"><a href="#加载-css-的两种形式" aria-hidden="true" class="header-anchor">#</a> 加载 CSS 的两种形式</h3> <ol><li><p>通过 style-loader 加载到 <code>&lt;style&gt;</code> 标签中</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
+  use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      loader<span class="token punctuation">:</span> <span class="token string">'style-loader'</span><span class="token punctuation">,</span>
+      options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        insertAt<span class="token punctuation">:</span> <span class="token string">'top'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'css-loader'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div></li> <li><p>通过 mini-css-extract-plugin 将所有 css 提取到 <code>&lt;link&gt;</code> 标签的 CSS 文件中</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  test<span class="token punctuation">:</span> <span class="token regex">/\.styl$/</span><span class="token punctuation">,</span>
+  use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      loader<span class="token punctuation">:</span> MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span>
+      options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        publicPath<span class="token punctuation">:</span> <span class="token string">'./dist/'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'css-loader'</span><span class="token punctuation">,</span>
+    <span class="token string">'postcss-loader'</span><span class="token punctuation">,</span>
+    <span class="token string">'stylus-loader'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div></li></ol> <h3 id="为-css-添加浏览器引擎前缀"><a href="#为-css-添加浏览器引擎前缀" aria-hidden="true" class="header-anchor">#</a> 为 CSS 添加浏览器引擎前缀</h3> <p>在匹配到 css 文件时需要添加 <code>postcss-loader</code>, 上方已有示例</p> <p>此外还需要在根目录下新建 <code>postcss.config.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_2-加载-images"><a href="#_2-加载-images" aria-hidden="true" class="header-anchor">#</a> 2. 加载 Images</h2> <div class="danger custom-block"><p class="custom-block-title">所需依赖</p> <p>🎉 LOADERS</p> <ol><li><code>file-loader</code></li> <li><code>html-loader</code></li> <li><code>url-loader</code></li></ol></div> <h3 id="加载-images-的三种方式"><a href="#加载-images-的三种方式" aria-hidden="true" class="header-anchor">#</a> 加载 Images 的三种方式</h3> <ol><li><p>通过 JavaScript 加载</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// index.js</span>
+<span class="token keyword">import</span> Pic <span class="token keyword">from</span> <span class="token string">'./webpack01.png'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> newImage <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+newImage<span class="token punctuation">.</span>src <span class="token operator">=</span> Pic<span class="token punctuation">;</span> <span class="token comment">// 赋予</span>
+
+<span class="token comment">// webpack.config.js</span>
+rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    test<span class="token punctuation">:</span> <span class="token regex">/\.(png|svg|jpg|gif)$/</span><span class="token punctuation">,</span>
+    use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'file-loader'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div></li> <li><p>通过 CSS 加载</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">#app</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> orangered<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 0.5rem<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url('./webpack01.jpg')</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>其余的按照上方的配置即可</p></li> <li><p>通过 HTML 加载</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// index.html</span>
+<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">&quot;./webpack01.jpg&quot;</span> alt<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token operator">&gt;</span>
+  
+<span class="token comment">// webpack.config.js</span>
+rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    test<span class="token punctuation">:</span> <span class="token regex">/\.html$/</span><span class="token punctuation">,</span>
+    use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'html-loader'</span><span class="token punctuation">,</span>
+        options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          attrs<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'img:src'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 此处匹配上方的 img 标签 src 属性</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div></li></ol> <h3 id="优化-images-加载"><a href="#优化-images-加载" aria-hidden="true" class="header-anchor">#</a> 优化 Images 加载</h3> <p>针对一些晓得图片没必要发送 HTTP 请求获取图片, 直接将图片转为 base64 的形式即可</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// webpack.config.js</span>
+rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+  <span class="token comment">// 需要注释掉 file-loader 这个匹配否则还会继续匹配然后生成图片</span>
+  <span class="token comment">// {</span>
+  <span class="token comment">//   test: /\.(png|svg|jpg|gif)$/,</span>
+  <span class="token comment">//   use: [</span>
+  <span class="token comment">//     {</span>
+  <span class="token comment">//       loader: 'file-loader'</span>
+  <span class="token comment">//     }</span>
+  <span class="token comment">//   ]</span>
+  <span class="token comment">// },</span>
+  <span class="token punctuation">{</span>
+    test<span class="token punctuation">:</span> <span class="token regex">/\.(png|svg|jpg|gif)$/</span><span class="token punctuation">,</span>
+    use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+        options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          limit<span class="token punctuation">:</span> <span class="token number">20</span><span class="token operator">*</span><span class="token number">1024</span> <span class="token comment">// 小于 20k 的图片转为 base64 </span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h2 id="_3-加载-font-字体"><a href="#_3-加载-font-字体" aria-hidden="true" class="header-anchor">#</a> 3. 加载 Font(字体)</h2> <div class="danger custom-block"><p class="custom-block-title">所需依赖</p> <p>🎉 LOADERS</p> <ol><li><code>file-loader</code></li> <li><code>url-loader</code></li></ol></div> <h3 id="加载-font-的两种方式"><a href="#加载-font-的两种方式" aria-hidden="true" class="header-anchor">#</a> 加载 Font 的两种方式</h3> <ol><li><p>使用 <code>file-loader</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// webpack.config.js</span>
+rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    test<span class="token punctuation">:</span> <span class="token regex">/\.(woff|woff2|eot|ttf|otf)$/</span><span class="token punctuation">,</span>
+    use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'file-loader'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* style.css */</span>
+<span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'ShanFont'</span><span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url">url('./ShanHunTianGeMoJi-2.ttf')</span><span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 600<span class="token punctuation">;</span>
+  <span class="token property">font-style</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.shan</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'ShanFont'</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blueviolet<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>使用 <code>url-loader</code></p> <p><code>url-loader</code> 更进一步可以对资源的大小进行判断, 然后是否转成 base64 的资源</p></li></ol></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shanyuhai123/documents/edit/master/docs/frontend/webpack/01-loader.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">7/16/2019, 2:38:52 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/frontend/webpack/" class="prev router-link-active">
+          首页
+        </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.4d4f18da.js" defer></script><script src="/assets/js/3.1b5ab947.js" defer></script><script src="/assets/js/33.30ee37e0.js" defer></script><script src="/assets/js/4.f42ac96d.js" defer></script>
+  </body>
+</html>
