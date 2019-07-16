@@ -1,26 +1,28 @@
 module.exports = [
   { text: 'Home', link: '/' },
   { text: 'Guide', link: '/guide/' },
-  { text: '基础', items: [
-    { text: 'Algorithm', link: '/base/algorithm/' },
-    { text: 'Interview', link: '/base/interview/' },
-    { text: 'Clean', link: '/base/clean/' },
-    { text: 'Git', link: '/base/git/' },
-  ]},
   { text: '系统', items: [
     { text: 'Manjaro', link: '/os/manjaro/' },
     { text: 'Windows', link: '/os/windows/' },
     { text: 'Ubuntu', link: '/os/ubuntu/' },
   ]},
   { text: '前端', items: [
-    { text: 'JavaScript', link: '/FrontEnd/javascript/' },
+    { text: 'JavaScript', link: '/frontend/javascript/' },
     { text: 'CSS', link: 'https://css.shanyuhai.top/' },
-    { text: 'Webpack', link: '/FrontEnd/webpack/' },
-    { text: 'Nodejs', link: '/FrontEnd/nodejs/' },
+    { text: 'Webpack', link: '/frontend/webpack/' },
+    { text: 'Nodejs', link: '/frontend/nodejs/' },
   ]},
   { text: '后端', items: [
-    { text: 'Koa', link: '/BackEnd/koa/' },
-    { text: 'MongoDB', link: '/BackEnd/mongodb/' },
-    { text: 'Nginx', link: '/BackEnd/nginx/' },
+    { text: 'Koa', link: '/backend/koa/' },
+    { text: 'MongoDB', link: '/backend/mongodb/' },
+    { text: 'Nginx', link: '/backend/nginx/' },
+  ]},
+  { text: '开发工具', items: [
+    { text: 'Git', link: '/tools/git/' },
+  ]},
+  { text: '更多', items: [
+    { text: '算法', link: '/more/algorithm/' },
+    { text: '面试题', link: '/more/interview/' },
+    { text: '风格指南', link: '/more/clean/' },
   ]}
 ];
