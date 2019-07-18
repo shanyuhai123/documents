@@ -1,32 +1,43 @@
 const { readdirSync, lstatSync, writeFileSync } = require('fs');
 const { resolve } = require('path');
 
-async function getFilenames(options) {
-  if (!options) throw new Error("请输入的配置！");
-  let { DOCSPATH = '', TARGETDIRS = [], OUTPUTPATH = '', OUTPUTNAME = "filenames.json" } = options;
-
-  if (!DOCSPATH || !TARGETDIRS.length || !OUTPUTPATH) {
-    throw new Error("请输入正确的文档路径、目标文件夹或输出路径！");
+async function getFilenames(DOCSPATH, OUTPUTPATH, options = {}) {
+  // 必填项
+  if (!DOCSPATH || !OUTPUTPATH) {
+    throw new Error("文档路径或输出路径不能为空!");
   }
 
-  // 处理输入的目录
+  // 可选配置
+  const conifg = {};
+  const BLACKLIST = ['.vuepress', 'README.md'];
+  const OUTPUTNAME = "filenames.json";
+  Object.assign(conifg, { blacklsit: BLACKLIST, outputname: OUTPUTNAME }, options);
+
+  // 初始化输出
+  const FILENAMES = Object.create(null);
+
+  // 处理路径地址
   !DOCSPATH.endsWith("/") && (DOCSPATH += '/');
   !OUTPUTPATH.endsWith("/") && (OUTPUTPATH += '/');
-  TARGETDIRS = TARGETDIRS.map(DIR => {
-    if (DIR.startsWith("/")) {
-      return DIR.slice(1);
-    } 
-    return DIR;
-  });
 
-  const FILENAMES = Object.create(null); // 初始化文件目录
+  // 获取目标文件夹
+  const TARGETDIRS = await readdirSync(DOCSPATH).filter(dir => !conifg.blacklsit.includes(dir));
 
+
+  // 执行操作
   const filenames = await path2Filenames(FILENAMES, DOCSPATH, TARGETDIRS); // 生成文件名
-  
-  const result = await writeFilenames(filenames, OUTPUTPATH, OUTPUTNAME); // 写入对应的目录
+
+  const result = await writeFilenames(filenames, OUTPUTPATH, conifg.outputname); // 写入对应的目录
 
   if (result) {
-    console.log(`${DOCSPATH} 文档的 ${[...TARGETDIRS]} 目录已导入 ${OUTPUTPATH}${OUTPUTNAME} 文件中`);
+    // 提示
+    console.log(`\n
+      🎉🎉🎉  获取完成  🎉🎉🎉\n
+      文档地址: ${DOCSPATH}\n
+      选中的文档目录: ${TARGETDIRS}\n
+      输出文件地址：${OUTPUTPATH}${conifg.outputname}\n
+      🎉🎉🎉  获取完成  🎉🎉🎉
+    `);
   }
 }
 
@@ -55,10 +66,14 @@ async function path2Filenames(filenames, path, dirs) {
       }
     }
   }
-  
+
   return filenames;
 }
 
+/**
+ * 格式化文件名
+ * @param {*} filenames 
+ */
 function formatFilenames(filenames) {
   return filenames.map(file => {
     if (file === 'README.md') {
@@ -69,45 +84,15 @@ function formatFilenames(filenames) {
   }).sort();
 }
 
+/**
+ * 写入
+ * @param {*} filenames 
+ * @param {*} path 
+ * @param {*} name 
+ */
 async function writeFilenames(filenames, path, name) {
   const result = await writeFileSync(resolve(path, name), JSON.stringify(filenames));
   return !result;
 }
 
 module.exports = getFilenames;
-
-// let directory = Object.create(null);
-// for (const fold of FOLDERPATHS) {
-//   const COMPLETE = RELATIVEPATH + fold;
-//   readdir(COMPLETE, (err, files) => {
-//     if (!err) {
-//       const SUBDIRS = [...files];
-
-//       for (const dir of SUBDIRS) {
-//         const COMPLETE_SUB = `${COMPLETE}/${dir}`
-//         directory[dir] = [];
-
-//         readdir(COMPLETE_SUB, (err, files) => {
-//           if (!err) {
-//             const SUBFILES = [...files];
-
-//             SUBFILES.forEach(file => {
-//               if (file === 'README.md') {
-//                 file = ``;
-//               } else {
-//                 file = file.replace('.md', '');
-//               }
-//               directory[dir].push(file);
-//             })
-
-//             directory[dir].sort(); // 排序
-
-//             writeFile(resolve(__dirname, '../config/filenames.json'), JSON.stringify(directory), () => {
-//               console.log(`${FOLDERPATHS}/${dir} 文件名获取完成。`);
-//             })
-//           }
-//         })
-//       }
-//     }
-//   })
-// }
