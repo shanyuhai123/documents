@@ -8,7 +8,7 @@ title: 切换多个 github 账号
 
 ## 2. 切换步骤
 
-1. 创建 ssh key 可以查看 [创建 SSH Key](/base/git/01-generate-ssh-key)
+1. 创建 ssh key 可以查看 [创建 SSH Key](/os/ubuntu/generate-ssh-key)
 
 2. 将 public key 上传至服务器(名字随意即可)
 
@@ -17,7 +17,7 @@ title: 切换多个 github 账号
 3. 在 `~/.ssh/` 目录下创建 config 文件
 
    ```bash
-   vim .ssh/config
+   vim ～/.ssh/config
    ```
 
 4. config 内容

@@ -19,6 +19,7 @@ module.exports = [
   ]},
   { text: '开发工具', items: [
     { text: 'Git', link: '/tools/git/' },
+    { text: 'Github', link: '/tools/github/' },
   ]},
   { text: '更多', items: [
     { text: '算法', link: '/more/algorithm/' },

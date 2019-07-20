@@ -1,12 +1,6 @@
 // 介绍
 const guide = require('./guide/index.js');
 
-// 更多
-const git = require('./tools/git/index.js');
-const interview = require('./more/interview/index.js');
-const algorithm = require('./more/algorithm/index.js');
-const clean = require('./more/clean/index.js');
-
 // 操作系统
 const windows = require('./os/windows/index.js');
 const manjaro = require('./os/manjaro/index.js');
@@ -22,6 +16,15 @@ const nodejs = require('./frontend/nodejs/index.js');
 const koa = require('./backend/koa/index.js');
 const mongodb =require('./backend/mongodb/index.js');
 const nginx = require('./backend/nginx/index.js');
+
+// 工具
+const git = require('./tools/git/index.js');
+const github = require('./tools/github/index.js');
+
+// 更多
+const interview = require('./more/interview/index.js');
+const algorithm = require('./more/algorithm/index.js');
+const clean = require('./more/clean/index.js');
 
 /**
  * 侧边栏的配置
@@ -52,6 +55,7 @@ module.exports = {
 
   // 工具 tools
   '/tools/git/': git,
+  '/tools/github/': github,
 
   // 更多 more
   '/more/interview/': interview,
