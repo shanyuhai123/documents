@@ -1,26 +1,27 @@
 ---
 title: JavaScript 风格指南
+sidebarDepth: 2
 ---
 
-## 1. Variables
+## 变量
 
-### 用有意义且常用的单词命名变量
+### 1. 用有意义且常用的单词命名变量
 
-**Bad：**
+**糟糕的：**
 
 ```javascript
 const yyyymmdstr = moment().format("YYYY/MM/DD");
 ```
 
-**Good：**
+**良好的：**
 
 ```javascript
 const currentDate = moment().format("YYYY/MM/DD");
 ```
 
-### 同类型的变量命名保持一致
+### 2. 同类型的变量命名保持一致
 
-**Bad：**
+**糟糕的：**
 
 ```javascript
 getUserInfo();
@@ -28,23 +29,23 @@ getClientData();
 getCustomerRecord();
 ```
 
-**Good：**
+**良好的：**
 
 ```javascript
 getUser();
 ```
 
-### 命名常量
+### 3. 命名常量
 
 对每一个常量都需要命名，具有语义更容易理解。
 
-**Bad:**
+**糟糕的：**
 
 ```javascript
 setTimeout(blastOff, 86400000);
 ```
 
-**Good:**
+**良好的：**
 
 ```JavaScript
 const MILLISECONDS_IN_A_DAY = 86400000;
@@ -52,11 +53,11 @@ const MILLISECONDS_IN_A_DAY = 86400000;
 setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
 ```
 
-### 解释变量
+### 4. 解释变量
 
 常量需要命名，变量同样需要命名，ES6 提供的对象解构，数组解构可以解决该问题。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const address = "One Infinite Loop, Cupertino 95014";
@@ -67,7 +68,7 @@ saveCityZipCode(
 );
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 const address = "One Infinite Loop, Cupertino 95014";
@@ -76,11 +77,11 @@ const [, city, zipCode] = address.match(cityZipCodeRegex) || [];
 saveCityZipCode(city, zipCode);
 ```
 
-### 显示映射
+### 5. 显示映射
 
 现在的编辑器普遍具有良好的提示功能，没必要去简写某一个具有意义的单词，压缩代码的事情交给 Webpack 就可以了。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const locations = ["Austin", "New York", "San Francisco"];
@@ -95,7 +96,7 @@ locations.forEach(l => {
 });
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 const locations = ["Austin", "New York", "San Francisco"];
@@ -109,11 +110,11 @@ locations.forEach(location => {
 });
 ```
 
-### 避免无意义的前缀
+### 6. 避免无意义的前缀
 
 当使用 Class/Object 时已经给予了形象的命名，就不必重复这个命名了。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const Car = {
@@ -127,7 +128,7 @@ function paintCar(car) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 const Car = {
@@ -141,11 +142,11 @@ function paintCar(car) {
 }
 ```
 
-### 使用参数默认值
+### 7. 使用参数默认值
 
 ES6新增了参数默认值，该值仅在传递的值为 `undefined` 时生效，所以需要注意该项的使用。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function createMicrobrewery(name) {
@@ -154,7 +155,7 @@ function createMicrobrewery(name) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function createMicrobrewery(name = "Hipster Brew Co.") {
@@ -164,13 +165,13 @@ function createMicrobrewery(name = "Hipster Brew Co.") {
 
 
 
-## 2. Functions
+## 函数
 
-### 更少的函数参数
+### 1. 更少的函数参数
 
 函数的参数一个或两个最佳，便于测试函数的功能。当函数参数超过三个及以上时，使用 ES6 的解构语法。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function createMenu(title, body, buttonText, cancellable) {
@@ -178,7 +179,7 @@ function createMenu(title, body, buttonText, cancellable) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function createMenu({ title, body, buttonText, cancellable }) {
@@ -193,11 +194,11 @@ createMenu({
 });
 ```
 
-### 函数单一原则
+### 2. 函数单一原则
 
 这是迄今为止软件工程中最重要的规则。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function emailClients(clients) {
@@ -210,7 +211,7 @@ function emailClients(clients) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function emailActiveClients(clients) {
@@ -223,11 +224,11 @@ function isActiveClient(client) {
 }
 ```
 
-### 顾名思义
+### 3. 顾名思义
 
 看到函数名就应该知道它是做什么的。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function addToDate(date, month) {
@@ -240,7 +241,7 @@ const date = new Date();
 addToDate(date, 1);
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function addMonthToDate(month, date) {
@@ -251,9 +252,9 @@ const date = new Date();
 addMonthToDate(1, date);
 ```
 
-### 函数应该只有一层抽象
+### 4. 函数应该只有一层抽象
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function parseBetterJSAlternative(code) {
@@ -280,7 +281,7 @@ function parseBetterJSAlternative(code) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function parseBetterJSAlternative(code) {
@@ -317,9 +318,9 @@ function parse(tokens) {
 }
 ```
 
-### 删除重复的代码
+### 5. 删除重复的代码
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function showDeveloperList(developers) {
@@ -353,7 +354,7 @@ function showManagerList(managers) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 // 使用 switch 判断
@@ -381,9 +382,9 @@ function showEmployeeList(employees) {
 }
 ```
 
-### 对象设置默认属性
+### 6. 对象设置默认属性
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const menuConfig = {
@@ -404,7 +405,7 @@ function createMenu(config) {
 createMenu(menuConfig);
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 const menuConfig = {
@@ -432,11 +433,11 @@ function createMenu(config) {
 createMenu(menuConfig);
 ```
 
-### 不要给函数传递 flag
+### 7. 不要给函数传递 flag
 
 Flags 往往需要你的函数完成多项任务，然而对于多项任务，拆分为多个函数更合理。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function createFile(name, temp) {
@@ -448,7 +449,7 @@ function createFile(name, temp) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function createFile(name) {
@@ -460,11 +461,11 @@ function createTempFile(name) {
 }
 ```
 
-### 避免副作用（1）
+### 8. 避免副作用（1）
 
 函数接受一个值返回一个值，除此之外的行为都是副作用
 
-**Bad:**
+**糟糕的：**
 
 ```js
 // Global variable referenced by following function.
@@ -480,7 +481,7 @@ splitIntoFirstAndLastName();
 console.log(name); // ['Ryan', 'McDermott'];
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function splitIntoFirstAndLastName(name) {
@@ -494,9 +495,9 @@ console.log(name); // 'Ryan McDermott';
 console.log(newName); // ['Ryan', 'McDermott'];
 ```
 
-### 避免副作用（2）
+### 9. 避免副作用（2）
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const addItemToCart = (cart, item) => {
@@ -504,7 +505,7 @@ const addItemToCart = (cart, item) => {
 };
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 const addItemToCart = (cart, item) => {
@@ -512,11 +513,11 @@ const addItemToCart = (cart, item) => {
 };
 ```
 
-### 避免全局函数
+### 10. 避免全局函数
 
 修改原型链获得的方法可能会与其他的库产生冲突。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 Array.prototype.diff = function diff(comparisonArray) {
@@ -525,7 +526,7 @@ Array.prototype.diff = function diff(comparisonArray) {
 };
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class SuperArray extends Array {
@@ -536,11 +537,11 @@ class SuperArray extends Array {
 }
 ```
 
-### 相对于命令式编程更喜欢函数式编程
+### 11. 相对于命令式编程更喜欢函数式编程
 
 函数式编程更清晰，更容易测试。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const programmerOutput = [
@@ -569,7 +570,7 @@ for (let i = 0; i < programmerOutput.length; i++) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 const programmerOutput = [
@@ -597,9 +598,9 @@ const totalOutput = programmerOutput.reduce(
 );
 ```
 
-### 封装条件语句
+### 12. 封装条件语句
 
-**Bad:**
+**糟糕的：**
 
 ```js
 if (fsm.state === "fetching" && isEmpty(listNode)) {
@@ -607,7 +608,7 @@ if (fsm.state === "fetching" && isEmpty(listNode)) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function shouldShowSpinner(fsm, listNode) {
@@ -619,9 +620,9 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
 }
 ```
 
-### 避免取反条件
+### 13. 避免取反条件
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function isDOMNodeNotPresent(node) {
@@ -633,7 +634,7 @@ if (!isDOMNodeNotPresent(node)) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function isDOMNodePresent(node) {
@@ -645,9 +646,9 @@ if (isDOMNodePresent(node)) {
 }
 ```
 
-### 避免条件语句
+### 14. 避免条件语句
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class Airplane {
@@ -665,7 +666,7 @@ class Airplane {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class Airplane {
@@ -694,11 +695,11 @@ class Cessna extends Airplane {
 }
 ```
 
-### 避免类型检查（1）
+### 15. 避免类型检查（1）
 
 JavaScript 是无类型的，意味着你可以传任意类型参数，这种自由度很容易让人困扰，不自觉的就会去检查类型。相对于检查类型更应当约束我们的 API。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function travelToTexas(vehicle) {
@@ -710,7 +711,7 @@ function travelToTexas(vehicle) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function travelToTexas(vehicle) {
@@ -718,11 +719,11 @@ function travelToTexas(vehicle) {
 }
 ```
 
-### 避免类型检查（2）
+### 16. 避免类型检查（2）
 
 如果需要做静态类型的检查，比如字符串、整数等，推荐使用 TypeScript，或约束好 API。
 
-**Bad:**
+**糟糕的：**
 
 ```JS
 function combine(val1, val2) {
@@ -737,7 +738,7 @@ function combine(val1, val2) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```JS
 function combine(val1, val2) {
@@ -745,11 +746,11 @@ function combine(val1, val2) {
 }
 ```
 
-### 不要过度优化
+### 17. 不要过度优化
 
 下面的例子以前常犯。
 
-**Bad:**
+**糟糕的：**
 
 ```jsx
 // On old browsers, each iteration with uncached `list.length` would be costly
@@ -759,7 +760,7 @@ for (let i = 0, len = list.length; i < len; i++) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 for (let i = 0; i < list.length; i++) {
@@ -767,9 +768,9 @@ for (let i = 0; i < list.length; i++) {
 }
 ```
 
-### 删除废弃代码
+### 18. 删除废弃代码
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function oldRequestModule(url) {
@@ -784,7 +785,7 @@ const req = newRequestModule;
 inventoryTracker("apples", req, "www.inventory-awesome.io");
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function newRequestModule(url) {
@@ -797,11 +798,11 @@ inventoryTracker("apples", req, "www.inventory-awesome.io");
 
 
 
-## 3. Objects and Data Structures
+## 对象和数据结构
 
-### 使用 getters 和 setters
+### 1. 使用 getters 和 setters
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function makeBankAccount() {
@@ -817,7 +818,7 @@ const account = makeBankAccount();
 account.balance = 100;
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function makeBankAccount() {
@@ -846,9 +847,9 @@ const account = makeBankAccount();
 account.setBalance(100);
 ```
 
-### 使用私有变量
+### 2. 使用私有变量
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const Employee = function(name) {
@@ -865,7 +866,7 @@ delete employee.name;
 console.log(`Employee name: ${employee.getName()}`); // Employee name: undefined
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function makeEmployee(name) {
@@ -884,11 +885,11 @@ console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 
 
 
-## 4. Classes
+## 类
 
-### 使用 class
+### 1. 使用 Class
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const Animal = function(age) {
@@ -928,7 +929,7 @@ Human.prototype.constructor = Human;
 Human.prototype.speak = function speak() {};
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class Animal {
@@ -964,9 +965,9 @@ class Human extends Mammal {
 }
 ```
 
-### 链式调用
+### 2. 链式调用
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class Car {
@@ -998,7 +999,7 @@ car.setColor("pink");
 car.save();
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class Car {
@@ -1036,9 +1037,9 @@ class Car {
 const car = new Car("Ford", "F-150", "red").setColor("pink").save();
 ```
 
-### 继承的组合
+### 3. 继承的组合
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class Employee {
@@ -1062,7 +1063,7 @@ class EmployeeTaxData extends Employee {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class EmployeeTaxData {
@@ -1089,13 +1090,13 @@ class Employee {
 
 
 
-## 5. SOLID
+## SOLID
 
 SOLID 是几个单词的首字母组合而来，分表表示单一功能原则、开闭原则、里氏替换原则、接口隔离原则、依赖反转原则。
 
-### 单一功能原则
+### 1. 单一功能原则
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class UserSettings {
@@ -1115,7 +1116,7 @@ class UserSettings {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class UserAuth {
@@ -1142,11 +1143,11 @@ class UserSettings {
 }
 ```
 
-### 开闭原则
+### 2. 开闭原则
 
 “开” 指的是类、模块、函数都应该具有可扩展性，“闭” 指的是它们不应该被修改。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class AjaxAdapter extends Adapter {
@@ -1190,7 +1191,7 @@ function makeHttpCall(url) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class AjaxAdapter extends Adapter {
@@ -1228,11 +1229,11 @@ class HttpRequester {
 }
 ```
 
-### 里氏替换原则
+### 3. 里氏替换原则
 
 子类不要去重写父类的方法。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class Rectangle {
@@ -1287,7 +1288,7 @@ const rectangles = [new Rectangle(), new Rectangle(), new Square()];
 renderLargeRectangles(rectangles);
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class Shape {
@@ -1334,11 +1335,11 @@ const shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];
 renderLargeShapes(shapes);
 ```
 
-### 接口隔离原则
+### 4. 接口隔离原则
 
 JavaScript 几乎没有接口的概念，所以这条原则很少被使用。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class DOMTraverser {
@@ -1364,7 +1365,7 @@ const $ = new DOMTraverser({
 });
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class DOMTraverser {
@@ -1398,14 +1399,14 @@ const $ = new DOMTraverser({
 });
 ```
 
-### 依赖反转原则
+### 5. 依赖反转原则
 
 总的来说就是：解耦。
 
 1. 高层次模块不能依赖低层次模块，它们依赖于抽象接口；
 2. 抽象接口不能依赖具体实现，具体实现依赖抽象接口。
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class InventoryRequester {
@@ -1438,7 +1439,7 @@ const inventoryTracker = new InventoryTracker(["apples", "bananas"]);
 inventoryTracker.requestItems();
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class InventoryTracker {
@@ -1485,13 +1486,13 @@ inventoryTracker.requestItems();
 
 
 
-## 6. Testing
+## 测试
 
-### 单一测试
+### 1. 单一测试
 
-**Bad:**
+**糟糕的：**
 
-```
+```js
 import assert from "assert";
 
 describe("MakeMomentJSGreatAgain", () => {
@@ -1513,7 +1514,7 @@ describe("MakeMomentJSGreatAgain", () => {
 });
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 import assert from "assert";
@@ -1541,11 +1542,11 @@ describe("MakeMomentJSGreatAgain", () => {
 
 
 
-## 7. Concurrency
+## 并发
 
-### 使用 Promise 替代回调函数
+### 1. 使用 Promise 替代回调函数
 
-**Bad:**
+**糟糕的：**
 
 ```js
 import { get } from "request";
@@ -1569,7 +1570,7 @@ get(
 );
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 import { get } from "request";
@@ -1587,9 +1588,9 @@ get("https://en.wikipedia.org/wiki/Robert_Cecil_Martin")
   });
 ```
 
-### Async/Await 比 Promise 更简洁
+### 2. Async/Await 比 Promise 更简洁
 
-**Bad:**
+**糟糕的：**
 
 ```js
 import { get } from "request-promise";
@@ -1607,7 +1608,7 @@ get("https://en.wikipedia.org/wiki/Robert_Cecil_Martin")
   });
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 import { get } from "request-promise";
@@ -1628,11 +1629,11 @@ async function getCleanCodeArticle() {
 
 
 
-## 8. Error Handing
+## 错误处理
 
-### 不要忽略抛出异常
+### 1. 不要忽略抛出异常
 
-**Bad:**
+**糟糕的：**
 
 ```js
 try {
@@ -1642,7 +1643,7 @@ try {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 try {
@@ -1658,9 +1659,9 @@ try {
 }
 ```
 
-### 不要忽略抛出 Promise 异常
+### 2. 不要忽略抛出 Promise 异常
 
-**Bad:**
+**糟糕的：**
 
 ```js
 getdata()
@@ -1672,7 +1673,7 @@ getdata()
   });
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 getdata()
@@ -1692,11 +1693,11 @@ getdata()
 
 
 
-## 9. Formatting
+## 格式
 
-### 常量大写
+### 1. 常量大写
 
-**Bad:**
+**糟糕的：**
 
 ```js
 const DAYS_IN_WEEK = 7;
@@ -1712,7 +1713,7 @@ class animal {}
 class Alpaca {}
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 const DAYS_IN_WEEK = 7;
@@ -1728,9 +1729,9 @@ class Animal {}
 class Alpaca {}
 ```
 
-### 先声明后调用
+### 2. 先声明后调用
 
-**Bad:**
+**糟糕的：**
 
 ```js
 class PerformanceReview {
@@ -1770,7 +1771,7 @@ const review = new PerformanceReview(employee);
 review.perfReview();
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 class PerformanceReview {
@@ -1812,11 +1813,11 @@ review.perfReview();
 
 
 
-## 10. Comments
+## 注释
 
-### 仅注释业务逻辑
+### 1. 仅注释业务逻辑
 
-**Bad:**
+**糟糕的：**
 
 ```js
 function hashIt(data) {
@@ -1838,7 +1839,7 @@ function hashIt(data) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function hashIt(data) {
@@ -1855,9 +1856,9 @@ function hashIt(data) {
 }
 ```
 
-### 删掉注释的代码
+### 2. 删掉注释的代码
 
-**Bad:**
+**糟糕的：**
 
 ```js
 doStuff();
@@ -1866,15 +1867,17 @@ doStuff();
 // doSoMuchStuff();
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 doStuff();
 ```
 
-### 不要记日记
+### 3. 不要记日记
 
-**Bad:**
+已经不是远古时代了，日记留给 git，提交更好的 commit 记录吧。
+
+**糟糕的：**
 
 ```js
 /**
@@ -1888,7 +1891,7 @@ function combine(a, b) {
 }
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 function combine(a, b) {
@@ -1896,9 +1899,9 @@ function combine(a, b) {
 }
 ```
 
-### 避免位置标记
+### 4. 避免位置标记
 
-**Bad:**
+**糟糕的：**
 
 ```js
 ////////////////////////////////////////////////////////////////////////////////
@@ -1917,7 +1920,7 @@ const actions = function() {
 };
 ```
 
-**Good:**
+**良好的：**
 
 ```js
 $scope.model = {
