@@ -57,7 +57,6 @@ typings/
 
 # dotenv environment variables file
 .env
-# 排除忽略加个 ！ 即可
 !config/algolia/.env
 
 # next.js build output
