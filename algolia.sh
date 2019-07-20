@@ -1,0 +1,1 @@
+sudo docker run -it --env-file=config/algolia/.env -e "CONFIG=$(cat config/algolia/config.json | jq -r tostring)" algolia/docsearch-scraper

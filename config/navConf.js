@@ -24,5 +24,6 @@ module.exports = [
     { text: '算法', link: '/more/algorithm/' },
     { text: '面试题', link: '/more/interview/' },
     { text: '风格指南', link: '/more/clean/' },
+    { text: 'VuePress1.x 官网', link: 'https://v1.vuepress.vuejs.org/zh/' },
   ]}
 ];
