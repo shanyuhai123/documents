@@ -4,7 +4,7 @@ title: 使用 RSA 登录服务器
 
 ## 1. 生成 RSA
 
-此处直接参考 [创建 SSH Key](/Base/git/01-generate-ssh-key.html#_1-创建-ssh-key-步骤) 。
+此处直接参考 [创建 SSH Key](/os/ubuntu/generate-ssh-key) 。
 
 将生成的公钥（`id_rsa_new.pub`）拷贝。
 
