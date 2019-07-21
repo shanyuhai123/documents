@@ -2,7 +2,7 @@
 title: 增加用户
 ---
 
-## 0. 介绍
+## 介绍
 
 对于 Linux 系统有一定了解的可以跳过介绍。
 
@@ -14,7 +14,7 @@ title: 增加用户
 
 举个例子：760，意味着这个文件的所有者具有可读、可写、可执行的权限；文件所属组拥有可读、可写的权限；其他用户则不具备权限。
 
-### 普通文件（-）
+### 1. 普通文件（-）
 
 **可读（r）**
 
@@ -28,7 +28,7 @@ title: 增加用户
 
 表示可以作为一个脚本执行。
 
-### 目录文件（d）
+### 2. 目录文件（d）
 
 **可读（r）**
 
@@ -44,15 +44,15 @@ title: 增加用户
 
 
 
-## 1. 用户组
+## 用户组
 
-###  创建用户组 admin
+### 1. 创建用户组 admin
 
 ```bash
 groupadd admin
 ```
 
-### 查看用户组
+### 2. 查看用户组
 
 ```bash
 cat /etc/group
@@ -62,16 +62,16 @@ cat /etc/group
 
 
 
-## 2. 用户
+## 用户
 
-### 添加用户
+### 1. 添加用户
 
 ```bash
 # shanyuhai 也可以设定为你喜欢的名字
 useradd shanyuhai
 ```
 
-### 查看用户
+### 2. 查看用户
 
 ```bash
 cat /etc/passwd | grep shanyuhai
@@ -83,7 +83,7 @@ ls /home/ -l
 # drwx------ 2 shanyuhai shanyuhai 4096 Mar  7 16:46 shanyuhai
 ```
 
-### 添加用户密码
+### 3. 添加用户密码
 
 ```bash
 passwd shanyuhai
@@ -92,7 +92,7 @@ passwd shanyuhai
 # Retype new password:  # 重复密码即可
 ```
 
-### 将用户添加到用户组
+### 4. 将用户添加到用户组
 
 **将用户添加到 admin 组**
 
@@ -109,7 +109,7 @@ cat /etc/group | grep shanyuhai
 # shanyuhai:x:1001:
 ```
 
-### 修改用户权限
+### 5. 修改用户权限
 
 ```bash
 visudo
@@ -130,7 +130,7 @@ shanyuhai ALL=(ALL)       ALL
 
 
 
-## 3. 删除用户
+## 删除用户
 
 ```bash
 # -r 同时删除用户及用户目录

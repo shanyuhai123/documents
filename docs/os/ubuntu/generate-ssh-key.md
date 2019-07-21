@@ -2,7 +2,7 @@
 title: 创建 SSH Key
 ---
 
-## 1. 创建 SSH Key 步骤
+## 创建 SSH Key 步骤
 
 ```bash
 # 1. 利用邮箱生成 ssh key
@@ -14,7 +14,7 @@ Enter passphrase (empty for no passphrase): [Type a passphrase]
 Enter same passphrase again: [Type passphrase again]
 ```
 
-## 2. 修复 ssh-add 存在的问题 :tada:
+## 修复 ssh-add 存在的问题 :tada:
 
 ```bash
 # 1. 生成新的 rsa 后需要链接到 ssh

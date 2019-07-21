@@ -34,9 +34,7 @@ switch (requsetMethod ) {
 request(); // get
 ```
 
-
-
-### 替代方案
+替代方案
 
 ```js
 // Object literal
@@ -51,7 +49,7 @@ const requset = requsetMethods[requsetMethod] || requsetMethods['default'];
 requset(); // get
 ```
 
-### 替代方案优点
+替代方案优点
 
 + 不必要担心忘记书写 `case` 或者 `break`；
 + 更容易理解发生了什么；

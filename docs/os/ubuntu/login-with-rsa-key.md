@@ -2,7 +2,7 @@
 title: 使用 RSA 登录服务器
 ---
 
-## 1. 生成 RSA
+## 生成 RSA
 
 此处直接参考 [创建 SSH Key](/os/ubuntu/generate-ssh-key) 。
 
@@ -10,16 +10,16 @@ title: 使用 RSA 登录服务器
 
 
 
-## 2. 开启 RSA
+## 开启 RSA
 
-### 登录服务器
+### 1. 登录服务器
 
 ```bash
 # xxx.xxx.xxx.xxx 为你的 ip 地址
 ssh root@xxx.xxx.xxx.xxx
 ```
 
-### 拷贝公钥到服务器
+### 2. 拷贝公钥到服务器
 
 注意事项：若需要其余用户登录，则需要在该用户下创建该文件，root 下的该文件将不会生效。
 
@@ -32,7 +32,7 @@ cat ～/.ssh/authorized_keys
 # 内容为： ssh-rsa……
 ```
 
-### 编辑 SSH 配置文件
+### 3. 编辑 SSH 配置文件
 
 **启用公钥认证**
 
@@ -112,7 +112,7 @@ ssh aliyun
 
 
 
-## 3. 设置文件权限
+## 设置文件权限
 
 关于 [chmod](https://zh.wikipedia.org/wiki/Chmod)，对文件设置权限可以很好的保护系统。
 
@@ -122,7 +122,7 @@ sudo chmod 600 ~/.ssh/authorized_keys && chmod 700 ~/.ssh/
 
 
 
-## 4. 快速访问服务器
+## 快速访问服务器
 
 ```bash
 # 编辑 config 文件

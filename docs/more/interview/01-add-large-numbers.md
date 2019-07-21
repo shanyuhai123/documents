@@ -8,9 +8,9 @@ JavaScript 采用了 IEEE 754 标准中的浮点算法来表示数字 Number
 
 ![JavaScript Number](/base/interview/1468042984788341.png)
 
-## 1. 大数相加示例
+## 大数相加示例
 
-### 示例 1
+### 1. 示例 1
 
 ```javascript
 // 数字太大会被转为科学计数法
@@ -19,7 +19,7 @@ const num2 = 21111111111111111111111000;
 console.log(num1 === num2); // true
 ```
 
-### 示例 2
+### 2. 示例 2
 
 在上图中可以看到区间为 `Math.pow(2, 53)`, 那就以此作为测试
 
@@ -40,9 +40,9 @@ console.log(num5 === num5 + 3); // false
 
 
 
-## 2. 解决大数相加的问题
+## 解决大数相加的问题
 
-### 将数字转化为字符串
+### 1. 将数字转化为字符串
 
 关于 `~~` 的 [作用](https://stackoverflow.com/questions/5971645/what-is-the-double-tilde-operator-in-javascript/5971668)
 
@@ -64,11 +64,11 @@ const add = (a, b) => {
 console.log(add(10000000000000000000000000, 11111111111111111111111111) === 21111111111111111111111000); // false
 ```
 
-### 直接使用 [bigNumber.js](https://github.com/MikeMcl/bignumber.js/) 库
+### 2. 直接使用 [bigNumber.js](https://github.com/MikeMcl/bignumber.js/) 库
 
 
 
-## 3. 参考资料
+## 参考资料
 
  [js实现大数相加](http://www.plqblog.com/views/article.php?id=29)
 

@@ -2,11 +2,11 @@
 title: 切换多个 github 账号
 ---
 
-## 1. 使用场景
+## 使用场景
 
 在很多情况下，常常要对多个 github 账号进行切换。比如，自己的、公司的、小号。
 
-## 2. 切换步骤
+## 切换步骤
 
 1. 创建 ssh key 可以查看 [创建 SSH Key](/os/ubuntu/generate-ssh-key)
 

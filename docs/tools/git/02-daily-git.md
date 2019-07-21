@@ -96,7 +96,7 @@ git checkout -b branch1 origin/branch1
 
 > 参数可以组合，更强大。
 
-### 当前分支
+### 1. 当前分支
 
 ```bash
 # 查看当前分支的所有日志：
@@ -111,7 +111,7 @@ git log -n4 --oneline
 git log --graph
 ```
 
-### 所有分支
+### 2. 所有分支
 
 ```bash
 # 查看所有分支的所有日志：
@@ -126,7 +126,7 @@ git log --all -n4 --oneline
 git log --all -n20 --oneline --graph
 ```
 
-### 某一分支
+### 3. 某一分支
 
 ```bash
 # 可以指定某个分支（远程）：

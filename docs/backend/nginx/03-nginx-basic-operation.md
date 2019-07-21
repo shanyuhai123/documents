@@ -2,9 +2,9 @@
 title: Nginx 基本操作
 ---
 
-## 0. 进程与端口
+## 进程与端口
 
-### 进程
+### 1. 进程
 
 ps 是 `Process Status` 的简写，可以通过 ps 来查看对应的进程。
 
@@ -12,7 +12,7 @@ ps 是 `Process Status` 的简写，可以通过 ps 来查看对应的进程。
 ps -ef | grep nginx
 ```
 
-### 端口
+### 2. 端口
 
 netstat 是 `net status` 的简写， 可以查看有哪些端口正在被占用
 
@@ -23,7 +23,7 @@ netstat -tlnp
   
 
 
-## 1. 启动
+## 启动
 
 > 无法启动时增加 sudo
 
@@ -37,7 +37,7 @@ systemctl start nginx.service
 systemctl enable nginx.service
 ```
 
-## 2. 停止
+## 停止
 
 ```bash
 # normal quit
@@ -55,7 +55,7 @@ kill -9 pid
 
 
 
-## 3. 重启
+## 重启
 
 ```bash
 # normal
@@ -66,7 +66,7 @@ systemctl restart nginx.service
 
 
 
-## 4. 启用安全组
+## 启用安全组
 
 按照上方配置完是无法访问服务的，还需要进入阿里云去配置安全组，打开对应的端口才行。
 

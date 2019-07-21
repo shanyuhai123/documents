@@ -2,7 +2,7 @@
 title: Webpack 的 loader 配置
 ---
 
-## 1. 加载 CSS
+## 加载 CSS
 
 ::: danger 所需依赖
 
@@ -19,7 +19,7 @@ title: Webpack 的 loader 配置
 
 :::
 
-### 加载 CSS 的两种形式
+### 1. 加载 CSS 的两种形式
 
 1. 通过 style-loader 加载到 `<style>` 标签中
 
@@ -57,7 +57,7 @@ title: Webpack 的 loader 配置
    },
    ```
 
-### 为 CSS 添加浏览器引擎前缀
+### 2. 为 CSS 添加浏览器引擎前缀
 
 在匹配到 css 文件时需要添加 `postcss-loader`, 上方已有示例
 
@@ -71,7 +71,7 @@ module.exports = {
 }
 ```
 
-## 2. 加载 Images
+## 加载 Images
 
 ::: danger 所需依赖
 
@@ -83,7 +83,7 @@ module.exports = {
 
 :::
 
-### 加载 Images 的三种方式
+### 1. 加载 Images 的三种方式
 
 1. 通过 JavaScript 加载
 
@@ -143,7 +143,7 @@ module.exports = {
    ]
    ```
 
-### 优化 Images 加载
+### 2. 优化 Images 加载
 
 针对一些晓得图片没必要发送 HTTP 请求获取图片, 直接将图片转为 base64 的形式即可
 
@@ -173,7 +173,7 @@ rules: [
 ]
 ```
 
-## 3. 加载 Font(字体)
+## 加载 Font(字体)
 
 ::: danger 所需依赖
 
@@ -184,7 +184,7 @@ rules: [
 
 :::
 
-### 加载 Font 的两种方式
+### 1. 加载 Font 的两种方式
 
 1. 使用 `file-loader` 
 

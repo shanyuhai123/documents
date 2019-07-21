@@ -2,7 +2,7 @@
 title: 如何在虚拟机中安装 Manjaro
 ---
 
-## 1. 准备环境
+## 准备环境
 
 首先需要安装虚拟机，此处选用 [VirtualBox](https://www.virtualbox.org/wiki/Downloads)。
 
@@ -10,7 +10,7 @@ title: 如何在虚拟机中安装 Manjaro
 
 
 
-## 2. 虚拟机中加载 manjaro
+## 虚拟机中加载 manjaro
 
 1. 虚拟机安装完成后，点击新建；
 2. 输入名称，并选择 `Arch Linux` 版本；
@@ -27,7 +27,7 @@ title: 如何在虚拟机中安装 Manjaro
 
 
 
-## 3. 安装 Manjaro
+## 安装 Manjaro
 
 启动后会进入欢迎界面，修改下时区，键盘位置，语言，当然比较重要的是记得把驱动选择为闭源（nofree），这些完成后选择 Boot 就可以启动了。
 

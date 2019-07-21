@@ -2,18 +2,18 @@
 title: 安装 Nginx
 ---
 
-## 0. 准备环境
+## 准备环境
 
 在使用 Nginx 前，最好先去创建一个 [Linux 用户](/OS/centos/01-add-user.html) 账号。
 
-### 基本环境
+### 1. 基本环境
 
 ```bash
 yum -y install gcc gcc-c++ autoconf pcre-devel make automake
 yum -y install wget httpd-tools vim
 ```
 
-### 管理资源
+### 2. 管理资源
 
 在用户目录下新建几个文件夹来管理所有的资源。
 
@@ -24,13 +24,13 @@ yum -y install wget httpd-tools vim
 mkdir app backup logs
 ```
 
-### 安装工具
+### 3. 安装工具
 
 RPM、YUM 和 APT 都可以安装和删除包。不过，个人习惯用 YUM 安装包，使用 `rpm -ql xxx` 查看包相关的路径。
 
-## 1. Nginx
+## Nginx
 
-### 检测源
+### 1. 检测源
 
 首先需要检查 yum 源是否有 Nginx，当没有的时候需要自己添加源。
 
@@ -67,13 +67,13 @@ yum list | grep nginx
 # nginx-debuginfo.x86_64                   1:1.14.2-1.el7_4.ngx            nginx-stable
 ```
 
-### 安装
+### 2. 安装
 
 ```bash
 yum install nginx
 ```
 
-### 查看版本
+### 3. 查看版本
 
 ```bash
 nginx -v
