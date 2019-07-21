@@ -22,8 +22,9 @@ const git = require('./tools/git/index.js');
 const github = require('./tools/github/index.js');
 
 // 更多
-const interview = require('./more/interview/index.js');
 const algorithm = require('./more/algorithm/index.js');
+const interview = require('./more/interview/index.js');
+const hodgepodge = require('./more/hodgepodge/index.js');
 const clean = require('./more/clean/index.js');
 
 /**
@@ -58,9 +59,10 @@ module.exports = {
   '/tools/github/': github,
 
   // 更多 more
-  '/more/interview/': interview,
-  '/more/clean/': clean,
   '/more/algorithm/': algorithm,
+  '/more/interview/': interview,
+  '/more/hodgepodge/': hodgepodge,
+  '/more/clean/': clean,
 
   // 根目录下的 sidebar, 对于所有未匹配到的都会应用该 sidebar
   // '/': [''] // 此处选择禁用
