@@ -20,6 +20,7 @@ const nginx = require('./backend/nginx/index.js');
 // 工具
 const git = require('./tools/git/index.js');
 const github = require('./tools/github/index.js');
+const vscode = require('./tools/vscode/index.js');
 
 // 更多
 const algorithm = require('./more/algorithm/index.js');
@@ -57,6 +58,7 @@ module.exports = {
   // 工具 tools
   '/tools/git/': git,
   '/tools/github/': github,
+  '/tools/vscode/': vscode,
 
   // 更多 more
   '/more/algorithm/': algorithm,
