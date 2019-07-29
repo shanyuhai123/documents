@@ -2,7 +2,6 @@
 const guide = require('./guide/index.js');
 
 // 操作系统
-const windows = require('./os/windows/index.js');
 const manjaro = require('./os/manjaro/index.js');
 const ubuntu = require('./os/ubuntu/index.js');
 
@@ -41,7 +40,6 @@ module.exports = {
 
   // 操作系统 os
   '/os/manjaro/': manjaro,
-  '/os/windows/': windows,
   '/os/ubuntu/': ubuntu,
 
   // 前端 frontend

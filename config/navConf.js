@@ -3,7 +3,6 @@ module.exports = [
   { text: 'Guide', link: '/guide/' },
   { text: '系统', items: [
     { text: 'Manjaro', link: '/os/manjaro/' },
-    { text: 'Windows', link: '/os/windows/' },
     { text: 'Ubuntu', link: '/os/ubuntu/' },
   ]},
   { text: '前端', items: [
