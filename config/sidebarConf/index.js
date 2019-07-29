@@ -2,6 +2,7 @@
 const guide = require('./guide/index.js');
 
 // 操作系统
+const linux = require('./os/linux/index.js');
 const manjaro = require('./os/manjaro/index.js');
 const ubuntu = require('./os/ubuntu/index.js');
 
@@ -39,6 +40,7 @@ module.exports = {
   '/guide/': guide,
 
   // 操作系统 os
+  '/os/linux/': linux,
   '/os/manjaro/': manjaro,
   '/os/ubuntu/': ubuntu,
 

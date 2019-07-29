@@ -2,6 +2,7 @@ module.exports = [
   { text: 'Home', link: '/' },
   { text: 'Guide', link: '/guide/' },
   { text: '系统', items: [
+    { text: 'Linux', link: '/os/linux/' },
     { text: 'Manjaro', link: '/os/manjaro/' },
     { text: 'Ubuntu', link: '/os/ubuntu/' },
   ]},
