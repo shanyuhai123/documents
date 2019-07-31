@@ -26,6 +26,7 @@ const vscode = require('./tools/vscode/index.js');
 const algorithm = require('./more/algorithm/index.js');
 const interview = require('./more/interview/index.js');
 const hodgepodge = require('./more/hodgepodge/index.js');
+const bookmark = require('./more/bookmark/index.js');
 const clean = require('./more/clean/index.js');
 
 /**
@@ -64,6 +65,7 @@ module.exports = {
   '/more/algorithm/': algorithm,
   '/more/interview/': interview,
   '/more/hodgepodge/': hodgepodge,
+  '/more/bookmark/': bookmark,
   '/more/clean/': clean,
 
   // 根目录下的 sidebar, 对于所有未匹配到的都会应用该 sidebar
