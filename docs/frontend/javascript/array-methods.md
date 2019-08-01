@@ -106,7 +106,43 @@ Array.from(arrayLike[, mapFn[, thisArg]])
 
   
 
+## Array.of
 
+用于创建一个具有可变数量参数的新数组实例，而不需要考虑参数的数量或类型。与 Array 方法的区别是当处理单个参数且该参数为正整数类型时（负整数 Array 会报错），Array 方法会创建对应长度的空数组（空数组是指对应长度空位“empty”的数组），该行为会影响 map 方法无法生效。
+
+> 其实我一直很好奇为什么被命名为 of
+
+### 1. 语法
+
+::: danger
+Array.of(element0[, element1[, ...[, elementN]]])
+:::
+
+参数：
+
+- elementN：任意个参数，将按顺序称为返回数组中的元素。
+
+返回值：
+
+一个新的数组实例。
+
+### 2. 描述
+
+此函数是 ECMAScript 2015 标准的一部分。
+
+> 个人在日常开发中常用场景：
+>
+> + 尚未使用过
+
+### 3. 示例
+
+```js
+Array.of(1); // [1]
+Array.of(1, 2, 3); // [1, 2, 3]
+Array.of(undefined); // [undefined]
+Array.of(1, [2]); // [1, [2]]
+Array.of(1, {a: "1"}); // [1, {a: "1"}]
+```
 
 
 
