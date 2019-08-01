@@ -8,7 +8,19 @@ title: 首页
 
 
 
+## 环境
+
+关于 Linux 的介绍主要是基于以下环境：
+
++ [Manjaro](/os/linux/how-to-install-manjaro-on-virtualbox)：滚动更新；
++ Ubuntu18.04；
++ CentOS7-1810。
+
+
 
 ## 参考资料
 
-书籍与网络博客。
+1. 《Linux 入门很简单》
+2. 《Ubuntu 标准教程》
+
+还有一些很早以前看过的书未记录。
