@@ -14,7 +14,7 @@ title: 首页
 
 + [Manjaro](/os/linux/how-to-install-manjaro-on-virtualbox)：滚动更新；
 + Ubuntu18.04；
-+ CentOS7-1810。
++ [CentOS7-1810](/os/linux/how-to-install-centos-on-virtualbox)。
 
 
 
