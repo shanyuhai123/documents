@@ -66,3 +66,26 @@ scp (选项) (参数)
   ```bash
   scp -i ~/.ssh/id_rsa_xxx shanyuhai@47.111.23.259:/home/shanyuhai/downloads/hi.png pictures
   ```
+
+
+
+## lrzsz
+
+除了 `scp` 还可以使用 `lrzsz` 来进行本地和远程的文件交互，不过需要双端都安装 `lrzsz`。
+
++ 下载（sz）
+
+  ```bash
+  sz filename
+  # 等待选择保存的本地路径
+  ```
+
++ 上传（rz）
+
+  ```bash
+  rz
+  # 等待选择文件
+  # （还可以拖拽文件）
+  ```
+
+  
