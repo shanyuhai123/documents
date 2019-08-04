@@ -5,6 +5,7 @@ module.exports = [
     { text: 'Linux', link: '/os/linux/' },
     { text: 'Manjaro', link: '/os/manjaro/' },
     { text: 'Ubuntu', link: '/os/ubuntu/' },
+    { text: 'CentOS', link: '/os/centos/' },
   ]},
   { text: '前端', items: [
     { text: 'JavaScript', link: '/frontend/javascript/' },

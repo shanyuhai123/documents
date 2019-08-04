@@ -5,6 +5,7 @@ const guide = require('./guide/index.js');
 const linux = require('./os/linux/index.js');
 const manjaro = require('./os/manjaro/index.js');
 const ubuntu = require('./os/ubuntu/index.js');
+const centos = require('./os/centos/index.js');
 
 // 前端
 const javascript = require('./frontend/javascript/index.js');
@@ -44,6 +45,7 @@ module.exports = {
   '/os/linux/': linux,
   '/os/manjaro/': manjaro,
   '/os/ubuntu/': ubuntu,
+  '/os/centos/': centos,
 
   // 前端 frontend
   '/frontend/javascript/': javascript,
