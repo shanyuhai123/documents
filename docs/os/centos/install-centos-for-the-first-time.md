@@ -62,3 +62,18 @@ yum groupinstall "Cinnamon" -y
 yum install tree nmap dos2unix lrzsz nc lsof wget tcpdump htop iftop iotop sysstat nethogs psmisc net-tools bash-completion vim-enhanced -y
 ```
 
+
+
+## 常用指令
+
+```bash
+# 查看 ip
+ip addr
+# 查看服务的端口（例如：ssh）
+ss -lntup | grep sshd # 或 netstat -lntup
+# 查看进程（例如：ssh）
+ps -ef | grep ssh
+# 查看是否安装了对应的软件
+rpm -qa openssh openssl
+```
+
