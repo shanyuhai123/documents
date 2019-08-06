@@ -9,7 +9,7 @@ title: clone 项目到服务器
 Bad owner or permissions on ~/.ssh/config
 ```
 
-一开始认为是缺乏权限，那就使用 sudo 命令，这会调用 root 对应的目录，不符合需求。后来突然想起 `.ssh` 文件夹未做权限设置，首先可以直接去查看 `.ssh` 目录的权限 `ls .ssh -al`
+一开始认为是缺乏权限，那就使用 sudo 命令，这会调用 root 对应的目录，不符合需求。后来突然想起 `.ssh` 文件夹未做权限设置，首先可以直接去查看 `.ssh` 目录的权限 `ls -al .ssh`
 
 ## 解决方案
 
