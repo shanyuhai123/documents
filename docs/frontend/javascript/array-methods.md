@@ -6,6 +6,9 @@ title: 数组方法
 
 虽然 **MDN** 已经很详细了，但还是需要记录一下。掌握这些方法虽然是必须的，但更重要的是学习如何写作，为一个方法添加语法、描述、示例，清晰而又明了。其中的 Polyfill 价值很高，之后单独拆分出来进行理解。
 
+> 1. 示例部分会引用英文版本的介绍。
+> 2. 部分方法并不会产生返回值，为了减少描述，省略 `console` 步骤。
+
 
 
 ## Array.from
@@ -145,6 +148,72 @@ Array.of(1, {a: "1"}); // [1, {a: "1"}]
 ```
 
 
+
+## Array.prototype.concat
+
+### 1. 语法
+
+::: danger
+const new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
+:::
+
+参数：
+
++ valueN：数组或值
+
+返回值：
+
+一个新的数组实例。
+
+### 2. 描述
+
+`concat` 方法创建一个新的数组，它由被调用的对象中的元素组成，每个参数的顺序依次是该参数的元素（如果参数是数组）或参数本身（如果参数不是数组）。它不会低轨道嵌套数组参数中。
+
+`concat` 方法不会改变 this 或任何作为参数提供的数组，而是返回一个浅拷贝，它包含与原始数组相结合的相同元素的副本。
+
+> 个人在日常开发中常用场景：
+>
+> - 偶尔需要拼接数组时会使用
+
+### 3. 示例
+
++ concatenating two arrays
+
+  ```js
+  const letters = ['a', 'b', 'c'];
+  const numbers = [1, 2, 3];
+  letters.concat(numbers); // ['a', 'b', 'c', 1, 2, 3]
+  ```
+
++ concatenating three arrays
+
+  ```js
+  const num1 = [1, 2, 3];
+  const num2 = [4, 5, 6];
+  const num3 = [7, 8, 9];
+  
+  num1.concat(num2, num3); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  ```
+
++ concatenating values to an array
+
+  ```js
+  const letters = ['a', 'b', 'c'];
+  
+  letters.concat(1, [2, 3]); // ['a', 'b', 'c', 1, 2, 3]
+  ```
+
++ concatenating nested arrays
+
+  ```js
+  const num1 = [[1]];
+  const num2 = [2, [3]];
+  
+  num1.concat(num2); // [[1], 2, [3]]
+  num1[0].push(4); // [[1, 4], 2, [3]]
+  ```
+
+  
 
 
 
