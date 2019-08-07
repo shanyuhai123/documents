@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/shanyuhai123/documents.svg?branch=master)](https://travis-ci.org/shanyuhai123/documents)
+[![Build Status](https://travis-ci.com/shanyuhai123/documents.svg?branch=master)](https://travis-ci.com/shanyuhai123/documents)
 
 ## 介绍
 这是一个 VuePress 搭建的文档
