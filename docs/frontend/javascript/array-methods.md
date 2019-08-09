@@ -135,7 +135,7 @@ Array.of(element0[, element1[, ...[, elementN]]])
 
 > 个人在日常开发中常用场景：
 >
-> + 尚未使用过
+> + 尚未使用过。
 
 ### 3. 示例
 
@@ -154,12 +154,12 @@ Array.of(1, {a: "1"}); // [1, {a: "1"}]
 ### 1. 语法
 
 ::: danger
-const new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
+arr.concat(value1[, value2[, ...[, valueN]]])
 :::
 
 参数：
 
-+ valueN：数组或值
++ valueN：数组或值。
 
 返回值：
 
@@ -173,7 +173,7 @@ const new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
 
 > 个人在日常开发中常用场景：
 >
-> - 偶尔需要拼接数组时会使用
+> - 偶尔需要拼接数组时会使用。
 
 ### 3. 示例
 
@@ -213,7 +213,561 @@ const new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
   num1[0].push(4); // [[1, 4], 2, [3]]
   ```
 
+
+
+
+## Array.prototype.copyWithin
+
+### 1. 语法
+
+::: danger
+arr.copyWithin(target[, start[, end]])
+:::
+
+参数：
+
++ target：索引（复制序列到该位置）。如果是负数，则从末尾开始，若大于等于 `arr.length`，则不发生拷贝；
++ start：索引（开始复制元素的起始位置），负数同上，默认为 0；
++ end：索引（开始复制元素的结束位置），负数同上，默认为 `arr.length`。
+
+返回值：
+
+改变后的数组。
+
+### 2. 描述
+
+`copyWithin()` 方法浅复制数组的一部分到同一数组中的另一个位置，并返回它，不会改变原数组的长度。
+
+参数 `target`、`start`、`end` 必须为整数。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+
+// target
+numbers.copyWithin(2); // [1, 2, 1, 2, 3]
+numbers.copyWithin(-3); //  [1, 2, 1, 2, 1]
+// target、start
+numbers.copyWithin(0, 3); //  [2, 1, 1, 2, 1]
+numbers.copyWithin(2, -2); //  [2, 1, 2, 1, 1]
+// target、start、end
+numbers.copyWithin(-2, -4, -2); //   [2, 1, 2, 1, 2]
+
+// 类数组
+[].copyWithin.call({length: 5, 3: 1}, 0, 3); // {0: 1, 3: 1, length: 5}
+
+let i32a = new Int32Array([1, 2, 3, 4, 5]);
+i32a.copyWithin(0, 2); // Int32Array [3, 4, 5, 4, 5]
+
+[].copyWithin.call(new Int32Array([1, 2, 3, 4, 5]), 0, 3, 4); // Int32Array [4, 2, 3, 4, 5]
+```
+
+
+
+## Array.prototype.entries
+
+### 1. 语法
+
+::: danger
+arr.entries()
+:::
+
+返回值：
+
+一个新的 Array 迭代器对象。
+
+### 2. 描述
+
+`entries()` 方法返回一个新的 Array Iterator 对象，该对象包含数组中每个索引的键/值对。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ array iterator
+
+  ```js
+  const arr = ['a', 'b', 'c'];
+  const iterator = arr.entries();
   
+  console.log(iterator); // Array Iterator {}
+  ```
+
++ iterator.next
+
+  ```js
+  const arr = ['a', 'b', 'c'];
+  const iterator = arr.entries();
+  
+  console.log(iterator.next()); // Object { value: Array [0, "a"], done: false }
+  console.log(iterator.next()); // Object { value: Array [1, "b"], done: false }
+  console.log(iterator.next()); // Object { value: Array [2, "c"], done: false }
+  console.log(iterator.next()); // Object { value: undefined, done: true }
+  console.log(iterator.next()); // Object { value: undefined, done: true }
+  ```
+
++ iterating with index and elements
+
+  ```js
+  const a = ['a', 'b', 'c'];
+  
+  for (const [index, element] of a.entries()) {
+    console.log(index, element);
+  }
+  
+  // 0 'a' 
+  // 1 'b' 
+  // 2 'c'
+  ```
+
+
+
+## Array.prototype.every
+
+### 1. 语法
+
+::: danger
+arr.every(callback[, thisArg])
+:::
+
+参数：
+
++ callback：回调函数；
+  + element：当前值；
+  + index：当前值的索引；
+  + array：当前数组。
++ thisArg：执行 callback 时使用的 `this` 值。
+
+返回值：
+
+返回一个布尔值。
+
+### 2. 描述
+
+`every()` 方法为数组中的每个元素都执行一次 `callback` 函数，直到找到一个返回 `false` 的元素。如果找到一个这样的元素则立即返回 false，否则返回 true。
+
+> 个人在日常开发中常用场景：
+>
+> - 多用于判断多种状态是否符合，传递给变量，交由 if 处理。
+
+### 3. 示例
+
++ testing size of all array elements
+
+  ```js
+  function isBigEnough(element, index, array) {
+    return element >= 10;
+  }
+  
+  [12, 5, 8, 130, 44].every(isBigEnough);   // false
+  [12, 54, 18, 130, 44].every(isBigEnough); // true
+  ```
+
++ using arrow functions
+
+  ```js
+  [12, 5, 8, 130, 44].every(x => x >= 10); // false
+  [12, 54, 18, 130, 44].every(x => x >= 10); // true
+  ```
+
+
+
+## Array.prototype.fill
+
+### 1. 语法
+
+::: danger
+arr.fill(value[, start[, end]])
+:::
+
+参数：
+
++ value：用来填充数组元素的值；
++ start：起始索引，默认 0；
++ end：终止索引，默认 `this.length`。
+
+返回值：
+
+修改后的数组。
+
+### 2. 描述
+
+`fill` 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素，但不包括终止索引。
+
+`fill` 方法故意被设计为通用方法，该方法不要求 `this` 是数组对象。
+
+> 个人在日常开发中常用场景：
+>
+> + 尚未使用过。
+
+### 3. 示例
+
+```js
+[1, 2, 3].fill(4);               // [4, 4, 4]
+[1, 2, 3].fill(4, 1);            // [1, 4, 4]
+[1, 2, 3].fill(4, 1, 2);         // [1, 4, 3]
+[1, 2, 3].fill(4, 1, 1);         // [1, 2, 3]
+[1, 2, 3].fill(4, 3, 3);         // [1, 2, 3]
+[1, 2, 3].fill(4, -3, -2);       // [4, 2, 3]
+[1, 2, 3].fill(4, NaN, NaN);     // [1, 2, 3]
+[1, 2, 3].fill(4, 3, 5);         // [1, 2, 3]
+Array(3).fill(4);                // [4, 4, 4]
+[].fill.call({ length: 3 }, 4);  // {0: 4, 1: 4, 2: 4, length: 3}
+
+// Objects by reference.
+var arr = Array(3).fill({}) // [{}, {}, {}];
+arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
+```
+
+
+
+## Array.prototype.filter
+
+### 1. 语法
+
+::: danger
+arr.filter(callback(element[, index[, array]])[, thisArg])
+:::
+
+参数：
+
++ callback：回调函数；
+  - element：当前值；
+  - index：当前值的索引；
+  - array：当前数组。
++ thisArg：执行 callback 时使用的 `this` 值。
+
+返回值：
+
+一个新的数组实例。
+
+### 2. 描述
+
+`filter()` 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。 通过回调函数返回 true 的元素会包含到新数组中。`filter` 遍历的元素范围在第一次调用 `callback` 时之前就已经确定了，之后添加元素不会被遍历到。
+
+> 个人在日常开发中常用场景：
+>
+> - 所有需要被过滤的数据都会使用该方法。
+
+### 3. 示例
+
++ filtering invalid values
+
+  ```js
+  const arr = [1, 0, "", "2", false, undefined, null, {}, {a: "hi"}];
+  arr.filter(a => a); // [1, "2", {  }, { a: "hi" }]
+  ```
+
++ filtering out all small values
+
+  ```js
+  function isBigEnough(value) {
+    return value >= 10;
+  }
+  
+  [12, 5, 8, 130, 44].filter(isBigEnough); // [12, 130, 44]
+  ```
+
++ filtering invalid entries from JSON
+
+  ```js
+  const arr = [
+    { id: 15 },
+    { id: -1 },
+    { id: 0 },
+    { id: 3 },
+    { id: 12.2 },
+    { },
+    { id: null },
+    { id: NaN },
+    { id: 'undefined' }
+  ];
+  
+  let invalidEntries = 0;
+  
+  function isNumber(obj) {
+    return obj !== undefined && typeof(obj) === 'number' && !isNaN(obj);
+  }
+  
+  function filterByID(item) {
+    if (isNumber(item.id) && item.id !== 0) {
+      return true;
+    }
+    invalidEntries++;
+    return false;
+  }
+  
+  arr.filter(filterByID);
+  // Filtered Array [{ id: 15 }, { id: -1 }, { id: 3 }, { id: 12.2 }]
+  //  invalidEntries 5
+  ```
+
++ searching in array
+
+  ```js
+  const fruits =  ['apple', 'banana', 'grapes', 'mango', 'orange'];
+  
+  function filterItems(arr, query) {
+    return arr.filter(function(el) {
+      return el.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+    });
+  }
+  
+  filterItems(fruits, 'ap'); // ['apple', 'grapes']
+  filterItems(fruits, 'an'); // ['banana', 'mango', 'orange']
+  ```
+
+
+
+## Array.prototype.find
+
+### 1. 语法
+
+::: danger
+arr.find(callback[, thisArg])
+:::
+
+参数：
+
+- callback：回调函数；
+  - element：当前值；
+  - index：当前值的索引；
+  - array：当前数组。
+- thisArg：执行 callback 时使用的 `this` 值。
+
+返回值：
+
+返回一个满足回调函数的值，否则返回 undefined。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 返回对象组成的数组中的对应对象。
+
+### 3. 示例
+
++ find an object in an array by one of its properties
+
+  ```js
+  const inventory = [
+      {name: 'apples', quantity: 2},
+      {name: 'bananas', quantity: 0},
+      {name: 'cherries', quantity: 5}
+  ];
+  
+  inventory.find(fruit => fruit.name === 'cherries'); //  { name: 'cherries', quantity: 5 }
+  ```
+
++ find a prime number in an array
+
+  ```js
+  function isPrime(element, index, array) {
+    var start = 2;
+    while (start <= Math.sqrt(element)) {
+      if (element % start++ < 1) {
+        return false;
+      }
+    }
+    return element > 1;
+  }
+  
+  [4, 6, 8, 12].find(isPrime); // undefined
+  [4, 5, 8, 12].find(isPrime); // 5
+  ```
+
+
+
+## Array.prototype.findIndex
+
+### 1. 语法
+
+::: danger
+arr.findIndex(callback[, thisArg])
+:::
+
+参数：
+
+- callback：回调函数；
+  - element：当前值；
+  - index：当前值的索引；
+  - array：当前数组。
+- thisArg：执行 callback 时使用的 `this` 值。
+
+返回值：
+
+返回对应值的下标，否则返回 -1。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 较少使用该方法，首先考虑能否使用 includes，若不支持才会考虑该项。
+
+### 3. 示例
+
+参考 find 的[示例](/frontend/javascript/array-methods.html#_3-示例-9)即可。
+
+
+
+## Array.prototype.flat
+
+### 1. 语法
+
+::: danger
+arr.flat(depth)
+:::
+
+参数：
+
+- depth：指定要提取嵌套数组的结构深度，默认值为 1，Infinity 表示无限层级。
+
+返回值：
+
+一个包含将数组与子数组中所有元素的新数组。
+
+### 2. 描述
+
+`flat()` 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。方法很美丽，但是兼容性很差，所以提供了替代方案。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ flattening nested arrays
+
+  ```js
+  const arr = [1, 2, [3, 4]];
+  arr.flat();  // [1, 2, 3, 4]
+  
+  const  arr = [1, 2, [3, 4, [5, 6]]];
+  arr.flat(); // [1, 2, 3, 4, [5, 6]]
+  
+  const arr = [1, 2, [3, 4, [5, 6]]];
+  arr.flat(2); // [1, 2, 3, 4, 5, 6]
+  ```
+
++ flattening and array holes
+
+  ```js
+  const arr = [1, 2, , 4, 5];
+  arr.flat(); // [1, 2, 4, 5]
+  ```
+
+### 4. 替代方案
+
+使用 reduce 和 concat：
+
++ flat single level array
+
+  ```js
+  const arr = [1, 2, [3, 4]];
+  arr.reduce((acc, val) => acc.concat(val), []); // [1, 2, 3, 4]
+  [].concat(...arr); // [1, 2, 3, 4]
+  ```
+
++ enable deep level flatten use recursion with reduce and concat
+
+  ```js
+  const arr = [1,2,3,[1,2,3,4, [2,3,4]]];
+  
+  function flattenDeep(arr) {
+    return arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
+  }
+  
+  flattenDeep(arr); // [1, 2, 3, 1, 2, 3, 4, 2, 3, 4]
+  ```
+
++ non recursive flatten deep using a stack
+
+  ```js
+  let arr = [1,2,3,[1,2,3,4, [2,3,4]]];
+  function flatten(input) {
+    const stack = [...input];
+    const res = [];
+    
+    while (stack.length) {
+      const next = stack.pop();
+      if (Array.isArray(next)) {
+        stack.push(...next);
+      } else {
+        res.push(next);
+      }
+    }
+    
+    return res.reverse();
+  }
+  flatten(arr); // [1, 2, 3, 1, 2, 3, 4, 2, 3, 4]
+  ```
+
+
+
+## Array.prototype.flatMap
+
+### 1. 语法
+
+::: danger
+arr.flatMap(function callback(currentValue[, index[, array]]) {
+
+​	    // return element for new_array
+
+}[, thisArg])
+:::
+
+参数：
+
+- callback：回调函数；
+  - currentValue：当前值；
+  - index：当前值的索引；
+  - array：当前数组。
+- thisArg：执行 callback 时使用的 `this` 值。
+
+返回值：
+
+ 一个新的数组，其中每个元素都是回调函数的结果，并且结构深度 `depth` 值为 1。
+
+### 2. 描述
+
+相当于执行 `map` 方法后，对返回值组成的数组执行 `flat` 方法。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ map and flatMap
+
+  ```js
+  const arr = [1, 2, 3, 4];
+  
+  arr.map(x => [x * 2]); // [[2], [4], [6], [8]]
+  arr.flatMap(x => [x * 2]); // [2, 4, 6, 8]
+  arr.flatMap(x => [[x * 2]]); // [[2], [4], [6], [8]]
+  ```
+
++ a list of sentences
+
+  ```js
+  let arr = ["今天天气不错", "", "早上好"];
+  
+  arr.map(s => s.split("")); // [["今", "天", "天", "气", "不", "错"],[""],["早", "上", "好"]]
+  
+  arr.flatMap(s => s.split('')); // ["今", "天", "天", "气", "不", "错", "早", "上", "好"]
+  ```
 
 
 
