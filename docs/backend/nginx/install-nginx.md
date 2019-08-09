@@ -4,7 +4,7 @@ title: 安装 Nginx
 
 ## 准备环境
 
-在使用 Nginx 前，最好先去创建一个 [Linux 用户](/OS/centos/01-add-user.html) 账号。
+在使用 Nginx 前，最好先去创建一个 [Linux 用户](/OS/centos/add-user) 账号。
 
 ### 1. 基本环境
 

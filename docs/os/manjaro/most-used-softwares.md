@@ -1,5 +1,5 @@
 ---
-title: 常用软件
+title: Manjaro 的常用软件
 ---
 
 ## TeamViewer
