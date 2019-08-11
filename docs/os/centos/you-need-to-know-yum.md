@@ -6,6 +6,8 @@ title: 了解 Yum
 
 YUM 全称（Yellowdog Updater, Modified），基于 `Yellow Dog Updater` 修改而来，是一个在 Fedora 和 RedHat 以及 CentOS 中的 Shell 前端软件包管理器。基于 RPM 包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包。
 
+>  RPM 是为了简化安装的复杂度，而 Yum 软件仓库视为了解决软件包之间的依赖关系。
+
 
 
 ## 软件包来源
