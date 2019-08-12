@@ -771,3 +771,144 @@ arr.flatMap(function callback(currentValue[, index[, array]]) {
 
 
 
+## Array.prototype.forEach
+
+### 1. 语法
+
+::: danger
+arr.forEach(callback[, thisArg])
+:::
+
+参数：
+
+- callback：回调函数；
+  - currentValue：当前值；
+  - index：当前值的索引；
+  - array：当前数组。
+- thisArg：执行 callback 时使用的 `this` 值。
+
+返回值：
+
+ undefined。
+
+### 2. 描述
+
+`forEach` 方法按升序为数组中含有效值的每一项执行一次 callback 函数，那些已删除或未初始化的项将被跳过（例如稀疏数组）。
+
+如之前的方法一致，`forEach` 遍历的范围在第一次调用 callback 前就会确定。调用 callback 后添加到数组中的项不会被 callback 访问到。但是，如果已经存在的值被改变，则传递给 callback 的值是  `forEach` 遍历到它们那一刻的值。参见下方示例。
+
+你无法终止跳出 `forEach` 循环，除了抛出一个异常。如果你需要这样做，使用 `forEach` 方法是错误的，请使用其余循环方法。
+
+> 个人在日常开发中常用场景：
+>
+> - ~~所有使用 for 循环的场景（今天才改正过来……）。~~
+> - 不需要终止 for 循环的场景。
+
+### 3. 示例
+
++ no opeartion for uninitialized values(sparse arrays)
+
+  ```js
+  // 跳过无效值
+  const arraySparse = [1, 3,,7];
+  let numCallbackRuns = 0;
+  
+  arraySparse.forEach(el => {
+    console.log(el);
+    // 1
+  	// 3
+  	// 7
+    numCallbackRuns++;
+  });
+  
+  console.log("numCallbackRuns: ", numCallbackRuns); // numCallbackRuns: 3
+  ```
+
++ printing the contents of an array
+
+  ```js
+  function logArrayElements(elements, index, array) {
+    console.log('a[' + index + '] = ' + element);
+  }
+  [2, 5, , 9].forEach(logArrayElements);
+  // a[0] = 2
+  // a[1] = 5
+  // a[3] = 9
+  ```
+
++ using thisArg
+
+  ```js
+  function Counter() {
+    this.sum = 0;
+    this.count = 0;
+  }
+  
+  Counter.prototype.add = function(array) {
+    array.forEach(entry => {
+      this.sum += entry;
+      ++this.count;
+    }, this);
+  }
+  
+  const obj = new Counter();
+  obj.add([2, 5, 9]);
+  obj.count;
+  // 3 
+  obj.sum;
+  // 16
+  ```
+
++ an object copy function
+
+  ```js
+  function copy(obj) {
+    const copy = Object.create(Object.getPrototypeOf(obj));
+    const propNames = Object.getOwnPropertyNames(obj);
+    
+    propNames.forEach(name => {
+      const desc = Object.getOwnPropertyDescriptor(obj, name);
+      Object.defineProperty(copy, name, desc);
+    });
+    
+    return copy;
+  }
+  
+  const obj1 = { a: 1, b: 2 };
+  const obj2 = copy(obj1); // obj2 looks like obj1 now
+  ```
+
++ if the array is modified during iteration, other elements might be skipped
+
+  ```js
+  let words = ['one', 'two', 'three', 'four'];
+  words.forEach(word => {
+    console.log(word);
+    if (word === 'two') {
+      words.shift();
+    }
+  });
+  
+  // one
+  // two
+  // four
+  ```
+
++ flatten an array
+
+  ```js
+  function flatten(arr) {
+    const result = [];
+    
+    arr.forEach(i => {
+      Array.isArray(i) ? result.push(...flatten(i)) : result.push(i);
+    });
+    
+    return result;
+  }
+  
+  const problem = [1, 2, 3, [4, 5, [6, 7], 8, 9]];
+  flatten(problem); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  ```
+
+  
