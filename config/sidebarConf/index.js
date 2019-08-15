@@ -1,6 +1,9 @@
 // 介绍
 const guide = require('./guide/index.js');
 
+// 计算机
+const computer = require('./computer/index.js');
+
 // 操作系统
 const linux = require('./os/linux/index.js');
 const manjaro = require('./os/manjaro/index.js');
@@ -40,6 +43,9 @@ const clean = require('./more/clean/index.js');
 module.exports = {
   // 指南 guide
   '/guide/': guide,
+
+  // 计算机
+  '/computer/': computer,
 
   // 操作系统 os
   '/os/linux/': linux,

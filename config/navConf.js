@@ -1,6 +1,7 @@
 module.exports = [
   { text: 'Home', link: '/' },
   { text: 'Guide', link: '/guide/' },
+  { text: '计算机', link: '/computer/' },
   { text: '系统', items: [
     { text: 'Linux', link: '/os/linux/' },
     { text: 'Manjaro', link: '/os/manjaro/' },
