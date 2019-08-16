@@ -1079,4 +1079,490 @@ arr.join([separator])
   f(1, 'a', true); // '1,a,true'
   ```
 
+
+
+## Array.prototype.keys
+
+### 1. 语法
+
+::: danger
+arr.keys()
+:::
+
+返回值：
+
+一个新的 Array 迭代器对象。
+
+### 2. 描述
+
+keys() 方法返回一个包含数组中每个索引键的 Array Iterator 对象。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ key iterator doesn't ignore holes
+
+  ```js
+  const arr = ['a', , 'c'];
+  const sparseKeys = Object.keys(arr); // ['0', '2']
+  const denseKeys = [...arr.keys()]; // [0, 1, 2]
+  ```
+
+
+
+## Array.prototype.lastIndexOf
+
+indexOf 的反向行为，不做描述。
+
+
+
+## Array.prototype.map
+
+### 1. 语法
+
+::: danger
+arr.map(callback[, thisArg])
+:::
+
+参数：
+
+- callback：回调函数；
+  - currentValue：当前值；
+  - index：当前值的索引；
+  - array：当前数组。
+- thisArg：执行 callback 时使用的 `this` 值。
+
+返回值：
+
+ 一个新的数组，每个元素都是回调函数的结果。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 常用于映射修改后端传递的数据。
+
+### 3. 示例
+
++ mapping an array of numbers to an array of square roots
+
+  ```js
+  const numbers = [1, 4, 9];
+  numbers.map(num => Math.sqrt(num)); // [1, 2, 3]
+  ```
+
++ using map to reformat objects in an array
+
+  ```js
+  const kvArray = [{key: 1, value: 10}, {key: 2, value: 20}, {key: 3, value: 30}];
+  kvArray.map(obj =>  ({[obj.key]: obj.value})); // [{1: 10}, {2: 20}, {3: 30}]
+  ```
+
++ mapping an array of numbers using a function containing an argument
+
+  ```js
+  const numbers = [1, 4, 9];
+  numbers.map(num => num * 2); // [2, 8, 18]
+  ```
+
++ using map generically
+
+  ```js
+  const map = Array.prototype.map;
+  map.call('Hello World', x => x.charCodeAt(0)); // [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
+  ```
+
++ using map generically querySelectorAll
+
+  ```js
+  const elems = document.querySelectorAll('select option:checked');
+  Array.prototype.map.call(elems, obj => obj.value);
+  ```
+
++ tricky use case
+
+  ```js
+  ["1", "2", "3"].map(parseInt); // [1, NaN, NaN]
+  
+  
+  function returnInt(element) {
+    return parseInt(element, 10);
+  }
+  ['1', '2', '3'].map(returnInt); // [1, 2, 3]
+  ```
+
++ mapping array have undefined
+
+  ```js
+  const numbers = [1, 2, 3, 4];
+  numbers.map((num, index) => {
+  	if (index < 3) {
+  		return num; //  [1, 2, 3, undefined]
+  	}
+  });
+  ```
+
+
+
+## Array.prototype.pop
+
+### 1. 语法
+
+::: danger
+arr.pop()
+:::
+
+返回值：
+
+从数组中删除的元素，当数组为空时返回 undefined。
+
+### 2. 描述
+
+pop() 方法从数组中删除最后一个元素，并返回该元素的值，此方法更改数组的长度。
+
+> 个人在日常开发中常用场景：
+>
+> - 需要从尾端删除数据时。
+
+### 3. 示例
+
++ removing the last element of an array
+
+  ```js
+  let myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+  const popped = myFish.pop(); // ['angel', 'clown', 'mandarin' ]  'sturgeon'
+  ```
+
++ using apply() or call() on array-like objects
+
+  ```js
+  let myFish = {0:'angel', 1:'clown', 2:'mandarin', 3:'sturgeon', length: 4};
+  
+  const popped = Array.prototype.pop.call(myFish); // {0:'angel', 1:'clown', 2:'mandarin', length: 3}  'sturgeon'
+  ```
+
+
+
+## Array.prototype.push
+
+### 1. 语法
+
+::: danger
+arr.push(element1, ..., elementN)
+:::
+
+参数：
+
+- elementN：被添加到数组末尾的元素。
+
+返回值：
+
+返回新的 length 属性值。
+
+### 2. 描述
+
+push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
+
+> 个人在日常开发中常用场景：
+>
+> - 需要追加数据时。
+
+### 3. 示例
+
++ adding elements to an array
+
+  ```js
+  let sports = ['soccer', 'baseball'];
+  const total = sports.push('football', 'swimming'); // ['soccer', 'baseball', 'football', 'swimming'] 4
+  ```
+
++ merging two arrays
+
+  ```js
+  let vegetables = ['parsnip', 'potato'];
+  const moreVegs = ['celery', 'beetroot'];
+  Array.prototype.push.apply(vegetables, moreVegs); // ['parsnip', 'potato', 'celery', 'beetroot']
+  ```
+
++ using an object in an array-like fashion
+
+  ```js
+  let obj = {
+    length: 0, // 2
+    
+    addElem: function (elem) {
+      [].push.call(this, elem);
+    }
+  }
+  
+  obj.addElem({});
+  obj.addElem({});
+  ```
+
+
+
+## Array.prototype.reduce
+
+### 1. 语法
+
+::: danger
+arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])
+:::
+
+参数：
+
+- callback：回调函数；
+
+  + accumulator：累计器累计回调的返回值；
+
+  - currentValue：当前值；
+  - index：当前值的索引；
+  - array：当前数组。
+
+- initialValue：作为第一次调用 callback 函数的第一个参数的值，默认值为数组中的第一个元素，空数组会导致报错。
+
+返回值：
+
+函数累计处理的结果。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 累计数据时。
+
+### 3. 示例
+
++ sum all the values of an array
+
+  ```js
+  [0, 1, 2, 3].reduce((accumulator, currentValue) => accumulator + currentValue, 0); // 6
+  ```
+
++ sum of values in an object array
+
+  ```js
+  const initialValue = 0;
+  [{x: 1}, {x: 2}, {x: 3}].reduce((accumulator, currentValue) => accumulator + currentValue.x, initialValue); // 6
+  ```
+
++ flatten an array of arrays
+
+  ```js
+  [[0, 1], [2, 3], [4, 5]].reduce(( accumulator, currentValue ) => accumulator.concat(currentValue), []); // [0, 1, 2, 3, 4, 5]
+  ```
+
++ counting instances of values in an object
+
+  ```js
+  const names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+  names.reduce( (allNames, name) => { 
+    if (name in allNames) {
+      allNames[name]++;
+    }
+    else {
+      allNames[name] = 1;
+    }
+    return allNames;
+  }, {}); // { 'Alice': 2, 'Bob': 1, 'Tiff': 1, 'Bruce': 1 }
+  ```
+
++ grouping objects by a property
+
+  ```js
+  const people = [
+    { name: 'Alice', age: 21 },
+    { name: 'Max', age: 20 },
+    { name: 'Jane', age: 20 } 
+  ];
+  
+  function groupBy(objectArray, property) {
+    return objectArray.reduce((acc, obj) => {
+      const key = obj[property];
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(obj);
+      return acc;
+    }, {});
+  }
+  
+  groupBy(people, 'age');
+  // { 
+  //   20: [
+  //     { name: 'Max', age: 20 }, 
+  //     { name: 'Jane', age: 20 }
+  //   ], 
+  //   21: [{ name: 'Alice', age: 21 }] 
+  // }
+  ```
+
++ bonding arrays contained in an array of objects using the spread operator and initialValue
+
+  ```js
+  const friends = [{
+    name: 'Anna',
+    books: ['Bible', 'Harry Potter'],
+    age: 21
+  }, {
+    name: 'Bob',
+    books: ['War and peace', 'Romeo and Juliet'],
+    age: 26
+  }, {
+    name: 'Alice',
+    books: ['The Lord of the Rings', 'The Shining'],
+    age: 18
+  }];
+  
+  friends.reduce(function(accumulator, currentValue) {
+    return [...accumulator, ...currentValue.books];
+  }, ['Alphabet']); // ["Alphabet", "Bible", "Harry Potter", "War and peace", "Romeo and Juliet", "The Lord of the Rings", "The Shining"]
+  ```
+
++ remove duplicate items in array
+
+  ```js
+  const myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd'];
+  myArray.reduce((accumulator, currentValue) => {
+    if (accumulator.indexOf(currentValue) === -1) {
+      accumulator.push(currentValue);
+    }
+    return accumulator;
+  }, []); // ["a", "b", "c", "e", "d"]
+  ```
+
++ running promises in sequence
+
+  ```js
+  function runPromiseInSequence(arr, input) {
+    return arr.reduce((promiseChain, currentFunction) => promiseChain.then(currentFunction), Promise.resolve(input));
+  }
+  
+  // promise function 1
+  function p1(a) {
+    return new Promise((resolve, reject) => {
+      resolve(a * 5);
+    });
+  }
+  
+  // promise function 2
+  function p2(a) {
+    return new Promise((resolve, reject) => {
+      resolve(a * 2);
+    });
+  }
+  
+  // function 3  - will be wrapped in a resolved promise by .then()
+  function f3(a) {
+   return a * 3;
+  }
+  
+  // promise function 4
+  function p4(a) {
+    return new Promise((resolve, reject) => {
+      resolve(a * 4);
+    });
+  }
+  
+  const promiseArr = [p1, p2, f3, p4];
+  runPromiseInSequence(promiseArr, 10)
+    .then(console.log);   // 1200
+  ```
+
++ function composition enabling piping
+
+  ```js
+  const double = x => x + x;
+  const triple = x => 3 * x;
+  const quadruple = x => 4 * x;
+  
+  const pipe = (...functions) => input => functions.reduce((acc, fn) => fn(acc), input);
+  
+  const multiply6 = pipe(double, triple);
+  const multiply9 = pipe(triple, triple);
+  const multiply16 = pipe(quadruple, quadruple);
+  const multiply24 = pipe(double, triple, quadruple);
+  
+  multiply6(6); // 36
+  multiply9(9); // 81
+  multiply16(16); // 256
+  multiply24(10); // 240
+  ```
+
+
+
+## Array.prototype.reduceRight
+
+### 1. 语法
+
+::: danger
+arr.reduceRight(callback[, initialValue])
+:::
+
+参数：
+
+- callback：回调函数；
+
+  - previousValue：上一次调用回调的返回值，或提供的 initialValue；
+
+  - currentValue：当前值；
+  - index：当前值的索引；
+  - array：当前数组。
+
+- initialValue：作为第一次调用 callback 函数的第一个参数的值，默认值为数组中的第一个元素，空数组会导致报错。
+
+返回值：
+
+函数累计处理的结果。
+
+### 2. 描述
+
+基本与 reduce 一致，从右到左。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
+参考 reduce 即可。
+
+
+
+## Array.prototype.reverse
+
+### 1. 语法
+
+::: danger
+arr.reverse()
+:::
+
+返回值：
+
+改变（颠倒）后的数组。
+
+### 2. 描述
+
+reverse() 方法将数组中元素的位置颠倒，并返回该数组。
+
+> 个人在日常开发中常用场景：
+>
+> - 颠倒数组。
+
+### 3. 示例
+
++ reversing the elements in an array-like object
+
+  ```js
+  const a = {0: 1, 1: 2, 2: 3, length: 3};
+  Array.prototype.reverse.call(a); // {0: 3, 1: 2, 2: 1, length: 3}
+  ```
+
   
