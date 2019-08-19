@@ -1565,4 +1565,397 @@ reverse() 方法将数组中元素的位置颠倒，并返回该数组。
   Array.prototype.reverse.call(a); // {0: 3, 1: 2, 2: 1, length: 3}
   ```
 
+
+
+
+## Array.prototype.shift
+
+### 1. 语法
+
+::: danger
+arr.shift()
+:::
+
+返回值：
+
+从数组中删除的元素，如果数组为空则返回 undefined。 
+
+### 2. 描述
+
+shift 方法移除索引为 0 的元素（即第一个元素），并返回被移除的元素，其他元素的索引值随之减 1（push、pop 操作不会影响其余元素，所以性能更高）。
+
+shift 方法并不限于数组，可以通过 call、apply 方法作用于类数组的对象上。
+
+> 个人在日常开发中常用场景：
+>
+> - 需要删除前一部分时。
+
+### 3. 示例
+
+```js
+let fish = ['angel', 'clown', 'mandarin', 'surgeon'];
+fish.shift(); // "angel"
+```
+
+
+
+## Array.prototype.slice
+
+### 1. 语法
+
+::: danger
+arr.slice([begin[, end]])
+:::
+
+参数：
+
++ begin：提取起始处的索引，默认为 0；
++ end：提取终止处的索引，默认为 length-1。
+
+返回值：
+
+一个含有被提取元素的新数组。
+
+### 2. 描述
+
+slice 不会修改原数组，只会返回一个浅拷贝的新数组。
+
+> 个人在日常开发中常用场景：
+>
+> - 截取内容。
+
+### 3. 示例
+
+```js
+const fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+fruits.slice(1, 3); // ['Orange','Lemon']
+```
+
+
+
+## Array.prototype.some
+
+### 1. 语法
+
+::: danger
+arr.some(callback(element[, index[, array]])[, thisArg])
+:::
+
+参数：
+
+- callback：回调函数；
+  - element：当前元素；
+  - index：当前元素的索引；
+  - array：当前数组。
+- thisArg：执行 callback 时使用的 this 值。
+
+返回值：
+
+如果回调函数返回至少一个数组元素的 truthy 值，则返回 true；否则为 false。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 常用多种元素判断。
+
+### 3. 示例
+
++ testing array elements using arrow functions
+
+  ```js
+  [2, 5, 8, 1, 4].some(x => x > 10); // false
+  [12, 5, 8, 1, 4].some(x => x > 10); // true
+  ```
+
++ checking whether a value exists using an arrow function
+
+  ```js
+  const fruits = ['apple', 'banana', 'mango', 'guava'];
+  function checkAvailability(arr, val) {
+    return arr.some(arrVal => val === arrVal);
+  }
   
+  checkAvailability(fruits, 'kela');   // false
+  checkAvailability(fruits, 'banana'); // true
+  ```
+
++ converting any value to Boolean
+
+  ```js
+  const TRUTHY_VALUES = [true, 'true', 1];
+  
+  function getBoolean(value) {
+    'use strict';
+    
+    if (typeof value === 'string') {
+      value = value.toLowerCase().trim();
+    }
+    
+    return TRUTHY_VALUES.some(t => t === value);
+  }
+  
+  getBoolean(false);   // false
+  getBoolean('false'); // false
+  getBoolean(1);       // true
+  getBoolean('true');  // true
+  ```
+
+
+
+## Array.prototype.sort
+
+### 1. 语法
+
+::: danger
+arr.sort([compareFunction])
+:::
+
+参数：
+
+- compareFunction：用来指定按某种顺序进行排列的函数。
+  - firstEl：第一个用于比较的元素；
+  - secondEl：第二个用于比较的元素。
+
+返回值：
+
+排序后的数组。
+
+### 2. 描述
+
+sort 方法用[原地算法](https://en.wikipedia.org/wiki/In-place_algorithm)对数组的元素进行排序，并返回数组。默认排序顺序是在将元素转换为字符串，然后比较它们的 UTF-16 代码单元值序列时构建的。
+
+> 个人在日常开发中常用场景：
+>
+> + 排序。
+
+### 3. 示例
+
++ sorting non-ASCII characters
+
+  ```js
+  const items = ['réservé', 'premier', 'cliché', 'communiqué', 'café', 'adieu'];
+  items.sort((a, b) => a.localeCompare(b)); // ['adieu', 'café', 'cliché', 'communiqué', 'premier', 'réservé']
+  ```
+
++ sorting with map
+
+  ```js
+  const list = ['Delta', 'alpha', 'CHARLIE', 'bravo'];
+  let mapped = list.map((el, i) => ({index: i, value: el.toLowerCase()}));
+  
+  mapped.sort((a, b) => a.value >= b.value ? 1 : -1);
+  mapped.map(el => list[el.index]);
+  ```
+
+
+
+## Array.prototype.splice
+
+### 1. 语法
+
+::: danger
+arr.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+:::
+
+参数：
+
+- start：指定修改的开始位置（从0计数），如果超出了数组的长度，则从数组末尾开始添加内容；
+- deleteCount：整数，表示要移除的数组元素的个数；
+- item1, item2, ...：要添加进数组的元素。
+
+返回值：
+
+由被删除的元素组成的一个数组，若没有删除元素，则返回空数组。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 增删改数组中的元素。
+
+### 3. 示例
+
++ remove 0(zero) elements from index 2, and insert "drum" and "guitar"
+
+  ```js
+  const fish =  ['angel', 'clown', 'mandarin', 'sturgeon'];
+  fish.splice(2, 0, 'drum', 'guitar');
+  ```
+
++ remove 1 element from index 3
+
+  ```js
+  const fish =  ['angel', 'clown', 'mandarin', 'sturgeon'];
+  fish.splice(3, 1);
+  ```
+
++ remove 1 element from index 2, and  insert "trumpet"
+
+  ```js
+  const fish =  ['angel', 'clown', 'mandarin', 'sturgeon'];
+  fish.splice(2, 1, 'trumpet');
+  ```
+
++ remove 2 elements from index 0, and insert "parrot", "anemone" and "blue"
+
+  ```js
+  const fish =  ['angel', 'clown', 'mandarin', 'sturgeon'];
+  fish.splice(0, 2, 'parrot', 'anemone', 'blue');
+  ```
+
++ remove 1 element from index-2
+
+  ```js
+  const fish =  ['angel', 'clown', 'mandarin', 'sturgeon'];
+  fish.splice(-2, 1);
+  ```
+
++ remove all elements after index 2
+
+  ```js
+  const fish =  ['angel', 'clown', 'mandarin', 'sturgeon'];
+  fish.splice(2);
+  ```
+
+
+
+## Array.prototype.toLocaleString
+
+### 1. 语法
+
+::: danger
+arr.toLocaleString([locales[,options]])
+:::
+
+参数：
+
+- locales：带有 BCP 47 语言标记的字符串或字符串数组；
+- options：一个可配置属性的对象。
+
+返回值：
+
+表示数组元素的字符串。
+
+### 2. 描述
+
+toLocaleString 返回一个字符串表示数组中的元素。数组中的元素将使用各自的 toLocaleString 方法转为字符串，这些字符串将使用一个特定语言环境的字符串隔开。
+
+> 个人在日常开发中常用场景：
+>
+> - 早期使用过该方法将时间转换为本地时间，后来使用 dayjs，moment 等时间库替代了。
+
+### 3. 示例
+
+```js
+// Object：Object.prototype.toLocaleString()
+// Number：Number.prototype.toLocaleString()
+// Date：Date.prototype.toLocaleString()
+
+let prices = ['￥7', 500, 8123, 12]; 
+prices.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' }); // "￥7,￥500,￥8,123,￥12"
+```
+
+
+
+## Array.prototype.toString
+
+### 1. 语法
+
+::: danger
+arr.toString()
+:::
+
+返回值：
+
+一个表示指定的数组及元素的字符串。
+
+### 2. 描述
+
+Array 对象覆盖了 Object 的 toString 方法，当一个数组被作为文本值或者进行字符串连接操作时，将会自动调用其 toString 方法。
+
+> 个人在日常开发中常用场景：
+>
+> - 常用于数组转为字符串。
+
+### 3. 示例
+
+```js
+const array = [1, 2, 'a', '1a'];
+arrar.toString(); // "1,2,a,1a"
+```
+
+
+
+## Array.prototype.unshift
+
+### 1. 语法
+
+::: danger
+arr.unshift(element1, ..., elementN)
+:::
+
+参数：
+
+- elementN：要添加到数组开头的元素或多个元素。
+
+返回值：
+
+返回其 length 属性值。
+
+### 2. 描述
+
+unshift 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。
+
+> 个人在日常开发中常用场景：
+>
+> - 常用于在数组前添加数据。
+
+### 3. 示例
+
+```js
+let arr = [1, 2];
+arr.unshift(0); // 3
+arr.unshift([-4, -3]); // 4
+// arr [[-4, -3], 0, 1, 2]
+```
+
+
+
+## Array.prototype.values
+
+### 1. 语法
+
+::: danger
+arr.values()
+:::
+
+返回值：
+
+返回一个新的 Array Iterator 对象。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ iteration using for...of loop
+
+  ```js
+  const arr = ['a', 'b', 'c'];
+  const iterator = arr.values();
+  
+  for (let letter of iterator) {
+    console.log(letter); // "a" "b" "c"
+  }
+  ```
+
