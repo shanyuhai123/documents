@@ -20,6 +20,8 @@ sudo teamviewer --daemon enable
 ```
 :::
 
+
+
 ## rdesktop
 
 ### 1. 介绍
@@ -36,7 +38,10 @@ sudo teamviewer --daemon enable
 1. 添加 -f 参数可以以全屏模式进入
 2. 在全屏模式下按 `ctrl+alt+enter` 可以退出全屏（这个才是想记录的……）
 3. 其余参数见谷歌
+
 :::
+
+
 
 ## FileZilla Client
 
@@ -52,11 +57,18 @@ sudo teamviewer --daemon enable
 
 ::: tip 步骤
 1. 点击左上角 `文件`
+
 2. 点击站点管理器
+
 3. 点击字符集
+
 4. 选择 `强制 UTF-8`
+
 5. 确定
+
 :::
+
+
 
 ## Zsh
 
@@ -144,6 +156,8 @@ zsh 在使用时会存在一些问题:
 
 :::
 
+
+
 ## VirtualBox
 
 ### 1. 介绍
@@ -197,3 +211,39 @@ virtualbox 在启动时直接失败:
 
 :::
 
+
+
+## VMware Workstation
+
+### 1. 介绍
+
+一款虚拟机软件，基本使用方式与 VirtualBox 一致。
+
+### 2. 使用中存在的问题
+
+启动虚拟机时提示：
+
+```
+Could not open dev/vmmon | Unable to open kernel device | Failed to initialize monitor device
+```
+
+### 3. 解决方案
+
+::: danger 注
+
+这是由于安装 `linux-headers` 时版本选择错误所致。
+
+首先获取内核版本号：
+
+```bash
+uname -r # 4.19.66-1-MANJARO
+```
+
+在 Octopi 中重新安装：
+
+1. 安装 linux419-headers；
+2. 移除 linux316-headers  <Badge text="误选为 316，需对应各自的错误" type="warn"/>。
+
+接着重启电脑即可。
+
+:::
