@@ -221,13 +221,13 @@ virtualbox 在启动时直接失败:
 
 ### 2. 使用中存在的问题
 
-启动虚拟机时提示：
+1. 启动虚拟机失败：
 
 ```
 Could not open dev/vmmon | Unable to open kernel device | Failed to initialize monitor device
 ```
 
-### 3. 解决方案
+解决方案为：
 
 ::: danger 注
 
@@ -247,3 +247,28 @@ uname -r # 4.19.66-1-MANJARO
 接着重启电脑即可。
 
 :::
+
+2. 创建虚拟机后无法联网：
+
+```
+Could not connect 'Ethernet0' to virtual network '/dev/vmnet8'. More information can be found in the vmware.log file. Failed to connect virtual device 'Ethernet0'.
+```
+
+解决方案为：
+
+::: danger 注
+
+这是由于未启动 vmware 的网络服务。
+
+解决方案来源于：[vmware_could_not_connect_ethernet0_to_virtual](https://www.reddit.com/r/archlinux/comments/9povuy/vmware_could_not_connect_ethernet0_to_virtual/)
+
+启用 vmware 的网络服务即可：
+
+```bash
+sudo systemctl start vmware-networks.service # 临时
+```
+
+:::
+
+
+
