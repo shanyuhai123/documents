@@ -74,8 +74,16 @@ title: 如何在虚拟机中安装 CentOS
 
 ### 1. ethX
 
-CentOS7 之前的 ethX 数字编号的网卡命名往往不一定准确对应网卡接口，所以 CentOS7 （enps）就解决了该问题，不过这会影响以往的习惯，所以还可以将命名改回来，按下 tab 后追加：
+CentOS7 之前的 ethX 数字编号的网卡命名往往不一定准确对应网卡接口，所以 CentOS7 （enps）就解决了该问题，不过这会影响以往的习惯，所以还可以将命名改回来。
 
-```bash
-net.ifnames=0 biosdevname=0
-```
+可以通过两种形式进行修改：
+
+1. 形式一，需要在安装系统时，光标移至 Install CentOS 7 上，按下 tab 后追加：
+
+   ```bash
+   # 需要注意和之前的内容有一个空格
+   net.ifnames=0 biosdevname=0
+   ```
+
+2. [形式二](/os/centos/modify-the-network-named-eth)。
+
