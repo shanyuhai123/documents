@@ -223,52 +223,64 @@ virtualbox 在启动时直接失败:
 
 1. 启动虚拟机失败：
 
-```
-Could not open dev/vmmon | Unable to open kernel device | Failed to initialize monitor device
-```
+   ```
+   Could not open dev/vmmon | Unable to open kernel device | Failed to initialize monitor device
+   ```
 
-解决方案为：
+   解决方案为：
 
-::: danger 注
+   ::: danger 注
 
-这是由于安装 `linux-headers` 时版本选择错误所致。
+   这是由于安装 `linux-headers` 时版本选择错误所致。
 
-首先获取内核版本号：
+   首先获取内核版本号：
 
-```bash
-uname -r # 4.19.66-1-MANJARO
-```
+   ```bash
+   uname -r # 4.19.66-1-MANJARO
+   ```
 
-在 Octopi 中重新安装：
+   在 Octopi 中重新安装：
 
-1. 安装 linux419-headers；
-2. 移除 linux316-headers  <Badge text="误选为 316，需对应各自的错误" type="warn"/>。
+   1. 安装 linux419-headers；
+   2. 移除 linux316-headers  <Badge text="误选为 316，需对应各自的错误" type="warn"/>。
 
-接着重启电脑即可。
+   接着重启电脑即可。
 
-:::
+   :::
 
 2. 创建虚拟机后无法联网：
 
-```
-Could not connect 'Ethernet0' to virtual network '/dev/vmnet8'. More information can be found in the vmware.log file. Failed to connect virtual device 'Ethernet0'.
-```
+   ```
+   Could not connect 'Ethernet0' to virtual network '/dev/vmnet8'. More information can be found in the vmware.log file. Failed to connect virtual device 'Ethernet0'.
+   ```
 
-解决方案为：
+   解决方案为：
 
-::: danger 注
+   ::: danger 注
 
-这是由于未启动 vmware 的网络服务。
+   这是由于未启动 vmware 的网络服务。
 
-解决方案来源于：[vmware_could_not_connect_ethernet0_to_virtual](https://www.reddit.com/r/archlinux/comments/9povuy/vmware_could_not_connect_ethernet0_to_virtual/)
+   解决方案来源于：[vmware_could_not_connect_ethernet0_to_virtual](https://www.reddit.com/r/archlinux/comments/9povuy/vmware_could_not_connect_ethernet0_to_virtual/)
 
-启用 vmware 的网络服务即可：
+   启用 vmware 的网络服务即可：
 
-```bash
-sudo systemctl start vmware-networks.service # 临时
-```
+   ```bash
+   sudo systemctl start vmware-networks.service # 临时
+   ```
 
-:::
+   :::
+
+3. 修改网卡配置：
+
+   在执行完上一步的启用 vmware 网络服务后，输入 `ip addr` 可以查看当前的网卡状态。
+
+   可以看到输出结果相对于之前多了 `vmnet1`、`vmnet8` 两块网卡的配置，这是 VMware 由于默认开启了 Host-Only 模式和 NAT 模式（NAT 可能是我开启的，暂不纠正），如果启动了 Briged（桥接网卡）还会出现 `vmnet0`。
+
+   回到 VMware，点击 `Edit > Virtual Network Editor` 进一步配置，此时你就可以修改 Host-Only 模式、NAT 模式、Briged 模式的配置了。
+
+
+
+
 
 
 
