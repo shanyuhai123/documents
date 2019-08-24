@@ -48,18 +48,18 @@ title: 如何在虚拟机中安装 CentOS
 
 + INSTALLATION DESTINATION：选择 `I will configure partitioning`。
 
-  默认选项是 LVM（逻辑卷管理，动态分配主机磁盘大小），软件实现的动态调整，在高并发状态下磁盘性能下降约 10%;。将其修改为 Standard Partition。
+  默认选项是 LVM（逻辑卷管理，动态分配主机磁盘大小），软件实现的动态调整，在高并发状态会导致磁盘性能下降（疑问句？按我所想其功能类似 RAID0 应该不会导致性能下降才对。）;。将其修改为 Standard Partition。
 
-  分区可参考 [Manjaro](/os/linux/how-to-install-manjaro-on-virtualbox.html#安装-manjaro) 的手动分区来。
+  分区可参考 [Manjaro](/os/linux/how-to-install-manjaro-on-virtualbox.html#安装-manjaro) 的手动分区来，不过 Manjaro 是桌面环境会存在一些区别。
 
-+ KDUMP：默认即可；
++ KDUMP：学习时可关闭；
 
 + NETWORK & HOST NAME：可在此处查看到之前 tab 修改的网卡命名是否生效了，Host name 改为喜欢的名字即可。
 
-  Config 可以在此时进行配置：
+  修改完 Host name，接着点击 Configure 进行配置 <Badge text="勿忘" type="error"/>：
 
   1. General：启用 Automatically connect；
-  2. IPv4：桥接网卡时调整为 Manual，配置 Addresses，配置 DNS。
+  2. IPv4 Settings：Method 修改为 Manual，点击 Add 添加[私有网络](https://zh.wikipedia.org/wiki/%E4%B8%93%E7%94%A8%E7%BD%91%E7%BB%9C)，配置对应的 Address、Netmask、Gateway、DNS。如果你对此不了解，可以还原为默认配置（Automatic DHCP），自动分配一个 IP 地址给你。
 
   启用 OFF 改为 ON 即可。
 
