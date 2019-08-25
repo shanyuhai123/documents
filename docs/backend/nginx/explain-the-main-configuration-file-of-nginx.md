@@ -2,7 +2,7 @@
 title: 详解 Nginx 主要配置文件
 ---
 
-## 0. 配置格式
+## 配置格式
 
 基本的 Nginx 文件由若干个部分组成，每个部分都是通过下列的方法定义的。
 
@@ -16,7 +16,7 @@ title: 详解 Nginx 主要配置文件
 
 
 
-## 1. nginx.conf
+## nginx.conf
 
 ```bash
 cat /etc/nginx/nginx.conf
@@ -27,7 +27,7 @@ cat /etc/nginx/nginx.conf
 ```bash
 # 配置 worker 进程的用户和组，默认是 nginx
 user  nginx;
-# Nginx 进程，一般设置为和 CPU 核数一致，阿里云学生机为 1 核
+# Nginx 进程，一般设置为和 CPU 核数一致，示例的阿里云学生机为 1 核
 worker_processes  1;
 
 # 错误日志存放目录，指令的第二个参数表示被记录错误的级别
@@ -35,7 +35,6 @@ worker_processes  1;
 error_log  /var/log/nginx/error.log warn;
 # 设置记录主进程 ID 的文件
 pid        /var/run/nginx.pid;
-
 
 events {
 		# 单个进程最大并发数
@@ -73,22 +72,20 @@ http {
 }
 ```
 
-## 2. default.conf
 
-在主配置文件的配置项指出子配置项所在的目录：
 
-```vim
-include /etc/nginx/conf.d/*.conf;
-```
+## default.conf
 
-查看该目录下的文件：
+在主配置文件（nginx.conf）中可以看到子配置项所在的目录：
 
 ```bash
+# include /etc/nginx/conf.d/*.conf;
+# 查看该目录下的文件：
 ls /etc/nginx/conf.d/
-# default.conf
+# default.conf # 默认
 ```
 
-### 解析
+### 1. 解析
 
 ```bash
 cat /etc/nginx/conf.d/default.conf
