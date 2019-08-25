@@ -75,5 +75,6 @@ ss -lntup | grep sshd # 或 netstat -lntup
 ps -ef | grep ssh
 # 查看是否安装了对应的软件
 rpm -qa openssh openssl
+# openssh 提供 SSH 服务，openssl 为 SSH 提供连接加密
 ```
 
