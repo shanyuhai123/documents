@@ -1120,6 +1120,14 @@ keys() 方法返回一个包含数组中每个索引键的 Array Iterator 对象
   const sparseKeys = Object.keys(arr); // ['0', '2']
   const denseKeys = [...arr.keys()]; // [0, 1, 2]
   ```
+  
++ generate an array of the specified length
+
+  ```js
+  const specifiedArray = len => [...new Array(len).keys()];
+  
+  specifiedArray(4); // [0, 1, 2, 3]
+  ```
 
 
 
