@@ -280,7 +280,12 @@ virtualbox 在启动时直接失败:
 
 
 
+## mpv
 
+### 1. 介绍
 
+一款视频播放软件。
 
+### 2. 使用方式
 
+mpv [快捷键](/more/hodgepodge/mpv-keyboards)。
