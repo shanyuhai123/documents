@@ -39,7 +39,7 @@ defineProperty 方法会直接再一个对象上定义一个新的属性，或�
 
 > 个人在日常开发中常用场景：
 >
-> - 较少使用。
+> - 尚未使用过。
 
 ### 3. 示例
 
@@ -157,3 +157,224 @@ Object.defineProperties(obj, props)
 ### 2. 描述
 
 Object.defineProperty 的复数形式。
+
+
+
+## Object.getOwnPropertyDescriptor
+
+### 1. 语法
+
+::: danger
+
+Object.getOwnPropertyDescriptor(obj, prop)
+
+:::
+
+参数：
+
+- obj：需要查找的目标对象；
+- prop：目标对象内属性名称。
+
+返回值：
+
+如果指定的属性存在于对象上，则返回其属性描述符对象（property descriptor），否则返回 undefined。
+
+### 2. 描述
+
+描述即返回值。
+
+需要注意在 ES2015，第一个的参数不是对象的话就会被强制转换为对象。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ normal
+
+  ```js
+  const o = { get foo() { return 17; } };
+  Object.getOwnPropertyDescriptor(o, "foo");
+  // {
+  //   configurable: true,
+  //   enumerable: true,
+  //   get: f foo(),
+  //   set: undefined
+  // }
+  
+  const o = {bar: 42};
+  Object.getOwnPropertyDescriptor(o, "bar");
+  // {
+  //   configurable: true,
+  //   enumerable: true,
+  //   value: 42,
+  //   writable: true
+  // }
+  ```
+
+
+
+## Object.getOwnPropertyDescriptors
+
+### 1. 语法
+
+::: danger
+
+Object.getOwnPropertyDescriptors(obj)
+
+:::
+
+参数：
+
+- obj：任意对象。
+
+返回值：
+
+所指定对象的所有自身属性的描述符，如果没有任何自身属性，则返回空对象。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ normal
+
+  ```js
+  const obj = {
+      foo: 1,
+  		get baz() { return 17; }
+  };
+  Object.getOwnPropertyDescriptors(obj);
+  // {
+  //   foo: {
+  //     configurable: true,
+  //     enumerable: true,
+  //     value: 1,
+  //     writable: true
+  //   },
+  // 	 baz: {
+  //     configurable: true,
+  //     enumerable: true,
+  //     get: f foo(),
+  //     set: undefined
+  //    }
+  // }
+  ```
+
++ creating a shallow clone
+
+  ```js
+  Object.create(
+    Object.getPrototypeOf(obj), 
+    Object.getOwnPropertyDescriptors(obj) 
+  );
+  ```
+
++ creating a subclass
+
+  ```js
+  function superclass() {}
+  superclass.prototype = {
+    // Define your methods and properties here
+  };
+  function subclass() {}
+  subclass.prototype = Object.create(
+    superclass.prototype,
+    {
+      // Define your methods and properties here
+    }
+  );
+  ```
+
+
+
+## Object.getOwnPropertyNames
+
+### 1. 语法
+
+::: danger
+
+Object.getOwnPropertyNames(obj)
+
+:::
+
+参数：
+
+- obj：任意对象。
+
+返回值：
+
+返回给定对象可枚举和不可枚举的属性名称。
+
+### 2. 描述
+
+描述即返回值。
+
+ `Object.keys` 方法仅可获取不可枚举属性。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ normal
+
+  ```js
+  const arr = ["a", "b", "c"];
+  Object.getOwnPropertyNames(arr).sort(); // ["0", "1", "2", "length"]
+  
+  const obj = { 0: "a", 1: "b", 2: "c"};
+  Object.getOwnPropertyNames(obj).sort(); //  ["0", "1", "2"]
+  ```
+
+
+
+## Object.getOwnPropertySymbols
+
+### 1. 语法
+
+::: danger
+
+Object.getOwnPropertySymbols(obj)
+
+:::
+
+参数：
+
+- obj：任意对象。
+
+返回值：
+
+返回给定对象的所有 Symbol 属性的数组。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ normal
+
+  ```js
+  let obj = {};
+  const a = Symbol("a");
+  const b = Symbol.for("b");
+  
+  obj[a] = "localSymbol";
+  obj[b] = "globalSymbol";
+  
+  Object.getOwnPropertySymbols(obj); // [Symbol(a), Symbol(b)]
+  ```
+
+  
