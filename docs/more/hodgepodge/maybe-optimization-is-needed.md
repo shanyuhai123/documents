@@ -1,5 +1,5 @@
 ---
-title: 可能需要优化的代码
+title: 可能需要优化的 JavaScript 代码
 ---
 
 ## 介绍
