@@ -1,6 +1,59 @@
 ---
-title: Object 构造函数方法
+title: 对象的构造函数方法
 ---
+
+## Object.is
+
+### 1. 语法
+
+::: danger
+
+Object.is(obj1, obj2);
+
+:::
+
+参数：
+
+- obj1：第一个需要比较的值；
+- obj2：第二个需要比较的值。
+
+返回值：
+
+返回两个参数是否相等的布尔值。
+
+### 2. 描述
+
+is 方法判断两个值是否相等，`==` 运算符会做隐式类型转换，而该方法不会；`===` 会将数字 `+0` 和 `-0` 视为相等，并认为 `NaN` 不等于 `NaN`。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ normal
+
+  ```js
+  Object.is('foo', 'foo');     // true
+  Object.is(window, window);   // true
+  
+  Object.is('foo', 'bar');     // false
+  Object.is([], []);           // false
+  
+  var foo = { a: 1 };
+  var bar = { a: 1 };
+  Object.is(foo, foo);         // true
+  Object.is(foo, bar);         // false
+  
+  Object.is(null, null);       // true
+  
+  // Special Cases
+  Object.is(0, -0);            // false
+  Object.is(-0, -0);           // true
+  Object.is(NaN, 0/0);         // true
+  ```
+
+
 
 ## Object.assign
 
@@ -255,164 +308,6 @@ create 方法创建一个新对象，使用现有的对象来提供新创建的�
 
 
 
-## Object.defineProperty
-
-### 1. 语法
-
-::: danger
-
-Object.defineProperty(obj, prop, descriptor)
-
-:::
-
-参数：
-
-- obj：要在其上定义属性的对象；
-- prop：要定义或修改的属性的名称；
-- descriptor：将被定义或修改的属性描述符。
-
-返回值：
-
- 传递给函数的对象。
-
-### 2. 描述
-
-defineProperty 方法会直接再一个对象上定义一个新的属性，或者修改一个对象的现有属性，并返回这个对象。
-
-属性描述符主要有两种形式，数据描述符、存取描述符：
-
-| 属性描述符   | 描述                                                         |           |
-| ------------ | ------------------------------------------------------------ | --------- |
-| configurable | 当且仅当该属性值为 true 时，该属性描述符才能被改变，同时该属性也能从对应的对象上被删除。 | false     |
-| enumerable   | 当且仅当该属性值为 true 时，该属性才能出现再对象的枚举属性中。 | false     |
-| value        | 该属性对应的值。                                             | undefined |
-| writable     | 当且仅当该属性值为 true 时，value 才可以被赋值运算符改变。   | false     |
-| get          | 给属性提供的 getter 方法，如果没有 getter 则为 undefined。当访问该属性时，该方法会被执行。 | undefined |
-| set          | 给属性提供的 setter 方法，如果没有 setter 则为 undefined。当属性值修改时，触发执行该方法。 | undefined |
-
-> 个人在日常开发中常用场景：
->
-> - 较少使用。
-
-### 3. 示例
-
-+ creating a property
-
-  ```js
-  let o = {};
-  
-  Object.defineProperty(o, 'a', {
-    value: 37,
-    writable: true,
-    enumerable: true,
-    configurable: true
-  });
-  
-  const bValue = 38;
-  Object.defineProperty(o, 'b', {
-    get() { return bValue; },
-    set(newValue) { bValue = newValue; },
-    enumerable: true,
-    configurable: true
-  });
-  o.b; // 38
-  ```
-
-+ adding properties and default values
-
-  ```js
-  Object.defineProperty(o, 'a', { value: 1 });
-  // 等价于
-  Object.defineProperty(o, 'a', {
-    value: 1,
-    writable: false,
-    configurable: false,
-    enumerable: false
-  });
-  ```
-
-+ custom setters and getters
-
-  ```js
-  function Archiver() {
-  	const temperature = null;
-    let archive = [];
-    
-    Object.defineProperty(this, 'temperature', {
-      get() {
-        console.log('get');
-        return temperature;
-      },
-      set(value) {
-        temperature = value;
-        archive.push({ val: temperature });
-      }
-    });
-    
-    this.getArchive = function() { return archive; };
-  }
-  
-  let arc = new Archiver();
-  arc.temperature; // 'get!'
-  arc.temperature = 11;
-  arc.temperature = 13;
-  arc.getArchive(); // [{ val: 11 }, { val: 13 }]
-  ```
-
-+ inheritance of properties
-
-  ```js
-  function myClass() {}
-  let value;
-  
-  Object.defineProperty(myClass.prototype, 'x',  {
-    get() {
-      return value;
-    },
-    set(x) {
-      value = x;
-    }
-  });
-  
-  let a = new myclass();
-  let b = new myclass();
-  a.x = 1;
-  b.x; // 1
-  ```
-
-
-
-## Object.defineProperties
-
-### 1. 语法
-
-::: danger
-
-Object.defineProperties(obj, props)
-
-:::
-
-参数：
-
-- obj：在其上定义或修改属性的对象；
-- props：要定义或修改的属性的名称。
-  + configurable：可配置；
-  + enumerable：可枚举；
-  + value：与属性关联的值；
-  + wriable：可修改；
-  + get：该属性的 getter 函数；
-  + set：该属性的 setter 函数。
-
-返回值：
-
-传递给函数的对象。
-
-### 2. 描述
-
-Object.defineProperty 的复数形式。
-
-
-
 ## Object.entries
 
 ### 1. 语法
@@ -600,3 +495,88 @@ Object.values(obj)
   Object.values(obj); // ['b', 'c', 'a']
   ```
 
+
+
+## Object.getPrototypeOf
+
+### 1. 语法
+
+::: danger
+
+Object.getPrototypeOf(obj)
+
+:::
+
+参数：
+
+- obj：要返回其原型的对象。
+
+返回值：
+
+给定对象的原型。如果没有继承属性，则返回 null 。
+
+### 2. 描述
+
+描述即返回值。
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ normal
+
+  ```js
+  const proto = {};
+  const obj = Object.create(proto);
+  Object.getPrototypeOf(obj) === proto; // true
+  ```
+
+
+
+## Object.setPrototypeOf
+
+### 1. 语法
+
+::: danger 警告
+
+Object.setPrototypeOf(obj, prototype)
+
+:::
+
+参数：
+
+- obj：要设置其原型的对象；
+- prototype：该对象的新原型(一个对象 或 null)。
+
+### 2. 描述
+
+setPrototypeOf 方法设置一个指定的对象的原型 ( 即, 内部[[Prototype]]属性）到另一个对象或  null。
+
+::: danger
+
+由于现代 JavaScript 引擎优化属性访问所带来的特性的关系，更改对象的 `[[Prototype]]`在各个浏览器和 JavaScript 引擎上都是一个很慢的操作。
+
+:::
+
+> 个人在日常开发中常用场景：
+>
+> - 尚未使用过。
+
+### 3. 示例
+
++ normal
+
+  ```js
+  const dict = Object.setPrototypeOf({}, null);
+  ```
+
+
+
+## 数组其余构造方法
+
+将一些关联性较强的构造方法迁移出：
+
++ [冻结方法](/frontend/javascript/object-constructor-methods-freeze)；
++ [属性方法](/frontend/javascript/object-constructor-methods-property)。
