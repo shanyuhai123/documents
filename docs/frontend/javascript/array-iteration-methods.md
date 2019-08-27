@@ -1020,7 +1020,7 @@ arr.flat(depth)
 ::: danger
 arr.flatMap(function callback(currentValue[, index[, array]]) {
 
-	    // return element for new_array
+​	// return element for new_array
 
 }[, thisArg])
 :::
