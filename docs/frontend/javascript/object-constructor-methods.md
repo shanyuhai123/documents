@@ -8,7 +8,7 @@ title: 对象的构造函数方法
 
 ::: danger
 
-Object.is(obj1, obj2);
+Object.is(obj1, obj2)
 
 :::
 
