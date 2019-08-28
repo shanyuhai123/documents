@@ -1,5 +1,5 @@
 ---
-title: 对象的构造函数方法
+title: 对象的实例函数方法
 ---
 
 ## Object.prototype.hasOwnProperty
