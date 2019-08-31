@@ -58,7 +58,7 @@ rsync [OPTION]    rsync://[USER@]HOST[:PORT]/SRC    [DEST]
 
 ## 常用示例
 
-### 1. 替代 cp 操作
+### 1. 目录间推送数据
 
 ```bash
 rsync /ect/hosts /opt
@@ -66,24 +66,18 @@ rsync /ect/hosts /opt
 rsync -vzrtopg --progress /etc/hosts /opt
 ```
 
-### 2. 替代 rm 操作
+### 2. 目录间同步数据
 
 ```bash
-# 删除文件
-touch /null.txt # 空文件
+# 同步文件
+touch /null.txt
 cat /opt/hosts
 rsync -r --delete /null.txt /opt/hosts
 cat /opt/hosts # 验证
-# 删除目录
-mkdir /null # 空目录
+# 同步目录
+mkdir /null
 rsync  -r --delete /null /opt
 ls /opt # 验证
-```
-
-### 3. 替代 ls 操作
-
-```bash
-rsync /etc/hosts
 ```
 
 ### 4. 推送数据到对应主机端口
@@ -105,3 +99,9 @@ cat /opt/hosts # 验证
 
 
 
+## 相关
+
+看到部分文章说 rsync 传输大量小文件时会停止僵死（小文件是多小，大量是多大也没有描述清楚），这个问题搜了下，尚未得知具体的原因：
+
+1. [Best way to copy millions of files between 2 servers](https://superuser.com/questions/291803/best-way-to-copy-millions-of-files-between-2-servers)
+2. [How to speed up rsync for small files](https://serverfault.com/questions/365103/how-to-speed-up-rsync-for-small-files)
