@@ -4,7 +4,7 @@ title: 输入、输出重定向
 
 ## 介绍
 
-重定向标准 IO 流：标准输入（STDIN，文件描述符 0）、标准输出（STDOUT，文件描述符 1）、标准错误（STDERR，文件描述符 2）。
+[重定向](https://zh.wikipedia.org/wiki/%E9%87%8D%E5%AE%9A%E5%90%91_(%E8%AE%A1%E7%AE%97%E6%9C%BA))标准 IO 流：标准输入（STDIN，文件描述符 0）、标准输出（STDOUT，文件描述符 1）、标准错误（STDERR，文件描述符 2）。
 
 
 
@@ -74,4 +74,18 @@ command < file
 # command < input > out
 grep -v "tt." < test.txt > newTest.txt
 ```
+
+
+
+## 核心使用
+
+常利用[空设备](https://zh.wikipedia.org/wiki//dev/null)（/dev/null）和重定向来丢弃不需要的输出流。
+
+```bash
+cat /etc/hosts > /dev/null
+```
+
+很多时候会将其配合 `2>&1` 进行使用，可参考 [shell中>/dev/null 2>&1是什么鬼](http://www.kissyu.org/2016/12/25/shell%E4%B8%AD%3E%20:dev:null%202%20%3E%20&1%E6%98%AF%E4%BB%80%E4%B9%88%E9%AC%BC%EF%BC%9F/)。
+
+
 
