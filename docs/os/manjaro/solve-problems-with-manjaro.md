@@ -14,7 +14,7 @@ title: Manjaro 的日常
 `系统设置` > `硬件` > `显示和监控` > `混成器` > `避免撕裂(垂直同步)` > `从不`
 :::
 
-![录屏闪烁](/OS/manjaro/os_manjaro_5_20190218171136.png)
+![录屏闪烁](/os/manjaro/screen-flashing-when-recording.png)
 
 ## 禁用笔记本键盘
 

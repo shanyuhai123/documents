@@ -12,7 +12,7 @@ title: 切换多个 github 账号
 
 2. 将 public key 上传至服务器(名字随意即可)
 
-   ![](/git/git_20190217234850-1550418619928.png)
+   ![](/git/github-add-ssh-key.png)
 
 3. 在 `~/.ssh/` 目录下创建 config 文件
 

@@ -6,7 +6,7 @@ JavaScript 采用了 IEEE 754 标准中的浮点算法来表示数字 Number
 
 此处附图
 
-![JavaScript Number](/base/interview/1468042984788341.png)
+![JavaScript Number](/base/interview/javascript-value-range.png)
 
 ## 大数相加示例
 
