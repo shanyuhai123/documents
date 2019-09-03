@@ -12,6 +12,9 @@ Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter] # i
 # 3. 输入密码短语（无密码短语为空）
 Enter passphrase (empty for no passphrase): [Type a passphrase]
 Enter same passphrase again: [Type passphrase again]
+
+# 4. 快速生成 ssh key
+ssh-keygen -f ~/.ssh/id_rsa  -P '' -q # 可修改文件名，还可接续上面的配置
 ```
 
 ## 修复 ssh-add 存在的问题 :tada:

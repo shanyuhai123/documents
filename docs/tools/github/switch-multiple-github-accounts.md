@@ -8,7 +8,7 @@ title: 切换多个 github 账号
 
 ## 切换步骤
 
-1. 创建 ssh key 可以查看 [创建 SSH Key](/os/ubuntu/generate-ssh-key)
+1. 创建 ssh key 可以查看 [创建 SSH Key](/os/linux/generate-ssh-key)
 
 2. 将 public key 上传至服务器(名字随意即可)
 
