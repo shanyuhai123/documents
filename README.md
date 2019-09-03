@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/shanyuhai123/documents.svg?branch=master)](https://travis-ci.com/shanyuhai123/documents)
+[![Build Status](https://travis-ci.com/shanyuhai123/documents.svg?branch=master)](https://travis-ci.com/shanyuhai123/documents) [![GitHub forks](https://img.shields.io/github/forks/shanyuhai123/documents)](https://github.com/shanyuhai123/documents/network) [![GitHub stars](https://img.shields.io/github/stars/shanyuhai123/documents)](https://github.com/shanyuhai123/documents/stargazers) [![GitHub license](https://img.shields.io/github/license/shanyuhai123/documents)](https://github.com/shanyuhai123/documents/blob/master/LICENSE)
 
 ## 介绍
 
