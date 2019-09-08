@@ -86,7 +86,7 @@ ssh root@xxx.xxx.xxx.xxx
 
 **拒绝 root 用户登录**
 
-在使用该项时，先完成 [增加用户](/OS/centos/02-add-user.html)。
+在使用该项时，先完成 [增加用户](/os/linux/user)。
 
 ```bash
 vim /etc/ssh/sshd_config
