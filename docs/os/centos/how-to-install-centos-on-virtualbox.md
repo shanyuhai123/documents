@@ -14,7 +14,7 @@ title: 如何在虚拟机中安装 CentOS
 
 ## 虚拟机中加载 CentOS
 
-该步骤与同分类的 [加载 manjaro](/os/linux/how-to-install-manjaro-on-virtualbox.html#虚拟机中加载-manjaro) 步骤基本一致，此处不多做概述。
+该步骤与 [加载 manjaro](/os/manjaro/how-to-install-manjaro-on-virtualbox.html#虚拟机中加载-manjaro) 步骤基本一致，此处不多做概述。
 
 
 
@@ -27,7 +27,7 @@ title: 如何在虚拟机中安装 CentOS
 + Troubleshooting（排除故障）
 + Press Tab for full configuration options on menu items
 
-一般直接选中 Install 即可，当然你也可以按下 Tab 键进行额外 [配置](/os/linux/how-to-install-centos-on-virtualbox.html#配置)。
+一般直接选中 Install 即可，当然你也可以按下 Tab 键进行额外 [配置](/os/centos/how-to-install-centos-on-virtualbox.html#配置)。
 
 ### 1. LOCALIZATION
 
@@ -50,7 +50,7 @@ title: 如何在虚拟机中安装 CentOS
 
   默认选项是 LVM（逻辑卷管理，动态分配主机磁盘大小），软件实现的动态调整，在高并发状态会导致磁盘性能下降（疑问句？按我所想其功能类似 RAID0 应该不会导致性能下降才对。）;。将其修改为 Standard Partition。
 
-  分区可参考 [Manjaro](/os/linux/how-to-install-manjaro-on-virtualbox.html#安装-manjaro) 的手动分区来，不过 Manjaro 是桌面环境会存在一些区别。
+  分区可参考 [Manjaro](/os/manjaro/how-to-install-manjaro-on-virtualbox.html#安装-manjaro) 的手动分区来，不过 Manjaro 是桌面环境会存在一些区别。
 
 + KDUMP：学习时可关闭；
 

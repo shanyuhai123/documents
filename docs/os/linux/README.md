@@ -12,9 +12,9 @@ title: 首页
 
 关于 Linux 的介绍主要是基于以下环境：
 
-+ [Manjaro](/os/linux/how-to-install-manjaro-on-virtualbox)：滚动更新；
++ [Manjaro](/os/manjaro/how-to-install-manjaro-on-virtualbox)：滚动更新；
 + Ubuntu18.04；
-+ [CentOS7-1810](/os/linux/how-to-install-centos-on-virtualbox)。
++ [CentOS7-1810](/os/centos/how-to-install-centos-on-virtualbox)。
 
 
 
