@@ -41,3 +41,28 @@ title: 生命技巧
 ### 2. 详细使用
 
 🎉 [视频地址](https://www.bilibili.com/video/av61108053) 🎉
+
+
+
+## 快速启动 scripts 脚本
+
+### 1. 介绍
+
+这个是新版 VSCode <Badge text="v1.37+" type="warn"/> 才具有的特性，打开项目后会根据 `package.json` 脚本生成 `NPM SCRIPTS` 在侧边栏，点击即可快速启动。
+
+### 2. 详细使用
+
+🎉 [视频地址](https://www.bilibili.com/video/av62989588) 🎉
+
+
+
+## 识别 alias
+
+### 1. 介绍
+
+在现在的项目中总会需要使用到 alias 指定路径，VSCode 提供了 `jsconfig.json` 来帮助编辑器识别 alias。
+
+### 2. 详细使用
+
+🎉 [视频地址](https://www.bilibili.com/video/av67324824) 🎉
+
