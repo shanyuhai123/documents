@@ -89,3 +89,12 @@ if ($host = blog.shanyuhai.top) {
 } # managed by Certbot
 ```
 
+
+
+## [location](https://nginx.org/en/docs/http/ngx_http_core_module.html#location)
+
+可以注意到 `Context:	server, location`，也就是 location 可以嵌套，该项之前都没有注意到过。比较特殊的是 `@` 前缀定义命名位置。这样的位置不用于常规请求处理，而是用于请求重定向，它们不能嵌套。
+
+location 的匹配规则与常规的不一致，非正序匹配，也非倒序匹配，而是：
+
+> 为了找到与给定请求匹配的位置，nginx首先检查使用前缀字符串（前缀位置）定义的位置。其中，选择并记住具有最长匹配前缀的位置。然后按照它们在配置文件中的出现顺序检查正则表达式。正则表达式的搜索在第一次匹配时终止，并使用相应的配置。如果未找到与正则表达式的匹配，则使用先前记住的前缀位置的配置。
