@@ -56,3 +56,36 @@ server {
 ### 2. 注意
 
 在部分文章中注意到，如果你想要提高自己的网站的知名度，那么还需要配合 301 进行跳转，否则该项设置会导致搜索引擎收录他人的站点，而非你的。
+
+
+
+## [rewrite](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite)
+
+该指令可以用于修改访问的 URL，对应的语法为：
+
+::: danger
+
+rewrite regex replacement [flag]
+
+:::
+
+flag 具有以下参数：
+
+|   flag    | 说明                        |
+| :-------: | --------------------------- |
+|   last    | 使用更改的 URI 匹配新位置。 |
+|   break   | 停止处理当前的指令集。      |
+| redirect  | 返回 302 （临时）重定向。   |
+| permanent | 返回 301 （永久）重定向。   |
+
+近期在升级站点到 https 时就用到了该语法：
+
+```bash
+rewrite ^(.*) https://$host$1 permanent;
+
+# 及 Certbot 自动配置的
+if ($host = blog.shanyuhai.top) {
+    return 301 https://$host$request_uri;
+} # managed by Certbot
+```
+
