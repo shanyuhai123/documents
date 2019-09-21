@@ -273,3 +273,98 @@ alias 与 root 有相似的用法，主要是介绍他们之间的区别。
   # 123456
   ```
 
+
+
+## [referer](https://nginx.org/en/docs/http/ngx_http_referer_module.html)
+
+referer （引用页），常用于防盗链，当使用 CDN、OSS 时经常会碰到类似的提示。
+
+> referer 正确英文为 referrer，但由于早期 HTTP 规范的拼写错误，为了保持向后兼容也就将错就错了。
+
+### 1. Example
+
+来自 Nginx 的示例配置，并根据上一示例 [alias](/backend/nginx/nginx-directives.html#alias) 稍作修改：
+
+```bash
+vim /etc/nginx/conf.d/default.conf
+
+# 修改内容如下
+server {
+    listen       80;
+    server_name  localhost;
+
+    #charset koi8-r;
+    access_log  /var/log/nginx/nginx.access.log  main;
+    error_log  /var/log/nginx/nginx.error.log warn;
+
+    location / {
+        valid_referers none blocked server_names
+               *.example.com example.* nginx.example.top/foo/
+               ~\.google\.;
+
+        if ($invalid_referer) {
+            return 403;
+        }
+        return 200 'valid_referers\n';
+    }
+}
+
+nginx -s reload # 重载配置
+```
+
+### 2. test
+
+1. *.example.com
+
+   ```bash
+   curl -e 'http://dev.example.com' nginx.example.com
+   # 等价于
+   curl -H 'referer: http://dev.example.com' nginx.example.com
+   # HTTP/1.1 200 OK
+   # valid_referers
+   
+   curl -ie 'http://dev.aexample.com' nginx.example.com
+   # HTTP/1.1 403 Forbidden
+   ```
+
+2. example.*
+
+   ```bash
+   curl -ie 'http://example.org' nginx.example.com
+   # HTTP/1.1 200 OK
+   # valid_referers
+   
+   curl -ie 'http://dev.example.org' nginx.example.com
+   # HTTP/1.1 403 Forbidden
+   
+   curl -ie 'http://example.org/aaa' nginx.example.com
+   # HTTP/1.1 200 OK
+   # valid_referers
+   ```
+
+3. nginx.example.top/foo/
+
+   ```bash
+   curl -ie 'http://nginx.example.top' nginx.example.com
+   # HTTP/1.1 403 Forbidden
+   
+   curl -ie 'http://nginx.example.top/aaa' nginx.example.com
+   # HTTP/1.1 403 Forbidden
+   
+   curl -ie 'http://nginx.example.top/foo' nginx.example.com
+   # HTTP/1.1 403 Forbidden
+   curl -ie 'http://nginx.example.top/foo/' nginx.example.com
+   # HTTP/1.1 200 OK
+   # valid_referers
+   
+   curl -ie 'http://nginx.example.top/foo/aa' nginx.example.com
+   # HTTP/1.1 200 OK
+   # valid_referers
+   ```
+
+   
+
+
+
+
+
