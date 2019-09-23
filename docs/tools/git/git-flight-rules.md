@@ -32,12 +32,6 @@ git rebase -i hash
 
 git log # 验证
 
-# 这里就存在一个问题，如果已经是根节点呢
-# 可以将 git log 获得的信息根据格式添加至第一行，其余操作如上
-git rebase -i hash
-# 将新增的第一行 pick 修改为 r，保存退出
-# 根据提示信息
-
 ```
 
 ### 3. 合并多个 commit 信息
