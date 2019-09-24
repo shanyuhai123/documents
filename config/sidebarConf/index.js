@@ -25,6 +25,7 @@ const nginx = require('./backend/nginx/index.js');
 const git = require('./tools/git/index.js');
 const github = require('./tools/github/index.js');
 const vscode = require('./tools/vscode/index.js');
+const chrome = require('./tools/chrome/index.js');
 
 // 更多
 const algorithm = require('./more/algorithm/index.js');
@@ -68,6 +69,7 @@ module.exports = {
   '/tools/git/': git,
   '/tools/github/': github,
   '/tools/vscode/': vscode,
+  '/tools/chrome/': chrome,
 
   // 更多 more
   '/more/algorithm/': algorithm,
