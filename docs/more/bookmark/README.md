@@ -2,8 +2,8 @@
 title: 首页
 ---
 
-## 介绍
+## 链接
 
-用于缓解一下浏览器的书签栏。
+1. [manjaro questions](https://forum.manjaro.org/)
 
 
