@@ -20,8 +20,9 @@ title: 首页
 
 ## 参考资料
 
-1. 《Linux 入门很简单》
-2. 《Ubuntu 标准教程》
-3. 《老男孩：核心基础》
+1. [Red Hat CentOS 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) <Badge text="核心" type="error"/>
+2. 《Linux 入门很简单》
+3. 《Ubuntu 标准教程》
+4. 《老男孩：核心基础》
 
 还有一些很早以前看过的书未记录。
