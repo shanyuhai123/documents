@@ -287,3 +287,4 @@ str.lastIndexOf(searchValue[, fromIndex])
 ### 2. 描述
 
 与 indexOf 一致，逆序查找。
+
