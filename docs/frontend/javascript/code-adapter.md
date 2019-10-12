@@ -26,6 +26,7 @@ const firstTwoMax = ary(Math.max, 2);
 ```
 
 
+
 ## call
 
 **FUNCTION：**
@@ -51,6 +52,7 @@ Promise.resolve([1, 2, 3])
 ```
 
 
+
 ## collectInto
 
 **FUNCTION：**
@@ -72,6 +74,7 @@ let p2 = Promise.resolve(2);
 let p3 = new Promise(resolve => setTimeout(resolve, 2000, 3));
 Pall(p1, p2, p3).then(console.log); // [1, 2, 3] (after about 2 seconds)
 ```
+
 
 
 ## flip
@@ -99,6 +102,7 @@ Object.assign(b, a); // == b
 ```
 
 
+
 ## over
 
 **FUNCTION：**
@@ -116,4 +120,174 @@ const over = (...fns) => (...args) => fns.map(fn => fn.apply(null, args));
 ```js
 const minMax = over(Math.min, Math.max);
 minMax(1, 2, 3, 4, 5); // [1,5]
+```
+
+
+
+## overArgs
+
+**FUNCTION：**
+
+```js
+const overArgs = (fn, transforms) => (...args) => fn(...args.map((val, i) => transforms[i](val)));
+```
+
+**CONCEPTS：**   
+
+尚不能理解作用。
+
+**EXAMPLES：**
+
+```js
+const square = n => n * n;
+const double = n => n * 2;
+const fn = overArgs((x, y) => [x, y], [square, double]);
+fn(9, 3); // [81, 6]
+```
+
+
+
+## pipeAsyncFunctions
+
+**FUNCTION：**
+
+```js
+const pipeAsyncFunctions = (...fns) => arg => fns.reduce((p, f) => p.then(f), Promise.resolve(arg));
+```
+
+**CONCEPTS：**   
+
+从左到右执行异步函数。
+
+**EXAMPLES：**
+
+```js
+const sum = pipeAsyncFunctions(
+  x => x + 1,
+  x => new Promise(resolve => setTimeout(() => resolve(x + 2), 1000)),
+  x => x + 3,
+  async x => (await x) + 4
+);
+(async () => {
+  console.log(await sum(5)); // 15 (after one second)
+})();
+```
+
+
+
+## pipeFunctions
+
+**FUNCTION：**
+
+```js
+const pipeFunctions = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)));
+```
+
+**CONCEPTS：**   
+
+组合函数。
+
+**EXAMPLES：**
+
+```js
+const add5 = x => x + 5;
+const multiply = (x, y) => x * y;
+const multiplyAndAdd5 = pipeFunctions(multiply, add5);
+multiplyAndAdd5(5, 2); // 15
+```
+
+
+
+## promisify
+
+**FUNCTION：**
+
+```js
+const promisify = func => (...args) =>
+  new Promise((resolve, reject) =>
+    func(...args, (err, result) => (err ? reject(err) : resolve(result)))
+  );
+```
+
+**CONCEPTS：**   
+
+尚不能理解。
+
+**EXAMPLES：**
+
+```js
+const delay = promisify((d, cb) => setTimeout(cb, d));
+delay(2000).then(() => console.log('Hi!')); // // Promise resolves after 2s
+```
+
+
+
+## rearg
+
+**FUNCTION：**
+
+```js
+const rearg = (fn, indexes) => (...args) => fn(...indexes.map(i => args[i]));
+```
+
+**CONCEPTS：**   
+
+尚不能理解作用。
+
+**EXAMPLES：**
+
+```js
+const rearged = rearg(
+  function(a, b, c) {
+    return [a, b, c];
+  },
+  [2, 0, 1]
+);
+rearged('b', 'c', 'a'); // ['a', 'b', 'c']
+```
+
+
+
+## spreadOver
+
+**FUNCTION：**
+
+```js
+const spreadOver = fn => argsArr => fn(...argsArr);
+```
+
+**CONCEPTS：**   
+
+展开参数操作。主要还是使用了扩展运算符。
+
+**EXAMPLES：**
+
+```js
+const arrayMax = spreadOver(Math.max);
+arrayMax([1, 2, 3]); // 3
+```
+
+
+
+## unary
+
+**FUNCTION：**
+
+```js
+const unary = fn => val => fn(val);
+```
+
+**CONCEPTS：**   
+
+限定函数单参数。类似 map 等方法会传递多个（三个）参数，导致部分可以接受多参数的方法产生问题，见下方示例。
+
+**EXAMPLES：**
+
+```js
+['6', '8', '10'].map(unary(parseInt)); // [6, 8, 10]
+['6', '8', '10'].map(parseInt); // [6, NaN, 2]
+// map 方法传递进来三个参数 value,key,array。也就是实际上执行的是： 
+parseInt('6', 0); // 6
+parseInt('8', 1); // NaN
+parseInt('10', 2); // 2
 ```
