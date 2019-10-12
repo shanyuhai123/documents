@@ -2,6 +2,10 @@
 title: 30s code browser
 ---
 
+> [30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+
+
 ## arrayToHtmlList
 
 **FUNCTION：**

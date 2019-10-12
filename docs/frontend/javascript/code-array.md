@@ -2,6 +2,10 @@
 title: 30s code array
 ---
 
+> [30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+
+
 ## all
 
 **FUNCTION：**

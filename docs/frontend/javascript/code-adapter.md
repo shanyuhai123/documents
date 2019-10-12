@@ -2,6 +2,10 @@
 title: 30s code adapter
 ---
 
+> [30 seconds of code (Adapter)](https://www.30secondsofcode.org/tag/adapter)
+
+
+
 ## ary
 
 **FUNCTION：**
