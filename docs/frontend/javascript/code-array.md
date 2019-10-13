@@ -25,6 +25,7 @@ all([1, 2, 3]); // true
 ```
 
 
+
 ## allEqual
 
 **FUNCTION：**
@@ -45,6 +46,7 @@ allEqual([1, 1, 1, 1]); // true
 ```
 
 
+
 ## any
 
 **FUNCTION：**
@@ -63,6 +65,7 @@ const any = (arr, fn = Boolean) => arr.some(fn);
 any([0, 1, 2, 0], x => x >= 2); // true
 any([0, 0, 1, 0]); // true
 ```
+
 
 
 ## arrayToCSV
@@ -89,6 +92,7 @@ arrayToCSV([['a', '"b" great'], ['c', 3.1415]]); // '"a","""b"" great"\n"c",3.14
 ```
 
 
+
 ## bifurcate
 
 **FUNCTION：**
@@ -107,6 +111,7 @@ const bifurcate = (arr, filter) =>
 ```js
 bifurcate(['beep', 'boop', 'foo', 'bar'], [true, true, false, true]); // [ ['beep', 'boop', 'bar'], ['foo'] ]
 ```
+
 
 
 ## bifurcateBy
@@ -131,6 +136,7 @@ bifurcateBy(['beep', 'boop', 'foo', 'bar'], x => x.startsWith('b')); // [ ['beep
 ```
 
 
+
 ## chunk
 
 **FUNCTION：**
@@ -153,6 +159,7 @@ chunk([1, 2, 3, 4, 5], 2); // [[1,2],[3,4],[5]]
 ```
 
 
+
 ## compact
 
 **FUNCTION：**
@@ -172,6 +179,7 @@ const compactSelf = arr => arr.filter(a => a);
 ```js
 compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]); // [ 1, 2, 3, 'a', 's', 34 ]
 ```
+
 
 
 ## countBy
@@ -196,6 +204,7 @@ countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
 ```
 
 
+
 ## countOccurrences
 
 **FUNCTION：**
@@ -213,6 +222,7 @@ const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 :
 ```js
 countOccurrences([1, 1, 2, 1, 2, 3], 1); // 3
 ```
+
 
 
 ## deepFlatten
@@ -236,6 +246,7 @@ deepFlatten([1, [2], [[3], 4], 5]); // [1,2,3,4,5]
 ```
 
 
+
 ## difference
 
 **FUNCTION：**
@@ -256,6 +267,7 @@ const difference = (a, b) => {
 ```js
 difference([1, 2, 3], [1, 2, 4]); // [3]
 ```
+
 
 
 ## differenceBy
@@ -281,6 +293,7 @@ differenceBy([{ x: 2 }, { x: 1 }], [{ x: 1 }], v => v.x); // [2]
 ```
 
 
+
 ## differenceWith
 
 **FUNCTION：**
@@ -298,6 +311,7 @@ const differenceWith = (arr, val, comp) => arr.filter(a => val.findIndex(b => co
 ```js
 differenceWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Math.round(b)); // [1, 1.2]
 ```
+
 
 
 ## drop
@@ -322,6 +336,7 @@ drop("hello world", 5); // " world"
 ```
 
 
+
 ## dropRight
 
 **FUNCTION：**
@@ -340,4 +355,296 @@ const dropRight = (arr, n = 1) => arr.slice(0, -n);
 dropRight([1, 2, 3]); // [1,2]
 dropRight([1, 2, 3], 2); // [1]
 dropRight([1, 2, 3], 42); // []
+```
+
+
+
+
+## dropWhile
+
+**FUNCTION：**
+
+```js
+const dropWhile = (arr, func) => {
+  while (arr.length > 0 && !func(arr[0])) arr = arr.slice(1);
+  return arr;
+};
+```
+
+**CONCEPTS：** 
+
+从头开始删除数组中不符合条件的，直至符合。
+
+**EXAMPLES：**
+
+```js
+// 示例存在误导嫌疑，修改一下
+dropWhile([1, 2, 3, 2, 4], n => n >= 3); // [3,2,4]
+```
+
+
+
+## dropRightWhile
+
+**FUNCTION：**
+
+```js
+const dropRightWhile = (arr, func) => {
+  let rightIndex = arr.length;
+  while (rightIndex-- && !func(arr[rightIndex]));
+  return arr.slice(0, rightIndex + 1);
+};
+```
+
+**CONCEPTS：** 
+
+从末尾开始删除数组中不符合条件的，直至符合。
+
+**EXAMPLES：**
+
+```js
+dropRightWhile([1, 2, 3, 2, 4], n => n < 3); //  [1, 2, 3, 2]
+```
+
+
+
+## everyNth
+
+**FUNCTION：**
+
+```js
+const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
+```
+
+**CONCEPTS：** 
+
+返回数组中的第 nth 组成的数组。
+
+**EXAMPLES：**
+
+```js
+everyNth([1, 2, 3, 4, 5, 6], 2); // [ 2, 4, 6 ]
+```
+
+
+
+## filterFalsy
+
+与 [compact](/frontend/javascript/code-array.html#compact) 一致。
+
+
+
+## filterNonUnique
+
+**FUNCTION：**
+
+```js
+const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
+```
+
+**CONCEPTS：** 
+
+移除数组中多次出现的数据。利用双指针来判断是否数据重复，需要注意到的这个方法并非是去重。
+
+**EXAMPLES：**
+
+```js
+filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1, 3, 5]
+```
+
+
+
+## filterNonUniqueBy
+
+**FUNCTION：**
+
+```js
+const filterNonUniqueBy = (arr, fn) =>
+  arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)));
+```
+
+**CONCEPTS：** 
+
+移除数组中多次出现的某一数据。`(i === j) === fn(v, x, i, j)` 是比较细节的地方，用于排除自身（存在更优解）。
+
+**EXAMPLES：**
+
+```js
+filterNonUniqueBy(
+  [
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 1, value: 'd' },
+    { id: 0, value: 'e' }
+  ],
+  (a, b) => a.id == b.id
+); // [ { id: 2, value: 'c' } ]
+```
+
+
+
+## findLast
+
+**FUNCTION：**
+
+```js
+const findLast = (arr, fn) => arr.filter(fn).pop();
+```
+
+**CONCEPTS：** 
+
+返回最后一个符合的数据。filter 会返回一个新的数组，pop 方法不会影响原数组。
+
+**EXAMPLES：**
+
+```js
+findLast([1, 2, 3, 4], n => n % 2 === 1); // 3
+```
+
+
+
+## findLastIndex
+
+**FUNCTION：**
+
+```js
+const findLastIndex = (arr, fn) =>
+  (arr
+    .map((val, i) => [i, val])
+    .filter(([i, val]) => fn(val, i, arr))
+    .pop() || [-1])[0];
+```
+
+**CONCEPTS：** 
+
+返回最后一个符合的数据的索引。利用 map 方法保留索引。
+
+**EXAMPLES：**
+
+```js
+findLastIndex([1, 2, 3, 4], n => n % 2 === 1); // 2 (index of the value 3)
+findLastIndex([1, 2, 3, 4], n => n === 5); // -1 (default value when not found)
+```
+
+
+
+## flatten
+
+**FUNCTION：**
+
+```js
+const flatten = (arr, depth = 1) =>
+  arr.reduce((a, v) => a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v), []);
+```
+
+**CONCEPTS：** 
+
+指定数组扁平化深度。在递归中增加一个判断开关，一个无开关[示例](/frontend/javascript/code-array.html#deepflatten)。
+
+**EXAMPLES：**
+
+```js
+flatten([1, [2], 3, 4]); // [1, 2, 3, 4]
+flatten([1, [2, [3, [4, 5], 6], 7], 8], 2); // [1, 2, 3, [4, 5], 6, 7, 8]
+```
+
+
+
+## forEachRight
+
+**FUNCTION：**
+
+```js
+const forEachRight = (arr, callback) =>
+  arr
+    .slice(0)
+    .reverse()
+    .forEach(callback);
+```
+
+**CONCEPTS：** 
+
+forEach 从右执行。reverse 会改变原数组，故用 `slice(0)` 进行了数组的浅拷贝。
+
+**EXAMPLES：**
+
+```js
+forEachRight([1, 2, 3, 4], val => console.log(val)); // '4', '3', '2', '1'
+```
+
+
+
+## groupBy
+
+**FUNCTION：**
+
+```js
+const groupBy = (arr, fn) =>
+  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val, i) => {
+    acc[val] = (acc[val] || []).concat(arr[i]);
+    return acc;
+  }, {});
+```
+
+**CONCEPTS：** 
+
+数组分类。可见之前更简洁的示例 [bifurcateBy](/frontend/javascript/code-array.html#bifurcateby)。
+
+**EXAMPLES：**
+
+```js
+groupBy([6.1, 4.2, 6.3], Math.floor); // {4: [4.2], 6: [6.1, 6.3]}
+groupBy(['one', 'two', 'three'], 'length'); // {3: ['one', 'two'], 5: ['three']}
+```
+
+
+
+## indexOfAll
+
+**FUNCTION：**
+
+```js
+const indexOfAll = (arr, val) => arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
+
+// 借用 findLastIndex 中的方法
+const indexOfAllSelf = (arr, fn) =>
+  arr
+    .map((val, i) => [i, val])
+    .filter(([i, val]) => fn(val, i, arr))
+    .map([i] => i);
+```
+
+**CONCEPTS：** 
+
+返回出现目标的索引的组成的数组。
+
+**EXAMPLES：**
+
+```js
+indexOfAll([1, 2, 3, 1, 2, 3], 1); // [0,3]
+indexOfAll([1, 2, 3], 4); // []
+indexOfAllSelf([1, 2, 3, 1, 2, 3], n => n === 1); // [0,3]
+```
+
+
+
+## initialize2DArray
+
+**FUNCTION：**
+
+```js
+// 修改参数更语义化
+const initialize2DArray = (col, row, val = null) =>
+  Array.from({ length: row }).map(() => Array.from({ length: col }).fill(val));
+```
+
+**CONCEPTS：** 
+
+初始化指定宽高的二维数组。
+
+**EXAMPLES：**
+
+```js
+initialize2DArray(2, 2, 0); // [[0,0], [0,0]]
 ```
