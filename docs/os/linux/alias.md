@@ -17,13 +17,13 @@ alias 可用于设置指令的别名，固化则需要存放于 `~/.bashrc` 或 
 alias pg='ps aux | grep $1'
 
 # 随机字符串
-alias random-str="base64 /dev/urandom | tr -d '/+' | dd bs=32 count=1 2>/dev/null"
+alias random-str="base64 /dev/urandom | tr -d '/+' | dd bs=32 count=1 2>/dev/null && echo \n"
 
 # 获取 ip
 alias myip="curl -s myip.ipip.net | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b'"
 
 # 设置代理
 alias gfw="export ALL_PROXY=socks5://127.0.0.1:1080 && curl ipinfo.io"
-alias ugfw="unset all_proxy"
+alias ugfw="unset ALL_PROXY"
 ```
 
