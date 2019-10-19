@@ -176,3 +176,306 @@ const compactWhitespace = str => str.replace(/\s{2,}/g, ' ');
 compactWhitespace('Lorem    Ipsum'); // 'Lorem Ipsum'
 compactWhitespace('Lorem \n Ipsum'); // 'Lorem Ipsum'
 ```
+
+
+
+## escapeHTML
+
+**FUNCTION：**
+
+```js
+const escapeHTML = str =>
+  str.replace(
+    /[&<>'"]/g,
+    tag =>
+      ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag)
+  );
+```
+
+**CONCEPTS：**
+
+HTML 转义（常用于防御 XSS 攻击）。利用了 replace 的第二个参数和策略模式。
+
+**EXAMPLES：**
+
+```js
+escapeHTML('<a href="#">Me & you</a>'); // '&lt;a href=&quot;#&quot;&gt;Me &amp; you&lt;/a&gt;'
+```
+
+
+
+## escapeRegExp
+
+**FUNCTION：**
+
+```js
+const escapeRegExp = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+```
+
+**CONCEPTS：**
+
+转义正则。
+
+**EXAMPLES：**
+
+```js
+escapeRegExp('(test)'); // \\(test\\)
+```
+
+
+
+## fromCamelCase
+
+**FUNCTION：**
+
+```js
+const fromCamelCase = (str, separator = '_') =>
+  str
+    .replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2')
+    .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + separator + '$2')
+    .toLowerCase();
+```
+
+**CONCEPTS：**
+
+从驼峰字符串格式转为其余格式。
+
+**EXAMPLES：**
+
+```js
+fromCamelCase('someDatabaseFieldName', ' '); // 'some database field name'
+fromCamelCase('someLabelThatNeedsToBeCamelized', '-'); // 'some-label-that-needs-to-be-camelized'
+fromCamelCase('someJavascriptProperty', '_'); // 'some_javascript_property'
+```
+
+
+
+## indentString
+
+**FUNCTION：**
+
+```js
+const indentString = (str, count, indent = ' ') => str.replace(/^/gm, indent.repeat(count));
+```
+
+**CONCEPTS：**
+
+控制缩进。
+
+**EXAMPLES：**
+
+```js
+indentString('Lorem\nIpsum', 2); // '  Lorem\n  Ipsum'
+indentString('Lorem\nIpsum', 2, '_'); // '__Lorem\n__Ipsum'
+```
+
+
+
+## isAbsoluteURL
+
+**FUNCTION：**
+
+```js
+const isAbsoluteURL = str => /^[a-z][a-z0-9+.-]*:/.test(str);
+```
+
+**CONCEPTS：**
+
+判断是否为绝对路径的 URL。以 URL 协议开头。
+
+**EXAMPLES：**
+
+```js
+isAbsoluteURL('https://google.com'); // true
+isAbsoluteURL('ftp://www.myserver.net'); // true
+isAbsoluteURL('/foo/bar'); // false
+```
+
+
+
+## isAnagram
+
+**FUNCTION：**
+
+```js
+const isAnagram = (str1, str2) => {
+  const normalize = str =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
+      .sort()
+      .join('');
+  return normalize(str1) === normalize(str2);
+};
+```
+
+**CONCEPTS：**
+
+检查两串字符串是否一致（不区分大小写，忽略空格、标点、特殊字符）。
+
+**EXAMPLES：**
+
+```js
+isAnagram('iceman', 'cinema'); // true
+isAnagram('Biceman', 'cinemaA'); // false
+```
+
+
+
+## isLowerCase/isUpperCase
+
+**FUNCTION：**
+
+```js
+const isLowerCase = str => str === str.toLowerCase();
+const isUpperCase = str => str === str.toUpperCase();
+```
+
+**CONCEPTS：**
+
+判断字符串是否为小写、大写。
+
+**EXAMPLES：**
+
+```js
+isLowerCase('abc'); // true
+isLowerCase('a3@$'); // true
+isLowerCase('Ab4'); // false
+isUpperCase('ABC'); // true
+isUpperCase('A3@$'); // true
+isUpperCase('aB4'); // false
+```
+
+
+
+## mapString
+
+**FUNCTION：**
+
+```js
+const mapString = (str, fn) =>
+  str
+    .split('')
+    .map((c, i) => fn(c, i, str))
+    .join('');
+```
+
+**CONCEPTS：**
+
+字符串映射。
+
+**EXAMPLES：**
+
+```js
+mapString('lorem ipsum', c => c.toUpperCase()); // 'LOREM IPSUM'
+```
+
+
+
+## mask
+
+**FUNCTION：**
+
+```js
+const mask = (cc, num = 4, mask = '*') => `${cc}`.slice(-num).padStart(`${cc}`.length, mask);
+```
+
+**CONCEPTS：**
+
+掩盖（填充）部分字符。利用 slice 保留后面一部分字符串，padStart 填充前一部分字符。
+
+**EXAMPLES：**
+
+```js
+mask(1234567890); // '******7890'
+mask(1234567890, 3); // '*******890'
+mask(1234567890, -4, '$'); // '$$$$567890'
+```
+
+
+
+## pad
+
+**FUNCTION：**
+
+```js
+const pad = (str, length, char = ' ') =>
+  str.padStart((str.length + length) / 2, char).padEnd(length, char);
+```
+
+**CONCEPTS：**
+
+两侧填充字符串。
+
+**EXAMPLES：**
+
+```js
+pad('cat', 8); // '  cat   '
+pad(String(42), 6, '0'); // '004200'
+pad('foobar', 3); // 'foobar'
+```
+
+
+
+## palindrome
+
+**FUNCTION：**
+
+```js
+const palindrome = str => {
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
+};
+```
+
+**CONCEPTS：**
+
+判断是否为回文。
+
+**EXAMPLES：**
+
+```js
+palindrome('taco cat'); // true
+```
+
+
+
+## pluralize
+
+**FUNCTION：**
+
+```js
+const pluralize = (val, word, plural = word + 's') => {
+  const _pluralize = (num, word, plural = word + 's') =>
+    [1, -1].includes(Number(num)) ? word : plural;
+  if (typeof val === 'object') return (num, word) => _pluralize(num, word, val[word]);
+  return _pluralize(val, word, plural);
+};
+```
+
+**CONCEPTS：**
+
+根据输入的数字返回对应的单词的单复数形式。当传进参数为对象时可以处理为闭包。
+
+**EXAMPLES：**
+
+```js
+pluralize(0, 'apple'); // 'apples'
+pluralize(1, 'apple'); // 'apple'
+pluralize(2, 'apple'); // 'apples'
+pluralize(2, 'person', 'people'); // 'people'
+
+const PLURALS = {
+  person: 'people',
+  radius: 'radii'
+};
+const autoPluralize = pluralize(PLURALS);
+autoPluralize(2, 'person'); // 'people'
+```
