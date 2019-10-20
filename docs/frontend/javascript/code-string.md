@@ -479,3 +479,321 @@ const PLURALS = {
 const autoPluralize = pluralize(PLURALS);
 autoPluralize(2, 'person'); // 'people'
 ```
+
+
+
+## removeNonASCII
+
+**FUNCTION：**
+
+```js
+const removeNonASCII = str => str.replace(/[^\x20-\x7E]/g, '');
+```
+
+**CONCEPTS：**
+
+移除不可打印的字符。
+
+**EXAMPLES：**
+
+```js
+removeNonASCII('äÄçÇéÉêlorem-ipsumöÖÐþúÚ'); // 'lorem-ipsum'
+```
+
+
+
+## reverseString
+
+**FUNCTION：**
+
+```js
+const reverseString = str => [...str].reverse().join('');
+```
+
+**CONCEPTS：**
+
+反转字符串。
+
+**EXAMPLES：**
+
+```js
+reverseString('foobar'); // 'raboof'
+```
+
+
+
+## sortCharactersInString
+
+**FUNCTION：**
+
+```js
+const sortCharactersInString = str => [...str].sort((a, b) => a.localeCompare(b)).join('');
+```
+
+**CONCEPTS：**
+
+字符串排序。
+
+**EXAMPLES：**
+
+```js
+sortCharactersInString('cabbaAge'); // 'aaAbbceg'
+```
+
+
+
+## splitLines
+
+**FUNCTION：**
+
+```js
+const splitLines = str => str.split(/\r?\n/);
+```
+
+**CONCEPTS：**
+
+按行分割。匹配 Windows 和 Linux 不同的换行符。
+
+**EXAMPLES：**
+
+```js
+splitLines('This\nis a\nmultiline\nstring.\n'); // ['This', 'is a', 'multiline', 'string.' , '']
+```
+
+
+
+## stringPermutations
+
+**FUNCTION：**
+
+```js
+const stringPermutations = str => {
+  if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
+  return str
+    .split('')
+    .reduce(
+      (acc, letter, i) =>
+        acc.concat(stringPermutations(str.slice(0, i) + str.slice(i + 1)).map(val => letter + val)),
+      []
+    );
+};
+```
+
+**CONCEPTS：**
+
+字符的排列组合。超过 8-10 个字符会导致浏览器挂起，因为主要利用了多次递归。优化 2 个字符及以下。
+
+**EXAMPLES：**
+
+```js
+stringPermutations('abc'); // ['abc','acb','bac','bca','cab','cba']
+```
+
+
+
+## stripHTMLTags
+
+**FUNCTION：**
+
+```js
+const stripHTMLTags = str => str.replace(/<[^>]*>/g, '');
+```
+
+**CONCEPTS：**
+
+忽略 HTML 字符。
+
+**EXAMPLES：**
+
+```js
+stripHTMLTags('<p><em>lorem</em> <strong>ipsum</strong></p>'); // 'lorem ipsum'
+```
+
+
+
+## toCamelCase
+
+**FUNCTION：**
+
+```js
+const toCamelCase = str => {
+  let s =
+    str &&
+    str
+      .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+      .map(x => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase())
+      .join('');
+  return s.slice(0, 1).toLowerCase() + s.slice(1);
+};
+```
+
+**CONCEPTS：**
+
+转为驼峰格式。利用正则来对多种形式进行匹配。
+
+**EXAMPLES：**
+
+```js
+toCamelCase('some_database_field_name'); // 'someDatabaseFieldName'
+toCamelCase('Some label that needs to be camelized'); // 'someLabelThatNeedsToBeCamelized'
+toCamelCase('some-javascript-property'); // 'someJavascriptProperty'
+toCamelCase('some-mixed_string with spaces_underscores-and-hyphens'); // 'someMixedStringWithSpacesUnderscoresAndHyphens'
+```
+
+
+
+## toKebabCase
+
+**FUNCTION：**
+
+```js
+const toKebabCase = str =>
+  str &&
+  str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map(x => x.toLowerCase())
+    .join('-');
+```
+
+**CONCEPTS：**
+
+转为 kebab 格式。
+
+**EXAMPLES：**
+
+```js
+toKebabCase('camelCase'); // 'camel-case'
+toKebabCase('some text'); // 'some-text'
+toKebabCase('some-mixed_string With spaces_underscores-and-hyphens'); // 'some-mixed-string-with-spaces-underscores-and-hyphens'
+toKebabCase('AllThe-small Things'); // "all-the-small-things"
+toKebabCase('IAmListeningToFMWhileLoadingDifferentURLOnMyBrowserAndAlsoEditingSomeXMLAndHTML'); // "i-am-listening-to-fm-while-loading-different-url-on-my-browser-and-also-editing-xml-and-html"
+```
+
+
+
+## toSnakeCase
+
+**FUNCTION：**
+
+```js
+const toSnakeCase = str =>
+  str &&
+  str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map(x => x.toLowerCase())
+    .join('_');
+```
+
+**CONCEPTS：**
+
+转为 snake 格式。
+
+**EXAMPLES：**
+
+```js
+toSnakeCase('camelCase'); // 'camel_case'
+toSnakeCase('some text'); // 'some_text'
+toSnakeCase('some-mixed_string With spaces_underscores-and-hyphens'); // 'some_mixed_string_with_spaces_underscores_and_hyphens'
+toSnakeCase('AllThe-small Things'); // "all_the_smal_things"
+toSnakeCase('IAmListeningToFMWhileLoadingDifferentURLOnMyBrowserAndAlsoEditingSomeXMLAndHTML'); // "i_am_listening_to_fm_while_loading_different_url_on_my_browser_and_also_editing_some_xml_and_html"
+```
+
+
+
+## toTitleCase
+
+**FUNCTION：**
+
+```js
+const toTitleCase = str =>
+  str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map(x => x.charAt(0).toUpperCase() + x.slice(1))
+    .join(' ');
+```
+
+**CONCEPTS：**
+
+转为 title 格式。
+
+**EXAMPLES：**
+
+```js
+toTitleCase('some_database_field_name'); // 'Some Database Field Name'
+toTitleCase('Some label that needs to be title-cased'); // 'Some Label That Needs To Be Title Cased'
+toTitleCase('some-package-name'); // 'Some Package Name'
+toTitleCase('some-mixed_string with spaces_underscores-and-hyphens'); // 'Some Mixed String With Spaces Underscores And Hyphens'
+```
+
+
+
+## truncateString
+
+**FUNCTION：**
+
+```js
+const truncateString = (str, num) =>
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
+```
+
+**CONCEPTS：**
+
+省略字符串。
+
+**EXAMPLES：**
+
+```js
+truncateString('boomerang', 7); // 'boom...'
+```
+
+
+
+## unescapeHTML
+
+**FUNCTION：**
+
+```js
+const unescapeHTML = str =>
+  str.replace(
+    /&amp;|&lt;|&gt;|&#39;|&quot;/g,
+    tag =>
+      ({
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&#39;': "'",
+        '&quot;': '"'
+      }[tag] || tag)
+  );
+```
+
+**CONCEPTS：**
+
+还原转义的 HTML。
+
+**EXAMPLES：**
+
+```js
+unescapeHTML('&lt;a href=&quot;#&quot;&gt;Me &amp; you&lt;/a&gt;'); // '<a href="#">Me & you</a>'
+```
+
+
+
+## words
+
+**FUNCTION：**
+
+```js
+const words = (str, pattern = /[^a-zA-Z-]+/) => str.split(pattern).filter(Boolean);
+```
+
+**CONCEPTS：**
+
+字符串转为单词数组。
+
+**EXAMPLES：**
+
+```js
+words('I love javaScript!!'); // ["I", "love", "javaScript"]
+words('python, javaScript & coffee'); // ["python", "javaScript", "coffee"]
+```
