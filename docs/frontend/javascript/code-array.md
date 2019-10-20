@@ -6,22 +6,25 @@ title: 30s code array
 
 
 
-## all
+## all/none
 
 **FUNCTION：**
 
 ```js
 const all = (arr, fn = Boolean) => arr.every(fn);
+const none = (arr, fn = Boolean) => !arr.some(fn);
 ```
 
 **CONCEPTS：**   
-判断数组中所有元素是否均符合规则。简单封装了 Array.prototype.every 方法。
+判断数组中所有元素是否均符合规则。简单封装了 Array.prototype.every、Array.prototype.some 方法。
 
 **EXAMPLES：**
 
 ```js
 all([4, 2, 3], x => x > 1); // true
 all([1, 2, 3]); // true
+none([0, 1, 3, 0], x => x == 2); // true
+none([0, 0, 0]); // true
 ```
 
 
@@ -647,4 +650,282 @@ const initialize2DArray = (col, row, val = null) =>
 
 ```js
 initialize2DArray(2, 2, 0); // [[0,0], [0,0]]
+```
+
+
+
+## initializeArrayWithRange/initializeArrayWithRangeRight
+
+**FUNCTION：**
+
+```js
+const initializeArrayWithRange = (end, start = 0, step = 1) =>
+  Array.from({ length: Math.ceil((end - start + 1) / step) }, (v, i) => i * step + start);
+const initializeArrayWithRangeRight = (end, start = 0, step = 1) =>
+  Array.from({ length: Math.ceil((end + 1 - start) / step) }).map(
+    (v, i, arr) => (arr.length - i - 1) * step + start
+  );
+```
+
+**CONCEPTS：** 
+
+指定数组范围及步长。Math.ceil 为向上取整。
+
+**EXAMPLES：**
+
+```js
+initializeArrayWithRange(5); // [0,1,2,3,4,5]
+initializeArrayWithRange(7, 3); // [3,4,5,6,7]
+initializeArrayWithRange(9, 0, 2); // [0,2,4,6,8]
+initializeArrayWithRangeRight(5); // [5,4,3,2,1,0]
+initializeArrayWithRangeRight(7, 3); // [7,6,5,4,3]
+initializeArrayWithRangeRight(9, 0, 2); // [8,6,4,2,0]
+```
+
+
+
+## initializeArrayWithValues
+
+**FUNCTION：**
+
+```js
+const initializeArrayWithValues = (n, val = 0) => Array(n).fill(val);
+```
+
+**CONCEPTS：** 
+
+填充数组。
+
+**EXAMPLES：**
+
+```js
+initializeArrayWithValues(5, 2); // [2, 2, 2, 2, 2]
+```
+
+
+
+## initializeNDArray
+
+**FUNCTION：**
+
+```js
+const initializeNDArray = (val, ...args) =>
+  args.length === 0
+    ? val
+    : Array.from({ length: args[0] }).map(() => initializeNDArray(val, ...args.slice(1)));
+```
+
+**CONCEPTS：** 
+
+生成多维数组。
+
+**EXAMPLES：**
+
+```js
+initializeNDArray(1, 3); // [1,1,1]
+initializeNDArray(5, 3, 2, 2); // [[[5,5],[5,5]],[[5,5],[5,5]],[[5,5],[5,5]]]
+```
+
+
+
+## intersection
+
+**FUNCTION：**
+
+```js
+const intersection = (a, b) => {
+  const s = new Set(b);
+  return a.filter(x => s.has(x));
+};
+```
+
+**CONCEPTS：** 
+
+两数组之间的交集。
+
+**EXAMPLES：**
+
+```js
+intersection([1, 2, 3], [4, 3, 2]); // [2, 3]
+```
+
+
+
+## intersectionBy
+
+**FUNCTION：**
+
+```js
+const intersectionBy = (a, b, fn) => {
+  const s = new Set(b.map(fn));
+  return a.filter(x => s.has(fn(x)));
+};
+```
+
+**CONCEPTS：** 
+
+两数组之间映射后的交集。
+
+**EXAMPLES：**
+
+```js
+intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [2.1]
+```
+
+
+
+## isSorted
+
+**FUNCTION：**
+
+```js
+const isSorted = arr => {
+  let direction = -(arr[0] - arr[1]);
+  for (let [i, val] of arr.entries()) {
+    direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
+    if (i === arr.length - 1) return !direction ? 0 : direction;
+    else if ((val - arr[i + 1]) * direction > 0) return 0;
+  }
+};
+```
+
+**CONCEPTS：** 
+
+判断是否排序。
+
+**EXAMPLES：**
+
+```js
+isSorted([0, 1, 2, 2]); // 1
+isSorted([4, 3, 2]); // -1
+isSorted([4, 3, 5]); // 0
+```
+
+
+
+## join
+
+**FUNCTION：**
+
+```js
+const join = (arr, separator = ',', end = separator) =>
+  arr.reduce(
+    (acc, val, i) =>
+      i === arr.length - 2
+        ? acc + val + end
+        : i === arr.length - 1
+          ? acc + val
+          : acc + val + separator,
+    ''
+  );
+```
+
+**CONCEPTS：** 
+
+指定分隔符拼接数组。
+
+**EXAMPLES：**
+
+```js
+join(['pen', 'pineapple', 'apple', 'pen'], ',', '&'); // "pen,pineapple,apple&pen"
+join(['pen', 'pineapple', 'apple', 'pen'], ','); // "pen,pineapple,apple,pen"
+join(['pen', 'pineapple', 'apple', 'pen']); // "pen,pineapple,apple,pen"
+```
+
+
+
+## head/last/nthElement
+
+**FUNCTION：**
+
+```js
+const head = arr => arr[0];
+const last = arr => arr[arr.length - 1];
+const nthElement = (arr, n = 0) => (n === -1 ? arr.slice(n) : arr.slice(n, n + 1))[0];
+```
+
+**CONCEPTS：** 
+
+指定位置元素。
+
+**EXAMPLES：**
+
+```js
+head([1, 2, 3]); // 1
+last([1, 2, 3]); // 3
+nthElement(['a', 'b', 'c'], 1); // 'b'
+nthElement(['a', 'b', 'b'], -3); // 'a'
+```
+
+
+
+## longestItem
+
+**FUNCTION：**
+
+```js
+const longestItem = (...vals) => vals.reduce((a, x) => (x.length > a.length ? x : a));
+```
+
+**CONCEPTS：** 
+
+返回最长元素。
+
+**EXAMPLES：**
+
+```js
+longestItem('this', 'is', 'a', 'testcase'); // 'testcase'
+longestItem(...['a', 'ab', 'abc']); // 'abc'
+longestItem(...['a', 'ab', 'abc'], 'abcd'); // 'abcd'
+longestItem([1, 2, 3], [1, 2], [1, 2, 3, 4, 5]); // [1, 2, 3, 4, 5]
+longestItem([1, 2, 3], 'foobar'); // 'foobar'
+```
+
+
+
+## mapObject
+
+**FUNCTION：**
+
+```js
+const mapObject = (arr, fn) =>
+  (a => (
+    (a = [arr, arr.map(fn)]), a[0].reduce((acc, val, ind) => ((acc[val] = a[1][ind]), acc), {})
+  ))();
+```
+
+**CONCEPTS：** 
+
+数组映射为对象。
+
+**EXAMPLES：**
+
+```js
+const squareIt = arr => mapObject(arr, a => a * a);
+squareIt([1, 2, 3]); // { 1: 1, 2: 4, 3: 9 }
+```
+
+
+
+## maxN/minN
+
+**FUNCTION：**
+
+```js
+const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);
+const minN = (arr, n = 1) => [...arr].sort((a, b) => a - b).slice(0, n);
+
+```
+
+**CONCEPTS：** 
+
+返回最大、最小值组。
+
+**EXAMPLES：**
+
+```js
+maxN([1, 2, 3]); // [3]
+maxN([1, 2, 3], 2); // [3,2]
+minN([1, 2, 3]); // [1]
+minN([1, 2, 3], 2); // [1,2]
 ```
