@@ -914,7 +914,6 @@ squareIt([1, 2, 3]); // { 1: 1, 2: 4, 3: 9 }
 ```js
 const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);
 const minN = (arr, n = 1) => [...arr].sort((a, b) => a - b).slice(0, n);
-
 ```
 
 **CONCEPTS：** 
@@ -928,4 +927,350 @@ maxN([1, 2, 3]); // [3]
 maxN([1, 2, 3], 2); // [3,2]
 minN([1, 2, 3]); // [1]
 minN([1, 2, 3], 2); // [1,2]
+```
+
+
+
+## offset
+
+**FUNCTION：**
+
+```js
+const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
+```
+
+**CONCEPTS：** 
+
+数组偏移。
+
+**EXAMPLES：**
+
+```js
+offset([1, 2, 3, 4, 5], 2); // [3, 4, 5, 1, 2]
+offset([1, 2, 3, 4, 5], -2); // [4, 5, 1, 2, 3]
+```
+
+
+
+## partition
+
+**FUNCTION：**
+
+```js
+// 优化
+const partition = (arr, fn) =>
+  arr.reduce(
+    (acc, cur, i, arr) => (acc[fn(cur, i, arr) ? 0 : 1].push(cur), acc),
+    [[], []]
+  );
+```
+
+**CONCEPTS：** 
+
+分组。与 [bifurcateBy](/frontend/javascript/code-array.html#bifurcateby) 一致。
+
+**EXAMPLES：**
+
+```js
+const users = [{ user: 'barney', age: 36, active: false }, { user: 'fred', age: 40, active: true }];
+partition(users, o => o.active); // [[{ 'user': 'fred',    'age': 40, 'active': true }],[{ 'user': 'barney',  'age': 36, 'active': false }]]
+```
+
+
+
+## permutations
+
+**FUNCTION：**
+
+```js
+const permutations = arr => {
+  if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
+  return arr.reduce(
+    (acc, item, i) =>
+      acc.concat(
+        permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [item, ...val])
+      ),
+    []
+  );
+};
+```
+
+**CONCEPTS：** 
+
+排列组合。字符串类型参考 [stringPermutations](/frontend/javascript/code-string.html#stringpermutations)。
+
+**EXAMPLES：**
+
+```js
+permutations([1, 33, 5]); // [ [ 1, 33, 5 ], [ 1, 5, 33 ], [ 33, 1, 5 ], [ 33, 5, 1 ], [ 5, 1, 33 ], [ 5, 33, 1 ] ]
+```
+
+
+
+## pull
+
+**FUNCTION：**
+
+```js
+const pull = (arr, ...args) => {
+  let argState = Array.isArray(args[0]) ? args[0] : args;
+  let pulled = arr.filter((v, i) => !argState.includes(v));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+};
+```
+
+**CONCEPTS：** 
+
+过滤掉数组中指定数据。
+
+**EXAMPLES：**
+
+```js
+let myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
+pull(myArray, 'a', 'c'); // myArray = [ 'b', 'b' ]
+```
+
+
+
+## pullAtIndex
+
+**FUNCTION：**
+
+```js
+const pullAtIndex = (arr, pullArr) => {
+  let removed = [];
+  let pulled = arr
+    .map((v, i) => (pullArr.includes(i) ? removed.push(v) : v))
+    .filter((v, i) => !pullArr.includes(i));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+  return removed;
+};
+```
+
+**CONCEPTS：** 
+
+过滤掉数组中指定下标的数据。
+
+**EXAMPLES：**
+
+```js
+let myArray = ['a', 'b', 'c', 'd'];
+let pulled = pullAtIndex(myArray, [1, 3]); // myArray = [ 'a', 'c' ] , pulled = [ 'b', 'd' ]
+```
+
+
+
+## pullAtValue
+
+**FUNCTION：**
+
+```js
+const pullAtValue = (arr, pullArr) => {
+  let removed = [],
+    pushToRemove = arr.forEach((v, i) => (pullArr.includes(v) ? removed.push(v) : v)),
+    mutateTo = arr.filter((v, i) => !pullArr.includes(v));
+  arr.length = 0;
+  mutateTo.forEach(v => arr.push(v));
+  return removed;
+};
+```
+
+**CONCEPTS：** 
+
+过滤掉数组中指定数据，并返回过滤的数据。其实这种形式偏多余了。
+
+**EXAMPLES：**
+
+```js
+let myArray = ['a', 'b', 'c', 'd'];
+let pulled = pullAtValue(myArray, ['b', 'd']); // myArray = [ 'a', 'c' ] , pulled = [ 'b', 'd' ]
+```
+
+
+
+## pullBy
+
+**FUNCTION：**
+
+```js
+const pullBy = (arr, ...args) => {
+  const length = args.length;
+  let fn = length > 1 ? args[length - 1] : undefined;
+  fn = typeof fn == 'function' ? (args.pop(), fn) : undefined;
+  let argState = (Array.isArray(args[0]) ? args[0] : args).map(val => fn(val));
+  let pulled = arr.filter((v, i) => !argState.includes(fn(v)));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+};
+```
+
+**CONCEPTS：** 
+
+过滤掉数组中指定格式数据。便于处理后端未定格式数据。
+
+**EXAMPLES：**
+
+```js
+let myArray = [{ x: 1 }, { x: 2 }, { x: 3 }, { x: 1 }];
+pullBy(myArray, [{ x: 1 }, { x: 3 }], o => o.x); // myArray = [{ x: 2 }]
+```
+
+
+
+## reduceWhich
+
+**FUNCTION：**
+
+```js
+const reduceWhich = (arr, comparator = (a, b) => a - b) =>
+  arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a));
+```
+
+**CONCEPTS：** 
+
+返回数组中最大、最小值。
+
+**EXAMPLES：**
+
+```js
+reduceWhich([1, 3, 2]); // 1
+reduceWhich([1, 3, 2], (a, b) => b - a); // 3
+reduceWhich(
+  [{ name: 'Tom', age: 12 }, { name: 'Jack', age: 18 }, { name: 'Lucy', age: 9 }],
+  (a, b) => a.age - b.age
+); // {name: "Lucy", age: 9}
+```
+
+
+
+## reducedFilter <Badge text="important" type="error"/>
+
+**FUNCTION：**
+
+```js
+// 优化
+const reducedFilter = (data, keys, fn) =>
+  data.filter(fn).map(el =>
+    keys.reduce((acc, key) => (acc[key] = el[key], acc), {})
+  );
+```
+
+**CONCEPTS：** 
+
+返回限定的数组对象。配合后台时常用的方法。
+
+**EXAMPLES：**
+
+```js
+const data = [
+  {
+    id: 1,
+    name: 'john',
+    age: 24
+  },
+  {
+    id: 2,
+    name: 'mike',
+    age: 50
+  }
+];
+
+reducedFilter(data, ['id', 'name'], item => item.age > 24); // [{ id: 2, name: 'mike'}]
+```
+
+
+
+## reject
+
+**FUNCTION：**
+
+```js
+const reject = (pred, array) => array.filter((...args) => !pred(...args));
+```
+
+**CONCEPTS：** 
+
+过滤数据。这样的参数形式更符合喜欢的函数式编程规范。
+
+**EXAMPLES：**
+
+```js
+reject(x => x % 2 === 0, [1, 2, 3, 4, 5]); // [1, 3, 5]
+reject(word => word.length > 4, ['Apple', 'Pear', 'Kiwi', 'Banana']); // ['Pear', 'Kiwi']
+```
+
+
+
+## remove
+
+**FUNCTION：**
+
+```js
+const remove = (arr, func) =>
+  Array.isArray(arr)
+    ? arr.filter(func).reduce((acc, val) => {
+        arr.splice(arr.indexOf(val), 1);
+        return acc.concat(val);
+      }, [])
+    : [];
+```
+
+**CONCEPTS：** 
+
+在原数组上过滤数据。
+
+**EXAMPLES：**
+
+```js
+remove([1, 2, 3, 4], n => n % 2 === 0); // [2, 4]
+```
+
+
+
+## sample
+
+**FUNCTION：**
+
+```js
+const sample = arr => arr[Math.floor(Math.random() * arr.length)];
+```
+
+**CONCEPTS：** 
+
+数组中返回一个随机元素。
+
+**EXAMPLES：**
+
+```js
+sample([3, 7, 9, 11]); // 9
+```
+
+
+
+## sampleSize
+
+**FUNCTION：**
+
+```js
+const sampleSize = ([...arr], n = 1) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr.slice(0, n);
+};
+```
+
+**CONCEPTS：** 
+
+数组中返回 n 个随机元素。其中利用了经典的数据交换位置 `[i,j] = [j,i]` 方法。
+
+**EXAMPLES：**
+
+```js
+sampleSize([1, 2, 3], 2); // [3,1]
+sampleSize([1, 2, 3], 4); // [2,3,1]
 ```
