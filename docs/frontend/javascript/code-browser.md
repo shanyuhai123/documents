@@ -18,7 +18,7 @@ const arrayToHtmlList = (arr, listID) =>
   ))();
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 指定 ID 拼接 li。
 
@@ -39,7 +39,7 @@ const bottomVisible = () =>
   (document.documentElement.scrollHeight || document.documentElement.clientHeight);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 判断底部是否可见（到底了）。计算浏览器的高度来判断。
 
@@ -75,7 +75,7 @@ const copyToClipboard = str => {
 //  navigator.clipboard
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 复制内容到剪切板。一般情况使用第三方提供的稳定、兼容。
 
@@ -104,7 +104,7 @@ const counter = (selector, start, end, step = 1, duration = 2000) => {
 };
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 指定一个计数 counter。
 
@@ -128,7 +128,7 @@ const createElement = str => {
 };
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 创建一个 DOM，超过一个则仅返回第一个。
 
@@ -167,7 +167,7 @@ const createEventHub = () => ({
 });
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 创建一个事件发布、订阅中心。发布主要靠循环判断。
 
@@ -202,7 +202,7 @@ hub.off('message', handler);
 const currentURL = () => window.location.href;
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 当前 URL。
 
@@ -225,7 +225,7 @@ const detectDeviceType = () =>
     : 'Desktop';
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 判断设备类型。
 
@@ -245,7 +245,7 @@ detectDeviceType(); // "Mobile" or "Desktop"
 const elementContains = (parent, child) => parent !== child && parent.contains(child);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 DOM 包含关系。
 
@@ -273,7 +273,7 @@ const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
 };
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 判断元素是否在视口中。
 
@@ -302,7 +302,7 @@ const formToObject = form =>
   );
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 表单元素转为对象。
 
@@ -325,7 +325,7 @@ const getImages = (el, includeDuplicates = false) => {
 };
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 获取某节点内的所有图片链接。
 
@@ -349,7 +349,7 @@ const getScrollPosition = (el = window) => ({
 });
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 获取当前页面的滚动位置。
 
@@ -361,62 +361,68 @@ getScrollPosition(); // {x: 0, y: 200}
 
 
 
-## getStyle
+## getStyle/setStyle
 
 **FUNCTION：**
 
 ```js
 const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName];
+const setStyle = (el, ruleName, val) => (el.style[ruleName] = val);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
-获取指定元素样式。
+指定、设置元素样式。
 
 **EXAMPLES：**
 
 ```js
 getStyle(document.querySelector('p'), 'font-size'); // '16px'
+setStyle(document.querySelector('p'), 'font-size', '20px'); // The first <p> element on the page will have a font-size of 20px
 ```
 
 
 
-## hasClass
+## hasClass/toggleClass
 
 **FUNCTION：**
 
 ```js
 const hasClass = (el, className) => el.classList.contains(className);
+const toggleClass = (el, className) => el.classList.toggle(className);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
-判断某元素是否具有某 class。
+判断、切换元素 class。
 
 **EXAMPLES：**
 
 ```js
 hasClass(document.querySelector('p.special'), 'special'); // true
+toggleClass(document.querySelector('p.special'), 'special'); // The paragraph will not have the 'special' class anymore
 ```
 
 
 
-## hide
+## hide/show
 
 **FUNCTION：**
 
 ```js
 const hide = (...el) => [...el].forEach(e => (e.style.display = 'none'));
+const show = (...el) => [...el].forEach(e => (e.style.display = ''));
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
-隐藏指定元素。
+隐藏、显示指定元素。
 
 **EXAMPLES：**
 
 ```js
 hide(document.querySelectorAll('img')); // Hides all <img> elements on the page
+show(...document.querySelectorAll('img')); // Shows all <img> elements on the page
 ```
 
 
@@ -431,7 +437,7 @@ const httpsRedirect = () => {
 };
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 重定向到 https。利用了 replace 方法导致无法返回。
 
@@ -452,7 +458,7 @@ const insertAfter = (el, htmlString) => el.insertAdjacentHTML('afterend', htmlSt
 const insertBefore = (el, htmlString) => el.insertAdjacentHTML('beforebegin', htmlString);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 插入 HTML 片段。
 
@@ -461,4 +467,381 @@ const insertBefore = (el, htmlString) => el.insertAdjacentHTML('beforebegin', ht
 ```js
 insertAfter(document.getElementById('myId'), '<p>after</p>'); // <div id="myId">...</div> <p>after</p>
 insertBefore(document.getElementById('myId'), '<p>before</p>'); // <p>before</p> <div id="myId">...</div>
+```
+
+
+
+## isBrowserTabFocused
+
+**FUNCTION：**
+
+```js
+const isBrowserTabFocused = () => !document.hidden;
+```
+
+**CONCEPTS：**
+
+当前标签页是否处于 actived 状态。可以利用标签页切换事件和 title 做一点有意思的事情。
+
+**EXAMPLES：**
+
+```js
+isBrowserTabFocused(); // true
+```
+
+
+
+## nodeListToArray
+
+**FUNCTION：**
+
+```js
+const nodeListToArray = nodeList => [...nodeList];
+```
+
+**CONCEPTS：**
+
+node 列表转为数组。
+
+**EXAMPLES：**
+
+```js
+nodeListToArray(document.childNodes); // [ <!DOCTYPE html>, html ]
+```
+
+
+
+## observeMutations
+
+**FUNCTION：**
+
+```js
+const observeMutations = (element, callback, options) => {
+  const observer = new MutationObserver(mutations => mutations.forEach(m => callback(m)));
+  observer.observe(
+    element,
+    Object.assign(
+      {
+        childList: true,
+        attributes: true,
+        attributeOldValue: true,
+        characterData: true,
+        characterDataOldValue: true,
+        subtree: true
+      },
+      options
+    )
+  );
+  return observer;
+};
+```
+
+**CONCEPTS：**
+
+尚不能理解使用场景。
+
+**EXAMPLES：**
+
+```js
+const obs = observeMutations(document, console.log); // Logs all mutations that happen on the page
+obs.disconnect(); // Disconnects the observer and stops logging mutations on the page
+```
+
+
+
+## off/on
+
+**FUNCTION：**
+
+```js
+const off = (el, evt, fn, opts = false) => el.removeEventListener(evt, fn, opts);
+const on = (el, evt, fn, opts = {}) => {
+  const delegatorFn = e => e.target.matches(opts.target) && fn.call(e.target, e);
+  el.addEventListener(evt, opts.target ? delegatorFn : fn, opts.options || false);
+  if (opts.target) return delegatorFn;
+};
+```
+
+**CONCEPTS：**
+
+移除、添加事件监听。
+
+**EXAMPLES：**
+
+```js
+const fn = () => console.log('!');
+document.body.addEventListener('click', fn);
+off(document.body, 'click', fn); // no longer logs '!' upon clicking on the page
+const fn = () => console.log('!');
+on(document.body, 'click', fn); // logs '!' upon clicking the body
+on(document.body, 'click', fn, { target: 'p' }); // logs '!' upon clicking a `p` element child of the body
+on(document.body, 'click', fn, { options: true }); // use capturing instead of bubbling
+```
+
+
+
+## onUserInputChange
+
+**FUNCTION：**
+
+```js
+const onUserInputChange = callback => {
+  let type = 'mouse',
+    lastTime = 0;
+  const mousemoveHandler = () => {
+    const now = performance.now();
+    if (now - lastTime < 20)
+      (type = 'mouse'), callback(type), document.removeEventListener('mousemove', mousemoveHandler);
+    lastTime = now;
+  };
+  document.addEventListener('touchstart', () => {
+    if (type === 'touch') return;
+    (type = 'touch'), callback(type), document.addEventListener('mousemove', mousemoveHandler);
+  });
+};
+```
+
+**CONCEPTS：**
+
+监听用户输入类型为 mouse 还是 touch。 
+
+**EXAMPLES：**
+
+```js
+onUserInputChange(type => {
+  console.log('The user is now using', type, 'as an input method.');
+});
+```
+
+
+
+## prefix
+
+**FUNCTION：**
+
+```js
+const prefix = prop => {
+  const capitalizedProp = prop.charAt(0).toUpperCase() + prop.slice(1);
+  const prefixes = ['', 'webkit', 'moz', 'ms', 'o'];
+  const i = prefixes.findIndex(
+    prefix => typeof document.body.style[prefix ? prefix + capitalizedProp : prop] !== 'undefined'
+  );
+  return i !== -1 ? (i === 0 ? prop : prefixes[i] + capitalizedProp) : null;
+};
+```
+
+**CONCEPTS：**
+
+补充浏览器前缀。
+
+**EXAMPLES：**
+
+```js
+prefix('appearance'); // 'appearance' on a supported browser, otherwise 'webkitAppearance', 'mozAppearance', 'msAppearance' or 'oAppearance'
+```
+
+
+
+## recordAnimationFrames
+
+**FUNCTION：**
+
+```js
+const recordAnimationFrames = (callback, autoStart = true) => {
+  let running = true,
+    raf;
+  const stop = () => {
+    running = false;
+    cancelAnimationFrame(raf);
+  };
+  const start = () => {
+    running = true;
+    run();
+  };
+  const run = () => {
+    raf = requestAnimationFrame(() => {
+      callback();
+      if (running) run();
+    });
+  };
+  if (autoStart) start();
+  return { start, stop };
+};
+```
+
+**CONCEPTS：**
+
+记录动画状态。
+
+**EXAMPLES：**
+
+```js
+const cb = () => console.log('Animation frame fired');
+const recorder = recordAnimationFrames(cb); // logs 'Animation frame fired' on each animation frame
+recorder.stop(); // stops logging
+recorder.start(); // starts again
+const recorder2 = recordAnimationFrames(cb, false); // `start` needs to be explicitly called to begin recording frames
+```
+
+
+
+## redirect
+
+**FUNCTION：**
+
+```js
+const redirect = (url, asLink = true) =>
+  asLink ? (window.location.href = url) : window.location.replace(url);
+```
+
+**CONCEPTS：**
+
+重定向。
+
+**EXAMPLES：**
+
+```js
+redirect('https://google.com');
+```
+
+
+
+## runAsync
+
+**FUNCTION：**
+
+```js
+const runAsync = fn => {
+  const worker = new Worker(
+    URL.createObjectURL(new Blob([`postMessage((${fn})());`]), {
+      type: 'application/javascript; charset=utf-8'
+    })
+  );
+  return new Promise((res, rej) => {
+    worker.onmessage = ({ data }) => {
+      res(data), worker.terminate();
+    };
+    worker.onerror = err => {
+      rej(err), worker.terminate();
+    };
+  });
+};
+```
+
+**CONCEPTS：**
+
+使用 web worker 进程。尚不能理解具体使用。
+
+**EXAMPLES：**
+
+```js
+const longRunningFunction = () => {
+  let result = 0;
+  for (let i = 0; i < 1000; i++)
+    for (let j = 0; j < 700; j++) for (let k = 0; k < 300; k++) result = result + i + j + k;
+
+  return result;
+};
+/*
+  NOTE: Since the function is running in a different context, closures are not supported.
+  The function supplied to `runAsync` gets stringified, so everything becomes literal.
+  All variables and functions must be defined inside.
+*/
+runAsync(longRunningFunction).then(console.log); // 209685000000
+runAsync(() => 10 ** 3).then(console.log); // 1000
+let outsideVariable = 50;
+runAsync(() => typeof outsideVariable).then(console.log); // 'undefined'
+```
+
+
+
+## scrollToTop
+
+**FUNCTION：**
+
+```js
+const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 8);
+  }
+};
+```
+
+**CONCEPTS：**
+
+回到顶部。
+
+**EXAMPLES：**
+
+```js
+scrollToTop();
+```
+
+
+
+## smoothScroll
+
+**FUNCTION：**
+
+```js
+const smoothScroll = element =>
+  document.querySelector(element).scrollIntoView({
+    behavior: 'smooth'
+  });
+```
+
+**CONCEPTS：**
+
+平滑滚动至某位置。锚点效果。
+
+**EXAMPLES：**
+
+```js
+smoothScroll('#fooBar'); // scrolls smoothly to the element with the id fooBar
+smoothScroll('.fooBar'); // scrolls smoothly to the first element with a class of fooBar
+```
+
+
+
+## serializeForm
+
+**FUNCTION：**
+
+```js
+const serializeForm = form =>
+  Array.from(new FormData(form), field => field.map(encodeURIComponent).join('=')).join('&');
+```
+
+**CONCEPTS：**
+
+序列化表单。
+
+**EXAMPLES：**
+
+```js
+serializeForm(document.querySelector('#form')); // email=test%40email.com&name=Test%20Name
+```
+
+
+
+## triggerEvent
+
+**FUNCTION：**
+
+```js
+const triggerEvent = (el, eventType, detail) =>
+  el.dispatchEvent(new CustomEvent(eventType, { detail }));
+```
+
+**CONCEPTS：**
+
+事件上绑定自定义数据。
+
+**EXAMPLES：**
+
+```js
+triggerEvent(document.getElementById('myId'), 'click');
+triggerEvent(document.getElementById('myId'), 'click', { username: 'bob' });
 ```
