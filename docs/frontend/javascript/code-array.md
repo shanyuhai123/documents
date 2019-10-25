@@ -15,7 +15,7 @@ const all = (arr, fn = Boolean) => arr.every(fn);
 const none = (arr, fn = Boolean) => !arr.some(fn);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**  
 判断数组中所有元素是否均符合规则。简单封装了 Array.prototype.every、Array.prototype.some 方法。
 
 **EXAMPLES：**
@@ -37,7 +37,7 @@ none([0, 0, 0]); // true
 const allEqual = arr => arr.every(val => val === arr[0]);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 判断数组中的所有元素是否相等。将数组中所有参数与第一个数据作对比。
 
@@ -58,7 +58,7 @@ allEqual([1, 1, 1, 1]); // true
 const any = (arr, fn = Boolean) => arr.some(fn);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 判断数组中至少有一个元素符合规则。简单封装了 Array.prototype.some 方法。
 
@@ -82,7 +82,7 @@ const arrayToCSV = (arr, delimiter = ',') =>
     .join('\n');
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 将二维数组转为 CSV 格式。对二维数组做了两次 map 映射，内层映射确定分隔符，外层映射添加换行符，针对字符串中双引号作处理。
 
@@ -105,7 +105,7 @@ const bifurcate = (arr, filter) =>
   arr.reduce((acc, cur, i) => (acc[filter[i] ? 0 : 1].push(cur), acc), [[], []]);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 对数组中的数据进行分类。filter 具有下标，可判断为数组，再配合三元运算符进行分类，核心是利用 reduce 和 `,` 对返回结果进行累积，`,` 操作符总是对每个操作求值，并返回最后一个（push 方法会返回数组的长度，不符合要求）。
 
@@ -126,7 +126,7 @@ const bifurcateBy = (arr, fn) =>
   arr.reduce((acc, cur, i) => (acc[fn(cur, i) ? 0 : 1].push(cur), acc), [[], []]);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 对数组中的数据进行分类。相对于 bifurcate，提供了过滤用函数。
 
@@ -151,7 +151,7 @@ const chunk = (arr, size) =>
   );
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 对数组进行切片（分块）。利用 Array.from 的第二个参数 map 函数对每个分块进行映射。
 
@@ -173,7 +173,7 @@ const compact = arr => arr.filter(Boolean);
 const compactSelf = arr => arr.filter(a => a);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 移除数组中 “无效” 值。主要是利用 JavaScript 的隐式转换概念。
 
@@ -195,7 +195,7 @@ const countBy = (arr, fn) =>
     ((acc[val] = (acc[val] || 0) + 1), acc), {});
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 对数组中的数据进行分组并计数。对原函数进行修改，贯彻 `,` 操作符， typeof 处理了非函数。
 
@@ -216,7 +216,7 @@ countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
 const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 对数组中某个值进行计数。简单的利用了 reduce 方法。
 
@@ -238,7 +238,7 @@ const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFla
 const deepFlatten = arr => arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(deepFlatten(val)) : acc.concat(val), []);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 展开数组。数组中可能嵌套数组，利用了递归。
 
@@ -261,7 +261,7 @@ const difference = (a, b) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回两个数组之差（差异），其中存在的问题是，仅暴露了 a 的差异而忽略的 b 的差异，利用该方法找相同倒是完美。核心利用了 Set 结构。
 
@@ -284,7 +284,7 @@ const differenceBy = (a, b, fn) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 两个数组格式化后之间的差异。一般数据会有较为复杂的结构，往往需要先处理数据。
 
@@ -305,7 +305,7 @@ differenceBy([{ x: 2 }, { x: 1 }], [{ x: 1 }], v => v.x); // [2]
 const differenceWith = (arr, val, comp) => arr.filter(a => val.findIndex(b => comp(a, b)) === -1);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 两个区间范围的差异。除了复杂的数据结构，还需要监听异常的数据（非范围内）。
 
@@ -325,7 +325,7 @@ differenceWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Mat
 const drop = (arr, n = 1) => arr.slice(n);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 删除数组前侧（左侧）的元素。简单使用了 slice 方法，slice 方法同样支持字符串，需要注意的是表象是删除，其实是提取指定位置的元素。
 
@@ -348,7 +348,7 @@ drop("hello world", 5); // " world"
 const dropRight = (arr, n = 1) => arr.slice(0, -n);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 删除数组后侧（右侧）的元素。
 
@@ -374,7 +374,7 @@ const dropWhile = (arr, func) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 从头开始删除数组中不符合条件的，直至符合。
 
@@ -399,7 +399,7 @@ const dropRightWhile = (arr, func) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 从末尾开始删除数组中不符合条件的，直至符合。
 
@@ -419,7 +419,7 @@ dropRightWhile([1, 2, 3, 2, 4], n => n < 3); //  [1, 2, 3, 2]
 const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回数组中的第 nth 组成的数组。
 
@@ -445,7 +445,7 @@ everyNth([1, 2, 3, 4, 5, 6], 2); // [ 2, 4, 6 ]
 const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 移除数组中多次出现的数据。利用双指针来判断是否数据重复，需要注意到的这个方法并非是去重。
 
@@ -466,7 +466,7 @@ const filterNonUniqueBy = (arr, fn) =>
   arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)));
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 移除数组中多次出现的某一数据。`(i === j) === fn(v, x, i, j)` 是比较细节的地方，用于排除自身（存在更优解）。
 
@@ -495,7 +495,7 @@ filterNonUniqueBy(
 const findLast = (arr, fn) => arr.filter(fn).pop();
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回最后一个符合的数据。filter 会返回一个新的数组，pop 方法不会影响原数组。
 
@@ -519,7 +519,7 @@ const findLastIndex = (arr, fn) =>
     .pop() || [-1])[0];
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回最后一个符合的数据的索引。利用 map 方法保留索引。
 
@@ -541,7 +541,7 @@ const flatten = (arr, depth = 1) =>
   arr.reduce((a, v) => a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v), []);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 指定数组扁平化深度。在递归中增加一个判断开关，一个无开关[示例](/frontend/javascript/code-array.html#deepflatten)。
 
@@ -566,7 +566,7 @@ const forEachRight = (arr, callback) =>
     .forEach(callback);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 forEach 从右执行。reverse 会改变原数组，故用 `slice(0)` 进行了数组的浅拷贝。
 
@@ -590,7 +590,7 @@ const groupBy = (arr, fn) =>
   }, {});
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 数组分类。可见之前更简洁的示例 [bifurcateBy](/frontend/javascript/code-array.html#bifurcateby)。
 
@@ -618,7 +618,7 @@ const indexOfAllSelf = (arr, fn) =>
     .map([i] => i);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回出现目标的索引的组成的数组。
 
@@ -642,7 +642,7 @@ const initialize2DArray = (col, row, val = null) =>
   Array.from({ length: row }).map(() => Array.from({ length: col }).fill(val));
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 初始化指定宽高的二维数组。
 
@@ -667,7 +667,7 @@ const initializeArrayWithRangeRight = (end, start = 0, step = 1) =>
   );
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 指定数组范围及步长。Math.ceil 为向上取整。
 
@@ -692,7 +692,7 @@ initializeArrayWithRangeRight(9, 0, 2); // [8,6,4,2,0]
 const initializeArrayWithValues = (n, val = 0) => Array(n).fill(val);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 填充数组。
 
@@ -715,7 +715,7 @@ const initializeNDArray = (val, ...args) =>
     : Array.from({ length: args[0] }).map(() => initializeNDArray(val, ...args.slice(1)));
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 生成多维数组。
 
@@ -728,7 +728,7 @@ initializeNDArray(5, 3, 2, 2); // [[[5,5],[5,5]],[[5,5],[5,5]],[[5,5],[5,5]]]
 
 
 
-## intersection
+## intersection/similarity
 
 **FUNCTION：**
 
@@ -737,9 +737,10 @@ const intersection = (a, b) => {
   const s = new Set(b);
   return a.filter(x => s.has(x));
 };
+const similarity = (arr, values) => arr.filter(v => values.includes(v));
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 两数组之间的交集。
 
@@ -747,6 +748,7 @@ const intersection = (a, b) => {
 
 ```js
 intersection([1, 2, 3], [4, 3, 2]); // [2, 3]
+similarity([1, 2, 3], [1, 2, 4]); // [1, 2]
 ```
 
 
@@ -762,7 +764,7 @@ const intersectionBy = (a, b, fn) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 两数组之间映射后的交集。
 
@@ -789,7 +791,7 @@ const isSorted = arr => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 判断是否排序。
 
@@ -820,7 +822,7 @@ const join = (arr, separator = ',', end = separator) =>
   );
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 指定分隔符拼接数组。
 
@@ -844,7 +846,7 @@ const last = arr => arr[arr.length - 1];
 const nthElement = (arr, n = 0) => (n === -1 ? arr.slice(n) : arr.slice(n, n + 1))[0];
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 指定位置元素。
 
@@ -867,7 +869,7 @@ nthElement(['a', 'b', 'b'], -3); // 'a'
 const longestItem = (...vals) => vals.reduce((a, x) => (x.length > a.length ? x : a));
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回最长元素。
 
@@ -894,7 +896,7 @@ const mapObject = (arr, fn) =>
   ))();
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 数组映射为对象。
 
@@ -916,7 +918,7 @@ const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);
 const minN = (arr, n = 1) => [...arr].sort((a, b) => a - b).slice(0, n);
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回最大、最小值组。
 
@@ -939,7 +941,7 @@ minN([1, 2, 3], 2); // [1,2]
 const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 数组偏移。
 
@@ -965,7 +967,7 @@ const partition = (arr, fn) =>
   );
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 分组。与 [bifurcateBy](/frontend/javascript/code-array.html#bifurcateby) 一致。
 
@@ -995,7 +997,7 @@ const permutations = arr => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 排列组合。字符串类型参考 [stringPermutations](/frontend/javascript/code-string.html#stringpermutations)。
 
@@ -1020,7 +1022,7 @@ const pull = (arr, ...args) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 过滤掉数组中指定数据。
 
@@ -1049,7 +1051,7 @@ const pullAtIndex = (arr, pullArr) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 过滤掉数组中指定下标的数据。
 
@@ -1077,7 +1079,7 @@ const pullAtValue = (arr, pullArr) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 过滤掉数组中指定数据，并返回过滤的数据。其实这种形式偏多余了。
 
@@ -1106,7 +1108,7 @@ const pullBy = (arr, ...args) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 过滤掉数组中指定格式数据。便于处理后端未定格式数据。
 
@@ -1128,7 +1130,7 @@ const reduceWhich = (arr, comparator = (a, b) => a - b) =>
   arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a));
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回数组中最大、最小值。
 
@@ -1157,7 +1159,7 @@ const reducedFilter = (data, keys, fn) =>
   );
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 返回限定的数组对象。配合后台时常用的方法。
 
@@ -1190,7 +1192,7 @@ reducedFilter(data, ['id', 'name'], item => item.age > 24); // [{ id: 2, name: '
 const reject = (pred, array) => array.filter((...args) => !pred(...args));
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 过滤数据。这样的参数形式更符合喜欢的函数式编程规范。
 
@@ -1217,7 +1219,7 @@ const remove = (arr, func) =>
     : [];
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 在原数组上过滤数据。
 
@@ -1237,7 +1239,7 @@ remove([1, 2, 3, 4], n => n % 2 === 0); // [2, 4]
 const sample = arr => arr[Math.floor(Math.random() * arr.length)];
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 数组中返回一个随机元素。
 
@@ -1264,7 +1266,7 @@ const sampleSize = ([...arr], n = 1) => {
 };
 ```
 
-**CONCEPTS：** 
+**CONCEPTS：**
 
 数组中返回 n 个随机元素。其中利用了经典的数据交换位置 `[i,j] = [j,i]` 方法。
 
@@ -1273,4 +1275,316 @@ const sampleSize = ([...arr], n = 1) => {
 ```js
 sampleSize([1, 2, 3], 2); // [3,1]
 sampleSize([1, 2, 3], 4); // [2,3,1]
+```
+
+
+
+## shank
+
+**FUNCTION：**
+
+```js
+const shank = (arr, index = 0, delCount = 0, ...elements) =>
+  arr
+    .slice(0, index)
+    .concat(elements)
+    .concat(arr.slice(index + delCount));
+```
+
+**CONCEPTS：**
+
+实现了 splice 方法。
+
+**EXAMPLES：**
+
+```js
+const names = ['alpha', 'bravo', 'charlie'];
+const namesAndDelta = shank(names, 1, 0, 'delta'); // [ 'alpha', 'delta', 'bravo', 'charlie' ]
+const namesNoBravo = shank(names, 1, 1); // [ 'alpha', 'charlie' ]
+console.log(names); // ['alpha', 'bravo', 'charlie']
+```
+
+
+
+## shuffle
+
+**FUNCTION：**
+
+```js
+const shuffle = ([...arr]) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr;
+};
+```
+
+**CONCEPTS：**
+
+打乱数组。
+
+**EXAMPLES：**
+
+```js
+const foo = [1, 2, 3];
+shuffle(foo); // [2, 3, 1], foo = [1, 2, 3]
+```
+
+
+
+## sortedIndex/sortedLastIndex
+
+**FUNCTION：**
+
+```js
+const sortedIndex = (arr, n) => {
+  const isDescending = arr[0] > arr[arr.length - 1];
+  const index = arr.findIndex(el => (isDescending ? n >= el : n <= el));
+  return index === -1 ? arr.length : index;
+};
+const sortedLastIndex = (arr, n) => {
+  const isDescending = arr[0] > arr[arr.length - 1];
+  const index = arr.reverse().findIndex(el => (isDescending ? n <= el : n >= el));
+  return index === -1 ? 0 : arr.length - index;
+};
+```
+
+**CONCEPTS：**
+
+元素在序列的数组中的位置。
+
+**EXAMPLES：**
+
+```js
+sortedIndex([5, 3, 2, 1], 4); // 1
+sortedIndex([30, 50], 40); // 1
+sortedLastIndex([10, 20, 30, 30, 40], 30); // 4
+```
+
+
+
+## sortedIndexBy/sortedLastIndexBy
+
+**FUNCTION：**
+
+```js
+const sortedIndexBy = (arr, n, fn) => {
+  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
+  const val = fn(n);
+  const index = arr.findIndex(el => (isDescending ? val >= fn(el) : val <= fn(el)));
+  return index === -1 ? arr.length : index;
+};
+const sortedLastIndexBy = (arr, n, fn) => {
+  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
+  const val = fn(n);
+  const index = arr
+    .map(fn)
+    .reverse()
+    .findIndex(el => (isDescending ? val <= el : val >= el));
+  return index === -1 ? 0 : arr.length - index;
+};
+```
+
+**CONCEPTS：**
+
+元素根据某一元素在序列的数组中的位置。
+
+**EXAMPLES：**
+
+```js
+sortedIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 0
+sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 1
+```
+
+
+
+## stableSort
+
+**FUNCTION：**
+
+```js
+const stableSort = (arr, compare) =>
+  arr
+    .map((item, index) => ({ item, index }))
+    .sort((a, b) => compare(a.item, b.item) || a.index - b.index)
+    .map(({ item }) => item);
+```
+
+**CONCEPTS：**
+
+数组排序。直接使用 sort 会修改原数组。
+
+**EXAMPLES：**
+
+```js
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const stable = stableSort(arr, () => 0); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+
+
+## symmetricDifference
+
+**FUNCTION：**
+
+```js
+const symmetricDifference = (a, b) => {
+  const sA = new Set(a),
+    sB = new Set(b);
+  return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))];
+};
+```
+
+**CONCEPTS：**
+
+数组之间的差异（不过滤重复值）。完善了 [difference](/frontend/javascript/code-array.html#difference) 方法。
+
+**EXAMPLES：**
+
+```js
+symmetricDifference([1, 2, 3], [1, 2, 4]); // [3, 4]
+symmetricDifference([1, 2, 2], [1, 3, 1]); // [2, 2, 3]
+```
+
+
+
+## symmetricDifferenceWith
+
+**FUNCTION：**
+
+```js
+const symmetricDifferenceWith = (arr, val, comp) => [
+  ...arr.filter(a => val.findIndex(b => comp(a, b)) === -1),
+  ...val.filter(a => arr.findIndex(b => comp(a, b)) === -1)
+];
+```
+
+**CONCEPTS：**
+
+数组之间的差异（不过滤重复值）。完善了 [difference](/frontend/javascript/code-array.html#differenceWith) 方法。
+
+**EXAMPLES：**
+
+```js
+symmetricDifferenceWith(
+  [1, 1.2, 1.5, 3, 0],
+  [1.9, 3, 0, 3.9],
+  (a, b) => Math.round(a) === Math.round(b)
+); // [1, 1.2, 3.9]
+```
+
+
+
+## symmetricDifferenceWith
+
+**FUNCTION：**
+
+```js
+const symmetricDifferenceWith = (arr, val, comp) => [
+  ...arr.filter(a => val.findIndex(b => comp(a, b)) === -1),
+  ...val.filter(a => arr.findIndex(b => comp(a, b)) === -1)
+];
+```
+
+**CONCEPTS：**
+
+数组之间的差异（不过滤重复值）。完善了 [difference](/frontend/javascript/code-array.html#differenceWith) 方法。
+
+**EXAMPLES：**
+
+```js
+symmetricDifferenceWith(
+  [1, 1.2, 1.5, 3, 0],
+  [1.9, 3, 0, 3.9],
+  (a, b) => Math.round(a) === Math.round(b)
+); // [1, 1.2, 3.9]
+```
+
+
+
+## take/takeRight
+
+**FUNCTION：**
+
+```js
+const take = (arr, n = 1) => arr.slice(0, n);
+const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
+```
+
+**CONCEPTS：**
+
+切割数组。
+
+**EXAMPLES：**
+
+```js
+take([1, 2, 3], 5); // [1, 2, 3]
+take([1, 2, 3], 0); // []
+takeRight([1, 2, 3], 2); // [ 2, 3 ]
+takeRight([1, 2, 3]); // [3]
+```
+
+
+
+## takeWhile/takeRightWhile
+
+**FUNCTION：**
+
+```js
+const takeWhile = (arr, func) => {
+  for (const [i, val] of arr.entries()) if (func(val)) return arr.slice(0, i);
+  return arr;
+};
+const takeRightWhile = (arr, func) =>
+  arr.reduceRight((acc, el) => (func(el) ? acc : [el, ...acc]), []);
+```
+
+**CONCEPTS：**
+
+切割过滤规则数组。
+
+**EXAMPLES：**
+
+```js
+takeWhile([1, 2, 3, 4], n => n >= 3); // [1, 2]
+takeRightWhile([1, 2, 3, 4], n => n < 3); // [3, 4]
+```
+
+
+
+## toHash
+
+**FUNCTION：**
+
+```js
+const toHash = (object, key) =>
+  Array.prototype.reduce.call(
+    object,
+    (acc, data, index) => ((acc[!key ? index : data[key]] = data), acc),
+    {}
+  );
+```
+
+**CONCEPTS：**
+
+尚未理解使用场景。
+
+**EXAMPLES：**
+
+```js
+toHash([4, 3, 2, 1]); // { 0: 4, 1: 3, 2: 2, 3: 1 }
+toHash([{ a: 'label' }], 'a'); // { label: { a: 'label' } }
+// A more in depth example:
+let users = [{ id: 1, first: 'Jon' }, { id: 2, first: 'Joe' }, { id: 3, first: 'Moe' }];
+let managers = [{ manager: 1, employees: [2, 3] }];
+// We use function here because we want a bindable reference, but a closure referencing the hash would work, too.
+managers.forEach(
+  manager =>
+    (manager.employees = manager.employees.map(function(id) {
+      return this[id];
+    }, toHash(users, 'id')))
+);
+managers; // [ { manager:1, employees: [ { id: 2, first: "Joe" }, { id: 3, first: "Moe" } ] } ]
 ```
