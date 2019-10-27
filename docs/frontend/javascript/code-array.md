@@ -1588,3 +1588,278 @@ managers.forEach(
 );
 managers; // [ { manager:1, employees: [ { id: 2, first: "Joe" }, { id: 3, first: "Moe" } ] } ]
 ```
+
+
+
+## union
+
+**FUNCTION：**
+
+```js
+const union = (a, b) => Array.from(new Set([...a, ...b]));
+```
+
+**CONCEPTS：**
+
+合并数组。
+
+**EXAMPLES：**
+
+```js
+union([1, 2, 3], [4, 3, 2]); // [1,2,3,4]
+```
+
+
+
+## unionBy/unionWith
+
+**FUNCTION：**
+
+```js
+const unionBy = (a, b, fn) => {
+  const s = new Set(a.map(fn));
+  return Array.from(new Set([...a, ...b.filter(x => !s.has(fn(x)))]));
+};
+const unionWith = (a, b, comp) =>
+  Array.from(new Set([...a, ...b.filter(x => a.findIndex(y => comp(x, y)) === -1)]));
+```
+
+**CONCEPTS：**
+
+合并数组。直到现在才明白 `by` 是对两个数组执行同一操作，`with` 可以执行不同操作。
+
+**EXAMPLES：**
+
+```js
+unionBy([2.1], [1.2, 2.3], Math.floor); // [2.1, 1.2]
+unionWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0, 3.9], (a, b) => Math.round(a) === Math.round(b)); // [1, 1.2, 1.5, 3, 0, 3.9]
+```
+
+
+
+## uniqueElements
+
+**FUNCTION：**
+
+```js
+const uniqueElements = arr => [...new Set(arr)];
+```
+
+**CONCEPTS：**
+
+去重。
+
+**EXAMPLES：**
+
+```js
+uniqueElements([1, 2, 2, 3, 4, 4, 5]); // [1, 2, 3, 4, 5]
+```
+
+
+
+## uniqueElementsBy/uniqueElementsByRight
+
+**FUNCTION：**
+
+```js
+const uniqueElementsBy = (arr, fn) =>
+  arr.reduce((acc, v) => {
+    if (!acc.some(x => fn(v, x))) acc.push(v);
+    return acc;
+  }, []);'
+const uniqueElementsByRight = (arr, fn) =>
+  arr.reduceRight((acc, v) => {
+    if (!acc.some(x => fn(v, x))) acc.push(v);
+    return acc;
+  }, []);
+```
+
+**CONCEPTS：**
+
+根据元素某属性去重。
+
+**EXAMPLES：**
+
+```js
+uniqueElementsBy(
+  [
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 1, value: 'd' },
+    { id: 0, value: 'e' }
+  ],
+  (a, b) => a.id == b.id
+); // [ { id: 0, value: 'a' }, { id: 1, value: 'b' }, { id: 2, value: 'c' } ]
+uniqueElementsByRight(
+  [
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 1, value: 'd' },
+    { id: 0, value: 'e' }
+  ],
+  (a, b) => a.id == b.id
+); // [ { id: 0, value: 'e' }, { id: 1, value: 'd' }, { id: 2, value: 'c' } ]
+```
+
+
+
+## uniqueSymmetricDifference
+
+**FUNCTION：**
+
+```js
+const uniqueSymmetricDifference = (a, b) => [
+  ...new Set([...a.filter(v => !b.includes(v)), ...b.filter(v => !a.includes(v))])
+];
+```
+
+**CONCEPTS：**
+
+数组之间的差异（过滤重复值）。区别于 [symmetricDifference](/frontend/javascript/code-array.html#symmetricDifference) 方法。
+
+**EXAMPLES：**
+
+```js
+uniqueSymmetricDifference([1, 2, 3], [1, 2, 4]); // [3, 4]
+uniqueSymmetricDifference([1, 2, 2], [1, 3, 1]); // [2, 3]
+```
+
+
+
+## unzip/zip
+
+**FUNCTION：**
+
+```js
+const unzip = arr =>
+  arr.reduce(
+    (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
+    Array.from({
+      length: Math.max(...arr.map(x => x.length))
+    }).map(x => [])
+  );
+const zip = (...arrays) => {
+  const maxLength = Math.max(...arrays.map(x => x.length));
+  return Array.from({ length: maxLength }).map((_, i) => {
+    return Array.from({ length: arrays.length }, (_, k) => arrays[k][i]);
+  });
+};
+```
+
+**CONCEPTS：**
+
+解压、打包数组。
+
+**EXAMPLES：**
+
+```js
+unzip([['a', 1, true], ['b', 2, false]]); // [['a', 'b'], [1, 2], [true, false]]
+unzip([['a', 1, true], ['b', 2]]); // [['a', 'b'], [1, 2], [true]]
+zip(['a', 'b'], [1, 2], [true, false]); // [['a', 1, true], ['b', 2, false]]
+zip(['a'], [1, 2], [true, false]); // [['a', 1, true], [undefined, 2, false]]
+```
+
+
+
+## unzipWith/zipWith
+
+**FUNCTION：**
+
+```js
+const unzipWith = (arr, fn) =>
+  arr
+    .reduce(
+      (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
+      Array.from({
+        length: Math.max(...arr.map(x => x.length))
+      }).map(x => [])
+    )
+    .map(val => fn(...val));
+const zipWith = (...array) => {
+  const fn = typeof array[array.length - 1] === 'function' ? array.pop() : undefined;
+  return Array.from({ length: Math.max(...array.map(a => a.length)) }, (_, i) =>
+    fn ? fn(...array.map(a => a[i])) : array.map(a => a[i])
+  );
+};
+```
+
+**CONCEPTS：**
+
+解压、打包时并进行处理。
+
+**EXAMPLES：**
+
+```js
+unzipWith([[1, 10, 100], [2, 20, 200]], (...args) => args.reduce((acc, v) => acc + v, 0)); // [3, 30, 300]
+zipWith([1, 2], [10, 20], [100, 200], (a, b, c) => a + b + c); // [111,222]
+zipWith(
+  [1, 2, 3],
+  [10, 20],
+  [100, 200],
+  (a, b, c) => (a != null ? a : 'a') + (b != null ? b : 'b') + (c != null ? c : 'c')
+); // [111, 222, '3bc']
+```
+
+
+
+## without
+
+**FUNCTION：**
+
+```js
+const without = (arr, ...args) => arr.filter(v => !args.includes(v));
+```
+
+**CONCEPTS：**
+
+不包含的数组。
+
+**EXAMPLES：**
+
+```js
+without([2, 1, 2, 3], 1, 2); // [3]
+```
+
+
+
+## xProd
+
+**FUNCTION：**
+
+```js
+const xProd = (a, b) => a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), []);
+```
+
+**CONCEPTS：**
+
+排列数组（即无视前后顺序）。
+
+**EXAMPLES：**
+
+```js
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+```
+
+
+
+## zipObject
+
+**FUNCTION：**
+
+```js
+const zipObject = (props, values) =>
+  props.reduce((obj, prop, index) => ((obj[prop] = values[index]), obj), {});
+```
+
+**CONCEPTS：**
+
+数组打包为对象。
+
+**EXAMPLES：**
+
+```js
+zipObject(['a', 'b', 'c'], [1, 2]); // {a: 1, b: 2, c: undefined}
+zipObject(['a', 'b'], [1, 2, 3]); // {a: 1, b: 2}
+```
