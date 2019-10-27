@@ -24,5 +24,6 @@ title: 首页
 2. 《Linux 入门很简单》
 3. 《Ubuntu 标准教程》
 4. 《老男孩：核心基础》
+5. [Manjaro Forum](https://forum.manjaro.org/)
 
 还有一些很早以前看过的书未记录。
