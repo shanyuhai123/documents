@@ -25,7 +25,13 @@ REST的名称"表现层状态转化"中，省略了主语。"表现层"其实指
 ## URL 设计
 
 ::: warning
-此处设计仅作为一个思路，部分实现起来还是有一定的困难，其实个人更推荐去学习 Github 的 API。
+此处设计仅作为一个思路，个人觉得直接参阅大公司的 API 设计指南更好一些。
+
+1. [Google](https://cloud.google.com/apis/design/)
+2. [Github](https://developer.github.com/v3/)
+3. [Twitter](https://developer.twitter.com/en/docs/basics/getting-started)
+4. [Microsoft](https://docs.microsoft.com/zh-cn/azure/architecture/best-practices/api-design) <Badge text="中文友好" type="error"/>
+
 :::
 
 ### 1. 动词 + 宾语
