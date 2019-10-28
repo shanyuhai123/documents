@@ -11,5 +11,8 @@ module.exports = {
   '@vuepress/back-to-top': true,
   '@vuepress/google-analytics': {
     'ga': secretKeyConf.ga
+  },
+  '@vuepress/medium-zoom': {
+    selector: '.content__default img',
   }
 };
