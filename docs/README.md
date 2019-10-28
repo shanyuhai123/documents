@@ -3,7 +3,7 @@ home: true
 heroImage: /app.png
 heroText: 飞跃高山与大洋的鱼
 tagline: 文档, 博客
-actionText: 进入文档 →
+actionText: 进入笔记 →
 actionLink: /guide/
 footer: MIT Licensed | Copyright © 2018 飞跃高山与大洋的鱼
 ---
