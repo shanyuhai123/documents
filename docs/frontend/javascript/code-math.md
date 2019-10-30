@@ -3,6 +3,8 @@ title: 30s code math
 ---
 
 > [30 seconds of code (Math)](https://www.30secondsofcode.org/tag/math)
+>
+> 想要啃下这一部分，要先熟悉 [Math](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math) 对象的内置方法。
 
 
 
@@ -326,4 +328,308 @@ const gcd = (...arr) => {
 ```js
 gcd(8, 36); // 4
 gcd(...[12, 8, 32]); // 4
+```
+
+
+
+## geometricProgression
+
+**FUNCTION：**
+
+```js
+const geometricProgression = (end, start = 1, step = 2) =>
+  Array.from({ length: Math.floor(Math.log(end / start) / Math.log(step)) + 1 }).map(
+    (v, i) => start * step ** i
+  );
+```
+
+**CONCEPTS：**
+
+等比数列。
+
+**EXAMPLES：**
+
+```js
+geometricProgression(256); // [1, 2, 4, 8, 16, 32, 64, 128, 256]
+geometricProgression(256, 3); // [3, 6, 12, 24, 48, 96, 192]
+geometricProgression(256, 1, 4); // [1, 4, 16, 64, 256]
+```
+
+
+
+## hammingDistance
+
+**FUNCTION：**
+
+```js
+const hammingDistance = (num1, num2) => ((num1 ^ num2).toString(2).match(/1/g) || '').length;
+```
+
+**CONCEPTS：**
+
+汉明距离。其中 `^` 按位异或操作。
+
+**EXAMPLES：**
+
+```js
+// 2 => 10, 3 => 11 XOR 01 => 1
+hammingDistance(2, 3); // 1
+```
+
+
+
+## inRange
+
+**FUNCTION：**
+
+```js
+const inRange = (n, start, end = null) => {
+  if (end && start > end) [end, start] = [start, end];
+  return end == null ? n >= 0 && n < start : n >= start && n < end;
+};
+```
+
+**CONCEPTS：**
+
+判断是否在范围内。
+
+**EXAMPLES：**
+
+```js
+inRange(3, 2, 5); // true
+inRange(3, 4); // true
+inRange(2, 3, 5); // false
+inRange(3, 2); // false
+```
+
+
+
+## isDivisible
+
+**FUNCTION：**
+
+```js
+const isDivisible = (dividend, divisor) => dividend % divisor === 0;
+```
+
+**CONCEPTS：**
+
+是否可被整除。
+
+**EXAMPLES：**
+
+```js
+isDivisible(6, 3); // true
+```
+
+
+
+## isEven/isOdd
+
+**FUNCTION：**
+
+```js
+const isEven = num => num % 2 === 0;
+const isOdd = num => num % 2 === 1;
+```
+
+**CONCEPTS：**
+
+判断奇偶。
+
+**EXAMPLES：**
+
+```js
+isEven(3); // false
+isOdd(3); // true
+```
+
+
+
+## isNegativeZero
+
+**FUNCTION：**
+
+```js
+const isNegativeZero = val => val === 0 && 1 / val === -Infinity;
+```
+
+**CONCEPTS：**
+
+判断是否为 `-0`。
+
+**EXAMPLES：**
+
+```js
+isNegativeZero(-0); // true
+isNegativeZero(0); // false
+```
+
+
+
+## isPrime
+
+**FUNCTION：**
+
+```js
+const isPrime = num => {
+  const boundary = Math.floor(Math.sqrt(num));
+  for (var i = 2; i <= boundary; i++) if (num % i === 0) return false;
+  return num >= 2;
+};
+```
+
+**CONCEPTS：**
+
+是否为质数。最后的 num 很细节，减少一个判断。
+
+**EXAMPLES：**
+
+```js
+isPrime(11); // true
+```
+
+
+
+## lcm
+
+**FUNCTION：**
+
+```js
+const lcm = (...arr) => {
+  const gcd = (x, y) => (!y ? x : gcd(y, x % y));
+  const _lcm = (x, y) => (x * y) / gcd(x, y);
+  return [...arr].reduce((a, b) => _lcm(a, b));
+};
+```
+
+**CONCEPTS：**
+
+最小公倍数。
+
+**EXAMPLES：**
+
+```js
+lcm(12, 7); // 84
+lcm(...[1, 3, 4, 5]); // 60
+```
+
+
+
+## luhnCheck
+
+**FUNCTION：**
+
+```js
+const luhnCheck = num => {
+  let arr = (num + '')
+    .split('')
+    .reverse()
+    .map(x => parseInt(x));
+  let lastDigit = arr.splice(0, 1)[0];
+  let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
+  sum += lastDigit;
+  return sum % 10 === 0;
+};
+```
+
+**CONCEPTS：**
+
+[Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm)。
+
+**EXAMPLES：**
+
+```js
+luhnCheck('4485275742308327'); // true
+luhnCheck(6011329933655299); //  false
+luhnCheck(123456789); // false
+```
+
+
+
+## mapNumRange
+
+**FUNCTION：**
+
+```js
+const mapNumRange = (num, inMin, inMax, outMin, outMax) =>
+  ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+```
+
+**CONCEPTS：**
+
+尚未理解使用场景。
+
+**EXAMPLES：**
+
+```js
+mapNumRange(5, 0, 10, 0, 100); // 50
+```
+
+
+
+## maxBy/minBy
+
+**FUNCTION：**
+
+```js
+const maxBy = (arr, fn) => Math.max(...arr.map(typeof fn === 'function' ? fn : val => val[fn]));
+```
+
+**CONCEPTS：**
+
+返回某条件下最大值、最小值。
+
+**EXAMPLES：**
+
+```js
+maxBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n); // 8
+maxBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 8
+minBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n); // 2
+minBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 2
+```
+
+
+
+## median
+
+**FUNCTION：**
+
+```js
+const median = arr => {
+  const mid = Math.floor(arr.length / 2),
+    nums = [...arr].sort((a, b) => a - b);
+  return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+};
+```
+
+**CONCEPTS：**
+
+中位数。
+
+**EXAMPLES：**
+
+```js
+median([5, 6, 50, 1, -5]); // 5
+```
+
+
+
+## percentile
+
+**FUNCTION：**
+
+```js
+const percentile = (arr, val) =>
+  (100 * arr.reduce((acc, v) => acc + (v < val ? 1 : 0) + (v === val ? 0.5 : 0), 0)) / arr.length;
+```
+
+**CONCEPTS：**
+
+百分比。
+
+**EXAMPLES：**
+
+```js
+percentile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 6); // 55
 ```
