@@ -635,3 +635,295 @@ const objectToPairs = obj => Object.keys(obj).map(k => [k, obj[k]]);
 objectFromPairs([['a', 1], ['b', 2]]); // {a: 1, b: 2}
 objectToPairs({ a: 1, b: 2 }); // [ ['a', 1], ['b', 2] ]
 ```
+
+
+
+## nest
+
+**FUNCTION：**
+
+```js
+const nest = (items, id = null, link = 'parent_id') =>
+  items
+    .filter(item => item[link] === id)
+    .map(item => ({ ...item, children: nest(items, item.id) }));
+```
+
+**CONCEPTS：**
+
+数组转为树。此处糟糕的是会多余 `children` 属性。
+
+**EXAMPLES：**
+
+```js
+// One top level comment
+const comments = [
+  { id: 1, parent_id: null },
+  { id: 2, parent_id: 1 },
+  { id: 3, parent_id: 1 },
+  { id: 4, parent_id: 2 },
+  { id: 5, parent_id: 4 }
+];
+const nestedComments = nest(comments); // [{ id: 1, parent_id: null, children: [...] }]
+```
+
+
+
+## omit
+
+**FUNCTION：**
+
+```js
+const omit = (obj, arr) =>
+  Object.keys(obj)
+    .filter(k => !arr.includes(k))
+    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});
+```
+
+**CONCEPTS：**
+
+忽略对象中指定属性。先筛选 keys 然后利用 reduce 重组对象。
+
+**EXAMPLES：**
+
+```js
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
+```
+
+
+
+## omitBy
+
+**FUNCTION：**
+
+```js
+const omitBy = (obj, fn) =>
+  Object.keys(obj)
+    .filter(k => !fn(obj[k], k))
+    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});
+```
+
+**CONCEPTS：**
+
+忽略对象中指定规则的属性。相对于手动一个个输入，指定规则来得更快捷。
+
+**EXAMPLES：**
+
+```js
+omitBy({ a: 1, b: '2', c: 3 }, x => typeof x === 'number'); // { b: '2' }
+```
+
+
+
+## orderBy
+
+**FUNCTION：**
+
+```js
+const orderBy = (arr, props, orders) =>
+  [...arr].sort((a, b) =>
+    props.reduce((acc, prop, i) => {
+      if (acc === 0) {
+        const [p1, p2] = orders && orders[i] === 'desc' ? [b[prop], a[prop]] : [a[prop], b[prop]];
+        acc = p1 > p2 ? 1 : p1 < p2 ? -1 : 0;
+      }
+      return acc;
+    }, 0)
+  );
+```
+
+**CONCEPTS：**
+
+给对象排序。默认参数为 `asc`。
+
+**EXAMPLES：**
+
+```js
+const users = [{ name: 'fred', age: 48 }, { name: 'barney', age: 36 }, { name: 'fred', age: 40 }];
+orderBy(users, ['name', 'age'], ['asc', 'desc']); // [{name: 'barney', age: 36}, {name: 'fred', age: 48}, {name: 'fred', age: 40}]
+orderBy(users, ['name', 'age']); // [{name: 'barney', age: 36}, {name: 'fred', age: 40}, {name: 'fred', age: 48}]
+```
+
+
+
+## pick
+
+**FUNCTION：**
+
+```js
+const pick = (obj, arr) =>
+  arr.reduce((acc, curr) => (curr in obj && (acc[curr] = obj[curr]), acc), {});
+```
+
+**CONCEPTS：**
+
+保留对象中指定属性。与 [omit](/frontend/javascript/code-object.html#omit) 方法相对。
+
+**EXAMPLES：**
+
+```js
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
+```
+
+
+
+## pickBy
+
+**FUNCTION：**
+
+```js
+const pickBy = (obj, fn) =>
+  Object.keys(obj)
+    .filter(k => fn(obj[k], k))
+    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});
+```
+
+**CONCEPTS：**
+
+保留对象中指定规则的属性。与 [omitBy](/frontend/javascript/code-object.html#omitBy) 方法相对。
+
+**EXAMPLES：**
+
+```js
+pickBy({ a: 1, b: '2', c: 3 }, x => typeof x === 'number'); // { 'a': 1, 'c': 3 }
+```
+
+
+
+## renameKeys
+
+**FUNCTION：**
+
+```js
+const renameKeys = (keysMap, obj) =>
+  Object.keys(obj).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: obj[key] }
+    }),
+    {}
+  );
+```
+
+**CONCEPTS：**
+
+替换对象中属性名。相对于替换，个人接触的业务更多是追加映射。
+
+**EXAMPLES：**
+
+```js
+const obj = { name: 'Bobo', job: 'Front-End Master', shoeSize: 100 };
+renameKeys({ name: 'firstName', job: 'passion' }, obj); // { firstName: 'Bobo', passion: 'Front-End Master', shoeSize: 100 }
+```
+
+
+
+## size
+
+**FUNCTION：**
+
+```js
+const size = val =>
+  Array.isArray(val)
+    ? val.length
+    : val && typeof val === 'object'
+    ? val.size || val.length || Object.keys(val).length
+    : typeof val === 'string'
+    ? new Blob([val]).size
+    : 0;
+```
+
+**CONCEPTS：**
+
+获取数组，对象或字符串的大小。
+
+**EXAMPLES：**
+
+```js
+size([1, 2, 3, 4, 5]); // 5
+size('size'); // 4
+size({ one: 1, two: 2, three: 3 }); // 3
+```
+
+
+
+## transform
+
+**FUNCTION：**
+
+```js
+const transform = (obj, fn, acc) => Object.keys(obj).reduce((a, k) => fn(a, obj[k], k, obj), acc);
+```
+
+**CONCEPTS：**
+
+累加映射。其中逻辑较为绕。
+
+**EXAMPLES：**
+
+```js
+// 示例代码中亮点 `(r[v] || (r[v] = [])).push(k)`
+transform(
+  { a: 1, b: 2, c: 1 },
+  (r, v, k) => {
+    (r[v] || (r[v] = [])).push(k);
+    return r;
+  },
+  {}
+); // { '1': ['a', 'c'], '2': ['b'] }
+```
+
+
+
+## truthCheckCollection
+
+**FUNCTION：**
+
+```js
+const truthCheckCollection = (collection, pre) => collection.every(obj => obj[pre]);
+```
+
+**CONCEPTS：**
+
+检查属性是否存在。可配合一些递归行为处理。
+
+**EXAMPLES：**
+
+```js
+truthCheckCollection([{ user: 'Tinky-Winky', sex: 'male' }, { user: 'Dipsy', sex: 'male' }], 'sex'); // true
+```
+
+
+
+## unflattenObject
+
+**FUNCTION：**
+
+```js
+const unflattenObject = obj =>
+  Object.keys(obj).reduce((acc, k) => {
+    if (k.indexOf('.') !== -1) {
+      const keys = k.split('.');
+      Object.assign(
+        acc,
+        JSON.parse(
+          '{' +
+            keys.map((v, i) => (i !== keys.length - 1 ? `"${v}":{` : `"${v}":`)).join('') +
+            obj[k] +
+            '}'.repeat(keys.length)
+        )
+      );
+    } else acc[k] = obj[k];
+    return acc;
+  }, {});
+```
+
+**CONCEPTS：**
+
+对象扁平化还原。比对象扁平化更难的是还原。
+
+**EXAMPLES：**
+
+```js
+unflattenObject({ 'a.b.c': 1, d: 1 }); // { a: { b: { c: 1 } }, d: 1 }
+```
