@@ -22,7 +22,7 @@ const bindAll = (obj, ...fns) =>
   );
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 绑定对象方法到自身。
 
@@ -60,7 +60,7 @@ const deepClone = obj => {
 };
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 深拷贝。
 
@@ -84,7 +84,7 @@ const deepFreeze = obj =>
   ) || Object.freeze(obj);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 深冻结。
 
@@ -109,7 +109,7 @@ o[1][0] = 4; // not allowed as well
 const deepGet = (obj, keys) => keys.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), obj);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 获取对象的值。利用 keys 数组获取指定属性。
 
@@ -149,7 +149,7 @@ const deepMapKeys = (obj, f) =>
       : obj;
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 深度映射对象的 key。
 
@@ -201,7 +201,7 @@ const dig = (obj, target) =>
     }, undefined);
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 返回对象属性的值。深度优先，是由于 `Object.values` 排序了。
 
@@ -244,7 +244,7 @@ const equals = (a, b) => {
 };
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 深度相等。对于多种边界的处理值得学习。
 
@@ -268,7 +268,7 @@ const findLastKey = (obj, fn) =>
     .find(key => fn(obj[key], key, obj));
 ```
 
-**CONCEPTS：**   
+**CONCEPTS：**
 
 找到符合规则的属性名。
 
@@ -289,4 +289,349 @@ findLastKey(
   people,
   o => o['active']
 ); // 'pebbles'
+```
+
+
+
+## flattenObject
+
+**FUNCTION：**
+
+```js
+const flattenObject = (obj, prefix = '') =>
+  Object.keys(obj).reduce((acc, k) => {
+    const pre = prefix.length ? prefix + '.' : '';
+    if (typeof obj[k] === 'object') Object.assign(acc, flattenObject(obj[k], pre + k));
+    else acc[pre + k] = obj[k];
+    return acc;
+  }, {});
+```
+
+**CONCEPTS：**
+
+扁平化对象。
+
+**EXAMPLES：**
+
+```js
+// 修改
+flattenObject({ a: { b: { c: 1 }, e: 1 }, d: 1 }); // {a.b.c: 1, a.e: 1, d: 1}
+```
+
+
+
+## forOwn/forOwnRight
+
+**FUNCTION：**
+
+```js
+const forOwn = (obj, fn) => Object.keys(obj).forEach(key => fn(obj[key], key, obj));
+const forOwnRight = (obj, fn) =>
+  Object.keys(obj)
+    .reverse()
+    .forEach(key => fn(obj[key], key, obj));
+```
+
+**CONCEPTS：**
+
+获取对象的第一层。
+
+**EXAMPLES：**
+
+```js
+forOwn({ foo: 'bar', a: 1 }, v => console.log(v)); // 'bar', 1
+forOwnRight({ foo: 'bar', a: 1 }, v => console.log(v)); // 1, 'bar'
+```
+
+
+
+## functions
+
+**FUNCTION：**
+
+```js
+const functions = (obj, inherited = false) =>
+  (inherited
+    ? [...Object.keys(obj), ...Object.keys(Object.getPrototypeOf(obj))]
+    : Object.keys(obj)
+  ).filter(key => typeof obj[key] === 'function');
+```
+
+**CONCEPTS：**
+
+返回可继承的函数名的数组。
+
+**EXAMPLES：**
+
+```js
+function Foo() {
+  this.a = () => 1;
+  this.b = () => 2;
+}
+Foo.prototype.c = () => 3;
+functions(new Foo()); // ['a', 'b']
+functions(new Foo(), true); // ['a', 'b', 'c']
+```
+
+
+
+## get
+
+**FUNCTION：**
+
+```js
+const get = (from, ...selectors) =>
+  [...selectors].map(s =>
+    s
+      .replace(/\[([^\[\]]*)\]/g, '.$1.')
+      .split('.')
+      .filter(t => t !== '')
+      .reduce((prev, cur) => prev && prev[cur], from)
+  );
+```
+
+**CONCEPTS：**
+
+获取对象指定属性值。相对于 [deepGet](/frontend/javascript/code-object.html#deepget) 方法数组形式更直观。
+
+**EXAMPLES：**
+
+```js
+const obj = { selector: { to: { val: 'val to select' } }, target: [1, 2, { a: 'test' }] };
+get(obj, 'selector.to.val', 'target[0]', 'target[2].a'); // ['val to select', 1, 'test']
+```
+
+
+
+## hasKey
+
+**FUNCTION：**
+
+```js
+const hasKey = (obj, keys) => {
+  return (keys.length > 0) && keys.every(key => {
+    if (typeof obj !== 'object' || !obj.hasOwnProperty(key)) return false;
+    obj = obj[key];
+    return true;
+  });
+};
+```
+
+**CONCEPTS：**
+
+检测对象是否具有对应属性。
+
+**EXAMPLES：**
+
+```js
+let obj = {
+  a: 1,
+  b: { c: 4 },
+  'b.d': 5
+};
+hasKey(obj, ['a']); // true
+hasKey(obj, ['b']); // true
+hasKey(obj, ['b', 'c']); // true
+// 调整位置
+hasKey(obj, ['c']); // false
+hasKey(obj, ['b.d']); // true
+hasKey(obj, ['d']); // false
+hasKey(obj, ['b', 'f']); // false
+```
+
+
+
+## invertKeyValues
+
+**FUNCTION：**
+
+```js
+const invertKeyValues = (obj, fn) =>
+  Object.keys(obj).reduce((acc, key) => {
+    const val = fn ? fn(obj[key]) : obj[key];
+    acc[val] = acc[val] || [];
+    acc[val].push(key);
+    return acc;
+  }, {});
+```
+
+**CONCEPTS：**
+
+反转 key、values 并归类。
+
+**EXAMPLES：**
+
+```js
+invertKeyValues({ a: 1, b: 2, c: 1 }); // { 1: [ 'a', 'c' ], 2: [ 'b' ] }
+invertKeyValues({ a: 1, b: 2, c: 1 }, value => 'group' + value); // { group1: [ 'a', 'c' ], group2: [ 'b' ] }
+```
+
+
+
+## lowercaseKeys
+
+**FUNCTION：**
+
+```js
+const lowercaseKeys = obj =>
+  Object.keys(obj).reduce((acc, key) => {
+    acc[key.toLowerCase()] = obj[key];
+    return acc;
+  }, {});
+```
+
+**CONCEPTS：**
+
+小写对象 keys（浅层）。
+
+**EXAMPLES：**
+
+```js
+const myObj = { Name: 'Adam', sUrnAME: 'Smith', other: { tName: 'John' } };
+const myObjLower = lowercaseKeys(myObj); // {name: 'Adam', surname: 'Smith'};
+```
+
+
+
+## mapKeys/mapValues
+
+**FUNCTION：**
+
+```js
+const mapKeys = (obj, fn) =>
+  Object.keys(obj).reduce((acc, k) => {
+    acc[fn(obj[k], k, obj)] = obj[k];
+    return acc;
+  }, {});
+const mapValues = (obj, fn) =>
+  Object.keys(obj).reduce((acc, k) => {
+    acc[k] = fn(obj[k], k, obj);
+    return acc;
+  }, {});
+```
+
+**CONCEPTS：**
+
+对象 keys、values 映射（浅层）。
+
+**EXAMPLES：**
+
+```js
+mapKeys({ a: 1, b: 2 }, (val, key) => key + val); // { a1: 1, b2: 2 }
+const users = {
+  fred: { user: 'fred', age: 40 },
+  pebbles: { user: 'pebbles', age: 1 }
+};
+mapValues(users, u => u.age); // { fred: 40, pebbles: 1 }
+```
+
+
+
+## matches
+
+**FUNCTION：**
+
+```js
+const matches = (obj, source) =>
+  Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+```
+
+**CONCEPTS：**
+
+对象之间是否包含。
+
+**EXAMPLES：**
+
+```js
+matches({ age: 25, hair: 'long', beard: true }, { hair: 'long', beard: true }); // true
+matches({ hair: 'long', beard: true }, { age: 25, hair: 'long', beard: true }); // false
+```
+
+
+
+## matchesWith
+
+**FUNCTION：**
+
+```js
+const matchesWith = (obj, source, fn) =>
+  Object.keys(source).every(key =>
+    obj.hasOwnProperty(key) && fn
+      ? fn(obj[key], source[key], key, obj, source)
+      : obj[key] == source[key]
+  );
+```
+
+**CONCEPTS：**
+
+对象之间是否包含。按照之前的关系，`By` 为统一映射，`With` 可分别处理。
+
+**EXAMPLES：**
+
+```js
+const isGreeting = val => /^h(?:i|ello)$/.test(val);
+matchesWith(
+  { greeting: 'hello' },
+  { greeting: 'hi' },
+  (oV, sV) => isGreeting(oV) && isGreeting(sV)
+); // true
+```
+
+
+
+## merge
+
+**FUNCTION：**
+
+```js
+const merge = (...objs) =>
+  [...objs].reduce(
+    (acc, obj) =>
+      Object.keys(obj).reduce((a, k) => {
+        acc[k] = acc.hasOwnProperty(k) ? [].concat(acc[k]).concat(obj[k]) : obj[k];
+        return acc;
+      }, {}),
+    {}
+  );
+```
+
+**CONCEPTS：**
+
+合并对象。区别于 `Object.assign` 的属性覆盖。
+
+**EXAMPLES：**
+
+```js
+const object = {
+  a: [{ x: 2 }, { y: 4 }],
+  b: 1
+};
+const other = {
+  a: { z: 3 },
+  b: [2, 3],
+  c: 'foo'
+};
+merge(object, other); // { a: [ { x: 2 }, { y: 4 }, { z: 3 } ], b: [ 1, 2, 3 ], c: 'foo' }
+```
+
+
+
+## objectFromPairs/objectToPairs
+
+**FUNCTION：**
+
+```js
+const objectFromPairs = arr => arr.reduce((a, [key, val]) => ((a[key] = val), a), {});
+const objectToPairs = obj => Object.keys(obj).map(k => [k, obj[k]]);
+```
+
+**CONCEPTS：**
+
+对象、数组（规定格式）互转。
+
+**EXAMPLES：**
+
+```js
+objectFromPairs([['a', 1], ['b', 2]]); // {a: 1, b: 2}
+objectToPairs({ a: 1, b: 2 }); // [ ['a', 1], ['b', 2] ]
 ```
