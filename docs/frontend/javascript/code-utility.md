@@ -424,7 +424,7 @@ const randomHexColorCode = () => {
 
 **CONCEPTS：**
 
-随机 6 位 hex 颜色。关于 `0xfffff` 的含义还需要进一步了解。
+随机 6 位 hex 颜色。`0xfffff` 表示为 16 进制，`0xff` 即 `15*16^1 + 15*16^0 = 255`，`0xfff0` 即 `15*16^2 + 15*16^1 + 15*16^0 = 4095`。
 
 **EXAMPLES：**
 
