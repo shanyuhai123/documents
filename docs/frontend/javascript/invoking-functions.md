@@ -66,8 +66,8 @@ f().m(); // 在调用 f 结束后继续调用返回值中的方法 m
 > ```js
 > // 普通函数 this 在严格模式下为 undefined
 > function Car(type, color) {
->   this.type = type;
->   this.color = color;
+>     this.type = type;
+>     this.color = color;
 > }
 > ```
 
@@ -85,7 +85,11 @@ f().m(); // 在调用 f 结束后继续调用返回值中的方法 m
 var o = new Object();
 // 等价于
 var o = new Object;
+
+o.constructor === Object; // true
 ```
+
+> 所有对象都会从它的原型上继承一个 `constructor` 属性，该属性的值是 “构造函数” 的引用。
 
 构造函数调用会创建一个新的空对象，这个对象继承自构造函数的 prototype 属性。构造函数试图初始化这个新创建的对象，并将这个对象用作其调用上下文，因此构造函数可以使用 this 关键字来引用这个新创建的对象。注意，尽管构造函数看起来像一个方法调用，它依然会使用这个新对象作为调用上下文。也就是说，在表达式 `new o.m();` 中，调用上下文并不是 o。
 
