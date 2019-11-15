@@ -34,3 +34,13 @@ const B = new Boolean();
 typeof N === typeof S === typeof B === "object"
 ```
 
+
+
+> 引申：
+>
+> ```js
+> typeof null; // object
+> ```
+>
+> 按照 JavaScript 中类型的划分应当返回为 `null`，这是 JavaScript 中一直存在的 bug，但永远都不会修复了，因为有太多已经在运行代码依赖于这个 bug。
+
