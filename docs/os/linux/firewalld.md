@@ -1,10 +1,10 @@
 ---
-title: firewalld 防火墙
+title: 防火墙 firewalld
 ---
 
 ## 介绍
 
- firewalld 是 CentOS 7 新增的特性，其支持动态更新，且添加了防火墙 "zones" 的概念。
+firewalld 是 CentOS 7 新增的特性，其支持动态更新，且添加了防火墙 "zones" 的概念。
 
 firewalld 与 iptables 自身并不具备防火墙的功能，都需要通过内核的 netfilter 来实现，它们的作用都是维护过滤的规则。
 
