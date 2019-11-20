@@ -40,7 +40,7 @@ a = 2;
 // 这里指向 `a` 的引用是一个 LHS 引用，因为我们实际上不关心当前的值是什么，我们只是想找到这个变量，将它作为 `= 2` 赋值操作的目标。
 
 function foo(a) {
-	console.log( a ); // 2
+	console.log(a); // 2
 }
 
 foo(2);
@@ -56,39 +56,151 @@ foo(2);
 
 
 
-## 概念
+## 词法作用域
 
-JavaScript 也采用[词法作用域](https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scope_vs._dynamic_scope)（Lexical Scope 又称 Static Scope），也就是说，函数的执行依赖于变量作用域，这个作用域是在函数定义时决定的，而不是函数调用时决定的。为了实现这个词法作用域，JavaScript 函数对象的内部状态不仅包含函数的代码逻辑，还必须引用当前的作用域链。函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内，这种特性在计算机科学中称为 “[闭包](https://en.wikipedia.org/wiki/Closure_(computer_programming))”，又称为 “词法闭包（Lexical Closure）”。
+JavaScript 也采用[词法作用域](https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scope_vs._dynamic_scope)（Lexical Scope 又称 Static Scope，另外一种是动态作用域 Dynamic Scope），也就是说，函数的执行依赖于变量作用域，这个作用域是在函数定义时决定的，而不是函数调用时决定的。为了实现这个词法作用域，JavaScript 函数对象的内部状态不仅包含函数的代码逻辑，还必须引用当前的作用域链。函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内，这种特性在计算机科学中称为 “[闭包](https://en.wikipedia.org/wiki/Closure_(computer_programming))”，又称为 “词法闭包（Lexical Closure）”。
 
 > 个人理解：
 >
 > 词法作用域定义了如何解析函数中嵌套的变量名，即使父（函数）已经返回（执行完毕），子函数依然保有父作用域。
 
-从技术角度上来说，所有的 JavaScript 函数都是闭包：它们都是对象，它们都关联到作用域链。定义大多数函数时的作用域链在调用函数时依然有效，但这并不影响闭包。
+从技术角度上来说，所有的 JavaScript 函数都是闭包：当调用函数时作用域链和定义函数时的作用域链不是同一个作用域链时。
+
+所有函数都是闭包？
+
+```js
+// 借助一个常见的示例：
+var a = 1;
+function foo() {
+  console.log(a);
+}
+
+foo();
+// 此处 foo 函数可以访问变量 a，但是 a 并非 foo 定义时作用域链中的变量
+// 即构成了一个闭包
+```
 
 > 作用域链：作用域链被描述为一个对象列表，而非绑定的栈。
 
 每次调用 JavaScript 函数的时候，都会为之创建一个新的对象用来保存局部变量，把这个对象添加至作用域链中。当函数返回的时候，就从作用域链中将这个绑定变量的对象删除。如果不存在嵌套函数，也没有其他引用指向这个绑定对象，它就会被当做垃圾回收掉。如果定义了嵌套的函数，每个嵌套的函数都各自对应一个作用域链，并且这个作用域链指向一个变量绑定对象。但如果这些嵌套的函数对象在外部函数中保存下来，那么它们也会和所指向的变量绑定对象一样被垃圾回收。但是如果这个函数顶一个嵌套的函数，并将它作为返回值返回或者存储在某处的属性里，这时就会有一个外部引用指向这个嵌套的函数。它就不会被当做垃圾回收，并且它所指向的变量绑定对象也不会被当做垃圾回收。
 
-
-
-## 示例
+### 1. 词法分析
 
 ```js
-var scope = "global scope";
-function checkscope() {
-  var scope = "local scope";
-  function f() { return scope; }
-  return f();
-}
-checkscope(); // local scope
+function foo(a) {
+	var b = a * 2;
+	function bar(c) {
+		console.log( a, b, c );
+	}
 
-// 稍作修改
-function checkscope() {
-	var scope = "local scope";
-  function f() { return scope; }
-  return f;
+	bar(b * 3);
 }
-checkscope()(); // local scope
+
+foo( 2 ); // 2 4 12
 ```
+
+以上存在三个作用域：
+
+1. 全局作用域，一个标识符：`foo`。
+2. `foo` 作用域，三个标识符：`a`、`bar`、`b`。
+3. `bar` 作用域，一个标识符：`c`。
+
+
+
+## 编译在先
+
+### 1. 变量提升示例
+
+```js
+console.log(a); // undefined
+var a = 2;
+
+// 上面常常被误认为结果是抛出一个 ReferenceError
+```
+
+要理解上面的示例，就需要回顾下之前的[编译器理论](/frontend/javascript/scope-and-closures.html#编译器理论)，引擎实际上将会在它解释执行你的 JavaScript 代码前编译它。编译过程的一部分就是找到所有声明（当前作用域内的声明？待验证），变将它们关联在合适的作用域上。即，在你的代码的任何部分被执行之前，所有的声明、变量和函数都会首先被处理。
+
+因此，示例的实际执行为：
+
+1. 编译：
+
+   ```js
+   var a;
+   ```
+
+2. 执行：
+
+   ```js
+   console.log(a);
+   a = 2;
+   ```
+
+由此就产生了 “变量提升” 这个概念。
+
+> 注意：只有声明被提升了，而任何赋值或其他的执行逻辑都会被留在原处。
+>
+> 补充：函数声明也是声明，并且函数声明优先于变量声明。
+
+### 2. 函数提升示例
+
+```js
+foo(); // TypeError: foo is not a function
+bar(); // ReferenceError: bar is not defined
+
+var foo = function bar() {
+	// ...
+};
+```
+
+将其解析一下便很容易得出原因：
+
+```js
+var foo;
+
+foo(); // TypeError
+bar(); // ReferenceError
+
+foo = function() {
+	var bar = ...self...
+	// ...
+}
+```
+
+
+
+## 定时器影响
+
+```js
+function wait(message) {
+  setTimeout(function timer() {
+  	console.log(message);
+  }, 1000);
+}
+
+wait("Hello, closure!"); // Hello, closure!
+
+for (var i=1; i<=5; i++) {
+	setTimeout(function timer() {
+		console.log(i);
+	}, i * 1000 );
+}
+
+// 6 6 6 6 6
+```
+
+第二段代码与预期的 12345 不一致，是由于作用域的问题，闭包都作用在全局作用域上了，所以所有的 `console.log(i)` 的 `i` 都指向全局同一个变量 `i`。
+
+可以利用 IFEE 为每个 `console.log` 创建独立的作用域：
+
+```js
+for (var i=1; i<=5; i++) {
+	(function (i) {
+		setTimeout(function timer() {
+			console.log(i);
+		}, i * 1000 );
+  })(i);
+}
+```
+
+由于是作用域的问题，所以也可以利用新增的 `let`、`const` 生成块级作用域。
 
