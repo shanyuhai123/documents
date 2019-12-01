@@ -15,6 +15,7 @@ const javascript = require('./frontend/javascript/index.js');
 const webpack = require('./frontend/webpack/index.js');
 const css = require('./frontend/css/index.js');
 const nodejs = require('./frontend/nodejs/index.js');
+const utils = require('./frontend/utils/index.js');
 
 // 后端
 const koa = require('./backend/koa/index.js');
@@ -59,6 +60,7 @@ module.exports = {
   '/frontend/webpack/': webpack,
   '/frontend/css/': css,
   '/frontend/nodejs/': nodejs,
+  '/frontend/utils/': utils,
 
   // 后端 backend
   '/backend/koa/': koa,

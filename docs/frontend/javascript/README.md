@@ -10,7 +10,6 @@ title: 首页
 
 ## 参考资料
 
-1. [30-seconds-of-code](https://github.com/30-seconds/30-seconds-of-code)
 2. 《JavaScript 权威指南》
 3. [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
 4. [MDN](https://developer.mozilla.org/zh-CN/)
