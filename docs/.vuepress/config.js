@@ -6,11 +6,6 @@ const headConf = require('../../config/headConf.js');
 module.exports = {
   title: '飞跃高山与大洋的鱼',
   description: '飞跃高山与大洋的鱼的文档, vuepress 文档',
-  locales: {
-    '/': {
-      lang: 'zh-CN', 
-    }
-  },
   head: headConf,
   plugins: pluginConf,
   themeConfig: {

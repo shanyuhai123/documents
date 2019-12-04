@@ -1,3 +1,4 @@
+const moment = require('moment');
 const secretKeyConf = require('./secretKeyConf.js');
 
 module.exports = {
@@ -14,5 +15,12 @@ module.exports = {
   },
   '@vuepress/medium-zoom': {
     selector: '.content__default img',
+  },
+  '@vuepress/last-updated': {
+    transformer: (timestamp) => {
+      moment.locale('zh-CN')
+      const isBefore30D =  moment(timestamp).isBefore(moment().subtract(30, 'days'), 'day')
+      return  isBefore30D ? moment(timestamp).format(' YYYY MMMM Do HH:mm:ss') : moment(timestamp).fromNow()
+    }
   }
 };
