@@ -15,6 +15,7 @@ const javascript = require('./frontend/javascript/index.js');
 const webpack = require('./frontend/webpack/index.js');
 const css = require('./frontend/css/index.js');
 const nodejs = require('./frontend/nodejs/index.js');
+const d3js = require('./frontend/d3js/index.js');
 const utils = require('./frontend/utils/index.js');
 
 // 后端
@@ -60,6 +61,7 @@ module.exports = {
   '/frontend/webpack/': webpack,
   '/frontend/css/': css,
   '/frontend/nodejs/': nodejs,
+  '/frontend/d3js/': d3js,
   '/frontend/utils/': utils,
 
   // 后端 backend

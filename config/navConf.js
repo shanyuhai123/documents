@@ -13,6 +13,7 @@ module.exports = [
     { text: 'CSS', link: 'https://css.shanyuhai.top/' },
     { text: 'Webpack', link: '/frontend/webpack/' },
     { text: 'Nodejs', link: '/frontend/nodejs/' },
+    { text: 'D3', link: '/frontend/d3js/' },
     { text: 'Utils', link: '/frontend/utils/' },
   ]},
   { text: '后端', items: [
