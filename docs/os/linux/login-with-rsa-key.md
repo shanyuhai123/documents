@@ -30,6 +30,9 @@ vim ～/.ssh/authorized_keys
 # 确认保存
 cat ～/.ssh/authorized_keys
 # 内容为： ssh-rsa……
+
+# 更好的形式是利用 ssh-copy-id 直接推送
+ssh-copy-id -i id_rsa_name.pub root@ip
 ```
 
 ### 3. 编辑 SSH 配置文件
