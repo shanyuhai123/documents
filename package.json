@@ -7,7 +7,6 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "cname": "bash cname.sh",
-    "getname": "node utils/getFilenames.js",
     "algolia": "bash algolia.sh"
   },
   "repository": {
@@ -27,7 +26,8 @@
     "@vuepress/plugin-medium-zoom": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
     "moment": "^2.24.0",
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.2.0",
+    "vuepress-plugin-auto-sidebar": "0.0.1"
   },
   "dependencies": {}
 }

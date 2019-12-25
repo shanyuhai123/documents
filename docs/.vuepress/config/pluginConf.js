@@ -22,5 +22,6 @@ module.exports = {
       const isBefore30D =  moment(timestamp).isBefore(moment().subtract(30, 'days'), 'day')
       return  isBefore30D ? moment(timestamp).format(' YYYY MMMM Do HH:mm:ss') : moment(timestamp).fromNow()
     }
-  }
+  },
+  "vuepress-plugin-auto-sidebar": {}
 };

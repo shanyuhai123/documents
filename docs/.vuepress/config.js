@@ -1,7 +1,6 @@
-const pluginConf = require('../../config/pluginConf.js');
-const navConf = require('../../config/navConf.js');
-const sidebarConf = require('../../config/sidebarConf/index.js');
-const headConf = require('../../config/headConf.js');
+const pluginConf = require('./config/pluginConf.js');
+const navConf = require('./config/navConf.js');
+const headConf = require('./config/headConf.js');
 
 module.exports = {
   title: '飞跃高山与大洋的鱼',
@@ -15,7 +14,7 @@ module.exports = {
     editLinkText: '编辑文档！',
     docsDir: 'docs',
     nav: navConf,
-    sidebar: sidebarConf,
+    sidebar: require('./sidebar.js'),
     algolia: {
       appId: 'M698VCXCJN',
       apiKey: '8b552055fb68ffc808bfbd3f98a1dbe2',
