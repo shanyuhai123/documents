@@ -14,7 +14,6 @@ module.exports = {
     editLinkText: '编辑文档！',
     docsDir: 'docs',
     nav: navConf,
-    sidebar: require('./sidebar.js'),
     algolia: {
       appId: 'M698VCXCJN',
       apiKey: '8b552055fb68ffc808bfbd3f98a1dbe2',
