@@ -19,9 +19,11 @@ module.exports = {
   '@vuepress/last-updated': {
     transformer: (timestamp) => {
       moment.locale('zh-CN')
-      const isBefore30D =  moment(timestamp).isBefore(moment().subtract(30, 'days'), 'day')
-      return  isBefore30D ? moment(timestamp).format(' YYYY MMMM Do HH:mm:ss') : moment(timestamp).fromNow()
+      const isBefore30D = moment(timestamp).isBefore(moment().subtract(30, 'days'), 'day');
+      return isBefore30D ? moment(timestamp).format(' YYYY年 MM月 DD日 HH:mm:ss') : moment(timestamp).fromNow();
     }
   },
-  "vuepress-plugin-auto-sidebar": {}
+  "vuepress-plugin-auto-sidebar": {
+    titleMode: "uppercase"
+  }
 };
