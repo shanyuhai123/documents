@@ -12,15 +12,22 @@ title: 错误处理
 cat /proc/sys/fs/inotify/max_user_watches # 19200
 ```
 
-限制比较小，接着查看[解决方案](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers)。虽然提示说 `Arch Linux` 应当使用 `echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system`，但我的 manjaro 执行后依旧存在问题。
+限制比较小，接着查看[解决方案](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers)。虽然提示说 `Arch Linux` 应当使用 `echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system`，但我的 manjaro 重启后依旧存在问题。
 
-采用常规的 Linux 解决方案：
+最后的解决方案：
 
 ```bash
-# 如果该方式创建存在问题，可手动一步步修改
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-cat /proc/sys/fs/inotify/max_user_watches # 524288
+ll /etc/sysctl.d/
+# 40-max-user-watches.conf
+# 50-max_user_watches.conf # 需注意文件名区别
+cat /etc/sysctl.d/50-max_user_watches.conf
+fs.inotify.max_user_watches = 19200 # 利用 vim 修改后重启成功
 ```
 
 
 
+## 空文件夹折叠
+
+在一次更新之后 VSCode 添加了新的特性 `Compact Folders`，这种行为与 Chrome 浏览器擅自遮挡 `www` 一样恶心。
+
+打开 `Settings`，输入 `Compact Folders` 取消选中即可。
