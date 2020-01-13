@@ -1,5 +1,6 @@
 ---
 title: 一切皆文件
+autoPrev: README
 ---
 
 ## 介绍
