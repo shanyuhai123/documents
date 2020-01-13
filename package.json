@@ -27,7 +27,7 @@
     "@vuepress/plugin-pwa": "^1.2.0",
     "moment": "^2.24.0",
     "vuepress": "^1.2.0",
-    "vuepress-plugin-auto-sidebar": "^1.0.0"
+    "vuepress-plugin-auto-sidebar": "^1.1.0"
   },
   "dependencies": {}
 }
