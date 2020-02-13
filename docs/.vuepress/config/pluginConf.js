@@ -17,11 +17,7 @@ module.exports = {
     selector: '.content__default img',
   },
   '@vuepress/last-updated': {
-    transformer: (timestamp) => {
-      moment.locale('zh-CN')
-      const isBefore30D = moment(timestamp).isBefore(moment().subtract(30, 'days'), 'day');
-      return isBefore30D ? moment(timestamp).format(' YYYY年 MM月 DD日 HH:mm:ss') : moment(timestamp).fromNow();
-    }
+    transformer: (timestamp) => moment(timestamp).format(' YYYY 年 MM 月 DD 日 HH:mm:ss')
   },
   "vuepress-plugin-auto-sidebar": {
     titleMode: "uppercase"
