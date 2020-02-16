@@ -26,6 +26,7 @@ module.exports = [
     { text: 'Github', link: '/tools/github/' },
     { text: 'VSCode', link: '/tools/vscode/' },
     { text: 'Chrome Developer tools', link: '/tools/chrome/' },
+    { text: 'Bookmark scripts', link: '/tools/bookmark-scripts/' },
   ]},
   { text: '更多', items: [
     { text: '算法', link: '/more/algorithm/' },
