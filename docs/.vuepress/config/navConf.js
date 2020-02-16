@@ -12,11 +12,11 @@ module.exports = [
     { text: 'JavaScript', link: '/frontend/javascript/' },
     { text: 'CSS', link: 'https://css.shanyuhai.top/' },
     { text: 'Webpack', link: '/frontend/webpack/' },
-    { text: 'Nodejs', link: '/frontend/nodejs/' },
     { text: 'D3', link: '/frontend/d3js/' },
     { text: 'Utils', link: '/frontend/utils/' },
   ]},
   { text: '后端', items: [
+    { text: 'Nodejs', link: '/backend/nodejs/' },
     { text: 'Koa', link: '/backend/koa/' },
     { text: 'MongoDB', link: '/backend/mongodb/' },
     { text: 'Nginx', link: '/backend/nginx/' },
