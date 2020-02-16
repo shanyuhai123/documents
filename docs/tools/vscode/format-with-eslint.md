@@ -58,6 +58,7 @@ module.exports = {
     'vue',
   ],
   'rules': {
+    // 'quotes': ['error', 'single'] // 启用单引号
   },
 };
 ```
@@ -67,7 +68,7 @@ module.exports = {
 ```js
 // 以 单引号 示例
 module.exports = {
-  singleQuote: false
+  singleQuote: true
 };
 ```
 
