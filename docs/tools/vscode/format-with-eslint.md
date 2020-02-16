@@ -80,7 +80,7 @@ module.exports = {
 1. `Vetur` 更好的支持 `Vue` 文件(与格式化无关)；
 2. `ESLint` 支持自动格式化。
 
-配置 `ESLint`：
+配置 `ESLint` 后在编辑器中保存(`Ctrl + S`)即会自动格式化。
 
 ```json
 "editor.codeActionsOnSave": {
@@ -88,5 +88,19 @@ module.exports = {
 }
 ```
 
-最后，你还可以在 `git hooks` 处添加 `lint`，不过此处就不展开了。
+当希望对当前目录下的所有 `.js`、`.vue` 进行格式化时，在命令行执行：
+
+```bash
+./node_modules/.bin/eslint --ext .js,.vue ./ --fix
+```
+
+若觉得其麻烦可以在 `package.json` 中配置：
+
+```json
+"scripts": {
+  "lint": "./node_modules/.bin/eslint --ext .js,.vue ./ --fix",
+},
+```
+
+再在命令行执行 `npm run lint` 即可，当然你还可以在 `git hooks` 处添加 `lint`，不过此处就不展开了。
 
