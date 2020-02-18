@@ -4,7 +4,7 @@ title: 安装 Node.js
 
 ## nvm
 
-用于解决多版本共存问题，可以使用最新的版本来测试新出的特性，也可以使用 `LTS` 来支撑稳定的业务，便于切换版本。
+[nvm](https://github.com/creationix/nvm) 用于解决多版本共存问题，可以使用最新的版本来测试新出的特性，也可以使用 `LTS` 来支撑稳定的业务，便于切换版本。
 
 ### 1. 安装
 
@@ -44,7 +44,7 @@ npm config set registry https://registry.npmjs.org/
 
 ### 1. 安装
 
-nrm 也是 `Node.js` 模块，所以在安装它之前需要先安装完 npm。
+[nrm](https://github.com/Pana/nrm) 也是 `Node.js` 模块，可用于切换 npm 源。
 
 ```bash
 npm install --global nrm
@@ -135,10 +135,3 @@ nvm ls
 # 远程
 nvm ls-remote
 ```
-
-
-
-## 参考资料
-
-1. [nvm 文档](https://github.com/creationix/nvm)
-2. [nrm 文档](https://github.com/Pana/nrm)
