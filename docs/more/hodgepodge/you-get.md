@@ -39,8 +39,6 @@ you-get --playlist 'url'
 
 
 
-
-
 ## 在线观看
 
 除了将视频保存下来，还可以在线播放(`-p`/`--player`)。
@@ -68,3 +66,4 @@ you-get -p chromium url
 |   `-x`/`--http-proxy`    | 指定代理     |
 |     `-c`/`-cookies`      | 指定 cookies |
 
+当 `you-get` 不好用时，可以试一下 [annie](https://github.com/iawia002/annie)，维护的很勤快。
