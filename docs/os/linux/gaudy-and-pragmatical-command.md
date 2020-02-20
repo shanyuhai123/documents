@@ -8,3 +8,12 @@ title: 花里胡哨且实用的命令
 cp test.txt{,.bak}
 ls -al test.txt* # 验证
 ```
+
+
+
+## 创建文件夹
+
+```bash
+mkdir /app/{template,logs,package/src} -p
+```
+
