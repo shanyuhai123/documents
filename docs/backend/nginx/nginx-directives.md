@@ -101,41 +101,6 @@ location 的匹配规则与常规的不一致，非正序匹配，也非倒序�
 
 
 
-## [auth_basic](https://nginx.org/en/docs/http/ngx_http_auth_basic_module.html)
-
-最基础的就是使用 allow、deny 来限制访问的 IP，如果对资源的私密性要求并不是那么高，那可以使用 auth_basic 来为对应的资源添加密码。
-
-### 1. 安装依赖
-
-环境为 Ubuntu Server 18.04。
-
-```bash
-mkdir -p /usr/local/src/nginx/
-sudo htpasswd -c /usr/local/src/nginx/passwd nginx_test # 创建密码文件
-# 若缺乏依赖则提示，安装即可
-sudo apt install apache2-utils
-sudo htpasswd -c /usr/local/src/nginx/passwd nginx_test
-# 根据提示输入密码
-cat /usr/local/src/nginx/passwd # 验证
-```
-
-### 2. 配置 Nginx
-
-```bash
-# Context:	http, server, location, limit_except
-# 可选上下文如上
-vim /etc/nginx/conf.d/blog.conf
-# 在 server 上下文中添加
-auth_basic "请输入密码";
-auth_basic_user_file /usr/local/src/nginx/passwd;
-
-sudo nginx -s reload
-sudo nginx -t
-# 访问 blog.shanyuhai.top 验证
-```
-
-
-
 ## [alias](https://nginx.org/en/docs/http/ngx_http_core_module.html#alias)
 
 alias 与 root 有相似的用法，主要是介绍他们之间的区别。
