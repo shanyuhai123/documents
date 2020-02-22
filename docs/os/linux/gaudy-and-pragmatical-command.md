@@ -17,3 +17,11 @@ ls -al test.txt* # 验证
 mkdir /app/{template,logs,package/src} -p
 ```
 
+
+
+## 生成序列文件内容
+
+```bash
+for i in  {1..3}; do echo $i > $i;done
+```
+
