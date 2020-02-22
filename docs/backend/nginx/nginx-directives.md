@@ -59,38 +59,6 @@ server {
 
 
 
-## [rewrite](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite)
-
-该指令可以用于修改访问的 URL，对应的语法为：
-
-::: danger
-
-rewrite regex replacement [flag]
-
-:::
-
-flag 具有以下参数：
-
-|   flag    | 说明                        |
-| :-------: | --------------------------- |
-|   last    | 使用更改的 URI 匹配新位置。 |
-|   break   | 停止处理当前的指令集。      |
-| redirect  | 返回 302 （临时）重定向。   |
-| permanent | 返回 301 （永久）重定向。   |
-
-近期在升级站点到 https 时就用到了该语法：
-
-```bash
-rewrite ^(.*) https://$host$1 permanent;
-
-# 及 Certbot 自动配置的
-if ($host = blog.shanyuhai.top) {
-    return 301 https://$host$request_uri;
-} # managed by Certbot
-```
-
-
-
 ## [location](https://nginx.org/en/docs/http/ngx_http_core_module.html#location)
 
 可以注意到 `Context:	server, location`，也就是 location 可以嵌套，该项之前都没有注意到过。比较特殊的是 `@` 前缀定义命名位置。这样的位置不用于常规请求处理，而是用于请求重定向，它们不能嵌套。
@@ -237,97 +205,6 @@ alias 与 root 有相似的用法，主要是介绍他们之间的区别。
   # HTTP/1.1 200 OK
   # 123456
   ```
-
-
-
-## [referer](https://nginx.org/en/docs/http/ngx_http_referer_module.html)
-
-referer （引用页），常用于防盗链，当使用 CDN、OSS 时经常会碰到类似的提示。
-
-> referer 正确英文为 referrer，但由于早期 HTTP 规范的拼写错误，为了保持向后兼容也就将错就错了。
-
-### 1. Example
-
-来自 Nginx 的示例配置，并根据上一示例 [alias](/backend/nginx/nginx-directives.html#alias) 稍作修改：
-
-```bash
-vim /etc/nginx/conf.d/default.conf
-
-# 修改内容如下
-server {
-    listen       80;
-    server_name  localhost;
-
-    #charset koi8-r;
-    access_log  /var/log/nginx/nginx.access.log  main;
-    error_log  /var/log/nginx/nginx.error.log warn;
-
-    location / {
-        valid_referers none blocked server_names
-               *.example.com example.* nginx.example.top/foo/
-               ~\.google\.;
-
-        if ($invalid_referer) {
-            return 403;
-        }
-        return 200 'valid_referers\n';
-    }
-}
-
-nginx -s reload # 重载配置
-```
-
-### 2. test
-
-1. *.example.com
-
-   ```bash
-   curl -e 'http://dev.example.com' nginx.example.com
-   # 等价于
-   curl -H 'referer: http://dev.example.com' nginx.example.com
-   # HTTP/1.1 200 OK
-   # valid_referers
-   
-   curl -ie 'http://dev.aexample.com' nginx.example.com
-   # HTTP/1.1 403 Forbidden
-   ```
-
-2. example.*
-
-   ```bash
-   curl -ie 'http://example.org' nginx.example.com
-   # HTTP/1.1 200 OK
-   # valid_referers
-   
-   curl -ie 'http://dev.example.org' nginx.example.com
-   # HTTP/1.1 403 Forbidden
-   
-   curl -ie 'http://example.org/aaa' nginx.example.com
-   # HTTP/1.1 200 OK
-   # valid_referers
-   ```
-
-3. nginx.example.top/foo/
-
-   ```bash
-   curl -ie 'http://nginx.example.top' nginx.example.com
-   # HTTP/1.1 403 Forbidden
-   
-   curl -ie 'http://nginx.example.top/aaa' nginx.example.com
-   # HTTP/1.1 403 Forbidden
-   
-   curl -ie 'http://nginx.example.top/foo' nginx.example.com
-   # HTTP/1.1 403 Forbidden
-   curl -ie 'http://nginx.example.top/foo/' nginx.example.com
-   # HTTP/1.1 200 OK
-   # valid_referers
-   
-   curl -ie 'http://nginx.example.top/foo/aa' nginx.example.com
-   # HTTP/1.1 200 OK
-   # valid_referers
-   ```
-
-   
 
 
 
