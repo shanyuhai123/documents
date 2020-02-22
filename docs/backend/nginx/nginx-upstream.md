@@ -58,7 +58,7 @@ server {
     }
 }
 
-upstream nginx.example.com {
+upstream backend {
     server 127.0.0.1:8081 weight=2;
     server 127.0.0.1:8082;
     server 127.0.0.1:8083 backup;
@@ -74,7 +74,7 @@ server {
     error_log  /var/log/nginx/nginx.error.log warn;
 
     location / {
-        proxy_pass http://nginx.example.com;
+        proxy_pass backend;
         proxy_http_version 1.1;
         proxy_set_header Connection "";
         proxy_connect_timeout 1s;
