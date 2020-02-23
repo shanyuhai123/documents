@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>proxy_pass 规则 | 飞跃高山与大洋的鱼</title>
+    <meta name="description" content="飞跃高山与大洋的鱼的文档, vuepress 文档">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="Ld_AEWr30siza2LmmZ12csitRGsSj9gqqEAch0UXkTc">
+    
+    <link rel="preload" href="/assets/css/0.styles.9a8ded37.css" as="style"><link rel="preload" href="/assets/js/app.10397d07.js" as="script"><link rel="preload" href="/assets/js/3.89cedd7d.js" as="script"><link rel="preload" href="/assets/js/22.b828512e.js" as="script"><link rel="preload" href="/assets/js/4.d14f83af.js" as="script"><link rel="prefetch" href="/assets/js/10.93c61722.js"><link rel="prefetch" href="/assets/js/100.896168d5.js"><link rel="prefetch" href="/assets/js/101.e060b88e.js"><link rel="prefetch" href="/assets/js/102.c77a5768.js"><link rel="prefetch" href="/assets/js/103.14090495.js"><link rel="prefetch" href="/assets/js/104.d45b1720.js"><link rel="prefetch" href="/assets/js/105.97e318a4.js"><link rel="prefetch" href="/assets/js/106.439bee04.js"><link rel="prefetch" href="/assets/js/107.ad231467.js"><link rel="prefetch" href="/assets/js/108.966e27e7.js"><link rel="prefetch" href="/assets/js/109.a7c75fb8.js"><link rel="prefetch" href="/assets/js/11.8d4d0dcb.js"><link rel="prefetch" href="/assets/js/110.1e9b2aba.js"><link rel="prefetch" href="/assets/js/111.01ad528f.js"><link rel="prefetch" href="/assets/js/112.02de76a9.js"><link rel="prefetch" href="/assets/js/113.a4447f61.js"><link rel="prefetch" href="/assets/js/114.b5cb7c0d.js"><link rel="prefetch" href="/assets/js/115.417fe157.js"><link rel="prefetch" href="/assets/js/116.ceb3d456.js"><link rel="prefetch" href="/assets/js/117.2065a35e.js"><link rel="prefetch" href="/assets/js/118.c92bf091.js"><link rel="prefetch" href="/assets/js/119.f4b5ae05.js"><link rel="prefetch" href="/assets/js/12.fc1f7698.js"><link rel="prefetch" href="/assets/js/120.1022dea1.js"><link rel="prefetch" href="/assets/js/121.6011f66c.js"><link rel="prefetch" href="/assets/js/122.bdf84d1b.js"><link rel="prefetch" href="/assets/js/123.f61ae8fd.js"><link rel="prefetch" href="/assets/js/124.9fa21f2a.js"><link rel="prefetch" href="/assets/js/125.aaa5c0bb.js"><link rel="prefetch" href="/assets/js/126.85f167cd.js"><link rel="prefetch" href="/assets/js/127.80cfb54a.js"><link rel="prefetch" href="/assets/js/128.df8a38aa.js"><link rel="prefetch" href="/assets/js/129.79a0baf0.js"><link rel="prefetch" href="/assets/js/13.799219aa.js"><link rel="prefetch" href="/assets/js/130.c592bd80.js"><link rel="prefetch" href="/assets/js/131.0f567c30.js"><link rel="prefetch" href="/assets/js/132.f3583b4b.js"><link rel="prefetch" href="/assets/js/133.ee51e905.js"><link rel="prefetch" href="/assets/js/134.d90564d8.js"><link rel="prefetch" href="/assets/js/135.10c5df17.js"><link rel="prefetch" href="/assets/js/136.3a175ce5.js"><link rel="prefetch" href="/assets/js/137.d7277dec.js"><link rel="prefetch" href="/assets/js/138.6ce6f247.js"><link rel="prefetch" href="/assets/js/139.a347c94c.js"><link rel="prefetch" href="/assets/js/14.f871a53a.js"><link rel="prefetch" href="/assets/js/140.ce11efae.js"><link rel="prefetch" href="/assets/js/141.67a61f31.js"><link rel="prefetch" href="/assets/js/142.55532537.js"><link rel="prefetch" href="/assets/js/143.5c988080.js"><link rel="prefetch" href="/assets/js/144.8cf57130.js"><link rel="prefetch" href="/assets/js/145.5f2bdebe.js"><link rel="prefetch" href="/assets/js/146.1fabbef2.js"><link rel="prefetch" href="/assets/js/147.b4b7b11a.js"><link rel="prefetch" href="/assets/js/148.61deb54d.js"><link rel="prefetch" href="/assets/js/149.344f2ea5.js"><link rel="prefetch" href="/assets/js/15.f4c02bbe.js"><link rel="prefetch" href="/assets/js/150.14641872.js"><link rel="prefetch" href="/assets/js/151.0badc3d2.js"><link rel="prefetch" href="/assets/js/152.8322b4d3.js"><link rel="prefetch" href="/assets/js/16.e774295b.js"><link rel="prefetch" href="/assets/js/17.bfebc59c.js"><link rel="prefetch" href="/assets/js/18.4670c94a.js"><link rel="prefetch" href="/assets/js/19.684cf830.js"><link rel="prefetch" href="/assets/js/20.2999fd0e.js"><link rel="prefetch" href="/assets/js/21.adf78053.js"><link rel="prefetch" href="/assets/js/23.c5fb9b12.js"><link rel="prefetch" href="/assets/js/24.da77d049.js"><link rel="prefetch" href="/assets/js/25.92edee55.js"><link rel="prefetch" href="/assets/js/26.5f97a04b.js"><link rel="prefetch" href="/assets/js/27.1f85bedc.js"><link rel="prefetch" href="/assets/js/28.f847407e.js"><link rel="prefetch" href="/assets/js/29.1eecb6f3.js"><link rel="prefetch" href="/assets/js/30.cf071c0a.js"><link rel="prefetch" href="/assets/js/31.29b239e8.js"><link rel="prefetch" href="/assets/js/32.753db1a3.js"><link rel="prefetch" href="/assets/js/33.a003caed.js"><link rel="prefetch" href="/assets/js/34.11276d26.js"><link rel="prefetch" href="/assets/js/35.bfd8186f.js"><link rel="prefetch" href="/assets/js/36.18a2776f.js"><link rel="prefetch" href="/assets/js/37.c6a5e347.js"><link rel="prefetch" href="/assets/js/38.d0ce4b1d.js"><link rel="prefetch" href="/assets/js/39.2a70a58e.js"><link rel="prefetch" href="/assets/js/40.50147d93.js"><link rel="prefetch" href="/assets/js/41.aa0f70c6.js"><link rel="prefetch" href="/assets/js/42.e3c22af4.js"><link rel="prefetch" href="/assets/js/43.6c165a5d.js"><link rel="prefetch" href="/assets/js/44.7c09d684.js"><link rel="prefetch" href="/assets/js/45.6546bbbe.js"><link rel="prefetch" href="/assets/js/46.5d088352.js"><link rel="prefetch" href="/assets/js/47.4c534fdd.js"><link rel="prefetch" href="/assets/js/48.f7d265c0.js"><link rel="prefetch" href="/assets/js/49.4ad75bdf.js"><link rel="prefetch" href="/assets/js/5.1f90905d.js"><link rel="prefetch" href="/assets/js/50.5eb412c2.js"><link rel="prefetch" href="/assets/js/51.b56e4f94.js"><link rel="prefetch" href="/assets/js/52.4dad64a4.js"><link rel="prefetch" href="/assets/js/53.eb467d33.js"><link rel="prefetch" href="/assets/js/54.7e4572d0.js"><link rel="prefetch" href="/assets/js/55.4f3e8939.js"><link rel="prefetch" href="/assets/js/56.83af29ab.js"><link rel="prefetch" href="/assets/js/57.d58c199a.js"><link rel="prefetch" href="/assets/js/58.dda51767.js"><link rel="prefetch" href="/assets/js/59.97eb26e1.js"><link rel="prefetch" href="/assets/js/6.cadcf0d0.js"><link rel="prefetch" href="/assets/js/60.1549130c.js"><link rel="prefetch" href="/assets/js/61.765ac475.js"><link rel="prefetch" href="/assets/js/62.5519ef92.js"><link rel="prefetch" href="/assets/js/63.1e3d0292.js"><link rel="prefetch" href="/assets/js/64.0897ba3f.js"><link rel="prefetch" href="/assets/js/65.84fffc1a.js"><link rel="prefetch" href="/assets/js/66.70d60743.js"><link rel="prefetch" href="/assets/js/67.e152f231.js"><link rel="prefetch" href="/assets/js/68.5d38b9b5.js"><link rel="prefetch" href="/assets/js/69.ccf69b45.js"><link rel="prefetch" href="/assets/js/7.c85057c7.js"><link rel="prefetch" href="/assets/js/70.b442c172.js"><link rel="prefetch" href="/assets/js/71.15c96564.js"><link rel="prefetch" href="/assets/js/72.2ba1363a.js"><link rel="prefetch" href="/assets/js/73.e8cf6a25.js"><link rel="prefetch" href="/assets/js/74.60d11f93.js"><link rel="prefetch" href="/assets/js/75.c7b74ce6.js"><link rel="prefetch" href="/assets/js/76.01e4d0a1.js"><link rel="prefetch" href="/assets/js/77.42b168eb.js"><link rel="prefetch" href="/assets/js/78.4e341978.js"><link rel="prefetch" href="/assets/js/79.17530bec.js"><link rel="prefetch" href="/assets/js/8.95412534.js"><link rel="prefetch" href="/assets/js/80.e496eb99.js"><link rel="prefetch" href="/assets/js/81.644581cf.js"><link rel="prefetch" href="/assets/js/82.71efa27b.js"><link rel="prefetch" href="/assets/js/83.79f52a7d.js"><link rel="prefetch" href="/assets/js/84.e3019005.js"><link rel="prefetch" href="/assets/js/85.ca105fb5.js"><link rel="prefetch" href="/assets/js/86.47b7e4a8.js"><link rel="prefetch" href="/assets/js/87.7430c835.js"><link rel="prefetch" href="/assets/js/88.f543a866.js"><link rel="prefetch" href="/assets/js/89.f267a578.js"><link rel="prefetch" href="/assets/js/9.94796992.js"><link rel="prefetch" href="/assets/js/90.fdcbd453.js"><link rel="prefetch" href="/assets/js/91.d3569058.js"><link rel="prefetch" href="/assets/js/92.bb19b596.js"><link rel="prefetch" href="/assets/js/93.35913339.js"><link rel="prefetch" href="/assets/js/94.816653ec.js"><link rel="prefetch" href="/assets/js/95.f0b2da3a.js"><link rel="prefetch" href="/assets/js/96.3da27dd0.js"><link rel="prefetch" href="/assets/js/97.5e27a2bc.js"><link rel="prefetch" href="/assets/js/98.a2b25cb3.js"><link rel="prefetch" href="/assets/js/99.ef8fdf59.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.a62bcc3d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9a8ded37.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">飞跃高山与大洋的鱼</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/computer/" class="nav-link">
+  计算机
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="系统" class="dropdown-title"><span class="title">系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/os/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/os/manjaro/" class="nav-link">
+  Manjaro
+</a></li><li class="dropdown-item"><!----> <a href="/os/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/os/centos/" class="nav-link">
+  CentOS
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="https://css.shanyuhai.top/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSS
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/frontend/webpack/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/d3js/" class="nav-link">
+  D3
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/utils/" class="nav-link">
+  Utils
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/koa/" class="nav-link">
+  Koa
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mongodb/" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/backend/nginx/" class="nav-link router-link-active">
+  Nginx
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode/" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome/" class="nav-link">
+  Chrome Developer tools
+</a></li><li class="dropdown-item"><!----> <a href="/tools/bookmark-scripts/" class="nav-link">
+  Bookmark scripts
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/algorithm/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/more/interview/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/more/hodgepodge/" class="nav-link">
+  大杂烩
+</a></li><li class="dropdown-item"><!----> <a href="/more/clean/" class="nav-link">
+  风格指南
+</a></li><li class="dropdown-item"><!----> <a href="https://v1.vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress1.x 官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/shanyuhai123/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/computer/" class="nav-link">
+  计算机
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="系统" class="dropdown-title"><span class="title">系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/os/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/os/manjaro/" class="nav-link">
+  Manjaro
+</a></li><li class="dropdown-item"><!----> <a href="/os/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/os/centos/" class="nav-link">
+  CentOS
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="https://css.shanyuhai.top/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSS
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/frontend/webpack/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/d3js/" class="nav-link">
+  D3
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/utils/" class="nav-link">
+  Utils
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/koa/" class="nav-link">
+  Koa
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mongodb/" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/backend/nginx/" class="nav-link router-link-active">
+  Nginx
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode/" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome/" class="nav-link">
+  Chrome Developer tools
+</a></li><li class="dropdown-item"><!----> <a href="/tools/bookmark-scripts/" class="nav-link">
+  Bookmark scripts
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/algorithm/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/more/interview/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/more/hodgepodge/" class="nav-link">
+  大杂烩
+</a></li><li class="dropdown-item"><!----> <a href="/more/clean/" class="nav-link">
+  风格指南
+</a></li><li class="dropdown-item"><!----> <a href="https://v1.vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress1.x 官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/shanyuhai123/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>NGINX</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/backend/nginx/" class="sidebar-link">首页</a></li><li><a href="/backend/nginx/built-in-variables.html" class="sidebar-link">内置变量</a></li><li><a href="/backend/nginx/configurin-systemd-service-for-nginx.html" class="sidebar-link">为 Nginx 配置 systemd 服务</a></li><li><a href="/backend/nginx/explain-the-main-configuration-file-of-nginx.html" class="sidebar-link">粗解配置文件</a></li><li><a href="/backend/nginx/install-goaccess.html" class="sidebar-link">可视化 access 日志</a></li><li><a href="/backend/nginx/install-nginx.html" class="sidebar-link">安装 Nginx</a></li><li><a href="/backend/nginx/limit-module.html" class="sidebar-link">限制模块</a></li><li><a href="/backend/nginx/location-rules.html" class="sidebar-link">location 规则</a></li><li><a href="/backend/nginx/master-slave-nginx.html" class="sidebar-link">主从 Nginx</a></li><li><a href="/backend/nginx/nginx-basic-operation.html" class="sidebar-link">Nginx 基本操作</a></li><li><a href="/backend/nginx/nginx-directives.html" class="sidebar-link">Nginx directives</a></li><li><a href="/backend/nginx/nginx-upstream.html" class="sidebar-link">反向代理与负载均衡</a></li><li><a href="/backend/nginx/proxy-pass-rules.html" class="active sidebar-link">proxy_pass 规则</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/backend/nginx/proxy-pass-rules.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/backend/nginx/proxy-pass-rules.html#规则" class="sidebar-link">规则</a></li></ul></li><li><a href="/backend/nginx/referer-module.html" class="sidebar-link">防盗链</a></li><li><a href="/backend/nginx/rewrite-rules.html" class="sidebar-link">rewrite 规则</a></li><li><a href="/backend/nginx/upgrade-http-to-https.html" class="sidebar-link">升级 HTTP 至 HTTPS</a></li><li><a href="/backend/nginx/websocket-proxy.html" class="sidebar-link">websocket 反向代理</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <div class="custom-block danger"><p class="custom-block-title">声明 1</p> <p>前端做反向代理时一般会在接口前增加一个 <code>api</code> 路径，如 <code>/api/user</code>，但后端并没有这么个东西，那么就会导致一些问题。</p></div> <div class="custom-block danger"><p class="custom-block-title">声明 2</p> <p><code>location</code> 一般采用前缀匹配的模式。</p></div> <p>日常使用中虽可采用 <code>rewrite</code> 解决多余路径的问题（此处可如此使用的缘由是 <code>rewrite</code> 的处理阶段在 <code>proxy_pass</code> 之前）。</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">location</span> <span class="token operator">/</span>api <span class="token punctuation">{</span>   
+    <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Scheme <span class="token variable">$scheme</span><span class="token punctuation">;</span>
+  
+    <span class="token comment"># 路径重写</span>
+    <span class="token keyword">rewrite</span>  <span class="token operator">/</span>api<span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>  <span class="token operator">/</span>$<span class="token number">1</span>  <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>但探索一下 <code>location</code> + <code>proxy_pass</code> 也是不错的选择。</p> <h2 id="规则"><a href="#规则" class="header-anchor">#</a> 规则</h2> <div class="language-nginx extra-class"><pre class="language-nginx"><code>Syntax<span class="token punctuation">:</span>	<span class="token keyword">proxy_pass</span> URL<span class="token punctuation">;</span>
+Default<span class="token punctuation">:</span> —
+Context<span class="token punctuation">:</span> <span class="token keyword">location</span><span class="token punctuation">,</span> <span class="token keyword">if</span> in <span class="token keyword">location</span><span class="token punctuation">,</span> <span class="token keyword">limit_except</span>
+</code></pre></div><p>其中唯一需要注意的是，当 <code>proxy_pass</code> 后无 <code>/</code> 时为相对地址，有则为绝对地址。</p> <h3 id="_1-相对地址"><a href="#_1-相对地址" class="header-anchor">#</a> 1. 相对地址</h3> <p>相对地址时会将 <code>location</code> 匹配的 <code>uri</code> 加入代理。</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span>       <span class="token number">8085</span><span class="token punctuation">;</span>
+  <span class="token keyword">server_name</span> localhost<span class="token punctuation">;</span>
+
+  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">200</span> <span class="token string">&quot;8084 \n&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span>       <span class="token number">8083</span><span class="token punctuation">;</span>
+  <span class="token keyword">server_name</span> localhost<span class="token punctuation">;</span>
+
+  <span class="token keyword">location</span> <span class="token operator">/</span>api <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8085</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span>       <span class="token number">8084</span><span class="token punctuation">;</span>
+  <span class="token keyword">server_name</span> localhost<span class="token punctuation">;</span>
+
+  <span class="token keyword">location</span> <span class="token operator">/</span>api <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8085</span><span class="token operator">/</span>app<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th>curl</th> <th>8083</th> <th>8084</th></tr></thead> <tbody><tr><td><code>localhost:8083/api</code></td> <td><code>/api</code></td> <td><code>/api</code></td></tr> <tr><td><code>localhost:8083/api/user</code></td> <td><code>/api/user</code></td> <td><code>/api/user</code></td></tr> <tr><td><code>localhost:8084/api</code></td> <td><code>/api</code></td> <td><code>/app</code></td></tr> <tr><td><code>localhost:8084/api/user</code></td> <td><code>/api/user</code></td> <td><code>/app/user</code></td></tr> <tr><td><code>localhost:8084/apipp/user</code></td> <td><code>/apipp/user</code></td> <td><code>/apppp/user</code></td></tr></tbody></table> <h3 id="_2-绝对地址"><a href="#_2-绝对地址" class="header-anchor">#</a> 2. 绝对地址</h3> <p>绝对地址则不会将 <code>location</code> 匹配的 <code>uri</code> 加入代理，即直接丢弃。</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span>       <span class="token number">8085</span><span class="token punctuation">;</span>
+  <span class="token keyword">server_name</span> localhost<span class="token punctuation">;</span>
+
+  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">200</span> <span class="token string">&quot;8084 \n&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span>       <span class="token number">8083</span><span class="token punctuation">;</span>
+  <span class="token keyword">server_name</span> localhost<span class="token punctuation">;</span>
+
+  <span class="token keyword">location</span> <span class="token operator">/</span>api <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8085</span><span class="token operator">/</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span>       <span class="token number">8084</span><span class="token punctuation">;</span>
+  <span class="token keyword">server_name</span> localhost<span class="token punctuation">;</span>
+
+  <span class="token keyword">location</span> <span class="token operator">/</span>api <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8085</span><span class="token operator">/</span>app<span class="token operator">/</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 解决多余的 `/`</span>
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span>       <span class="token number">8086</span><span class="token punctuation">;</span>
+  <span class="token keyword">server_name</span> localhost<span class="token punctuation">;</span>
+
+  <span class="token keyword">location</span> <span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8085</span><span class="token operator">/</span>app<span class="token operator">/</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th>curl</th> <th>proxy</th> <th>target</th></tr></thead> <tbody><tr><td><code>localhost:8083/api</code></td> <td><code>/api</code></td> <td><code>/</code></td></tr> <tr><td><code>localhost:8083/api/user</code></td> <td><code>/api/user</code></td> <td><code>//user</code></td></tr> <tr><td><code>localhost:8084/api</code></td> <td><code>/api</code></td> <td><code>/app/</code></td></tr> <tr><td><code>localhost:8084/api/user</code></td> <td><code>/api/user</code></td> <td><code>/app//user</code></td></tr> <tr><td><code>localhost:8084/apipp/user</code></td> <td><code>/apipp/user</code></td> <td><code>/app/pp/user</code></td></tr> <tr><td><code>localhost:8086/api</code></td> <td><code>/api</code></td> <td><code>location</code> 未匹配，所以不进入 <code>proxy</code></td></tr> <tr><td><code>localhost:8086/api/user</code></td> <td><code>/api/user</code></td> <td><code>/app/user</code></td></tr></tbody></table> <p>可以观测到少了匹配到的 <code>api</code> 部分，而作为路径的 <code>/</code> 未匹配到显得多余起来，解决的方案是使 <code>location</code> 匹配到 <code>/</code> 即可。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shanyuhai123/documents/edit/master/docs/backend/nginx/proxy-pass-rules.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time"> 2020 年 02 月 23 日 04:24:42</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/backend/nginx/nginx-upstream.html" class="prev">
+        反向代理与负载均衡
+      </a></span> <span class="next"><a href="/backend/nginx/referer-module.html">
+        防盗链
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.10397d07.js" defer></script><script src="/assets/js/3.89cedd7d.js" defer></script><script src="/assets/js/22.b828512e.js" defer></script><script src="/assets/js/4.d14f83af.js" defer></script>
+  </body>
+</html>
