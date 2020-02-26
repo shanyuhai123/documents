@@ -1,6 +1,8 @@
 const moment = require('moment');
 const secretKeyConf = require('./secretKeyConf.js');
 
+moment.locale("zh-cn");
+
 module.exports = {
   '@vuepress/pwa': {
     serviceWorker: true,
@@ -17,7 +19,7 @@ module.exports = {
     selector: '.content__default img',
   },
   '@vuepress/last-updated': {
-    transformer: (timestamp) => moment(timestamp).format(' YYYY 年 MM 月 DD 日 HH:mm:ss')
+    transformer: (timestamp) => moment(timestamp).format('LLLL')
   },
   "vuepress-plugin-auto-sidebar": {
     titleMode: "uppercase"
