@@ -1,5 +1,6 @@
 ---
 title: 友好插件
+autoPrev: version-upgrade
 ---
 
 ## 说明
