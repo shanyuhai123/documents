@@ -1,5 +1,6 @@
 ---
 title: 版本提升
+autoPrev: README
 ---
 
 ## 说明
