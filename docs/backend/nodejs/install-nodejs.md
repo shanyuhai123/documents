@@ -2,49 +2,73 @@
 title: 安装 Node.js
 ---
 
-## nvm
+## 安装
 
-[nvm](https://github.com/creationix/nvm) 用于解决多版本共存问题，可以使用最新的版本来测试新出的特性，也可以使用 `LTS` 来支撑稳定的业务，便于切换版本。
+虽然可以直接从 [Node 官网](https://nodejs.org/) 下载并安装它，但更推荐的使用方式是利用 [nvm](https://github.com/creationix/nvm) 来处理它，因为 `nvm` 还提供了多版本的共存的解决方式，可以更快捷的切换、尝鲜。
 
-### 1. 安装
+
+
+### 1. 安装 nvm
 
 ```bash
+# 安装脚本(具体版本可看官网)
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-```
 
-### 2. 测试
-
-正常情况下测试：
-
-```bash
-nvm --version
-
-# -bash: nvm: command not found
-```
-
-这是因为环境变量还未生效，执行 `source ~/.bashrc` 使环境变量生效，然后重新测试。
-
-```bash
-nvm --version
-
+# 验证安装
+nvm --version # 若失败需执行 `source ~/.bashrc` 使环境变量生效
 # 0.34.0
 ```
 
+### 2. 安装 node
+
+```bash
+# 查看当前
+nvm ls
+
+# 查看可用
+nvm ls-remote
+
+# 安装指定版本
+nvm install v12.16.3
+
+# 设置默认版本
+nvm alias default v12.16.3
+
+# 验证 node
+node -v
+# v12.16.3
+
+# 切换版本
+nvm use v13.13.0
+```
+
+### 3. nvm 全局包迁移
+
+在 windows 下使用时切换 node 版本全局包不会丢失，而在 manjaro 下使用时遇到了该情况，可利用 [--reinstall-packages-from](https://github.com/nvm-sh/nvm#migrating-global-packages-while-installing) 解决。
+
+```bash
+nvm install v12.16.3 --reinstall-packages-from=v12.4.0
+```
 
 
-## nrm
 
-用于解决 npm 镜像访问慢的问题，提供测速，便于切换源。
+## 切换源
 
-npm 自身是提供了切换源的配置的，但是多个源切换起来很麻烦。
+在缺乏代理的情况下 npm 默认源的速度会比较慢，设置为淘宝源会有比较理想的速度；在私建 npm 服务的情况下，有时部分依赖包需要去私服下载，频繁切换也会麻烦。
+
+这时候就可以使用 [nrm](https://github.com/Pana/nrm) 快速切换源来解决这些问题了。
+
+当然，npm 也自带了设置源的服务，但毕竟使用起来较为麻烦：
 
 ```bash
 npm config set registry https://registry.npmjs.org/
 ```
 
+
+
 ### 1. 安装
 
-[nrm](https://github.com/Pana/nrm) 也是 `Node.js` 模块，可用于切换 npm 源。
+nrm 也是 `Node.js` 模块。
 
 ```bash
 npm install --global nrm
@@ -87,51 +111,15 @@ nrm use taobao
 
 核心，用于解决 `Node.js` 模块安装问题，其本身也是一个模块。
 
-### 1. 查看可安装版本
+
+
+### 1. 常用命令
 
 ```bash
-nvm ls-remote
-
-# v10.13.0   (LTS: Dubnium)
-# ...
-# v10.15.3   (Latest LTS: Dubnium)
-# v11.0.0
-# ...
-# v11.11.0
+npm list -g --depth 0
 ```
 
-### 2. 安装
 
-选择上方最新的 LTS 版本，如果需要对 Nodejs 进一步测试的话可以选择最新版本。
 
-```bash
-nvm install v10.15.3 # LTS
-nvm install v11.11.0 # 最新版
-```
 
-### 3. 测试结果
 
-```bash
-node -v
-# v10.15.3
-npm -v
-# 6.4.1
-```
-
-### 4. 切换版本
-
-```bash
-nvm use v11.11.0 
-node -v
-
-# v11.11.0
-```
-
-### 5. 查看可用版本
-
-```bash
-# 本地
-nvm ls
-# 远程
-nvm ls-remote
-```
