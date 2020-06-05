@@ -1,6 +1,5 @@
 ---
 title: ESLint 格式化
-autoPrev: tricks
 ---
 
 ## 介绍
