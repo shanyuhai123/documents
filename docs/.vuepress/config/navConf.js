@@ -1,6 +1,6 @@
 module.exports = [
-  { text: 'Home', link: '/' },
-  { text: 'Guide', link: '/guide/' },
+  { text: '首页', link: '/' },
+  { text: '先导', link: '/guide/' },
   { text: '计算机', link: '/computer/' },
   { text: '系统', items: [
     { text: 'Linux', link: '/os/linux/' },
@@ -10,7 +10,6 @@ module.exports = [
   ]},
   { text: '前端', items: [
     { text: 'JavaScript', link: '/frontend/javascript/' },
-    { text: 'CSS', link: 'https://css.shanyuhai.top/' },
     { text: 'Webpack', link: '/frontend/webpack/' },
     { text: 'D3', link: '/frontend/d3js/' },
     { text: 'Utils', link: '/frontend/utils/' },
@@ -29,10 +28,8 @@ module.exports = [
     { text: 'Bookmark scripts', link: '/tools/bookmark-scripts/' },
   ]},
   { text: '更多', items: [
-    { text: '算法', link: '/more/algorithm/' },
     { text: '面试题', link: '/more/interview/' },
-    { text: '大杂烩', link: '/more/hodgepodge/' },
-    { text: '风格指南', link: '/more/clean/' },
+    { text: '小工具', link: '/more/hodgepodge/' },
     { text: 'VuePress1.x 官网', link: 'https://v1.vuepress.vuejs.org/zh/' },
   ]}
 ];

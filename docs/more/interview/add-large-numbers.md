@@ -1,5 +1,5 @@
 ---
-title: JavaScript 实现大数相加
+title: 大数相加
 ---
 
 JavaScript 采用了 IEEE 754 标准中的浮点算法来表示数字 Number

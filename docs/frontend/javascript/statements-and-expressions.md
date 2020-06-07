@@ -1,5 +1,6 @@
 ---
 title: 语句和表达式
+autoPrev: README
 ---
 
 > “文法（grammar）”一词不像“语法（syntax）”一词那么为人熟知。

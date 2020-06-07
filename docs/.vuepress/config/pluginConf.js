@@ -23,6 +23,9 @@ module.exports = {
   },
   "vuepress-plugin-auto-sidebar": {
     titleMode: "uppercase",
+    titleMap: {
+      javascript: "JS 基础",
+    },
     collapseList: [
       "/frontend/javascript/"
     ]
