@@ -116,7 +116,11 @@ nrm use taobao
 ### 1. 常用命令
 
 ```bash
+# 全局 npm
 npm list -g --depth 0
+
+# npm install 失败
+npm cache clean --force
 ```
 
 
