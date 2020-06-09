@@ -18,7 +18,13 @@ title: 制作U盘启动
 fdisk -l # 从中找到 /dev/sdc
 ```
 
-### 2. dd 命令
+### 2. 格式化 U 盘
+
+```bash
+mkfs.[type] /dev/sdc # [type] 为需要的类型，如 fat32、ext4、ntfs，例 mkfs.ext4
+```
+
+### 3. dd 命令
 
 指定 `iso` 及 U盘路径即可
 
