@@ -1,26 +1,146 @@
 ---
-title: 30s code browser
+title: 浏览器
 ---
 
-> [30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+## 表单处理
 
+### 1. serializeForm（序列化）
 
+**FROM**
 
-## arrayToHtmlList
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const arrayToHtmlList = (arr, listID) =>
+const serializeForm = form =>
+  Array.from(new FormData(form), field => field.map(encodeURIComponent).join('=')).join('&');
+```
+
+**EXAMPLES：**
+
+```js
+serializeForm(document.querySelector('#form')); // email=test%40email.com&name=Test%20Name
+```
+
+### 2. serializeForm（对象化）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const formToObject = form =>
+  Array.from(new FormData(form)).reduce(
+    (acc, [key, value]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
+```
+
+**EXAMPLES：**
+
+```js
+formToObject(document.querySelector('#form')); // { email: 'test@email.com', name: 'Test Name' }
+```
+
+
+
+
+
+
+
+
+
+## URL
+
+### 1. currentURL（完整）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const currentURL = () => window.location.href;
+```
+
+**EXAMPLES：**
+
+```js
+currentURL(); // 'https://google.com'
+```
+
+### 2. getURLParameters（参数）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const getURLParameters = url =>
+  (url.match(/([^?=&]+)(=([^&]*))/g) || []).reduce(
+    (a, v) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a),
+    {}
+  );
+```
+
+**EXAMPLES：**
+
+```js
+getURLParameters('http://url.com/page?name=Adam&surname=Smith'); // {name: 'Adam', surname: 'Smith'}
+getURLParameters('google.com'); // {}
+```
+
+### 3. getBaseURL（基础）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const getBaseURL = url =>
+  url.indexOf('?') > 0 ? url.slice(0, url.indexOf('?')) : url;
+```
+
+**EXAMPLES：**
+
+```js
+getBaseURL('http://url.com/page?name=Adam&surname=Smith'); // 'http://url.com/page'
+```
+
+
+
+## 数组转为列表
+
+### 1. arrayToHtmlList
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**DETAILS：**
+
+原式中为指定 id，此处修改为广泛的 `selector`。
+
+**FUNCTION：**
+
+```js
+const arrayToHtmlList = (arr, selector) =>
   (el => (
-    (el = document.querySelector('#' + listID)),
+    (el = document.querySelector(selector)),
     (el.innerHTML += arr.map(item => `<li>${item}</li>`).join(''))
   ))();
 ```
-
-**CONCEPTS：**
-
-指定 ID 拼接 li。
 
 **EXAMPLES：**
 
@@ -29,28 +149,14 @@ arrayToHtmlList(['item 1', 'item 2'], 'myListID');
 ```
 
 
-## bottomVisible
 
-**FUNCTION：**
+## 剪切板
 
-```js
-const bottomVisible = () =>
-  document.documentElement.clientHeight + window.scrollY >=
-  (document.documentElement.scrollHeight || document.documentElement.clientHeight);
-```
+### 1. copyToClipboard
 
-**CONCEPTS：**
+**FROM**
 
-判断底部是否可见（到底了）。计算浏览器的高度来判断。
-
-**EXAMPLES：**
-
-```js
-bottomVisible(); // true
-```
-
-
-## copyToClipboard
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -72,12 +178,7 @@ const copyToClipboard = str => {
     document.getSelection().addRange(selected);
   }
 };
-//  navigator.clipboard
 ```
-
-**CONCEPTS：**
-
-复制内容到剪切板。一般情况使用第三方提供的稳定、兼容。
 
 **EXAMPLES：**
 
@@ -85,8 +186,33 @@ const copyToClipboard = str => {
 copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 ```
 
+### 2. navigator.clipboard
 
-## counter
+**FROM**
+
+[w3c/clipboard-apis](https://github.com/w3c/clipboard-apis/blob/master/explainer.adoc#writing-to-the-clipboard)
+
+**DETAILS：**
+
+浏览器提供的实现。
+
+**FUNCTION：**
+
+```js
+const data = new DataTransfer();
+data.items.add("Howdy, partner!", "text/plain");
+navigator.clipboard.write(data);
+```
+
+
+
+## 数值变化动画
+
+### 1. counter
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -104,10 +230,6 @@ const counter = (selector, start, end, step = 1, duration = 2000) => {
 };
 ```
 
-**CONCEPTS：**
-
-指定一个计数 counter。
-
 **EXAMPLES：**
 
 ```js
@@ -116,36 +238,13 @@ counter('#my-id', 1, 1000, 5, 2000); // Creates a 2-second timer for the element
 
 
 
-## createElement
+## 事件
 
-**FUNCTION：**
+### 1. createEventHub（发布、订阅中心）
 
-```js
-const createElement = str => {
-  const el = document.createElement('div');
-  el.innerHTML = str;
-  return el.firstElementChild;
-};
-```
+**FROM**
 
-**CONCEPTS：**
-
-创建一个 DOM，超过一个则仅返回第一个。
-
-**EXAMPLES：**
-
-```js
-const el = createElement(
-  `<div class="container">
-    <p>Hello!</p>
-  </div>`
-);
-el.className; // 'container'
-```
-
-
-
-## createEventHub <Badge text="important" type="error"/>
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -166,10 +265,6 @@ const createEventHub = () => ({
   }
 });
 ```
-
-**CONCEPTS：**
-
-创建一个事件发布、订阅中心。发布主要靠循环判断。
 
 **EXAMPLES：**
 
@@ -192,29 +287,92 @@ hub.emit('increment'); // `increment` variable is now 1
 hub.off('message', handler);
 ```
 
+### 2. listenOnce（仅监听一次）
 
+**FROM**
 
-## currentURL
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const currentURL = () => window.location.href;
+const listenOnce = (el, evt, fn) => {
+  let fired = false;
+  el.addEventListener(evt, (e) => {
+    if (!fired) fn(e);
+    fired = true;
+  });
+};
 ```
-
-**CONCEPTS：**
-
-当前 URL。
 
 **EXAMPLES：**
 
 ```js
-currentURL(); // "https://docs.shanyuhai.top/"
+listenOnce(
+  document.getElementById('my-id),
+  'click',
+  () => console.log('Hello world')
+); // 'Hello world' will only be logged on the first click
+```
+
+### 3. on
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const on = (el, evt, fn, opts = {}) => {
+  const delegatorFn = e => e.target.matches(opts.target) && fn.call(e.target, e);
+  el.addEventListener(evt, opts.target ? delegatorFn : fn, opts.options || false);
+  if (opts.target) return delegatorFn;
+};
+```
+
+**EXAMPLES：**
+
+```js
+const fn = () => console.log('!');
+on(document.body, 'click', fn); // logs '!' upon clicking the body
+on(document.body, 'click', fn, { target: 'p' }); // logs '!' upon clicking a `p` element child of the body
+on(document.body, 'click', fn, { options: true }); // use capturing instead of bubbling
+```
+
+### 4. off
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const off = (el, evt, fn, opts = false) => el.removeEventListener(evt, fn, opts);
+```
+
+**EXAMPLES：**
+
+```js
+const fn = () => console.log('!');
+document.body.addEventListener('click', fn);
+off(document.body, 'click', fn); // no longer logs '!' upon clicking on the page
 ```
 
 
 
-## detectDeviceType
+
+
+
+
+## 检测
+
+### 1. detectDeviceType（设备类型）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -225,29 +383,266 @@ const detectDeviceType = () =>
     : 'Desktop';
 ```
 
-**CONCEPTS：**
-
-判断设备类型。
-
 **EXAMPLES：**
 
 ```js
 detectDeviceType(); // "Mobile" or "Desktop"
 ```
 
+### 2. isBrowser（是否为浏览器）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const isBrowser = () => ![typeof window, typeof document].includes('undefined');
+```
+
+**EXAMPLES：**
+
+```js
+isBrowser(); // true (browser)
+isBrowser(); // false (Node)
+```
+
+### 3. isBrowserTabFocused（标签页是否 actived）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const isBrowserTabFocused = () => !document.hidden;
+```
+
+**EXAMPLES：**
+
+```js
+isBrowserTabFocused(); // true
+```
+
+### 4. prefersDarkColorScheme（主题）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const prefersDarkColorScheme = () =>
+  window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+const prefersLightColorScheme = () =>
+  window && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+```
+
+**EXAMPLES：**
+
+```js
+prefersDarkColorScheme(); // true
+prefersLightColorScheme(); // true
+```
+
+### 4. supportsTouchEvents（touch）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const supportsTouchEvents = () =>
+  window &&
+  ('ontouchstart' in window || window.DocumentTouch && document instanceof window.DocumentTouch);
+```
+
+**EXAMPLES：**
+
+```js
+supportsTouchEvents(); // true
+```
 
 
-## elementContains
+
+
+
+## DOM 操作
+
+### 1. createElement（创建）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const createElement = str => {
+  const el = document.createElement('div');
+  el.innerHTML = str;
+  return el.firstElementChild;
+};
+```
+
+**EXAMPLES：**
+
+```js
+const el = createElement(
+  `<div class="container">
+    <p>Hello!</p>
+  </div>`
+);
+console.log(el.className); // 'container'
+```
+
+### 2. hide/show（显/隐）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const hide = (...el) => [...el].forEach(e => (e.style.display = 'none'));
+
+const show = (...el) => [...el].forEach(e => (e.style.display = ''));
+```
+
+**EXAMPLES：**
+
+```js
+hide(document.querySelectorAll('img')); // Hides all <img> elements on the page
+
+show(...document.querySelectorAll('img')); // Shows all <img> elements on the page
+```
+
+### 3. insertBefore（前方插入）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const insertBefore = (el, htmlString) => el.insertAdjacentHTML('beforebegin', htmlString);
+```
+
+**EXAMPLES：**
+
+```js
+insertBefore(document.getElementById('myId'), '<p>before</p>');
+// <p>before</p> <div id="myId">...</div>
+```
+
+### 4. insertAfter（后方插入）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const insertAfter = (el, htmlString) => el.insertAdjacentHTML('afterend', htmlString);
+```
+
+**EXAMPLES：**
+
+```js
+insertAfter(document.getElementById('myId'), '<p>after</p>');
+// <div id="myId">...</div> <p>after</p>
+```
+
+### 5. scrollToTop（回到顶部）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 8);
+  }
+};
+```
+
+**EXAMPLES：**
+
+```js
+scrollToTop();
+```
+
+### 6. smoothScroll（平滑滚动）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const smoothScroll = element =>
+  document.querySelector(element).scrollIntoView({
+    behavior: 'smooth'
+  });
+```
+
+**EXAMPLES：**
+
+```js
+smoothScroll('#fooBar'); // scrolls smoothly to the element with the id fooBar
+smoothScroll('.fooBar'); // scrolls smoothly to the first element with a class of fooBar
+```
+
+
+
+## DOM 关系
+
+### 1. bottomVisible（页面底部）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const bottomVisible = () =>
+  document.documentElement.clientHeight + window.scrollY >=
+  (document.documentElement.scrollHeight || document.documentElement.clientHeight);
+```
+
+**EXAMPLES：**
+
+```js
+bottomVisible(); // false
+```
+
+### 2. elementContains（两个 DOM 间）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
 const elementContains = (parent, child) => parent !== child && parent.contains(child);
 ```
-
-**CONCEPTS：**
-
-DOM 包含关系。
 
 **EXAMPLES：**
 
@@ -256,9 +651,11 @@ elementContains(document.querySelector('head'), document.querySelector('title'))
 elementContains(document.querySelector('body'), document.querySelector('body')); // false
 ```
 
+### 3. elementIsVisibleInViewport（DOM 可见）
 
+**FROM**
 
-## elementIsVisibleInViewport
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -273,10 +670,6 @@ const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
 };
 ```
 
-**CONCEPTS：**
-
-判断元素是否在视口中。
-
 **EXAMPLES：**
 
 ```js
@@ -287,34 +680,13 @@ elementIsVisibleInViewport(el, true); // true - (partially visible)
 
 
 
-## formToObject
+## DOM 获取
 
-**FUNCTION：**
+### 1. getImages（图片）
 
-```js
-const formToObject = form =>
-  Array.from(new FormData(form)).reduce(
-    (acc, [key, value]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
-```
+**FROM**
 
-**CONCEPTS：**
-
-表单元素转为对象。
-
-**EXAMPLES：**
-
-```js
-formToObject(document.querySelector('#form')); // { email: 'test@email.com', name: 'Test Name' }
-```
-
-
-
-## getImages
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -325,10 +697,6 @@ const getImages = (el, includeDuplicates = false) => {
 };
 ```
 
-**CONCEPTS：**
-
-获取某节点内的所有图片链接。
-
 **EXAMPLES：**
 
 ```js
@@ -336,9 +704,69 @@ getImages(document, true); // ['image1.jpg', 'image2.png', 'image1.png', '...']
 getImages(document, false); // ['image1.jpg', 'image2.png', '...']
 ```
 
+### 2. getStyle/setStyle（样式）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**DETAILS：**
+
+省略获取 DOM 步骤。
+
+**FUNCTION：**
+
+```js
+const getStyle = (selector, ruleName) => getComputedStyle(document.querySelector(selector)[ruleName];
+
+const setStyle = (el, ruleName, val) => (el.style[ruleName] = val);
+```
+
+**EXAMPLES：**
+
+```js
+getStyle('p', 'font-size'); // '16px'
+
+setStyle(document.querySelector('p'), 'font-size', '20px');
+// The first <p> element on the page will have a font-size of 20px
+```
+
+### 3. hasClass/toggleClass（class）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**DETAILS：**
+
+省略获取 DOM 步骤。
+
+**FUNCTION：**
+
+```js
+const hasClass = (selector, className) => document.querySelector(selector).classList.contains(className);
+
+const toggleClass = (el, className) => el.classList.toggle(className);
+```
+
+**EXAMPLES：**
+
+```js
+hasClass('p.special', 'special'); // true
+
+toggleClass(document.querySelector('p.special'), 'special');
+// The paragraph will not have the 'special' class anymore
+```
 
 
-## getScrollPosition
+
+## 获取滚动条位置
+
+### 1. getScrollPosition
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -349,10 +777,6 @@ const getScrollPosition = (el = window) => ({
 });
 ```
 
-**CONCEPTS：**
-
-获取当前页面的滚动位置。
-
 **EXAMPLES：**
 
 ```js
@@ -361,73 +785,168 @@ getScrollPosition(); // {x: 0, y: 200}
 
 
 
-## getStyle/setStyle
+## HTTP 请求
+
+### 1. httpPost（增）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName];
-const setStyle = (el, ruleName, val) => (el.style[ruleName] = val);
+const httpPost = (url, data, callback, err = console.error) => {
+  const request = new XMLHttpRequest();
+  request.open('POST', url, true);
+  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+  request.onload = () => callback(request.responseText);
+  request.onerror = () => err(request);
+  request.send(data);
+};
 ```
-
-**CONCEPTS：**
-
-指定、设置元素样式。
 
 **EXAMPLES：**
 
 ```js
-getStyle(document.querySelector('p'), 'font-size'); // '16px'
-setStyle(document.querySelector('p'), 'font-size', '20px'); // The first <p> element on the page will have a font-size of 20px
+const newPost = {
+  userId: 1,
+  id: 1337,
+  title: 'Foo',
+  body: 'bar bar bar'
+};
+const data = JSON.stringify(newPost);
+httpPost(
+  'https://jsonplaceholder.typicode.com/posts',
+  data,
+  console.log
+); /*
+Logs: {
+  "userId": 1,
+  "id": 1337,
+  "title": "Foo",
+  "body": "bar bar bar"
+}
+*/
+httpPost(
+  'https://jsonplaceholder.typicode.com/posts',
+  null, // does not send a body
+  console.log
+); /*
+Logs: {
+  "id": 101
+}
+*/
 ```
 
+### 2. httpDelete（删）
 
+**FROM**
 
-## hasClass/toggleClass
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const hasClass = (el, className) => el.classList.contains(className);
-const toggleClass = (el, className) => el.classList.toggle(className);
+const httpDelete = (url, callback, err = console.error) => {
+  const request = new XMLHttpRequest();
+  request.open('DELETE', url, true);
+  request.onload = () => callback(request);
+  request.onerror = () => err(request);
+  request.send();
+};
 ```
-
-**CONCEPTS：**
-
-判断、切换元素 class。
 
 **EXAMPLES：**
 
 ```js
-hasClass(document.querySelector('p.special'), 'special'); // true
-toggleClass(document.querySelector('p.special'), 'special'); // The paragraph will not have the 'special' class anymore
+httpDelete('https://jsonplaceholder.typicode.com/posts/1', request => {
+  console.log(request.responseText);
+}); /*
+Logs: {}
+*/
 ```
 
+### 3. httpPut（改）
 
+**FROM**
 
-## hide/show
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const hide = (...el) => [...el].forEach(e => (e.style.display = 'none'));
-const show = (...el) => [...el].forEach(e => (e.style.display = ''));
+const httpPut = (url, data, callback, err = console.error) => {
+  const request = new XMLHttpRequest();
+  request.open('PUT', url, true);
+  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+  request.onload = () => callback(request);
+  request.onerror = () => err(request);
+  request.send(data);
+};
 ```
-
-**CONCEPTS：**
-
-隐藏、显示指定元素。
 
 **EXAMPLES：**
 
 ```js
-hide(document.querySelectorAll('img')); // Hides all <img> elements on the page
-show(...document.querySelectorAll('img')); // Shows all <img> elements on the page
+const password = 'fooBaz';
+const data = JSON.stringify({
+  id: 1,
+  title: 'foo',
+  body: 'bar',
+  userId: 1
+});
+httpPut('https://jsonplaceholder.typicode.com/posts/1', data, request => {
+  console.log(request.responseText);
+}); /*
+Logs: {
+  id: 1,
+  title: 'foo',
+  body: 'bar',
+  userId: 1
+}
+*/
 ```
 
+### 4. httpGet（查）
 
+**FROM**
 
-## httpsRedirect
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const httpGet = (url, callback, err = console.error) => {
+  const request = new XMLHttpRequest();
+  request.open('GET', url, true);
+  request.onload = () => callback(request.responseText);
+  request.onerror = () => err(request);
+  request.send();
+};
+```
+
+**EXAMPLES：**
+
+```js
+httpGet(
+  'https://jsonplaceholder.typicode.com/posts/1',
+  console.log
+); /*
+Logs: {
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}
+*/
+```
+
+### 5. httpsRedirect（https 重定向）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -437,10 +956,6 @@ const httpsRedirect = () => {
 };
 ```
 
-**CONCEPTS：**
-
-重定向到 https。利用了 replace 方法导致无法返回。
-
 **EXAMPLES：**
 
 ```js
@@ -449,69 +964,110 @@ httpsRedirect(); // If you are on http://mydomain.com, you are redirected to htt
 
 
 
-## insertAfter/insertBefore
+## cookie
+
+### 1. parseCookie（解析）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const insertAfter = (el, htmlString) => el.insertAdjacentHTML('afterend', htmlString);
-const insertBefore = (el, htmlString) => el.insertAdjacentHTML('beforebegin', htmlString);
+const parseCookie = str =>
+  str
+    .split(';')
+    .map(v => v.split('='))
+    .reduce((acc, v) => {
+      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+      return acc;
+    }, {});
 ```
-
-**CONCEPTS：**
-
-插入 HTML 片段。
 
 **EXAMPLES：**
 
 ```js
-insertAfter(document.getElementById('myId'), '<p>after</p>'); // <div id="myId">...</div> <p>after</p>
-insertBefore(document.getElementById('myId'), '<p>before</p>'); // <p>before</p> <div id="myId">...</div>
+parseCookie('foo=bar; equation=E%3Dmc%5E2'); // { foo: 'bar', equation: 'E=mc^2' }
 ```
 
+### 2. serializeCookie（序列化）
 
+**FROM**
 
-## isBrowserTabFocused
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const isBrowserTabFocused = () => !document.hidden;
+const serializeCookie = (name, val) => `${encodeURIComponent(name)}=${encodeURIComponent(val)}`;
 ```
-
-**CONCEPTS：**
-
-当前标签页是否处于 actived 状态。可以利用标签页切换事件和 title 做一点有意思的事情。
 
 **EXAMPLES：**
 
 ```js
-isBrowserTabFocused(); // true
+serializeCookie('foo', 'bar'); // 'foo=bar'
 ```
 
 
 
-## nodeListToArray
+## 处理
+
+### 1. prefix（前缀）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const nodeListToArray = nodeList => [...nodeList];
+const prefix = prop => {
+  const capitalizedProp = prop.charAt(0).toUpperCase() + prop.slice(1);
+  const prefixes = ['', 'webkit', 'moz', 'ms', 'o'];
+  const i = prefixes.findIndex(
+    prefix => typeof document.body.style[prefix ? prefix + capitalizedProp : prop] !== 'undefined'
+  );
+  return i !== -1 ? (i === 0 ? prop : prefixes[i] + capitalizedProp) : null;
+};
 ```
-
-**CONCEPTS：**
-
-node 列表转为数组。
 
 **EXAMPLES：**
 
 ```js
-nodeListToArray(document.childNodes); // [ <!DOCTYPE html>, html ]
+prefix('appearance'); // 'appearance' on a supported browser, otherwise 'webkitAppearance', 'mozAppearance', 'msAppearance' or 'oAppearance'
+```
+
+### 2. UUIDGeneratorBrowser（UUID）
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
+
+**FUNCTION：**
+
+```js
+const UUIDGeneratorBrowser = () =>
+  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+    (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16)
+  );
+```
+
+**EXAMPLES：**
+
+```js
+UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 ```
 
 
 
-## observeMutations
+## 未理解
+
+### 1. observeMutations
+
+**FROM**
+
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -536,10 +1092,6 @@ const observeMutations = (element, callback, options) => {
 };
 ```
 
-**CONCEPTS：**
-
-尚不能理解使用场景。
-
 **EXAMPLES：**
 
 ```js
@@ -547,40 +1099,11 @@ const obs = observeMutations(document, console.log); // Logs all mutations that 
 obs.disconnect(); // Disconnects the observer and stops logging mutations on the page
 ```
 
+### 2. onUserInputChange
 
+**FROM**
 
-## off/on
-
-**FUNCTION：**
-
-```js
-const off = (el, evt, fn, opts = false) => el.removeEventListener(evt, fn, opts);
-const on = (el, evt, fn, opts = {}) => {
-  const delegatorFn = e => e.target.matches(opts.target) && fn.call(e.target, e);
-  el.addEventListener(evt, opts.target ? delegatorFn : fn, opts.options || false);
-  if (opts.target) return delegatorFn;
-};
-```
-
-**CONCEPTS：**
-
-移除、添加事件监听。
-
-**EXAMPLES：**
-
-```js
-const fn = () => console.log('!');
-document.body.addEventListener('click', fn);
-off(document.body, 'click', fn); // no longer logs '!' upon clicking on the page
-const fn = () => console.log('!');
-on(document.body, 'click', fn); // logs '!' upon clicking the body
-on(document.body, 'click', fn, { target: 'p' }); // logs '!' upon clicking a `p` element child of the body
-on(document.body, 'click', fn, { options: true }); // use capturing instead of bubbling
-```
-
-
-
-## onUserInputChange
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -601,10 +1124,6 @@ const onUserInputChange = callback => {
 };
 ```
 
-**CONCEPTS：**
-
-监听用户输入类型为 mouse 还是 touch。 
-
 **EXAMPLES：**
 
 ```js
@@ -613,36 +1132,11 @@ onUserInputChange(type => {
 });
 ```
 
+### 3. recordAnimationFrames
 
+**FROM**
 
-## prefix
-
-**FUNCTION：**
-
-```js
-const prefix = prop => {
-  const capitalizedProp = prop.charAt(0).toUpperCase() + prop.slice(1);
-  const prefixes = ['', 'webkit', 'moz', 'ms', 'o'];
-  const i = prefixes.findIndex(
-    prefix => typeof document.body.style[prefix ? prefix + capitalizedProp : prop] !== 'undefined'
-  );
-  return i !== -1 ? (i === 0 ? prop : prefixes[i] + capitalizedProp) : null;
-};
-```
-
-**CONCEPTS：**
-
-补充浏览器前缀。
-
-**EXAMPLES：**
-
-```js
-prefix('appearance'); // 'appearance' on a supported browser, otherwise 'webkitAppearance', 'mozAppearance', 'msAppearance' or 'oAppearance'
-```
-
-
-
-## recordAnimationFrames
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -666,12 +1160,21 @@ const recordAnimationFrames = (callback, autoStart = true) => {
   };
   if (autoStart) start();
   return { start, stop };
+};t onUserInputChange = callback => {
+  let type = 'mouse',
+    lastTime = 0;
+  const mousemoveHandler = () => {
+    const now = performance.now();
+    if (now - lastTime < 20)
+      (type = 'mouse'), callback(type), document.removeEventListener('mousemove', mousemoveHandler);
+    lastTime = now;
+  };
+  document.addEventListener('touchstart', () => {
+    if (type === 'touch') return;
+    (type = 'touch'), callback(type), document.addEventListener('mousemove', mousemoveHandler);
+  });
 };
 ```
-
-**CONCEPTS：**
-
-记录动画状态。
 
 **EXAMPLES：**
 
@@ -683,30 +1186,63 @@ recorder.start(); // starts again
 const recorder2 = recordAnimationFrames(cb, false); // `start` needs to be explicitly called to begin recording frames
 ```
 
+### 4. renderElement
 
+**FROM**
 
-## redirect
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
 ```js
-const redirect = (url, asLink = true) =>
-  asLink ? (window.location.href = url) : window.location.replace(url);
+const renderElement = ({ type, props = {} }, container) => {
+  const isTextElement = !type;
+  const element = isTextElement
+    ? document.createTextNode('')
+    : document.createElement(type);
+
+  const isListener = p => p.startsWith('on');
+  const isAttribute = p => !isListener(p) && p !== 'children';
+
+  Object.keys(props).forEach(p => {
+    if(isAttribute(p)) element[p] = props[p];
+    if(!isTextElement && isListener(p))
+      element.addEventListener(p.toLowerCase().slice(2), props[p]);
+  });
+
+  if(!isTextElement && props.children && props.children.length)
+    props.children.forEach(childElement => renderElement(childElement, element));
+
+  container.appendChild(element);
+}
 ```
-
-**CONCEPTS：**
-
-重定向。
 
 **EXAMPLES：**
 
 ```js
-redirect('https://google.com');
+const myElement = {
+  type: 'button',
+  props: {
+    type: 'button',
+    className: 'btn',
+    onClick: () => alert('Clicked'),
+    children: [
+      { props: { nodeValue: 'Click me' } }
+    ]
+  }
+};
+
+renderElement(
+  myElement,
+  document.body
+);
 ```
 
+### 5. runAsync
 
+**FROM**
 
-## runAsync
+[30 seconds of code (Browser)](https://www.30secondsofcode.org/tag/browser)
 
 **FUNCTION：**
 
@@ -728,10 +1264,6 @@ const runAsync = fn => {
 };
 ```
 
-**CONCEPTS：**
-
-使用 web worker 进程。尚不能理解具体使用。
-
 **EXAMPLES：**
 
 ```js
@@ -751,97 +1283,4 @@ runAsync(longRunningFunction).then(console.log); // 209685000000
 runAsync(() => 10 ** 3).then(console.log); // 1000
 let outsideVariable = 50;
 runAsync(() => typeof outsideVariable).then(console.log); // 'undefined'
-```
-
-
-
-## scrollToTop
-
-**FUNCTION：**
-
-```js
-const scrollToTop = () => {
-  const c = document.documentElement.scrollTop || document.body.scrollTop;
-  if (c > 0) {
-    window.requestAnimationFrame(scrollToTop);
-    window.scrollTo(0, c - c / 8);
-  }
-};
-```
-
-**CONCEPTS：**
-
-回到顶部。
-
-**EXAMPLES：**
-
-```js
-scrollToTop();
-```
-
-
-
-## smoothScroll
-
-**FUNCTION：**
-
-```js
-const smoothScroll = element =>
-  document.querySelector(element).scrollIntoView({
-    behavior: 'smooth'
-  });
-```
-
-**CONCEPTS：**
-
-平滑滚动至某位置。锚点效果。
-
-**EXAMPLES：**
-
-```js
-smoothScroll('#fooBar'); // scrolls smoothly to the element with the id fooBar
-smoothScroll('.fooBar'); // scrolls smoothly to the first element with a class of fooBar
-```
-
-
-
-## serializeForm
-
-**FUNCTION：**
-
-```js
-const serializeForm = form =>
-  Array.from(new FormData(form), field => field.map(encodeURIComponent).join('=')).join('&');
-```
-
-**CONCEPTS：**
-
-序列化表单。
-
-**EXAMPLES：**
-
-```js
-serializeForm(document.querySelector('#form')); // email=test%40email.com&name=Test%20Name
-```
-
-
-
-## triggerEvent
-
-**FUNCTION：**
-
-```js
-const triggerEvent = (el, eventType, detail) =>
-  el.dispatchEvent(new CustomEvent(eventType, { detail }));
-```
-
-**CONCEPTS：**
-
-事件上绑定自定义数据。
-
-**EXAMPLES：**
-
-```js
-triggerEvent(document.getElementById('myId'), 'click');
-triggerEvent(document.getElementById('myId'), 'click', { username: 'bob' });
 ```
