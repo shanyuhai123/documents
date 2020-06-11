@@ -1,43 +1,20 @@
 ---
-title: 30s code type
+title: 类型判断处理
 ---
 
-> [30 seconds of code (Type)](https://www.30secondsofcode.org/tag/type)
+## 判断
 
+### 1. is（指定类型）
 
+**FROM**
 
-## getType
-
-**FUNCTION：**
-
-```js
-const getType = v =>
-  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();
-```
-
-**CONCEPTS：**
-
-获取类型。
-
-**EXAMPLES：**
-
-```js
-getType(new Set([1, 2, 3])); // 'set'
-```
-
-
-
-## is
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
 **FUNCTION：**
 
 ```js
 const is = (type, val) => ![, null].includes(val) && val.constructor === type;
 ```
-
-**CONCEPTS：**
-
-判断类型。`[,null].includes()` 方法用的很精髓。
 
 **EXAMPLES：**
 
@@ -57,9 +34,11 @@ is(Boolean, true); // true
 is(Boolean, new Boolean(true)); // true
 ```
 
+### 2. isArrayLike（类数组）
 
+**FROM**
 
-## isArrayLike
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
 **FUNCTION：**
 
@@ -67,21 +46,20 @@ is(Boolean, new Boolean(true)); // true
 const isArrayLike = obj => obj != null && typeof obj[Symbol.iterator] === 'function';
 ```
 
-**CONCEPTS：**
-
-判断是否为 类数组。
-
 **EXAMPLES：**
 
 ```js
+isArrayLike([1, 2, 3]); // true
 isArrayLike(document.querySelectorAll('.className')); // true
 isArrayLike('abc'); // true
 isArrayLike(null); // false
 ```
 
+### 3. typeof
 
+**FROM**
 
-## typeof
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
 **FUNCTION：**
 
@@ -92,10 +70,6 @@ const isString = val => typeof val === 'string';
 const isSymbol = val => typeof val === 'symbol';
 const isUndefined = val => typeof val === 'undefined';
 ```
-
-**CONCEPTS：**
-
-typeof 判断操作。
 
 **EXAMPLES：**
 
@@ -109,19 +83,17 @@ isSymbol(Symbol('x')); // true
 isUndefined(); // true
 ```
 
+### 4. isEmpty
 
+**FROM**
 
-## isEmpty
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
 **FUNCTION：**
 
 ```js
 const isEmpty = val => val == null || !(Object.keys(val) || val).length;
 ```
-
-**CONCEPTS：**
-
-判断是否为空值。Number 和 Boolean 类型无法判断。
 
 **EXAMPLES：**
 
@@ -136,42 +108,57 @@ isEmpty(123); // true - type is not considered a collection
 isEmpty(true); // true - type is not considered a collection
 ```
 
+### 5. isNil
 
+**FROM**
 
-## isNil
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
 **FUNCTION：**
 
 ```js
 const isNil = val => val === undefined || val === null;
-// 一般利用隐式转换、更简洁
-const isNilSelf = val => val == null;
 ```
-
-**CONCEPTS：**
-
-判断是否为 undefined 和 null。
 
 **EXAMPLES：**
 
 ```js
 isNil(null); // true
 isNil(undefined); // true
+isNil(''); // false
 ```
 
+### 6. isNull/isUndefined
 
+**FROM**
 
-## isNumber
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
+
+**FUNCTION：**
+
+```js
+const isNull = val => val === null;
+const isUndefined = val => val === undefined;
+```
+
+**EXAMPLES：**
+
+```js
+isNull(null); // true
+isUndefined(undefined); // true
+```
+
+### 7. isNumber
+
+**FROM**
+
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
 **FUNCTION：**
 
 ```js
 const isNumber = val => typeof val === 'number' && val === val;
 ```
-
-**CONCEPTS：**
-
-判断是否为数字。利用了 NaN 不等于 NaN 进一步判断。
 
 **EXAMPLES：**
 
@@ -181,46 +168,38 @@ isNumber('1'); // false
 isNumber(NaN); // false
 ```
 
+### 8. isObjectLike
 
+**FROM**
 
-## isObject/isNull
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
 **FUNCTION：**
 
 ```js
-const isObject = obj => obj === Object(obj);
-const isNull = val => val === null;
+const isObjectLike = val => val !== null && typeof val === 'object';
 ```
-
-**CONCEPTS：**
-
-判断是否为对象。这种思路还是第一次遇到。
 
 **EXAMPLES：**
 
 ```js
-isObject([1, 2, 3, 4]); // true
-isObject([]); // true
-isObject(['Hello!']); // true
-isObject({ a: 1 }); // true
-isObject({}); // true
-isObject(true); // false
-isNull(null); // true
+isObjectLike({}); // true
+isObjectLike([1, 2, 3]); // true
+isObjectLike(x => x); // false
+isObjectLike(null); // false
 ```
 
+### 9. isPlainObject（普通对象）
 
+**FROM**
 
-## isPlainObject
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
 **FUNCTION：**
 
 ```js
 const isPlainObject = val => !!val && typeof val === 'object' && val.constructor === Object;
 ```
-
-**CONCEPTS：**
-
-判断是否为对象。利用了 constructor。
 
 **EXAMPLES：**
 
@@ -229,38 +208,15 @@ isPlainObject({ a: 1 }); // true
 isPlainObject(new Map()); // false
 ```
 
+### 10. isValidJSON（JSON）
 
+**FROM**
 
-## isPromiseLike
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
 
-**FUNCTION：**
+**DETAIL：**
 
-```js
-const isPromiseLike = obj =>
-  obj !== null &&
-  (typeof obj === 'object' || typeof obj === 'function') &&
-  typeof obj.then === 'function';
-```
-
-**CONCEPTS：**
-
-判断是否为类 Promise。
-
-**EXAMPLES：**
-
-```js
-isPromiseLike({
-  then: function() {
-    return '';
-  }
-}); // true
-isPromiseLike(null); // false
-isPromiseLike({}); // false
-```
-
-
-
-## isValidJSON
+判断是否为有效 JSON。利用 `try...catch` 来处理错误。
 
 **FUNCTION：**
 
@@ -275,14 +231,82 @@ const isValidJSON = str => {
 };
 ```
 
-**CONCEPTS：**
-
-判断是否为有效 JSON。利用 `try...catch` 来处理错误。
-
 **EXAMPLES：**
 
 ```js
 isValidJSON('{"name":"Adam","age":20}'); // true
 isValidJSON('{"name":"Adam",age:"20"}'); // false
 isValidJSON(null); // true
+```
+
+
+
+
+
+
+
+
+
+
+
+## 处理
+
+### 1. getType（获取类型）
+
+**FROM**
+
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
+
+**FUNCTION：**
+
+```js
+const getType = v => (v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name);
+```
+
+**EXAMPLES：**
+
+```js
+getType(new Set([1, 2, 3])); // 'Set'
+```
+
+### 2. castArray（转为数组）
+
+**FROM**
+
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
+
+**FUNCTION：**
+
+```js
+const castArray = val => (Array.isArray(val) ? val : [val]);
+```
+
+**EXAMPLES：**
+
+```js
+castArray('foo'); // ['foo']
+castArray([1]); // [1]
+```
+
+### 3. coalesceFactory（指定返回类型）
+
+**FROM**
+
+[30 seconds of code (Type)](https://www.30secondsofcode.org/js/t/type/a/1)
+
+**DETAIL：**
+
+自定判断函数，`includes` 方法果然好用。
+
+**FUNCTION：**
+
+```js
+const coalesceFactory = valid => (...args) => args.find(valid);
+```
+
+**EXAMPLES：**
+
+```js
+const customCoalesce = coalesceFactory(_ => ![null, undefined, '', NaN].includes(_));
+customCoalesce(undefined, null, NaN, '', 'Waldo'); // "Waldo"
 ```
