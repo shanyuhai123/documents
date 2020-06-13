@@ -82,7 +82,7 @@ const haveSameContents = (a, b) => {
 haveSameContents([1, 2, 4], [2, 4, 1]); // true
 ```
 
-### 3. includesAll（包含）
+### 4. includesAll（包含）
 
 **FROM**
 
@@ -105,7 +105,7 @@ includesAll([1, 2, 3, 4], [1, 4]); // true
 includesAll([1, 2, 3, 4], [1, 5]); // false
 ```
 
-### 3. includesAny（包含）
+### 5. includesAny（包含）
 
 **FROM**
 
@@ -134,6 +134,65 @@ const includesAny = (arr, values) => values.some(v => arr.includes(v));
 ```js
 includesAny([1, 2, 3, 4], [2, 9]); // true
 includesAny([1, 2, 3, 4], [8, 9]); // false
+```
+
+### 6. isContainedIn（包含）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const isContainedIn = (a, b) => {
+  for (const v of new Set(a)) {
+    if (!b.some(e => e === v) || a.filter(e => e === v).length > b.filter(e => e === v).length)
+      return false;
+  }
+  return true;
+};
+```
+
+**EXAMPLES：**
+
+```js
+isContainedIn([1, 4], [2, 4, 1]); // true
+```
+
+### 7. isSorted（排序）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+返回 `1` 为 `asc` 排序，`-1` 为 `desc` 排序，`0` 未排序。
+
+**FUNCTION：**
+
+```js
+const isSorted = arr => {
+  let direction = -(arr[0] - arr[1]);
+  for (let [i, val] of arr.entries()) {
+    direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
+    if (i === arr.length - 1) return !direction ? 0 : direction / Math.abs(direction);
+    else if ((val - arr[i + 1]) * direction > 0) return 0;
+  }
+};
+```
+
+**EXAMPLES：**
+
+```js
+isSorted([0, 1, 2, 2]); // 1
+isSorted([4, 3, 2]); // -1
+isSorted([4, 3, 5]); // 0
 ```
 
 
@@ -165,6 +224,61 @@ const arrayToCSV = (arr, delimiter = ',') =>
 arrayToCSV([['a', 'b'], ['c', 'd']]); // '"a","b"\n"c","d"'
 arrayToCSV([['a', 'b'], ['c', 'd']], ';'); // '"a";"b"\n"c";"d"'
 arrayToCSV([['a', '"b" great'], ['c', 3.1415]]); // '"a","""b"" great"\n"c",3.1415'
+```
+
+### 2. JSONtoCSV
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const JSONtoCSV = (arr, columns, delimiter = ',') =>
+  [
+    columns.join(delimiter),
+    ...arr.map(obj =>
+      columns.reduce(
+        (acc, key) => `${acc}${!acc.length ? '' : delimiter}"${!obj[key] ? '' : obj[key]}"`,
+        ''
+      )
+    )
+  ].join('\n');
+```
+
+**EXAMPLES：**
+
+```js
+JSONtoCSV([{ a: 1, b: 2 }, { a: 3, b: 4, c: 5 }, { a: 6 }, { b: 7 }], ['a', 'b']); // 'a,b\n"1","2"\n"3","4"\n"6",""\n"","7"'
+JSONtoCSV([{ a: 1, b: 2 }, { a: 3, b: 4, c: 5 }, { a: 6 }, { b: 7 }], ['a', 'b'], ';'); // 'a;b\n"1";"2"\n"3";"4"\n"6";""\n"";"7"'
+```
+
+### 2. normalizeLineEndings（换行符）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const normalizeLineEndings = (str, normalized = '\r\n') => str.replace(/\r?\n/g, normalized);
+```
+
+**EXAMPLES：**
+
+```js
+splitLines('This\r\nis a\nmultiline\nstring.\r\n'); // 'This\r\nis a\r\nmultiline\r\nstring.\r\n'
+splitLines('This\r\nis a\nmultiline\nstring.\r\n', '\n'); // 'This\nis a\nmultiline\nstring.\n'
 ```
 
 
@@ -292,6 +406,32 @@ const initializeArrayWithValues = (n, val = 0) => Array(n).fill(val);
 
 ```js
 initializeArrayWithValues(5, 2); // [2, 2, 2, 2, 2]
+```
+
+### 6. mapObject（对象）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+对 [empty](/frontend/javascript/array-empty) 的处理。
+
+**FUNCTION：**
+
+```js
+const mapObject = (arr, fn) =>
+  arr.reduce((acc, el, i) => {
+    acc[el] = fn(el, i, arr);
+    return acc;
+  }, {});
+```
+
+**EXAMPLES：**
+
+```js
+mapObject([1, 2, 3], a => a * a); // { 1: 1, 2: 4, 3: 9 }
 ```
 
 
@@ -454,6 +594,69 @@ const groupBy = (arr, fn) =>
 ```js
 groupBy([6.1, 4.2, 6.3], Math.floor); // {4: [4.2], 6: [6.1, 6.3]}
 groupBy(['one', 'two', 'three'], 'length'); // {3: ['one', 'two'], 5: ['three']}
+```
+
+### 2. partition
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+仅能分成两组。
+
+**FUNCTION：**
+
+```js
+const partition = (arr, fn) =>
+  arr.reduce(
+    (acc, val, i, arr) => {
+      acc[fn(val, i, arr) ? 0 : 1].push(val);
+      return acc;
+    },
+    [[], []]
+  );
+```
+
+**EXAMPLES：**
+
+```js
+const users = [{ user: 'barney', age: 36, active: false }, { user: 'fred', age: 40, active: true }];
+partition(users, o => o.active); // [[{ 'user': 'fred',    'age': 40, 'active': true }],[{ 'user': 'barney',  'age': 36, 'active': false }]]
+```
+
+### 3. partitionBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const partitionBy = (arr, fn) =>
+  arr.reduce(
+    ({ res, last }, v, i, a) => {
+      const next = fn(v, i, a);
+      if (next !== last) res.push([v]);
+      else res[res.length - 1].push(v);
+      return { res, last: next };
+    },
+    { res: [] }
+  ).res;
+```
+
+**EXAMPLES：**
+
+```js
+const numbers = [1, 1, 3, 3, 4, 5, 5, 5];
+partitionBy(numbers, n => n % 2 === 0); // [[1, 1, 3, 3], [4], [5, 5, 5]]
+partitionBy(numbers, n => n); // [[1, 1], [3, 3], [4], [5, 5, 5]]
 ```
 
 
@@ -638,9 +841,9 @@ insertAt(otherArray, 0, 4, 6, 8); // otherArray = [2, 4, 6, 8, 10]
 
 
 
-## 反序
+## 改序
 
-### 1. forEachRight（forEach）
+### 1. forEachRight（反序）
 
 **FROM**
 
@@ -664,6 +867,29 @@ const forEachRight = (arr, callback) =>
 
 ```js
 forEachRight([1, 2, 3, 4], val => console.log(val)); // '4', '3', '2', '1'
+```
+
+### 1. offset（切片重组）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+`slice` 浅拷贝。
+
+**FUNCTION：**
+
+```js
+const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
+```
+
+**EXAMPLES：**
+
+```js
+offset([1, 2, 3, 4, 5], 2); // [3, 4, 5, 1, 2]
+offset([1, 2, 3, 4, 5], -2); // [4, 5, 1, 2, 3]
 ```
 
 
@@ -828,7 +1054,55 @@ head(null); // undefined
 head(undefined); // undefined
 ```
 
-### 4. indexOfAll（所有下标）
+### 4. last（尾部）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const last = arr => (arr && arr.length ? arr[arr.length - 1] : undefined);
+```
+
+**EXAMPLES：**
+
+```js
+last([1, 2, 3]); // 3
+last([]); // undefined
+last(null); // undefined
+last(undefined); // undefined
+```
+
+### 5. nthElement（nth）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const nthElement = (arr, n = 0) => (n === -1 ? arr.slice(n) : arr.slice(n, n + 1))[0];
+```
+
+**EXAMPLES：**
+
+```js
+nthElement(['a', 'b', 'c'], 1); // 'b'
+nthElement(['a', 'b', 'b'], -3); // 'a'
+```
+
+### 6. indexOfAll（所有下标）
 
 **FROM**
 
@@ -849,6 +1123,106 @@ const indexOfAll = (arr, val) => arr.reduce((acc, el, i) => (el === val ? [...ac
 ```js
 indexOfAll([1, 2, 3, 1, 2, 3], 1); // [0, 3]
 indexOfAll([1, 2, 3], 4); // []
+```
+
+### 7. longestItem（最长）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const longestItem = (...vals) => vals.reduce((a, x) => (x.length > a.length ? x : a));
+```
+
+**EXAMPLES：**
+
+```js
+longestItem('this', 'is', 'a', 'testcase'); // 'testcase'
+longestItem(...['a', 'ab', 'abc']); // 'abc'
+longestItem(...['a', 'ab', 'abc'], 'abcd'); // 'abcd'
+longestItem([1, 2, 3], [1, 2], [1, 2, 3, 4, 5]); // [1, 2, 3, 4, 5]
+longestItem([1, 2, 3], 'foobar'); // 'foobar'
+```
+
+### 8. maxN（最大）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+先排序后取个数。
+
+**FUNCTION：**
+
+```js
+const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);
+```
+
+**EXAMPLES：**
+
+```js
+maxN([1, 2, 3]); // [3]
+maxN([1, 2, 3], 2); // [3,2]
+```
+
+### 9. minN（最小）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+先排序后取个数。
+
+**FUNCTION：**
+
+```js
+const minN = (arr, n = 1) => [...arr].sort((a, b) => a - b).slice(0, n);
+```
+
+**EXAMPLES：**
+
+```js
+minN([1, 2, 3]); // [1]
+minN([1, 2, 3], 2); // [1,2]
+```
+
+### 10. mostFrequent（最频繁）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+先排序后取个数。
+
+**FUNCTION：**
+
+```js
+const mostFrequent = arr =>
+  Object.entries(
+    arr.reduce((a, v) => {
+      a[v] = a[v] ? a[v] + 1 : 1;
+      return a;
+    }, {})
+  ).reduce((a, v) => (v[1] >= a[1] ? v : a), [null, 0])[0];
+```
+
+**EXAMPLES：**
+
+```js
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 ```
 
 
@@ -983,7 +1357,7 @@ deepFlatten([1, [2], [[3], 4], 5]); // [1, 2, 3, 4, 5]
 
 
 
-## 区分
+## 差异/相同
 
 ### 1. difference
 
@@ -1059,7 +1433,112 @@ differenceWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Mat
 differenceWith([{ x: 2 }, { x: 1 }], [{ x: 1 }], (a, b) => a.x === b.x); // [{x: 2}]
 ```
 
+### 4. intersection
 
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const intersection = (a, b) => {
+  const s = new Set(b);
+  return [...new Set(a)].filter(x => s.has(x));
+};
+```
+
+**EXAMPLES：**
+
+```js
+intersection([1, 2, 3], [4, 3, 2]); // [2, 3]
+```
+
+### 5. intersectionBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const intersectionBy = (a, b, fn) => {
+  const s = new Set(b.map(fn));
+  return [...new Set(a)].filter(x => s.has(fn(x)));
+};
+```
+
+**EXAMPLES：**
+
+```js
+intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [2.1]
+```
+
+### 6. intersectionWith（with）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const intersectionWith = (a, b, comp) => a.filter(x => b.findIndex(y => comp(x, y)) !== -1);
+```
+
+**EXAMPLES：**
+
+```js
+intersectionWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0, 3.9], (a, b) => Math.round(a) === Math.round(b)); // [1.5, 3, 0]
+```
+
+
+
+## 低意义
+
+### 1. juxt（高阶）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+除了秀操作没想到别的。
+
+**FUNCTION：**
+
+```js
+const juxt = (...fns) => (...args) => [...fns].map(fn => [...args].map(fn));
+```
+
+**EXAMPLES：**
+
+```js
+juxt(
+  x => x + 1,
+  x => x - 1,
+  x => x * 10
+)(1, 2, 3); // [[2,3,4],[0,1,2],[10,20,30]]
+
+juxt(
+  s => s.length,
+  s => s.split(" ").join("-")
+)("30 seconds of code"); // [[18],['30-seconds-of-code']]
+```
 
 
 
