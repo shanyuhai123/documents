@@ -1,22 +1,26 @@
 ---
-title: 30s code array
+title: 数组
 ---
 
-> [30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+## 判断
 
+### 1. all/none/any
 
+**FROM**
 
-## all/none
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+利用 `every`、`some` 包裹一层。
 
 **FUNCTION：**
 
 ```js
 const all = (arr, fn = Boolean) => arr.every(fn);
 const none = (arr, fn = Boolean) => !arr.some(fn);
+const any = (arr, fn = Boolean) => arr.some(fn);
 ```
-
-**CONCEPTS：**  
-判断数组中所有元素是否均符合规则。简单封装了 Array.prototype.every、Array.prototype.some 方法。
 
 **EXAMPLES：**
 
@@ -25,21 +29,25 @@ all([4, 2, 3], x => x > 1); // true
 all([1, 2, 3]); // true
 none([0, 1, 3, 0], x => x == 2); // true
 none([0, 0, 0]); // true
+any([0, 1, 2, 0], x => x >= 2); // true
+any([0, 0, 1, 0]); // true
 ```
 
+### 2. allEqual（全等）
 
+**FROM**
 
-## allEqual
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+判断数组中的所有元素是否相等。将数组中所有参数与第一个数据作对比。
 
 **FUNCTION：**
 
 ```js
 const allEqual = arr => arr.every(val => val === arr[0]);
 ```
-
-**CONCEPTS：**
-
-判断数组中的所有元素是否相等。将数组中所有参数与第一个数据作对比。
 
 **EXAMPLES：**
 
@@ -48,30 +56,99 @@ allEqual([1, 2, 3, 4, 5, 6]); // false
 allEqual([1, 1, 1, 1]); // true
 ```
 
+### 3. haveSameContents（内容相等）
 
+**FROM**
 
-## any
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
 ```js
-const any = (arr, fn = Boolean) => arr.some(fn);
+const haveSameContents = (a, b) => {
+  for (const v of new Set([...a, ...b]))
+    if (a.filter(e => e === v).length !== b.filter(e => e === v).length) return false;
+  return true;
+};
 ```
-
-**CONCEPTS：**
-
-判断数组中至少有一个元素符合规则。简单封装了 Array.prototype.some 方法。
 
 **EXAMPLES：**
 
 ```js
-any([0, 1, 2, 0], x => x >= 2); // true
-any([0, 0, 1, 0]); // true
+haveSameContents([1, 2, 4], [2, 4, 1]); // true
+```
+
+### 3. includesAll（包含）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const includesAll = (arr, values) => values.every(v => arr.includes(v));
+```
+
+**EXAMPLES：**
+
+```js
+includesAll([1, 2, 3, 4], [1, 4]); // true
+includesAll([1, 2, 3, 4], [1, 5]); // false
+```
+
+### 3. includesAny（包含）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+可利用 `any` 方法替代。
+
+```js
+const any = (arr, fn = Boolean) => arr.some(fn);
+
+any([2, 9], v => [1, 2, 3, 4].includes(v)); // true
+any([8, 9], v => [1, 2, 3, 4].includes(v));
+// false
+```
+
+**FUNCTION：**
+
+```js
+const includesAny = (arr, values) => values.some(v => arr.includes(v));
+```
+
+**EXAMPLES：**
+
+```js
+includesAny([1, 2, 3, 4], [2, 9]); // true
+includesAny([1, 2, 3, 4], [8, 9]); // false
 ```
 
 
 
-## arrayToCSV
+## 格式转换
+
+### 1. arrayToCSV
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+对二维数组做了两次 map 映射，内层映射确定分隔符，外层映射添加换行符，针对字符串中双引号作处理。
 
 **FUNCTION：**
 
@@ -81,10 +158,6 @@ const arrayToCSV = (arr, delimiter = ',') =>
     .map(v => v.map(x => (isNaN(x) ? `"${x.replace(/"/g, '""')}"` : x)).join(delimiter))
     .join('\n');
 ```
-
-**CONCEPTS：**
-
-将二维数组转为 CSV 格式。对二维数组做了两次 map 映射，内层映射确定分隔符，外层映射添加换行符，针对字符串中双引号作处理。
 
 **EXAMPLES：**
 
@@ -96,51 +169,173 @@ arrayToCSV([['a', '"b" great'], ['c', 3.1415]]); // '"a","""b"" great"\n"c",3.14
 
 
 
-## bifurcate
+## 生成
+
+### 1. initialize2DArray（2维）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
 ```js
-const bifurcate = (arr, filter) =>
-  arr.reduce((acc, cur, i) => (acc[filter[i] ? 0 : 1].push(cur), acc), [[], []]);
+const initialize2DArray = (w, h, val = null) =>
+  Array.from({ length: h }).map(() => Array.from({ length: w }).fill(val));
 ```
-
-**CONCEPTS：**
-
-对数组中的数据进行分类。filter 具有下标，可判断为数组，再配合三元运算符进行分类，核心是利用 reduce 和 `,` 对返回结果进行累积，`,` 操作符总是对每个操作求值，并返回最后一个（push 方法会返回数组的长度，不符合要求）。
 
 **EXAMPLES：**
 
 ```js
-bifurcate(['beep', 'boop', 'foo', 'bar'], [true, true, false, true]); // [ ['beep', 'boop', 'bar'], ['foo'] ]
+initialize2DArray(2, 2, 0); // [[0,0], [0,0]]
 ```
 
+### 2. initializeNDArray（n维）
 
+**FROM**
 
-## bifurcateBy
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
 ```js
-const bifurcateBy = (arr, fn) =>
-  arr.reduce((acc, cur, i) => (acc[fn(cur, i) ? 0 : 1].push(cur), acc), [[], []]);
+const initializeNDArray = (val, ...args) =>
+  args.length === 0
+    ? val
+    : Array.from({ length: args[0] }).map(() => initializeNDArray(val, ...args.slice(1)));
 ```
-
-**CONCEPTS：**
-
-对数组中的数据进行分类。相对于 bifurcate，提供了过滤用函数。
 
 **EXAMPLES：**
 
 ```js
-bifurcateBy(['beep', 'boop', 'foo', 'bar'], x => x[0] === 'b'); // [ ['beep', 'boop', 'bar'], ['foo'] ]
-// 感觉上面可以优化下，速度不一定快，但是语义更好了
-bifurcateBy(['beep', 'boop', 'foo', 'bar'], x => x.startsWith('b')); // [ ['beep', 'boop', 'bar'], ['foo'] ]
+initializeNDArray(1, 3); // [1,1,1]
+initializeNDArray(5, 2, 2, 2); // [[[5,5],[5,5]],[[5,5],[5,5]]]
+```
+
+### 3. initializeArrayWithRange（连续范围）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const initializeArrayWithRange = (end, start = 0, step = 1) =>
+  Array.from({ length: Math.ceil((end - start + 1) / step) }, (v, i) => i * step + start);
+```
+
+**EXAMPLES：**
+
+```js
+initializeArrayWithRange(5); // [0,1,2,3,4,5]
+initializeArrayWithRange(7, 3); // [3,4,5,6,7]
+initializeArrayWithRange(9, 0, 2); // [0,2,4,6,8]
+```
+
+### 4. initializeArrayWithRangeRight（连续范围右）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const initializeArrayWithRangeRight = (end, start = 0, step = 1) =>
+  Array.from({ length: Math.ceil((end + 1 - start) / step) }).map(
+    (v, i, arr) => (arr.length - i - 1) * step + start
+  );
+```
+
+**EXAMPLES：**
+
+```js
+initializeArrayWithRangeRight(5); // [5,4,3,2,1,0]
+initializeArrayWithRangeRight(7, 3); // [7,6,5,4,3]
+initializeArrayWithRangeRight(9, 0, 2); // [8,6,4,2,0]
+```
+
+### 5. initializeArrayWithValues（连续相同）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+对 [empty](/frontend/javascript/array-empty) 的处理。
+
+**FUNCTION：**
+
+```js
+const initializeArrayWithValues = (n, val = 0) => Array(n).fill(val);
+```
+
+**EXAMPLES：**
+
+```js
+initializeArrayWithValues(5, 2); // [2, 2, 2, 2, 2]
 ```
 
 
 
-## chunk
+## 分组
+
+### 1. aperture（指定长度）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+对二维数组做了两次 map 映射，内层映射确定分隔符，外层映射添加换行符，针对字符串中双引号作处理。
+
+严格的指定长度，不满足时则返回 `[]`。
+
+**FUNCTION：**
+
+```js
+const aperture = (n, arr) =>
+  n > arr.length
+    ? []
+    : arr.slice(n - 1).map((v, i) => [...arr.slice(i, i + n - 1), v]);
+```
+
+**EXAMPLES：**
+
+```js
+R.aperture(2, [1, 2, 3, 4]); // [[1, 2], [2, 3], [3, 4]]
+R.aperture(3, [1, 2, 3, 4]); // [[1, 2, 3], [2, 3, 4]]
+R.aperture(5, [1, 2, 3, 4]); // []
+```
+
+### 2. chunk（指定长度）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+相对于 `aperture` 会尽可能保留长度。
 
 **FUNCTION：**
 
@@ -151,31 +346,135 @@ const chunk = (arr, size) =>
   );
 ```
 
-**CONCEPTS：**
-
-对数组进行切片（分块）。利用 Array.from 的第二个参数 map 函数对每个分块进行映射。
-
 **EXAMPLES：**
 
 ```js
 chunk([1, 2, 3, 4, 5], 2); // [[1,2],[3,4],[5]]
 ```
 
+### 3. chunkIntoN（指定个数）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+尽可能保持分组中的 `size` 一致。
+
+**FUNCTION：**
+
+```js
+const chunkIntoN = (arr, n) => {
+  const size = Math.ceil(arr.length / n);
+  return Array.from({ length: n }, (v, i) =>
+    arr.slice(i * size, i * size + size)
+  );
+}
+```
+
+**EXAMPLES：**
+
+```js
+chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1,2], [3,4], [5,6], [7]]
+```
+
+### 4. bifurcate（2 组）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+根据 `filter` 分成两组。
+
+**FUNCTION：**
+
+```js
+const bifurcate = (arr, filter) =>
+  arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [[], []]);
+```
+
+**EXAMPLES：**
+
+```js
+bifurcate(['beep', 'boop', 'foo', 'bar'], [true, true, false, true]); // [ ['beep', 'boop', 'bar'], ['foo'] ]
+```
+
+### 5. bifurcateBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+`bifurcate` 的进阶，更为自由。
+
+**FUNCTION：**
+
+```js
+const bifurcateBy = (arr, fn) =>
+  arr.reduce((acc, val, i) => (acc[fn(val, i) ? 0 : 1].push(val), acc), [[], []]);
+```
+
+**EXAMPLES：**
+
+```js
+bifurcateBy(['beep', 'boop', 'foo', 'bar'], x => x[0] === 'b'); // [ ["boop", "foo"], ["beep", "bar"]]
+```
 
 
-## compact
+
+## 分类
+
+### 1. groupBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+与 `countBy` 实现相似。
+
+**FUNCTION：**
+
+```js
+const groupBy = (arr, fn) =>
+  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val, i) => {
+    acc[val] = (acc[val] || []).concat(arr[i]);
+    return acc;
+  }, {});
+```
+
+**EXAMPLES：**
+
+```js
+groupBy([6.1, 4.2, 6.3], Math.floor); // {4: [4.2], 6: [6.1, 6.3]}
+groupBy(['one', 'two', 'three'], 'length'); // {3: ['one', 'two'], 5: ['three']}
+```
+
+
+
+## 移除
+
+### 1. compact（falsy）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+利用了隐式转换概念。移除 “无效” 值。
 
 **FUNCTION：**
 
 ```js
 const compact = arr => arr.filter(Boolean);
-// 个人之前使用，提供 Boolean 更直观
-const compactSelf = arr => arr.filter(a => a);
 ```
-
-**CONCEPTS：**
-
-移除数组中 “无效” 值。主要是利用 JavaScript 的隐式转换概念。
 
 **EXAMPLES：**
 
@@ -183,141 +482,15 @@ const compactSelf = arr => arr.filter(a => a);
 compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]); // [ 1, 2, 3, 'a', 's', 34 ]
 ```
 
+### 2. drop（从左开始）
 
+**FROM**
 
-## countBy
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
 
-**FUNCTION：**
+**DETAIL：**
 
-```js
-const countBy = (arr, fn) =>
-  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => 
-    ((acc[val] = (acc[val] || 0) + 1), acc), {});
-```
-
-**CONCEPTS：**
-
-对数组中的数据进行分组并计数。对原函数进行修改，贯彻 `,` 操作符， typeof 处理了非函数。
-
-**EXAMPLES：**
-
-```js
-countBy([6.1, 4.2, 6.3], Math.floor); // {4: 1, 6: 2}
-countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
-```
-
-
-
-## countOccurrences
-
-**FUNCTION：**
-
-```js
-const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
-```
-
-**CONCEPTS：**
-
-对数组中某个值进行计数。简单的利用了 reduce 方法。
-
-**EXAMPLES：**
-
-```js
-countOccurrences([1, 1, 2, 1, 2, 3], 1); // 3
-```
-
-
-
-## deepFlatten
-
-**FUNCTION：**
-
-```js
-const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)));
-// MDN 同样提供了该方法
-const deepFlatten = arr => arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(deepFlatten(val)) : acc.concat(val), []);
-```
-
-**CONCEPTS：**
-
-展开数组。数组中可能嵌套数组，利用了递归。
-
-**EXAMPLES：**
-
-```js
-deepFlatten([1, [2], [[3], 4], 5]); // [1,2,3,4,5]
-```
-
-
-
-## difference
-
-**FUNCTION：**
-
-```js
-const difference = (a, b) => {
-  const s = new Set(b);
-  return a.filter(x => !s.has(x));
-};
-```
-
-**CONCEPTS：**
-
-返回两个数组之差（差异），其中存在的问题是，仅暴露了 a 的差异而忽略的 b 的差异，利用该方法找相同倒是完美。核心利用了 Set 结构。
-
-**EXAMPLES：**
-
-```js
-difference([1, 2, 3], [1, 2, 4]); // [3]
-```
-
-
-
-## differenceBy
-
-**FUNCTION：**
-
-```js
-const differenceBy = (a, b, fn) => {
-  const s = new Set(b.map(fn));
-  return a.map(fn).filter(el => !s.has(el));
-};
-```
-
-**CONCEPTS：**
-
-两个数组格式化后之间的差异。一般数据会有较为复杂的结构，往往需要先处理数据。
-
-**EXAMPLES：**
-
-```js
-differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [1]
-differenceBy([{ x: 2 }, { x: 1 }], [{ x: 1 }], v => v.x); // [2]
-```
-
-
-
-## differenceWith
-
-**FUNCTION：**
-
-```js
-const differenceWith = (arr, val, comp) => arr.filter(a => val.findIndex(b => comp(a, b)) === -1);
-```
-
-**CONCEPTS：**
-
-两个区间范围的差异。除了复杂的数据结构，还需要监听异常的数据（非范围内）。
-
-**EXAMPLES：**
-
-```js
-differenceWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Math.round(b)); // [1, 1.2]
-```
-
-
-
-## drop
+暂无。
 
 **FUNCTION：**
 
@@ -325,32 +498,29 @@ differenceWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Mat
 const drop = (arr, n = 1) => arr.slice(n);
 ```
 
-**CONCEPTS：**
-
-删除数组前侧（左侧）的元素。简单使用了 slice 方法，slice 方法同样支持字符串，需要注意的是表象是删除，其实是提取指定位置的元素。
-
 **EXAMPLES：**
 
 ```js
 drop([1, 2, 3]); // [2,3]
 drop([1, 2, 3], 2); // [3]
 drop([1, 2, 3], 42); // []
-drop("hello world", 5); // " world"
 ```
 
+### 3. dropRight（从右开始）
 
+**FROM**
 
-## dropRight
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
 ```js
 const dropRight = (arr, n = 1) => arr.slice(0, -n);
 ```
-
-**CONCEPTS：**
-
-删除数组后侧（右侧）的元素。
 
 **EXAMPLES：**
 
@@ -360,10 +530,15 @@ dropRight([1, 2, 3], 2); // [1]
 dropRight([1, 2, 3], 42); // []
 ```
 
+### 4. dropWhile（从左开始）
 
+**FROM**
 
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
 
-## dropWhile
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
@@ -374,20 +549,21 @@ const dropWhile = (arr, func) => {
 };
 ```
 
-**CONCEPTS：**
-
-从头开始删除数组中不符合条件的，直至符合。
-
 **EXAMPLES：**
 
 ```js
-// 示例存在误导嫌疑，修改一下
-dropWhile([1, 2, 3, 2, 4], n => n >= 3); // [3,2,4]
+dropWhile([3, 1, 2, 4], n => n < 3); // [1, 2, 4]
 ```
 
+### 5. dropRightWhile（从右开始）
 
+**FROM**
 
-## dropRightWhile
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
@@ -399,29 +575,116 @@ const dropRightWhile = (arr, func) => {
 };
 ```
 
-**CONCEPTS：**
+**EXAMPLES：**
 
-从末尾开始删除数组中不符合条件的，直至符合。
+```js
+dropRightWhile([3, 1, 2, 4], n => n < 3); // [3, 1, 2]
+```
+
+### 6. initial（移除最后）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const initial = arr => arr.slice(0, -1);
+```
 
 **EXAMPLES：**
 
 ```js
-dropRightWhile([1, 2, 3, 2, 4], n => n < 3); //  [1, 2, 3, 2]
+initial([1, 2, 3]); // [1,2]
 ```
 
 
 
-## everyNth
+## 插入
+
+### 1. insertAt
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+对象展开符。
+
+**FUNCTION：**
+
+```js
+const insertAt = (arr, i, ...v) => {
+  arr.splice(i + 1, 0, ...v);
+  return arr;
+};
+```
+
+**EXAMPLES：**
+
+```js
+let myArray = [1, 2, 3, 4];
+insertAt(myArray, 2, 5); // myArray = [1, 2, 3, 5, 4]
+
+let otherArray = [2, 10];
+insertAt(otherArray, 0, 4, 6, 8); // otherArray = [2, 4, 6, 8, 10]
+```
+
+
+
+## 反序
+
+### 1. forEachRight（forEach）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+`slice` 浅拷贝。
+
+**FUNCTION：**
+
+```js
+const forEachRight = (arr, callback) =>
+  arr
+    .slice()
+    .reverse()
+    .forEach(callback);
+```
+
+**EXAMPLES：**
+
+```js
+forEachRight([1, 2, 3, 4], val => console.log(val)); // '4', '3', '2', '1'
+```
+
+
+
+## 过滤
+
+### 1. everyNth（取模）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
 ```js
 const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
 ```
-
-**CONCEPTS：**
-
-返回数组中的第 nth 组成的数组。
 
 **EXAMPLES：**
 
@@ -431,13 +694,17 @@ everyNth([1, 2, 3, 4, 5, 6], 2); // [ 2, 4, 6 ]
 
 
 
-## filterFalsy
+## 去重
 
-与 [compact](/frontend/javascript/code-array.html#compact) 一致。
+### 1. filterNonUnique
 
+**FROM**
 
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
 
-## filterNonUnique
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
@@ -445,19 +712,21 @@ everyNth([1, 2, 3, 4, 5, 6], 2); // [ 2, 4, 6 ]
 const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
 ```
 
-**CONCEPTS：**
-
-移除数组中多次出现的数据。利用双指针来判断是否数据重复，需要注意到的这个方法并非是去重。
-
 **EXAMPLES：**
 
 ```js
 filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1, 3, 5]
 ```
 
+### 2. filterNonUniqueBy（by）
 
+**FROM**
 
-## filterNonUniqueBy
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
@@ -465,10 +734,6 @@ filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1, 3, 5]
 const filterNonUniqueBy = (arr, fn) =>
   arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)));
 ```
-
-**CONCEPTS：**
-
-移除数组中多次出现的某一数据。`(i === j) === fn(v, x, i, j)` 是比较细节的地方，用于排除自身（存在更优解）。
 
 **EXAMPLES：**
 
@@ -487,7 +752,17 @@ filterNonUniqueBy(
 
 
 
-## findLast
+## 查询
+
+### 1. findLast（元素）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
@@ -495,19 +770,21 @@ filterNonUniqueBy(
 const findLast = (arr, fn) => arr.filter(fn).pop();
 ```
 
-**CONCEPTS：**
-
-返回最后一个符合的数据。filter 会返回一个新的数组，pop 方法不会影响原数组。
-
 **EXAMPLES：**
 
 ```js
 findLast([1, 2, 3, 4], n => n % 2 === 1); // 3
 ```
 
+### 2. findLastIndex（下标）
 
+**FROM**
 
-## findLastIndex
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
@@ -519,10 +796,6 @@ const findLastIndex = (arr, fn) =>
     .pop() || [-1])[0];
 ```
 
-**CONCEPTS：**
-
-返回最后一个符合的数据的索引。利用 map 方法保留索引。
-
 **EXAMPLES：**
 
 ```js
@@ -530,9 +803,147 @@ findLastIndex([1, 2, 3, 4], n => n % 2 === 1); // 2 (index of the value 3)
 findLastIndex([1, 2, 3, 4], n => n === 5); // -1 (default value when not found)
 ```
 
+### 3. head（头部）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const head = arr => (arr && arr.length ? arr[0] : undefined);
+```
+
+**EXAMPLES：**
+
+```js
+head([1, 2, 3]); // 1
+head([]); // undefined
+head(null); // undefined
+head(undefined); // undefined
+```
+
+### 4. indexOfAll（所有下标）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const indexOfAll = (arr, val) => arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
+```
+
+**EXAMPLES：**
+
+```js
+indexOfAll([1, 2, 3, 1, 2, 3], 1); // [0, 3]
+indexOfAll([1, 2, 3], 4); // []
+```
 
 
-## flatten
+
+## 统计[频率]
+
+### 1. countOccurrences（指定）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+统计数组中某个值出现次数。
+
+**FUNCTION：**
+
+```js
+const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+```
+
+**EXAMPLES：**
+
+```js
+countOccurrences([1, 1, 2, 1, 2, 3], 1); // 3
+```
+
+### 2. frequencies（所有）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+统计数组中某个值出现次数。
+
+**FUNCTION：**
+
+```js
+const frequencies = arr =>
+  arr.reduce((a, v) => {
+    a[v] = a[v] ? a[v] + 1 : 1;
+    return a;
+  }, {});
+```
+
+**EXAMPLES：**
+
+```js
+frequencies(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // { a: 4, b: 2, c: 1 }
+```
+
+### 3. countBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+更为灵活。
+
+**FUNCTION：**
+
+```js
+const countBy = (arr, fn) =>
+  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => {
+    acc[val] = (acc[val] || 0) + 1;
+    return acc;
+  }, {});
+```
+
+**EXAMPLES：**
+
+```js
+countBy([6.1, 4.2, 6.3], Math.floor); // {4: 1, 6: 2}
+countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
+countBy(['a', 'b', 'a', 'c', 'a', 'a', 'b'], str => str.slice()); // {a: 4, b: 2, c: 1}
+```
+
+
+
+## 展平
+
+### 1. flatten（指定深度）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
 
 **FUNCTION：**
 
@@ -541,10 +952,6 @@ const flatten = (arr, depth = 1) =>
   arr.reduce((a, v) => a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v), []);
 ```
 
-**CONCEPTS：**
-
-指定数组扁平化深度。在递归中增加一个判断开关，一个无开关[示例](/frontend/javascript/code-array.html#deepflatten)。
-
 **EXAMPLES：**
 
 ```js
@@ -552,179 +959,111 @@ flatten([1, [2], 3, 4]); // [1, 2, 3, 4]
 flatten([1, [2, [3, [4, 5], 6], 7], 8], 2); // [1, 2, 3, [4, 5], 6, 7, 8]
 ```
 
+### 2. deepFlatten（全部）
 
+**FROM**
 
-## forEachRight
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
 
-**FUNCTION：**
+**DETAIL：**
 
-```js
-const forEachRight = (arr, callback) =>
-  arr
-    .slice(0)
-    .reverse()
-    .forEach(callback);
-```
-
-**CONCEPTS：**
-
-forEach 从右执行。reverse 会改变原数组，故用 `slice(0)` 进行了数组的浅拷贝。
-
-**EXAMPLES：**
-
-```js
-forEachRight([1, 2, 3, 4], val => console.log(val)); // '4', '3', '2', '1'
-```
-
-
-
-## groupBy
+暂无。
 
 **FUNCTION：**
 
 ```js
-const groupBy = (arr, fn) =>
-  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val, i) => {
-    acc[val] = (acc[val] || []).concat(arr[i]);
-    return acc;
-  }, {});
+const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)));
 ```
-
-**CONCEPTS：**
-
-数组分类。可见之前更简洁的示例 [bifurcateBy](/frontend/javascript/code-array.html#bifurcateby)。
 
 **EXAMPLES：**
 
 ```js
-groupBy([6.1, 4.2, 6.3], Math.floor); // {4: [4.2], 6: [6.1, 6.3]}
-groupBy(['one', 'two', 'three'], 'length'); // {3: ['one', 'two'], 5: ['three']}
+deepFlatten([1, [2], [[3], 4], 5]); // [1, 2, 3, 4, 5]
 ```
 
 
 
-## indexOfAll
+## 区分
+
+### 1. difference
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+仅暴露了 a 的差异而忽略的 b 的差异。
 
 **FUNCTION：**
 
 ```js
-const indexOfAll = (arr, val) => arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
-
-// 借用 findLastIndex 中的方法
-const indexOfAllSelf = (arr, fn) =>
-  arr
-    .map((val, i) => [i, val])
-    .filter(([i, val]) => fn(val, i, arr))
-    .map([i] => i);
+const difference = (a, b) => {
+  const s = new Set(b);
+  return a.filter(x => !s.has(x));
+};
 ```
-
-**CONCEPTS：**
-
-返回出现目标的索引的组成的数组。
 
 **EXAMPLES：**
 
 ```js
-indexOfAll([1, 2, 3, 1, 2, 3], 1); // [0,3]
-indexOfAll([1, 2, 3], 4); // []
-indexOfAllSelf([1, 2, 3, 1, 2, 3], n => n === 1); // [0,3]
+difference([1, 2, 3], [1, 2, 4]); // [3]
 ```
 
+### 2. differenceBy（by）
 
+**FROM**
 
-## initialize2DArray
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+利用 map 导致返回值仅保留 `by` 的数据。
 
 **FUNCTION：**
 
 ```js
-// 修改参数更语义化
-const initialize2DArray = (col, row, val = null) =>
-  Array.from({ length: row }).map(() => Array.from({ length: col }).fill(val));
+const differenceBy = (a, b, fn) => {
+  const s = new Set(b.map(fn));
+  return a.map(fn).filter(el => !s.has(el));
+};
 ```
-
-**CONCEPTS：**
-
-初始化指定宽高的二维数组。
 
 **EXAMPLES：**
 
 ```js
-initialize2DArray(2, 2, 0); // [[0,0], [0,0]]
+differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [1]
+differenceBy([{ x: 2 }, { x: 1 }], [{ x: 1 }], v => v.x); // [2]
 ```
 
+### 3. differenceWith（with）
 
+**FROM**
 
-## initializeArrayWithRange/initializeArrayWithRangeRight
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+相对于 `by` 会保留数据信息。
 
 **FUNCTION：**
 
 ```js
-const initializeArrayWithRange = (end, start = 0, step = 1) =>
-  Array.from({ length: Math.ceil((end - start + 1) / step) }, (v, i) => i * step + start);
-const initializeArrayWithRangeRight = (end, start = 0, step = 1) =>
-  Array.from({ length: Math.ceil((end + 1 - start) / step) }).map(
-    (v, i, arr) => (arr.length - i - 1) * step + start
-  );
+const differenceWith = (arr, val, comp) => arr.filter(a => val.findIndex(b => comp(a, b)) === -1);
 ```
-
-**CONCEPTS：**
-
-指定数组范围及步长。Math.ceil 为向上取整。
 
 **EXAMPLES：**
 
 ```js
-initializeArrayWithRange(5); // [0,1,2,3,4,5]
-initializeArrayWithRange(7, 3); // [3,4,5,6,7]
-initializeArrayWithRange(9, 0, 2); // [0,2,4,6,8]
-initializeArrayWithRangeRight(5); // [5,4,3,2,1,0]
-initializeArrayWithRangeRight(7, 3); // [7,6,5,4,3]
-initializeArrayWithRangeRight(9, 0, 2); // [8,6,4,2,0]
+differenceWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Math.round(b)); // [1, 1.2]
+differenceWith([{ x: 2 }, { x: 1 }], [{ x: 1 }], (a, b) => a.x === b.x); // [{x: 2}]
 ```
 
 
 
-## initializeArrayWithValues
-
-**FUNCTION：**
-
-```js
-const initializeArrayWithValues = (n, val = 0) => Array(n).fill(val);
-```
-
-**CONCEPTS：**
-
-填充数组。
-
-**EXAMPLES：**
-
-```js
-initializeArrayWithValues(5, 2); // [2, 2, 2, 2, 2]
-```
 
 
 
-## initializeNDArray
-
-**FUNCTION：**
-
-```js
-const initializeNDArray = (val, ...args) =>
-  args.length === 0
-    ? val
-    : Array.from({ length: args[0] }).map(() => initializeNDArray(val, ...args.slice(1)));
-```
-
-**CONCEPTS：**
-
-生成多维数组。
-
-**EXAMPLES：**
-
-```js
-initializeNDArray(1, 3); // [1,1,1]
-initializeNDArray(5, 3, 2, 2); // [[[5,5],[5,5]],[[5,5],[5,5]],[[5,5],[5,5]]]
-```
 
 
 
