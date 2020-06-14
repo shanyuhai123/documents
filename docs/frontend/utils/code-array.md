@@ -258,7 +258,7 @@ JSONtoCSV([{ a: 1, b: 2 }, { a: 3, b: 4, c: 5 }, { a: 6 }, { b: 7 }], ['a', 'b']
 JSONtoCSV([{ a: 1, b: 2 }, { a: 3, b: 4, c: 5 }, { a: 6 }, { b: 7 }], ['a', 'b'], ';'); // 'a;b\n"1";"2"\n"3";"4"\n"6";""\n"";"7"'
 ```
 
-### 2. normalizeLineEndings（换行符）
+### 3. normalizeLineEndings（换行符）
 
 **FROM**
 
@@ -432,6 +432,29 @@ const mapObject = (arr, fn) =>
 
 ```js
 mapObject([1, 2, 3], a => a * a); // { 1: 1, 2: 4, 3: 9 }
+```
+
+### 7. reduceSuccessive（累加器）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const reduceSuccessive = (arr, fn, acc) =>
+  arr.reduce((res, val, i, arr) => (res.push(fn(res.slice(-1)[0], val, i, arr)), res), [acc]);
+```
+
+**EXAMPLES：**
+
+```js
+reduceSuccessive([1, 2, 3, 4, 5, 6], (acc, val) => acc + val, 0); // [0, 1, 3, 6, 10, 15, 21]
 ```
 
 
@@ -806,6 +829,123 @@ const initial = arr => arr.slice(0, -1);
 initial([1, 2, 3]); // [1,2]
 ```
 
+### 7. tail（移除最前）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+与 `initial` 不一致。
+
+**FUNCTION：**
+
+```js
+const tail = arr => (arr.length > 1 ? arr.slice(1) : arr);
+```
+
+**EXAMPLES：**
+
+```js
+tail([1, 2, 3]); // [2,3]
+tail([1]); // [1]
+```
+
+### 8. take（从左）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+与 `initial` 不一致。
+
+**FUNCTION：**
+
+```js
+const take = (arr, n = 1) => arr.slice(0, n);
+```
+
+**EXAMPLES：**
+
+```js
+take([1, 2, 3], 5); // [1, 2, 3]
+take([1, 2, 3], 0); // []
+```
+
+### 9. takeRight（从右）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
+```
+
+**EXAMPLES：**
+
+```js
+takeRight([1, 2, 3], 2); // [ 2, 3 ]
+takeRight([1, 2, 3]); // [3]
+```
+
+### 10. takeWhile（从左）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const takeWhile = (arr, func) => {
+  for (const [i, val] of arr.entries()) if (func(val)) return arr.slice(0, i);
+  return arr;
+};
+```
+
+**EXAMPLES：**
+
+```js
+takeWhile([1, 2, 3, 4], n => n >= 3); // [1, 2]
+```
+
+### 11. takeRight（从右）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const takeRightWhile = (arr, func) =>
+  arr.reduceRight((acc, el) => (func(el) ? acc : [el, ...acc]), []);
+```
+
+**EXAMPLES：**
+
+```js
+takeRightWhile([1, 2, 3, 4], n => n < 3); // [3, 4]
+```
+
 
 
 ## 插入
@@ -869,7 +1009,7 @@ const forEachRight = (arr, callback) =>
 forEachRight([1, 2, 3, 4], val => console.log(val)); // '4', '3', '2', '1'
 ```
 
-### 1. offset（切片重组）
+### 2. offset（切片重组）
 
 **FROM**
 
@@ -890,6 +1030,33 @@ const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
 ```js
 offset([1, 2, 3, 4, 5], 2); // [3, 4, 5, 1, 2]
 offset([1, 2, 3, 4, 5], -2); // [4, 5, 1, 2, 3]
+```
+
+### 2. stableSort（稳定排序）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+`slice` 浅拷贝。
+
+**FUNCTION：**
+
+```js
+const stableSort = (arr, compare) =>
+  arr
+    .map((item, index) => ({ item, index }))
+    .sort((a, b) => compare(a.item, b.item) || a.index - b.index)
+    .map(({ item }) => item);
+```
+
+**EXAMPLES：**
+
+```js
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const stable = stableSort(arr, () => 0); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
 
@@ -916,6 +1083,240 @@ const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
 
 ```js
 everyNth([1, 2, 3, 4, 5, 6], 2); // [ 2, 4, 6 ]
+```
+
+### 2. pull（指定元素）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+是在原数据上进行修改。
+
+**FUNCTION：**
+
+```js
+const pull = (arr, ...args) => {
+  let argState = Array.isArray(args[0]) ? args[0] : args;
+  let pulled = arr.filter(v => !argState.includes(v));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+};
+```
+
+**EXAMPLES：**
+
+```js
+let myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
+pull(myArray, 'a', 'c'); // myArray = [ 'b', 'b' ]
+```
+
+### 3. pullAtValue（指定元素）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const pullAtValue = (arr, pullArr) => {
+  let removed = [],
+    pushToRemove = arr.forEach((v, i) => (pullArr.includes(v) ? removed.push(v) : v)),
+    mutateTo = arr.filter((v, i) => !pullArr.includes(v));
+  arr.length = 0;
+  mutateTo.forEach(v => arr.push(v));
+  return removed;
+};
+```
+
+**EXAMPLES：**
+
+```js
+let myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
+const pulled = pullAtValue(myArray, 'a', 'c'); // myArray = [ 'b', 'b' ] pulled = [ 'a', 'a', 'c', 'c' ]
+```
+
+### 4. pullAtIndex（指定下标）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const pullAtIndex = (arr, pullArr) => {
+  let removed = [];
+  let pulled = arr
+    .map((v, i) => (pullArr.includes(i) ? removed.push(v) : v))
+    .filter((v, i) => !pullArr.includes(i));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+  return removed;
+};
+```
+
+**EXAMPLES：**
+
+```js
+let myArray = ['a', 'b', 'c', 'd'];
+let pulled = pullAtIndex(myArray, [1, 3]); // myArray = [ 'a', 'c' ] , pulled = [ 'b', 'd' ]
+```
+
+### 5. pullBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const pullBy = (arr, ...args) => {
+  const length = args.length;
+  let fn = length > 1 ? args[length - 1] : undefined;
+  fn = typeof fn == 'function' ? (args.pop(), fn) : undefined;
+  let argState = (Array.isArray(args[0]) ? args[0] : args).map(val => fn(val));
+  let pulled = arr.filter((v, i) => !argState.includes(fn(v)));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+};
+```
+
+**EXAMPLES：**
+
+```js
+let myArray = [{ x: 1 }, { x: 2 }, { x: 3 }, { x: 1 }];
+pullBy(myArray, [{ x: 1 }, { x: 3 }], o => o.x); // myArray = [{ x: 2 }]
+```
+
+### 6. reducedFilter（指定 key 及 by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+很好的用法。
+
+**FUNCTION：**
+
+```js
+const reducedFilter = (data, keys, fn) =>
+  data.filter(fn).map(el =>
+    keys.reduce((acc, key) => {
+      acc[key] = el[key];
+      return acc;
+    }, {})
+  );
+```
+
+**EXAMPLES：**
+
+```js
+const data = [
+  {
+    id: 1,
+    name: 'john',
+    age: 24
+  },
+  {
+    id: 2,
+    name: 'mike',
+    age: 50
+  }
+];
+
+reducedFilter(data, ['id', 'name'], item => item.age > 24); // [{ id: 2, name: 'mike'}]
+```
+
+### 7. reject（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+想对于 `everyNth` 应用更广泛。
+
+**FUNCTION：**
+
+```js
+const reject = (pred, array) => array.filter((...args) => !pred(...args));
+```
+
+**EXAMPLES：**
+
+```js
+reject(x => x % 2 === 0, [1, 2, 3, 4, 5]); // [1, 3, 5]
+reject(word => word.length > 4, ['Apple', 'Pear', 'Kiwi', 'Banana']); // ['Pear', 'Kiwi']
+```
+
+### 8. remove（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const remove = (arr, func) =>
+  Array.isArray(arr)
+    ? arr.filter(func).reduce((acc, val) => {
+      arr.splice(arr.indexOf(val), 1);
+      return acc.concat(val);
+    }, [])
+    : [];
+```
+
+**EXAMPLES：**
+
+```js
+remove([1, 2, 3, 4], n => n % 2 === 0); // [2, 4]
+```
+
+### 9. without
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const without = (arr, ...args) => arr.filter(v => !args.includes(v));
+```
+
+**EXAMPLES：**
+
+```js
+without([2, 1, 2, 3], 1, 2); // [3]
 ```
 
 
@@ -974,6 +1375,168 @@ filterNonUniqueBy(
   ],
   (a, b) => a.id == b.id
 ); // [ { id: 2, value: 'c' } ]
+```
+
+### 3. union
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+`Set`。
+
+**FUNCTION：**
+
+```js
+const union = (a, b) => Array.from(new Set([...a, ...b]));
+```
+
+**EXAMPLES：**
+
+```js
+union([1, 2, 3], [4, 3, 2]); // [1, 2, 3, 4]
+```
+
+### 4. unionBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const unionBy = (a, b, fn) => {
+  const s = new Set(a.map(fn));
+  return Array.from(new Set([...a, ...b.filter(x => !s.has(fn(x)))]));
+};
+```
+
+**EXAMPLES：**
+
+```js
+unionBy([2.1], [1.2, 2.3], Math.floor); // [2.1, 1.2]
+```
+
+### 5. unionWith（with）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const unionWith = (a, b, comp) =>
+  Array.from(new Set([...a, ...b.filter(x => a.findIndex(y => comp(x, y)) === -1)]));
+```
+
+**EXAMPLES：**
+
+```js
+unionWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0, 3.9], (a, b) => Math.round(a) === Math.round(b)); // [1, 1.2, 1.5, 3, 0, 3.9]
+```
+
+### 6. uniqueElements
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const uniqueElements = arr => [...new Set(arr)];
+```
+
+**EXAMPLES：**
+
+```js
+uniqueElements([1, 2, 2, 3, 4, 4, 5]); // [1, 2, 3, 4, 5]
+```
+
+### 7. uniqueElementsBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const uniqueElementsBy = (arr, fn) =>
+  arr.reduce((acc, v) => {
+    if (!acc.some(x => fn(v, x))) acc.push(v);
+    return acc;
+  }, []);
+```
+
+**EXAMPLES：**
+
+```js
+uniqueElementsBy(
+  [
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 1, value: 'd' },
+    { id: 0, value: 'e' }
+  ],
+  (a, b) => a.id == b.id
+); // [ { id: 0, value: 'a' }, { id: 1, value: 'b' }, { id: 2, value: 'c' } ]
+```
+
+### 8. uniqueElementsByRight（右 by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const uniqueElementsByRight = (arr, fn) =>
+  arr.reduceRight((acc, v) => {
+    if (!acc.some(x => fn(v, x))) acc.push(v);
+    return acc;
+  }, []);
+```
+
+**EXAMPLES：**
+
+```js
+uniqueElementsByRight(
+  [
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 1, value: 'd' },
+    { id: 0, value: 'e' }
+  ],
+  (a, b) => a.id == b.id
+); // [ { id: 0, value: 'e' }, { id: 1, value: 'd' }, { id: 2, value: 'c' } ]
 ```
 
 
@@ -1223,6 +1786,144 @@ const mostFrequent = arr =>
 
 ```js
 mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
+```
+
+### 11. reduceWhich（最值）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const reduceWhich = (arr, comparator = (a, b) => a - b) =>
+  arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a));
+```
+
+**EXAMPLES：**
+
+```js
+reduceWhich([1, 3, 2]); // 1
+reduceWhich([1, 3, 2], (a, b) => b - a); // 3
+reduceWhich(
+  [{ name: 'Tom', age: 12 }, { name: 'Jack', age: 18 }, { name: 'Lucy', age: 9 }],
+  (a, b) => a.age - b.age
+); // {name: "Lucy", age: 9}
+```
+
+### 12. sortedIndex（位置）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const sortedIndex = (arr, n) => {
+  const isDescending = arr[0] > arr[arr.length - 1];
+  const index = arr.findIndex(el => (isDescending ? n >= el : n <= el));
+  return index === -1 ? arr.length : index;
+};
+```
+
+**EXAMPLES：**
+
+```js
+sortedIndex([5, 3, 2, 1], 4); // 1
+sortedIndex([30, 50], 40); // 1
+```
+
+### 13. sortedIndexBy（位置 by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const sortedIndexBy = (arr, n, fn) => {
+  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
+  const val = fn(n);
+  const index = arr.findIndex(el => (isDescending ? val >= fn(el) : val <= fn(el)));
+  return index === -1 ? arr.length : index;
+};
+```
+
+**EXAMPLES：**
+
+```js
+sortedIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 0
+```
+
+### 14. sortedIndex（位置从右）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const sortedLastIndex = (arr, n) => {
+  const isDescending = arr[0] > arr[arr.length - 1];
+  const index = arr.reverse().findIndex(el => (isDescending ? n <= el : n >= el));
+  return index === -1 ? 0 : arr.length - index;
+};
+```
+
+**EXAMPLES：**
+
+```js
+sortedLastIndex([10, 20, 30, 30, 40], 30); // 4
+```
+
+### 15. sortedLastIndexBy（位置从右 by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const sortedLastIndexBy = (arr, n, fn) => {
+  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
+  const val = fn(n);
+  const index = arr
+    .map(fn)
+    .reverse()
+    .findIndex(el => (isDescending ? val <= el : val >= el));
+  return index === -1 ? 0 : arr.length - index;
+};
+```
+
+**EXAMPLES：**
+
+```js
+sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 1
 ```
 
 
@@ -1505,6 +2206,531 @@ const intersectionWith = (a, b, comp) => a.filter(x => b.findIndex(y => comp(x, 
 intersectionWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0, 3.9], (a, b) => Math.round(a) === Math.round(b)); // [1.5, 3, 0]
 ```
 
+### 7. similarity
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const similarity = (arr, values) => arr.filter(v => values.includes(v));
+```
+
+**EXAMPLES：**
+
+```js
+similarity([1, 2, 3], [1, 2, 4]); // [1, 2]
+```
+
+### 8. symmetricDifference
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const symmetricDifference = (a, b) => {
+  const sA = new Set(a),
+    sB = new Set(b);
+  return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))];
+};
+```
+
+**EXAMPLES：**
+
+```js
+symmetricDifference([1, 2, 3], [1, 2, 4]); // [3, 4]
+symmetricDifference([1, 2, 2], [1, 3, 1]); // [2, 2, 3]
+```
+
+### 9. symmetricDifferenceBy（by）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const symmetricDifferenceBy = (a, b, fn) => {
+  const sA = new Set(a.map(v => fn(v))),
+    sB = new Set(b.map(v => fn(v)));
+  return [...a.filter(x => !sB.has(fn(x))), ...b.filter(x => !sA.has(fn(x)))];
+};
+```
+
+**EXAMPLES：**
+
+```js
+symmetricDifferenceBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [ 1.2, 3.4 ]
+```
+
+### 10. symmetricDifferenceWith（with）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const symmetricDifferenceWith = (arr, val, comp) => [
+  ...arr.filter(a => val.findIndex(b => comp(a, b)) === -1),
+  ...val.filter(a => arr.findIndex(b => comp(a, b)) === -1)
+];
+```
+
+**EXAMPLES：**
+
+```js
+symmetricDifferenceWith(
+  [1, 1.2, 1.5, 3, 0],
+  [1.9, 3, 0, 3.9],
+  (a, b) => Math.round(a) === Math.round(b)
+); // [1, 1.2, 3.9]
+```
+
+### 11. uniqueSymmetricDifference
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const uniqueSymmetricDifference = (a, b) => [
+  ...new Set([...a.filter(v => !b.includes(v)), ...b.filter(v => !a.includes(v))])
+];
+```
+
+**EXAMPLES：**
+
+```js
+uniqueSymmetricDifference([1, 2, 3], [1, 2, 4]); // [3, 4]
+uniqueSymmetricDifference([1, 2, 2], [1, 3, 1]); // [2, 3]
+```
+
+
+
+## 排列/组合
+
+### 1. permutations（排列）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+随着 `arr` 长度递增计算消耗指数上升。
+
+**FUNCTION：**
+
+```js
+const permutations = arr => {
+  if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
+  return arr.reduce(
+    (acc, item, i) =>
+      acc.concat(
+        permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [item, ...val])
+      ),
+    []
+  );
+};
+```
+
+**EXAMPLES：**
+
+```js
+permutations([1, 33, 5]); // [ [ 1, 33, 5 ], [ 1, 5, 33 ], [ 33, 1, 5 ], [ 33, 5, 1 ], [ 5, 1, 33 ], [ 5, 33, 1 ] ]
+```
+
+### 2. xProd（组合）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const xProd = (a, b) => a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), []);
+```
+
+**EXAMPLES：**
+
+```js
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+```
+
+
+
+## 随机
+
+### 1. sample
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const sample = arr => arr[Math.floor(Math.random() * arr.length)];
+```
+
+**EXAMPLES：**
+
+```js
+sample([3, 7, 9, 11]); // 9
+```
+
+### 2. sampleSize（多个）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const sampleSize = ([...arr], n = 1) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr.slice(0, n);
+};
+```
+
+**EXAMPLES：**
+
+```js
+sampleSize([1, 2, 3], 2); // [3,1]
+sampleSize([1, 2, 3], 4); // [2,3,1]
+```
+
+### 3. shuffle（打乱）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const shuffle = ([...arr]) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr;
+};
+```
+
+**EXAMPLES：**
+
+```js
+const foo = [1, 2, 3];
+shuffle(foo); // [2, 3, 1], foo = [1, 2, 3]
+```
+
+### 4. weightedSample（权重）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const weightedSample = (arr, weights) => {
+  let roll = Math.random();
+  return arr[
+    weights
+      .reduce((acc, w, i) => (i === 0 ? [w] : [...acc, acc[acc.length - 1] + w]), [])
+      .findIndex((v, i, s) => roll >= (i === 0 ? 0 : s[i - 1]) && roll < v)
+  ];
+};
+```
+
+**EXAMPLES：**
+
+```js
+weightedSample([3, 7, 9, 11], [0.1, 0.2, 0.6, 0.1]); // 9
+```
+
+
+
+## 覆盖原生
+
+### 1. shank（splice）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const shank = (arr, index = 0, delCount = 0, ...elements) =>
+  arr
+    .slice(0, index)
+    .concat(elements)
+    .concat(arr.slice(index + delCount));
+```
+
+**EXAMPLES：**
+
+```js
+const names = ['alpha', 'bravo', 'charlie'];
+const namesAndDelta = shank(names, 1, 0, 'delta'); // [ 'alpha', 'delta', 'bravo', 'charlie' ]
+const namesNoBravo = shank(names, 1, 1); // [ 'alpha', 'charlie' ]
+console.log(names); // ['alpha', 'bravo', 'charlie']
+```
+
+
+
+## 打包（zip）
+
+### 1. zip（数组）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+其实与分类比较接近。
+
+**FUNCTION：**
+
+```js
+const zip = (...arrays) => {
+  const maxLength = Math.max(...arrays.map(x => x.length));
+  return Array.from({ length: maxLength }).map((_, i) => {
+    return Array.from({ length: arrays.length }, (_, k) => arrays[k][i]);
+  });
+};
+```
+
+**EXAMPLES：**
+
+```js
+zip(['a', 'b'], [1, 2], [true, false]); // [['a', 1, true], ['b', 2, false]]
+zip(['a'], [1, 2], [true, false]); // [['a', 1, true], [undefined, 2, false]]
+```
+
+### 2. zipObject（对象）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const zipObject = (props, values) =>
+  props.reduce((obj, prop, index) => ((obj[prop] = values[index]), obj), {});
+```
+
+**EXAMPLES：**
+
+```js
+zipObject(['a', 'b', 'c'], [1, 2]); // {a: 1, b: 2, c: undefined}
+zipObject(['a', 'b'], [1, 2, 3]); // {a: 1, b: 2}
+```
+
+### 3. zipWith（with）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const zipWith = (...array) => {
+  const fn = typeof array[array.length - 1] === 'function' ? array.pop() : undefined;
+  return Array.from({ length: Math.max(...array.map(a => a.length)) }, (_, i) =>
+    fn ? fn(...array.map(a => a[i])) : array.map(a => a[i])
+  );
+};
+```
+
+**EXAMPLES：**
+
+```js
+zipWith([1, 2], [10, 20], [100, 200], (a, b, c) => a + b + c); // [111,222]
+zipWith(
+  [1, 2, 3],
+  [10, 20],
+  [100, 200],
+  (a, b, c) => (a != null ? a : 'a') + (b != null ? b : 'b') + (c != null ? c : 'c')
+); // [111, 222, '3bc']
+```
+
+### 4. unzip
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const unzip = arr =>
+  arr.reduce(
+    (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
+    Array.from({
+      length: Math.max(...arr.map(x => x.length))
+    }).map(x => [])
+  );
+```
+
+**EXAMPLES：**
+
+```js
+unzip([['a', 1, true], ['b', 2, false]]); // [['a', 'b'], [1, 2], [true, false]]
+unzip([['a', 1, true], ['b', 2]]); // [['a', 'b'], [1, 2], [true]]
+```
+
+### 5. unzipWith（with）
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+暂无。
+
+**FUNCTION：**
+
+```js
+const unzipWith = (arr, fn) =>
+  arr
+    .reduce(
+      (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
+      Array.from({
+        length: Math.max(...arr.map(x => x.length))
+      }).map(x => [])
+    )
+    .map(val => fn(...val));
+```
+
+**EXAMPLES：**
+
+```js
+unzipWith([[1, 10, 100], [2, 20, 200]], (...args) => args.reduce((acc, v) => acc + v, 0)); // [3, 30, 300]
+```
+
+
+
+## 待整理
+
+### 1. toHash
+
+**FROM**
+
+[30 seconds of code (Array)](https://www.30secondsofcode.org/tag/array)
+
+**DETAIL：**
+
+可能不是那么好理解。
+
+**FUNCTION：**
+
+```js
+const toHash = (object, key) =>
+  Array.prototype.reduce.call(
+    object,
+    (acc, data, index) => ((acc[!key ? index : data[key]] = data), acc),
+    {}
+  );
+```
+
+**EXAMPLES：**
+
+```js
+toHash([4, 3, 2, 1]); // { 0: 4, 1: 3, 2: 2, 3: 1 }
+toHash([{ a: 'label' }], 'a'); // { label: { a: 'label' } }
+// A more in depth example:
+let users = [{ id: 1, first: 'Jon' }, { id: 2, first: 'Joe' }, { id: 3, first: 'Moe' }];
+let managers = [{ manager: 1, employees: [2, 3] }];
+// We use function here because we want a bindable reference, but a closure referencing the hash would work, too.
+managers.forEach(
+  manager =>
+    (manager.employees = manager.employees.map(function(id) {
+      return this[id];
+    }, toHash(users, 'id')))
+);
+managers; // [ { manager:1, employees: [ { id: 2, first: "Joe" }, { id: 3, first: "Moe" } ] } ]
+```
+
 
 
 ## 低意义
@@ -1538,1146 +2764,4 @@ juxt(
   s => s.length,
   s => s.split(" ").join("-")
 )("30 seconds of code"); // [[18],['30-seconds-of-code']]
-```
-
-
-
-
-
-
-
-## intersection/similarity
-
-**FUNCTION：**
-
-```js
-const intersection = (a, b) => {
-  const s = new Set(b);
-  return a.filter(x => s.has(x));
-};
-const similarity = (arr, values) => arr.filter(v => values.includes(v));
-```
-
-**CONCEPTS：**
-
-两数组之间的交集。
-
-**EXAMPLES：**
-
-```js
-intersection([1, 2, 3], [4, 3, 2]); // [2, 3]
-similarity([1, 2, 3], [1, 2, 4]); // [1, 2]
-```
-
-
-
-## intersectionBy
-
-**FUNCTION：**
-
-```js
-const intersectionBy = (a, b, fn) => {
-  const s = new Set(b.map(fn));
-  return a.filter(x => s.has(fn(x)));
-};
-```
-
-**CONCEPTS：**
-
-两数组之间映射后的交集。
-
-**EXAMPLES：**
-
-```js
-intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [2.1]
-```
-
-
-
-## isSorted
-
-**FUNCTION：**
-
-```js
-const isSorted = arr => {
-  let direction = -(arr[0] - arr[1]);
-  for (let [i, val] of arr.entries()) {
-    direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
-    if (i === arr.length - 1) return !direction ? 0 : direction;
-    else if ((val - arr[i + 1]) * direction > 0) return 0;
-  }
-};
-```
-
-**CONCEPTS：**
-
-判断是否排序。
-
-**EXAMPLES：**
-
-```js
-isSorted([0, 1, 2, 2]); // 1
-isSorted([4, 3, 2]); // -1
-isSorted([4, 3, 5]); // 0
-```
-
-
-
-## join
-
-**FUNCTION：**
-
-```js
-const join = (arr, separator = ',', end = separator) =>
-  arr.reduce(
-    (acc, val, i) =>
-      i === arr.length - 2
-        ? acc + val + end
-        : i === arr.length - 1
-          ? acc + val
-          : acc + val + separator,
-    ''
-  );
-```
-
-**CONCEPTS：**
-
-指定分隔符拼接数组。
-
-**EXAMPLES：**
-
-```js
-join(['pen', 'pineapple', 'apple', 'pen'], ',', '&'); // "pen,pineapple,apple&pen"
-join(['pen', 'pineapple', 'apple', 'pen'], ','); // "pen,pineapple,apple,pen"
-join(['pen', 'pineapple', 'apple', 'pen']); // "pen,pineapple,apple,pen"
-```
-
-
-
-## head/last/nthElement
-
-**FUNCTION：**
-
-```js
-const head = arr => arr[0];
-const last = arr => arr[arr.length - 1];
-const nthElement = (arr, n = 0) => (n === -1 ? arr.slice(n) : arr.slice(n, n + 1))[0];
-```
-
-**CONCEPTS：**
-
-指定位置元素。
-
-**EXAMPLES：**
-
-```js
-head([1, 2, 3]); // 1
-last([1, 2, 3]); // 3
-nthElement(['a', 'b', 'c'], 1); // 'b'
-nthElement(['a', 'b', 'b'], -3); // 'a'
-```
-
-
-
-## longestItem
-
-**FUNCTION：**
-
-```js
-const longestItem = (...vals) => vals.reduce((a, x) => (x.length > a.length ? x : a));
-```
-
-**CONCEPTS：**
-
-返回最长元素。
-
-**EXAMPLES：**
-
-```js
-longestItem('this', 'is', 'a', 'testcase'); // 'testcase'
-longestItem(...['a', 'ab', 'abc']); // 'abc'
-longestItem(...['a', 'ab', 'abc'], 'abcd'); // 'abcd'
-longestItem([1, 2, 3], [1, 2], [1, 2, 3, 4, 5]); // [1, 2, 3, 4, 5]
-longestItem([1, 2, 3], 'foobar'); // 'foobar'
-```
-
-
-
-## mapObject
-
-**FUNCTION：**
-
-```js
-const mapObject = (arr, fn) =>
-  (a => (
-    (a = [arr, arr.map(fn)]), a[0].reduce((acc, val, ind) => ((acc[val] = a[1][ind]), acc), {})
-  ))();
-```
-
-**CONCEPTS：**
-
-数组映射为对象。
-
-**EXAMPLES：**
-
-```js
-const squareIt = arr => mapObject(arr, a => a * a);
-squareIt([1, 2, 3]); // { 1: 1, 2: 4, 3: 9 }
-```
-
-
-
-## maxN/minN
-
-**FUNCTION：**
-
-```js
-const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);
-const minN = (arr, n = 1) => [...arr].sort((a, b) => a - b).slice(0, n);
-```
-
-**CONCEPTS：**
-
-返回最大、最小值组。
-
-**EXAMPLES：**
-
-```js
-maxN([1, 2, 3]); // [3]
-maxN([1, 2, 3], 2); // [3,2]
-minN([1, 2, 3]); // [1]
-minN([1, 2, 3], 2); // [1,2]
-```
-
-
-
-## offset
-
-**FUNCTION：**
-
-```js
-const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
-```
-
-**CONCEPTS：**
-
-数组偏移。
-
-**EXAMPLES：**
-
-```js
-offset([1, 2, 3, 4, 5], 2); // [3, 4, 5, 1, 2]
-offset([1, 2, 3, 4, 5], -2); // [4, 5, 1, 2, 3]
-```
-
-
-
-## partition
-
-**FUNCTION：**
-
-```js
-// 优化
-const partition = (arr, fn) =>
-  arr.reduce(
-    (acc, cur, i, arr) => (acc[fn(cur, i, arr) ? 0 : 1].push(cur), acc),
-    [[], []]
-  );
-```
-
-**CONCEPTS：**
-
-分组。与 [bifurcateBy](/frontend/javascript/code-array.html#bifurcateby) 一致。
-
-**EXAMPLES：**
-
-```js
-const users = [{ user: 'barney', age: 36, active: false }, { user: 'fred', age: 40, active: true }];
-partition(users, o => o.active); // [[{ 'user': 'fred',    'age': 40, 'active': true }],[{ 'user': 'barney',  'age': 36, 'active': false }]]
-```
-
-
-
-## permutations
-
-**FUNCTION：**
-
-```js
-const permutations = arr => {
-  if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
-  return arr.reduce(
-    (acc, item, i) =>
-      acc.concat(
-        permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [item, ...val])
-      ),
-    []
-  );
-};
-```
-
-**CONCEPTS：**
-
-排列组合。字符串类型参考 [stringPermutations](/frontend/javascript/code-string.html#stringpermutations)。
-
-**EXAMPLES：**
-
-```js
-permutations([1, 33, 5]); // [ [ 1, 33, 5 ], [ 1, 5, 33 ], [ 33, 1, 5 ], [ 33, 5, 1 ], [ 5, 1, 33 ], [ 5, 33, 1 ] ]
-```
-
-
-
-## pull
-
-**FUNCTION：**
-
-```js
-const pull = (arr, ...args) => {
-  let argState = Array.isArray(args[0]) ? args[0] : args;
-  let pulled = arr.filter((v, i) => !argState.includes(v));
-  arr.length = 0;
-  pulled.forEach(v => arr.push(v));
-};
-```
-
-**CONCEPTS：**
-
-过滤掉数组中指定数据。
-
-**EXAMPLES：**
-
-```js
-let myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
-pull(myArray, 'a', 'c'); // myArray = [ 'b', 'b' ]
-```
-
-
-
-## pullAtIndex
-
-**FUNCTION：**
-
-```js
-const pullAtIndex = (arr, pullArr) => {
-  let removed = [];
-  let pulled = arr
-    .map((v, i) => (pullArr.includes(i) ? removed.push(v) : v))
-    .filter((v, i) => !pullArr.includes(i));
-  arr.length = 0;
-  pulled.forEach(v => arr.push(v));
-  return removed;
-};
-```
-
-**CONCEPTS：**
-
-过滤掉数组中指定下标的数据。
-
-**EXAMPLES：**
-
-```js
-let myArray = ['a', 'b', 'c', 'd'];
-let pulled = pullAtIndex(myArray, [1, 3]); // myArray = [ 'a', 'c' ] , pulled = [ 'b', 'd' ]
-```
-
-
-
-## pullAtValue
-
-**FUNCTION：**
-
-```js
-const pullAtValue = (arr, pullArr) => {
-  let removed = [],
-    pushToRemove = arr.forEach((v, i) => (pullArr.includes(v) ? removed.push(v) : v)),
-    mutateTo = arr.filter((v, i) => !pullArr.includes(v));
-  arr.length = 0;
-  mutateTo.forEach(v => arr.push(v));
-  return removed;
-};
-```
-
-**CONCEPTS：**
-
-过滤掉数组中指定数据，并返回过滤的数据。其实这种形式偏多余了。
-
-**EXAMPLES：**
-
-```js
-let myArray = ['a', 'b', 'c', 'd'];
-let pulled = pullAtValue(myArray, ['b', 'd']); // myArray = [ 'a', 'c' ] , pulled = [ 'b', 'd' ]
-```
-
-
-
-## pullBy
-
-**FUNCTION：**
-
-```js
-const pullBy = (arr, ...args) => {
-  const length = args.length;
-  let fn = length > 1 ? args[length - 1] : undefined;
-  fn = typeof fn == 'function' ? (args.pop(), fn) : undefined;
-  let argState = (Array.isArray(args[0]) ? args[0] : args).map(val => fn(val));
-  let pulled = arr.filter((v, i) => !argState.includes(fn(v)));
-  arr.length = 0;
-  pulled.forEach(v => arr.push(v));
-};
-```
-
-**CONCEPTS：**
-
-过滤掉数组中指定格式数据。便于处理后端未定格式数据。
-
-**EXAMPLES：**
-
-```js
-let myArray = [{ x: 1 }, { x: 2 }, { x: 3 }, { x: 1 }];
-pullBy(myArray, [{ x: 1 }, { x: 3 }], o => o.x); // myArray = [{ x: 2 }]
-```
-
-
-
-## reduceWhich
-
-**FUNCTION：**
-
-```js
-const reduceWhich = (arr, comparator = (a, b) => a - b) =>
-  arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a));
-```
-
-**CONCEPTS：**
-
-返回数组中最大、最小值。
-
-**EXAMPLES：**
-
-```js
-reduceWhich([1, 3, 2]); // 1
-reduceWhich([1, 3, 2], (a, b) => b - a); // 3
-reduceWhich(
-  [{ name: 'Tom', age: 12 }, { name: 'Jack', age: 18 }, { name: 'Lucy', age: 9 }],
-  (a, b) => a.age - b.age
-); // {name: "Lucy", age: 9}
-```
-
-
-
-## reducedFilter <Badge text="important" type="error"/>
-
-**FUNCTION：**
-
-```js
-// 优化
-const reducedFilter = (data, keys, fn) =>
-  data.filter(fn).map(el =>
-    keys.reduce((acc, key) => (acc[key] = el[key], acc), {})
-  );
-```
-
-**CONCEPTS：**
-
-返回限定的数组对象。配合后台时常用的方法。
-
-**EXAMPLES：**
-
-```js
-const data = [
-  {
-    id: 1,
-    name: 'john',
-    age: 24
-  },
-  {
-    id: 2,
-    name: 'mike',
-    age: 50
-  }
-];
-
-reducedFilter(data, ['id', 'name'], item => item.age > 24); // [{ id: 2, name: 'mike'}]
-```
-
-
-
-## reject
-
-**FUNCTION：**
-
-```js
-const reject = (pred, array) => array.filter((...args) => !pred(...args));
-```
-
-**CONCEPTS：**
-
-过滤数据。这样的参数形式更符合喜欢的函数式编程规范。
-
-**EXAMPLES：**
-
-```js
-reject(x => x % 2 === 0, [1, 2, 3, 4, 5]); // [1, 3, 5]
-reject(word => word.length > 4, ['Apple', 'Pear', 'Kiwi', 'Banana']); // ['Pear', 'Kiwi']
-```
-
-
-
-## remove
-
-**FUNCTION：**
-
-```js
-const remove = (arr, func) =>
-  Array.isArray(arr)
-    ? arr.filter(func).reduce((acc, val) => {
-        arr.splice(arr.indexOf(val), 1);
-        return acc.concat(val);
-      }, [])
-    : [];
-```
-
-**CONCEPTS：**
-
-在原数组上过滤数据。
-
-**EXAMPLES：**
-
-```js
-remove([1, 2, 3, 4], n => n % 2 === 0); // [2, 4]
-```
-
-
-
-## sample
-
-**FUNCTION：**
-
-```js
-const sample = arr => arr[Math.floor(Math.random() * arr.length)];
-```
-
-**CONCEPTS：**
-
-数组中返回一个随机元素。
-
-**EXAMPLES：**
-
-```js
-sample([3, 7, 9, 11]); // 9
-```
-
-
-
-## sampleSize
-
-**FUNCTION：**
-
-```js
-const sampleSize = ([...arr], n = 1) => {
-  let m = arr.length;
-  while (m) {
-    const i = Math.floor(Math.random() * m--);
-    [arr[m], arr[i]] = [arr[i], arr[m]];
-  }
-  return arr.slice(0, n);
-};
-```
-
-**CONCEPTS：**
-
-数组中返回 n 个随机元素。其中利用了经典的数据交换位置 `[i,j] = [j,i]` 方法。
-
-**EXAMPLES：**
-
-```js
-sampleSize([1, 2, 3], 2); // [3,1]
-sampleSize([1, 2, 3], 4); // [2,3,1]
-```
-
-
-
-## shank
-
-**FUNCTION：**
-
-```js
-const shank = (arr, index = 0, delCount = 0, ...elements) =>
-  arr
-    .slice(0, index)
-    .concat(elements)
-    .concat(arr.slice(index + delCount));
-```
-
-**CONCEPTS：**
-
-实现了 splice 方法。
-
-**EXAMPLES：**
-
-```js
-const names = ['alpha', 'bravo', 'charlie'];
-const namesAndDelta = shank(names, 1, 0, 'delta'); // [ 'alpha', 'delta', 'bravo', 'charlie' ]
-const namesNoBravo = shank(names, 1, 1); // [ 'alpha', 'charlie' ]
-console.log(names); // ['alpha', 'bravo', 'charlie']
-```
-
-
-
-## shuffle
-
-**FUNCTION：**
-
-```js
-const shuffle = ([...arr]) => {
-  let m = arr.length;
-  while (m) {
-    const i = Math.floor(Math.random() * m--);
-    [arr[m], arr[i]] = [arr[i], arr[m]];
-  }
-  return arr;
-};
-```
-
-**CONCEPTS：**
-
-打乱数组。
-
-**EXAMPLES：**
-
-```js
-const foo = [1, 2, 3];
-shuffle(foo); // [2, 3, 1], foo = [1, 2, 3]
-```
-
-
-
-## sortedIndex/sortedLastIndex
-
-**FUNCTION：**
-
-```js
-const sortedIndex = (arr, n) => {
-  const isDescending = arr[0] > arr[arr.length - 1];
-  const index = arr.findIndex(el => (isDescending ? n >= el : n <= el));
-  return index === -1 ? arr.length : index;
-};
-const sortedLastIndex = (arr, n) => {
-  const isDescending = arr[0] > arr[arr.length - 1];
-  const index = arr.reverse().findIndex(el => (isDescending ? n <= el : n >= el));
-  return index === -1 ? 0 : arr.length - index;
-};
-```
-
-**CONCEPTS：**
-
-元素在序列的数组中的位置。
-
-**EXAMPLES：**
-
-```js
-sortedIndex([5, 3, 2, 1], 4); // 1
-sortedIndex([30, 50], 40); // 1
-sortedLastIndex([10, 20, 30, 30, 40], 30); // 4
-```
-
-
-
-## sortedIndexBy/sortedLastIndexBy
-
-**FUNCTION：**
-
-```js
-const sortedIndexBy = (arr, n, fn) => {
-  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
-  const val = fn(n);
-  const index = arr.findIndex(el => (isDescending ? val >= fn(el) : val <= fn(el)));
-  return index === -1 ? arr.length : index;
-};
-const sortedLastIndexBy = (arr, n, fn) => {
-  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
-  const val = fn(n);
-  const index = arr
-    .map(fn)
-    .reverse()
-    .findIndex(el => (isDescending ? val <= el : val >= el));
-  return index === -1 ? 0 : arr.length - index;
-};
-```
-
-**CONCEPTS：**
-
-元素根据某一元素在序列的数组中的位置。
-
-**EXAMPLES：**
-
-```js
-sortedIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 0
-sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 1
-```
-
-
-
-## stableSort
-
-**FUNCTION：**
-
-```js
-const stableSort = (arr, compare) =>
-  arr
-    .map((item, index) => ({ item, index }))
-    .sort((a, b) => compare(a.item, b.item) || a.index - b.index)
-    .map(({ item }) => item);
-```
-
-**CONCEPTS：**
-
-数组排序。直接使用 sort 会修改原数组。
-
-**EXAMPLES：**
-
-```js
-const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const stable = stableSort(arr, () => 0); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-```
-
-
-
-## symmetricDifference
-
-**FUNCTION：**
-
-```js
-const symmetricDifference = (a, b) => {
-  const sA = new Set(a),
-    sB = new Set(b);
-  return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))];
-};
-```
-
-**CONCEPTS：**
-
-数组之间的差异（不过滤重复值）。完善了 [difference](/frontend/javascript/code-array.html#difference) 方法。
-
-**EXAMPLES：**
-
-```js
-symmetricDifference([1, 2, 3], [1, 2, 4]); // [3, 4]
-symmetricDifference([1, 2, 2], [1, 3, 1]); // [2, 2, 3]
-```
-
-
-
-## symmetricDifferenceWith
-
-**FUNCTION：**
-
-```js
-const symmetricDifferenceWith = (arr, val, comp) => [
-  ...arr.filter(a => val.findIndex(b => comp(a, b)) === -1),
-  ...val.filter(a => arr.findIndex(b => comp(a, b)) === -1)
-];
-```
-
-**CONCEPTS：**
-
-数组之间的差异（不过滤重复值）。完善了 [difference](/frontend/javascript/code-array.html#differenceWith) 方法。
-
-**EXAMPLES：**
-
-```js
-symmetricDifferenceWith(
-  [1, 1.2, 1.5, 3, 0],
-  [1.9, 3, 0, 3.9],
-  (a, b) => Math.round(a) === Math.round(b)
-); // [1, 1.2, 3.9]
-```
-
-
-
-## symmetricDifferenceWith
-
-**FUNCTION：**
-
-```js
-const symmetricDifferenceWith = (arr, val, comp) => [
-  ...arr.filter(a => val.findIndex(b => comp(a, b)) === -1),
-  ...val.filter(a => arr.findIndex(b => comp(a, b)) === -1)
-];
-```
-
-**CONCEPTS：**
-
-数组之间的差异（不过滤重复值）。完善了 [difference](/frontend/javascript/code-array.html#differenceWith) 方法。
-
-**EXAMPLES：**
-
-```js
-symmetricDifferenceWith(
-  [1, 1.2, 1.5, 3, 0],
-  [1.9, 3, 0, 3.9],
-  (a, b) => Math.round(a) === Math.round(b)
-); // [1, 1.2, 3.9]
-```
-
-
-
-## take/takeRight
-
-**FUNCTION：**
-
-```js
-const take = (arr, n = 1) => arr.slice(0, n);
-const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
-```
-
-**CONCEPTS：**
-
-切割数组。
-
-**EXAMPLES：**
-
-```js
-take([1, 2, 3], 5); // [1, 2, 3]
-take([1, 2, 3], 0); // []
-takeRight([1, 2, 3], 2); // [ 2, 3 ]
-takeRight([1, 2, 3]); // [3]
-```
-
-
-
-## takeWhile/takeRightWhile
-
-**FUNCTION：**
-
-```js
-const takeWhile = (arr, func) => {
-  for (const [i, val] of arr.entries()) if (func(val)) return arr.slice(0, i);
-  return arr;
-};
-const takeRightWhile = (arr, func) =>
-  arr.reduceRight((acc, el) => (func(el) ? acc : [el, ...acc]), []);
-```
-
-**CONCEPTS：**
-
-切割过滤规则数组。
-
-**EXAMPLES：**
-
-```js
-takeWhile([1, 2, 3, 4], n => n >= 3); // [1, 2]
-takeRightWhile([1, 2, 3, 4], n => n < 3); // [3, 4]
-```
-
-
-
-## toHash
-
-**FUNCTION：**
-
-```js
-const toHash = (object, key) =>
-  Array.prototype.reduce.call(
-    object,
-    (acc, data, index) => ((acc[!key ? index : data[key]] = data), acc),
-    {}
-  );
-```
-
-**CONCEPTS：**
-
-尚未理解使用场景。
-
-**EXAMPLES：**
-
-```js
-toHash([4, 3, 2, 1]); // { 0: 4, 1: 3, 2: 2, 3: 1 }
-toHash([{ a: 'label' }], 'a'); // { label: { a: 'label' } }
-// A more in depth example:
-let users = [{ id: 1, first: 'Jon' }, { id: 2, first: 'Joe' }, { id: 3, first: 'Moe' }];
-let managers = [{ manager: 1, employees: [2, 3] }];
-// We use function here because we want a bindable reference, but a closure referencing the hash would work, too.
-managers.forEach(
-  manager =>
-    (manager.employees = manager.employees.map(function(id) {
-      return this[id];
-    }, toHash(users, 'id')))
-);
-managers; // [ { manager:1, employees: [ { id: 2, first: "Joe" }, { id: 3, first: "Moe" } ] } ]
-```
-
-
-
-## union
-
-**FUNCTION：**
-
-```js
-const union = (a, b) => Array.from(new Set([...a, ...b]));
-```
-
-**CONCEPTS：**
-
-合并数组。
-
-**EXAMPLES：**
-
-```js
-union([1, 2, 3], [4, 3, 2]); // [1,2,3,4]
-```
-
-
-
-## unionBy/unionWith
-
-**FUNCTION：**
-
-```js
-const unionBy = (a, b, fn) => {
-  const s = new Set(a.map(fn));
-  return Array.from(new Set([...a, ...b.filter(x => !s.has(fn(x)))]));
-};
-const unionWith = (a, b, comp) =>
-  Array.from(new Set([...a, ...b.filter(x => a.findIndex(y => comp(x, y)) === -1)]));
-```
-
-**CONCEPTS：**
-
-合并数组。直到现在才明白 `by` 是对两个数组执行同一操作，`with` 可以执行不同操作。
-
-**EXAMPLES：**
-
-```js
-unionBy([2.1], [1.2, 2.3], Math.floor); // [2.1, 1.2]
-unionWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0, 3.9], (a, b) => Math.round(a) === Math.round(b)); // [1, 1.2, 1.5, 3, 0, 3.9]
-```
-
-
-
-## uniqueElements
-
-**FUNCTION：**
-
-```js
-const uniqueElements = arr => [...new Set(arr)];
-```
-
-**CONCEPTS：**
-
-去重。
-
-**EXAMPLES：**
-
-```js
-uniqueElements([1, 2, 2, 3, 4, 4, 5]); // [1, 2, 3, 4, 5]
-```
-
-
-
-## uniqueElementsBy/uniqueElementsByRight
-
-**FUNCTION：**
-
-```js
-const uniqueElementsBy = (arr, fn) =>
-  arr.reduce((acc, v) => {
-    if (!acc.some(x => fn(v, x))) acc.push(v);
-    return acc;
-  }, []);'
-const uniqueElementsByRight = (arr, fn) =>
-  arr.reduceRight((acc, v) => {
-    if (!acc.some(x => fn(v, x))) acc.push(v);
-    return acc;
-  }, []);
-```
-
-**CONCEPTS：**
-
-根据元素某属性去重。
-
-**EXAMPLES：**
-
-```js
-uniqueElementsBy(
-  [
-    { id: 0, value: 'a' },
-    { id: 1, value: 'b' },
-    { id: 2, value: 'c' },
-    { id: 1, value: 'd' },
-    { id: 0, value: 'e' }
-  ],
-  (a, b) => a.id == b.id
-); // [ { id: 0, value: 'a' }, { id: 1, value: 'b' }, { id: 2, value: 'c' } ]
-uniqueElementsByRight(
-  [
-    { id: 0, value: 'a' },
-    { id: 1, value: 'b' },
-    { id: 2, value: 'c' },
-    { id: 1, value: 'd' },
-    { id: 0, value: 'e' }
-  ],
-  (a, b) => a.id == b.id
-); // [ { id: 0, value: 'e' }, { id: 1, value: 'd' }, { id: 2, value: 'c' } ]
-```
-
-
-
-## uniqueSymmetricDifference
-
-**FUNCTION：**
-
-```js
-const uniqueSymmetricDifference = (a, b) => [
-  ...new Set([...a.filter(v => !b.includes(v)), ...b.filter(v => !a.includes(v))])
-];
-```
-
-**CONCEPTS：**
-
-数组之间的差异（过滤重复值）。区别于 [symmetricDifference](/frontend/javascript/code-array.html#symmetricDifference) 方法。
-
-**EXAMPLES：**
-
-```js
-uniqueSymmetricDifference([1, 2, 3], [1, 2, 4]); // [3, 4]
-uniqueSymmetricDifference([1, 2, 2], [1, 3, 1]); // [2, 3]
-```
-
-
-
-## unzip/zip
-
-**FUNCTION：**
-
-```js
-const unzip = arr =>
-  arr.reduce(
-    (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
-    Array.from({
-      length: Math.max(...arr.map(x => x.length))
-    }).map(x => [])
-  );
-const zip = (...arrays) => {
-  const maxLength = Math.max(...arrays.map(x => x.length));
-  return Array.from({ length: maxLength }).map((_, i) => {
-    return Array.from({ length: arrays.length }, (_, k) => arrays[k][i]);
-  });
-};
-```
-
-**CONCEPTS：**
-
-解压、打包数组。
-
-**EXAMPLES：**
-
-```js
-unzip([['a', 1, true], ['b', 2, false]]); // [['a', 'b'], [1, 2], [true, false]]
-unzip([['a', 1, true], ['b', 2]]); // [['a', 'b'], [1, 2], [true]]
-zip(['a', 'b'], [1, 2], [true, false]); // [['a', 1, true], ['b', 2, false]]
-zip(['a'], [1, 2], [true, false]); // [['a', 1, true], [undefined, 2, false]]
-```
-
-
-
-## unzipWith/zipWith
-
-**FUNCTION：**
-
-```js
-const unzipWith = (arr, fn) =>
-  arr
-    .reduce(
-      (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
-      Array.from({
-        length: Math.max(...arr.map(x => x.length))
-      }).map(x => [])
-    )
-    .map(val => fn(...val));
-const zipWith = (...array) => {
-  const fn = typeof array[array.length - 1] === 'function' ? array.pop() : undefined;
-  return Array.from({ length: Math.max(...array.map(a => a.length)) }, (_, i) =>
-    fn ? fn(...array.map(a => a[i])) : array.map(a => a[i])
-  );
-};
-```
-
-**CONCEPTS：**
-
-解压、打包时并进行处理。
-
-**EXAMPLES：**
-
-```js
-unzipWith([[1, 10, 100], [2, 20, 200]], (...args) => args.reduce((acc, v) => acc + v, 0)); // [3, 30, 300]
-zipWith([1, 2], [10, 20], [100, 200], (a, b, c) => a + b + c); // [111,222]
-zipWith(
-  [1, 2, 3],
-  [10, 20],
-  [100, 200],
-  (a, b, c) => (a != null ? a : 'a') + (b != null ? b : 'b') + (c != null ? c : 'c')
-); // [111, 222, '3bc']
-```
-
-
-
-## without
-
-**FUNCTION：**
-
-```js
-const without = (arr, ...args) => arr.filter(v => !args.includes(v));
-```
-
-**CONCEPTS：**
-
-不包含的数组。
-
-**EXAMPLES：**
-
-```js
-without([2, 1, 2, 3], 1, 2); // [3]
-```
-
-
-
-## xProd
-
-**FUNCTION：**
-
-```js
-const xProd = (a, b) => a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), []);
-```
-
-**CONCEPTS：**
-
-排列数组（即无视前后顺序）。
-
-**EXAMPLES：**
-
-```js
-xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
-```
-
-
-
-## zipObject
-
-**FUNCTION：**
-
-```js
-const zipObject = (props, values) =>
-  props.reduce((obj, prop, index) => ((obj[prop] = values[index]), obj), {});
-```
-
-**CONCEPTS：**
-
-数组打包为对象。
-
-**EXAMPLES：**
-
-```js
-zipObject(['a', 'b', 'c'], [1, 2]); // {a: 1, b: 2, c: undefined}
-zipObject(['a', 'b'], [1, 2, 3]); // {a: 1, b: 2}
 ```
