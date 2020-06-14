@@ -1011,6 +1011,118 @@ serializeCookie('foo', 'bar'); // 'foo=bar'
 
 
 
+## 全屏
+
+### 1. fullscreen（进入）
+
+**FROM**
+
+整理。
+
+**FUNCTION：**
+
+```js
+const fullscreen = (selector = document.body) => {
+  if (selector.requestFullscreen) {
+    selector.requestFullscreen();
+  } else if (selector.mozRequestFullScreen) {
+    selector.mozRequestFullScreen();
+  } else if (selector.webkitRequestFullscreen) {
+    selector.webkitRequestFullscreen();
+  } else if (selector.msRequestFullscreen) {
+    selector.msRequestFullscreen();
+  }
+};
+```
+
+**EXAMPLES：**
+
+```js
+fullscreen();
+```
+
+### 2. exitFullscreen（退出）
+
+**FROM**
+
+整理。
+
+**FUNCTION：**
+
+```js
+const exitFullscreen = () => {
+  if (document.exitFullScreen) {
+    document.exitFullScreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+```
+
+**EXAMPLES：**
+
+```js
+exitFullscreen();
+```
+
+### 3. isFullScreen（是否）
+
+**FROM**
+
+整理。
+
+**FUNCTION：**
+
+```js
+const isFullScreen = () => {
+  return !!(
+    document.fullscreen ||
+    document.mozFullScreen ||
+    document.webkitIsFullScreen ||
+    document.webkitFullScreen ||
+    document.msFullScreen
+  );
+}
+```
+
+**EXAMPLES：**
+
+```js
+isFullScreen(); // false
+```
+
+### 3. getFullscreenElement（全屏节点）
+
+**FROM**
+
+整理。
+
+**FUNCTION：**
+
+```js
+const getFullscreenElement = () => {
+  return (
+    document.fullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullScreenElement ||
+    document.webkitFullscreenElement ||
+    null
+  );
+}
+```
+
+**EXAMPLES：**
+
+```js
+getFullscreenElement(); // <section class="full"></section>
+```
+
+
+
 ## 处理
 
 ### 1. prefix（前缀）
