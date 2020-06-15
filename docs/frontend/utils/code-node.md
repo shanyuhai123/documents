@@ -1,78 +1,14 @@
 ---
-title: 30s code node
+title: Node
 ---
 
-> [30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+## base64
 
+### 1. btoa（编码）
 
+**FROM**
 
-## JSONToFile
-
-**FUNCTION：**
-
-```js
-const fs = require('fs');
-const JSONToFile = (obj, filename) =>
-  fs.writeFile(`${filename}.json`, JSON.stringify(obj, null, 2));
-```
-
-**CONCEPTS：**
-
-将 JSON 写到文件中。`JSON.stringify` 参数为 ` (obj[, replacer [, space]）`，space 为缩进，replacer 存在多种[情况](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#%E6%8F%8F%E8%BF%B0)。
-
-**EXAMPLES：**
-
-```js
-JSONToFile({ test: 'is passed' }, 'testJsonFile'); // writes the object to 'testJsonFile.json'
-```
-
-
-
-## UUIDGeneratorNode
-
-**FUNCTION：**
-
-```js
-const crypto = require('crypto');
-const UUIDGeneratorNode = () =>
-  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-    (c ^ (crypto.randomBytes(1)[0] & (15 >> (c / 4)))).toString(16)
-  );
-```
-
-**CONCEPTS：**
-
-生成 UUID。
-
-**EXAMPLES：**
-
-```js
-UUIDGeneratorNode(); // '79c7c136-60ee-40a2-beb2-856f1feabefc'
-```
-
-
-
-## atob
-
-**FUNCTION：**
-
-```js
-const atob = str => Buffer.from(str, 'base64').toString('binary');
-```
-
-**CONCEPTS：**
-
-base64 解码。
-
-**EXAMPLES：**
-
-```js
-atob('Zm9vYmFy'); // 'foobar'
-```
-
-
-
-## btoa
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
 
 **FUNCTION：**
 
@@ -80,19 +16,43 @@ atob('Zm9vYmFy'); // 'foobar'
 const btoa = str => Buffer.from(str, 'binary').toString('base64');
 ```
 
-**CONCEPTS：**
+**EXAMPLES：**
 
-base64 编码。
+```js
+btoa('foobar1'); // 'Zm9vYmFyMQ=='
+```
+
+### 2. atob（解码）
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**FUNCTION：**
+
+```js
+const atob = str => Buffer.from(str, 'base64').toString('binary');
+```
 
 **EXAMPLES：**
 
 ```js
-btoa('foobar'); // 'Zm9vYmFy'
+atob('Zm9vYmFyMQ=='); // 'foobar1'1
 ```
 
 
 
-## colorize
+## 控制台
+
+### 1. colorize（色彩）
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**DETAIL：**
+
+[colors](https://www.npmjs.com/package/colors) 更详细。
 
 **FUNCTION：**
 
@@ -117,10 +77,6 @@ const colorize = (...args) => ({
 });
 ```
 
-**CONCEPTS：**
-
-控制台输出彩色 log。
-
 **EXAMPLES：**
 
 ```js
@@ -131,7 +87,13 @@ console.log(colorize(colorize('foo').yellow, colorize('foo').green).bgWhite); //
 
 
 
-## createDirIfNotExists
+## 操作
+
+### 1. createDirIfNotExists（创建目录）
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
 
 **FUNCTION：**
 
@@ -140,43 +102,90 @@ const fs = require('fs');
 const createDirIfNotExists = dir => (!fs.existsSync(dir) ? fs.mkdirSync(dir) : undefined);
 ```
 
-**CONCEPTS：**
-
-创建目录。
-
 **EXAMPLES：**
 
 ```js
 createDirIfNotExists('test'); // creates the directory 'test', if it doesn't exist
 ```
 
+### 2. JSONToFile（创建文件）
 
+**FROM**
 
-## hasFlags
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
 
 **FUNCTION：**
 
 ```js
-const hasFlags = (...flags) =>
-  flags.every(flag => process.argv.includes(/^-{1,2}/.test(flag) ? flag : '--' + flag));
+const fs = require('fs');
+const JSONToFile = (obj, filename) =>
+  fs.writeFileSync(`${filename}.json`, JSON.stringify(obj, null, 2));
 ```
-
-**CONCEPTS：**
-
-执行 node 脚本传参（配置）。
 
 **EXAMPLES：**
 
 ```js
-// node myScript.js -s --test --cool=true
-hasFlags('-s'); // true
-hasFlags('--test', 'cool=true', '-s'); // true
-hasFlags('special'); // false
+JSONToFile({ test: 'is passed' }, 'testJsonFile'); // writes the object to 'testJsonFile.json'
+```
+
+### 3. readFileLines（读取文件行）
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**FUNCTION：**
+
+```js
+const fs = require('fs');
+const readFileLines = filename =>
+  fs
+    .readFileSync(filename)
+    .toString('UTF8')
+    .split('\n');
+```
+
+**EXAMPLES：**
+
+```js
+/*
+contents of test.txt :
+  line1
+  line2
+  line3
+  ___________________________
+*/
+let arr = readFileLines('test.txt');
+console.log(arr); // ['line1', 'line2', 'line3']
+```
+
+### 4. untildify（替换波浪号）
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**FUNCTION：**
+
+```js
+const untildify = str => str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
+```
+
+**EXAMPLES：**
+
+```js
+untildify('~/node'); // '/Users/aUser/node'
 ```
 
 
 
-## hashNode
+## crypto
+
+### 1. hashNode（哈希）
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
 
 **FUNCTION：**
 
@@ -197,19 +206,87 @@ const hashNode = val =>
   );
 ```
 
-**CONCEPTS：**
-
-为字符串创建 hash。
-
 **EXAMPLES：**
 
 ```js
 hashNode(JSON.stringify({ a: 'a', b: [1, 2, 3, 4], foo: { c: 'bar' } })).then(console.log); // '04aa106279f5977f59f9067fa9712afc4aedc6f5862a8defc34552d8c7206393'
 ```
 
+### 2. UUIDGeneratorNode（UUID）
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**FUNCTION：**
+
+```js
+const crypto = require('crypto');
+const UUIDGeneratorNode = () =>
+  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+    (c ^ (crypto.randomBytes(1)[0] & (15 >> (c / 4)))).toString(16)
+  );
+```
+
+**EXAMPLES：**
+
+```js
+UUIDGeneratorNode(); // '79c7c136-60ee-40a2-beb2-856f1feabefc'
+```
 
 
-## isDuplexStream
+
+## 环境
+
+### 1. hasFlags
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**FUNCTION：**
+
+```js
+const hasFlags = (...flags) =>
+  flags.every(flag => process.argv.includes(/^-{1,2}/.test(flag) ? flag : '--' + flag));
+```
+
+**EXAMPLES：**
+
+```js
+// node myScript.js -s --test --cool=true
+hasFlags('-s'); // true
+hasFlags('--test', 'cool=true', '-s'); // true
+hasFlags('special'); // false
+```
+
+### 2. isTravisCI
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**FUNCTION：**
+
+```js
+const isTravisCI = () => 'TRAVIS' in process.env && 'CI' in process.env;
+```
+
+**EXAMPLES：**
+
+```js
+isTravisCI(); // true (if code is running on Travis CI)
+```
+
+
+
+## 判断流
+
+### 1. isDuplexStream
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
 
 **FUNCTION：**
 
@@ -224,10 +301,6 @@ const isDuplexStream = val =>
   typeof val._writableState === 'object';
 ```
 
-**CONCEPTS：**
-
-判断是否为 Duplex 流。尚不能理解作用。
-
 **EXAMPLES：**
 
 ```js
@@ -235,9 +308,11 @@ const Stream = require('stream');
 isDuplexStream(new Stream.Duplex()); // true
 ```
 
+### 2. isReadableStream
 
+**FROM**
 
-## isReadableStream/isWritableStream
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
 
 **FUNCTION：**
 
@@ -248,7 +323,43 @@ const isReadableStream = val =>
   typeof val.pipe === 'function' &&
   typeof val._read === 'function' &&
   typeof val._readableState === 'object';
+```
 
+**EXAMPLES：**
+
+```js
+const fs = require('fs');
+isReadableStream(fs.createReadStream('test.txt')); // true
+```
+
+### 3. isStream
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**FUNCTION：**
+
+```js
+const isStream = val => val !== null && typeof val === 'object' && typeof val.pipe === 'function';
+```
+
+**EXAMPLES：**
+
+```js
+const fs = require('fs');
+isStream(fs.createReadStream('test.txt')); // true
+```
+
+### 4. isWritableStream
+
+**FROM**
+
+[30 seconds of code (Node)](https://www.30secondsofcode.org/tag/node)
+
+**FUNCTION：**
+
+```js
 const isWritableStream = val =>
   val !== null &&
   typeof val === 'object' &&
@@ -257,86 +368,9 @@ const isWritableStream = val =>
   typeof val._writableState === 'object';
 ```
 
-**CONCEPTS：**
-
-判断是否为可读/可写流。
-
 **EXAMPLES：**
 
 ```js
 const fs = require('fs');
-isReadableStream(fs.createReadStream('test.txt')); // true
 isWritableStream(fs.createWriteStream('test.txt')); // true
-```
-
-
-
-## isTravisCI
-
-**FUNCTION：**
-
-```js
-const isTravisCI = () => 'TRAVIS' in process.env && 'CI' in process.env;
-```
-
-**CONCEPTS：**
-
-检查是否为 Travis CI 环境。
-
-**EXAMPLES：**
-
-```js
-isTravisCI(); // true (if code is running on Travis CI)
-```
-
-
-
-## readFileLines
-
-**FUNCTION：**
-
-```js
-const fs = require('fs');
-const readFileLines = filename =>
-  fs
-    .readFileSync(filename)
-    .toString('UTF8')
-    .split('\n');
-```
-
-**CONCEPTS：**
-
-将文件行内容组成数组。
-
-**EXAMPLES：**
-
-```js
-/*
-  line1
-  line2
-  line3
-*/
-// 文件内容如上
-let arr = readFileLines('test.txt');
-console.log(arr); // ['line1', 'line2', 'line3']
-```
-
-
-
-## untildify
-
-**FUNCTION：**
-
-```js
-const untildify = str => str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
-```
-
-**CONCEPTS：**
-
-将波浪号指定为系统用户 ~(家目录)。
-
-**EXAMPLES：**
-
-```js
-untildify('~/node'); // '/home/shanyuhai/node'
 ```
