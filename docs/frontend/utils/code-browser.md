@@ -1123,6 +1123,32 @@ getFullscreenElement(); // <section class="full"></section>
 
 
 
+## 语音
+
+### 1. speechSynthesis（文字）
+
+**FROM**
+
+整理。
+
+**FUNCTION：**
+
+```js
+const speechSynthesis = message => {
+  const msg = new SpeechSynthesisUtterance(message);
+  msg.voice = window.speechSynthesis.getVoices()[0];
+  window.speechSynthesis.speak(msg);
+};
+```
+
+**EXAMPLES：**
+
+```js
+speechSynthesis('Hello, World');
+```
+
+
+
 ## 处理
 
 ### 1. prefix（前缀）
