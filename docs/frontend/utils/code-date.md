@@ -1,5 +1,6 @@
 ---
 title: 日期
+sidebarDepth: 2
 ---
 
 ## 常规

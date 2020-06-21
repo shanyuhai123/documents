@@ -1,5 +1,6 @@
 ---
 title: Node
+sidebarDepth: 2
 ---
 
 ## base64

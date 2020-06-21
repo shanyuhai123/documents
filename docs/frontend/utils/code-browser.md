@@ -1,5 +1,6 @@
 ---
 title: 浏览器
+sidebarDepth: 2
 ---
 
 ## 表单处理

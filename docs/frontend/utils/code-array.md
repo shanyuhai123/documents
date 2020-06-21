@@ -1,5 +1,6 @@
 ---
 title: 数组
+sidebarDepth: 2
 ---
 
 ## 判断

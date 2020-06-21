@@ -1,5 +1,6 @@
 ---
 title: 字符串
+sidebarDepth: 2
 ---
 
 ## 长度

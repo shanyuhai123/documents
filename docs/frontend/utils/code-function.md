@@ -1,5 +1,6 @@
 ---
 title: 函数
+sidebarDepth: 2
 ---
 
 ## 高阶

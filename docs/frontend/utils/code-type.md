@@ -1,5 +1,6 @@
 ---
 title: 类型判断处理
+sidebarDepth: 2
 ---
 
 ## 判断

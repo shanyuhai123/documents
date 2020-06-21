@@ -1,5 +1,6 @@
 ---
 title: 数学
+sidebarDepth: 2
 ---
 
 ## 求和

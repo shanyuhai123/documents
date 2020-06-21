@@ -1,5 +1,6 @@
 ---
 title: 对象
+sidebarDepth: 2
 ---
 
 ## 绑定
