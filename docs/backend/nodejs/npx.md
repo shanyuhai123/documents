@@ -1,5 +1,5 @@
 ---
-title: NPM 包执行工具
+title: NPX
 ---
 
 ## 介绍

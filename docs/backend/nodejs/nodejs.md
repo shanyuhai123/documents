@@ -1,5 +1,5 @@
 ---
-title: 安装 Node.js
+title: 开始 Node
 ---
 
 ## 安装
