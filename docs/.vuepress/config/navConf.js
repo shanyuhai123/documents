@@ -10,6 +10,7 @@ module.exports = [
   ]},
   { text: '前端', items: [
     { text: 'JavaScript', link: '/frontend/javascript/' },
+    { text: 'CSS', link: '/frontend/css/' },
     { text: 'Webpack', link: '/frontend/webpack/' },
     { text: 'D3', link: '/frontend/d3js/' },
     { text: 'Utils', link: '/frontend/utils/' },
