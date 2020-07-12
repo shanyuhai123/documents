@@ -15,6 +15,69 @@ sidebarDepth: 2
 
 ### 1. 生成 HTTP 请求消息
 
+生成 HTTP 前需要解析 URL：
+
+```bash
+# 1. HTTP 协议
+http://user:password@www.shanyuhai.top:80/dir/index.html
+# user 用户名（可省略）
+# password 密码（可省略）
+# www.shanyuhai.top Web 服务器域名
+# 80 端口（可省略）
+# /dir/index.html 文件的路径名
+
+# 2. FTP 协议
+ftp://user:password@ftp.shanyuhai.top:21/dir/index.html
+# user 用户名（可省略）
+# password 密码（可省略）
+# ftp.shanyuhai.top FTP 服务器域名
+# 21 端口（可省略）
+# /dir/index.html 文件的路径名
+
+# 3. 客户端本地文件
+file://localhost/home/shanyuhai/project/network/index.html
+# localhost 计算机名（可省略）
+# /home/shanyuhai/project/network/index.html 文件的路径名
+
+# mailto 邮件
+mailto:shanyuhai@shanyuhai.top
+# shanyuhai@shanyuhai.top 邮件地址
+
+# news 新闻组
+news:comp.protocols.tcp
+# comp.protocols.tcp 新闻组名
+```
+
+HTTP 主要方法：
+
+|  方法   | 含义                                                         |
+| :-----: | ------------------------------------------------------------ |
+|   GET   | 获取 URI 指定的信息。如果 URI 指定的是文件，则返回文件的内容；如果 URI 指定的是 [CGI 程序](https://zh.wikipedia.org/wiki/CGI)，则返回该程序的输出数据。 |
+|  POST   | 从客户端向服务器发送数据。一般用于发送表单中填写数据等情况。 |
+|  HEAD   | 和 GET 基本相同，只不过它只返回 HTTP 的消息头（message header），而不返回数据的内容。用于获取文件最后更新时间等信息。 |
+| OPTIONS | 用于通知或查询通信选项。                                     |
+|   PUT   | 替换 URI 指定的服务器上的文件。如果 URI 指定的文件不存在，则创建该文件。 |
+| DELETE  | 删除 URI 指定的服务器上的文件。                              |
+|  TRACE  | 将服务器收到的请求行和头部（header）直接反给客户端。用于在使用代理的环境中检查改写请求的情况。 |
+| CONNECT | 使用代理传输加密消息时使用。                                 |
+
+在了解以上基础后就可以生成请求消息了：
+
+```
+<方法><空格><URI><空格><HTTP 版本>
+<字段名1>:<字段值>
+<字段名2>:<字段值>
+<字段名n>:<字段值>
+<空行>
+<消息体>
+```
+
+第一行为**请求行**，通过这一行就可以大致了解请求的内容。
+
+第二部分一堆字段名被称为**消息头**，每行包含一个头字段，用于表示请求行的附加信息。消息头的行数根据具体可变，一直延伸到空行为止。
+
+**消息体（message body）** 包含客户端向服务器发送的数据，例如用 POST 方法向服务器发送的网页表单数据。
+
 ### 2. 向 DNS 服务器查询 Web 服务器的 IP 地址
 
 ### 3. 全世界 DNS 服务器的大接力
