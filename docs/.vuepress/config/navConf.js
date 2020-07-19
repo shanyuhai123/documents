@@ -18,8 +18,9 @@ module.exports = [
   { text: '后端', items: [
     { text: 'Nodejs', link: '/backend/nodejs/' },
     { text: 'Koa', link: '/backend/koa/' },
-    { text: 'MongoDB', link: '/backend/mongodb/' },
     { text: 'Nginx', link: '/backend/nginx/' },
+    { text: 'MongoDB', link: '/backend/mongodb/' },
+    { text: 'Docker', link: '/backend/docker/' },
   ]},
   { text: '开发工具', items: [
     { text: 'Git', link: '/tools/git/' },

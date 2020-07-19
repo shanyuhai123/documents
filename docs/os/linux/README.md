@@ -18,6 +18,15 @@ title: 首页
 
 
 
+
+## 镜像源
+
+1. [清华源](https://mirrors.tuna.tsinghua.edu.cn/)
+2. [中科大源](http://mirrors.ustc.edu.cn/)
+3. [阿里云](https://developer.aliyun.com/mirror/)
+
+
+
 ## 参考资料
 
 1. [Red Hat CentOS 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) <Badge text="核心" type="error"/>

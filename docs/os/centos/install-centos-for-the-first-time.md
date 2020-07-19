@@ -1,5 +1,5 @@
 ---
-title: 第一次安装 CentOS
+title: 初始化 CentOS
 ---
 
 当然，你首先需要[安装 CentOS](/os/centos/how-to-install-centos-on-virtualbox)。
