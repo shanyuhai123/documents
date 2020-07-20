@@ -1,5 +1,6 @@
 ---
-title: 安装 Docker
+title: 初始
+autoPrev: README
 ---
 
 ## 安装
@@ -52,3 +53,19 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
+
+
+## 设置源
+
+可使用阿里云容器镜像服务-[镜像加速器](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors)。
+
+其配置地址为 `/etc/docker/daemon.json`。
+
+
+
+## 提权
+
+为了避免每次使用 Docker 都需要切换到 `sudo`，可以将 `docker` 加入当前用户。
+```bash
+sudo usermod -aG docker USER_NAME # 重新登录后生效
+```
