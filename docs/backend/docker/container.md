@@ -157,6 +157,10 @@ docker update ttubuntu
 
 `attach` 不会在容器中创建进程执行额外的命令，只是附着到容器上；`exec` 会在运行的容器上创建进程执行新的命令。
 
+```bash
+docker exec -it ttubuntu sh
+```
+
 
 
 ## 分享
