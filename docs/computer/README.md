@@ -11,7 +11,8 @@ title: 首页
 ## 参考资料
 
 1. 大学时各种各样的教材
-2. [计算机速成课](https://github.com/1c7/Crash-Course-Computer-Science-Chinese)
+2. 《计算机网络》谢希仁著
+3. [计算机速成课](https://github.com/1c7/Crash-Course-Computer-Science-Chinese)
 
 
 
