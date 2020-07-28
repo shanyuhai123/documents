@@ -117,7 +117,7 @@ wifis:
       optional: true
       gateway4: 192.168.0.1
       nameservers:
-        addresses: [192.168.1.1,223.5.5.5,223.6.6.6]
+        addresses: [223.5.5.5,223.6.6.6]
       access-points:
         "SSID":
           password: "password"

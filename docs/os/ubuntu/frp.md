@@ -88,6 +88,21 @@ remote_port = 6000
 nohup ./frpc -c frpc.ini &
 ```
 
+### 3. 停止服务
+
+以上述形式启动的服务，需要先找到进程号再停止。
+
+```bash
+ps -aux | grep frp | grep -v grep
+# 72029
+kill -9 72029
+
+# 验证
+ps -aux | grep frp | grep -v grep
+```
+
+
+
 
 
 ## 使用
@@ -112,5 +127,62 @@ ssh private
 # 直接访问内网
 # 配置该 config 时可以认识到 `local_port` 与 `remote_port` 之间的关系
 ssh aliyun2private
+```
+
+
+
+## systemd
+
+在下载对应的 `frp` 文件时，解压后注意到存在 `systemd` 文件夹，查看例如服务端配置。
+
+```bash
+# cat systemd/frps.service
+
+[Unit]
+Description=Frp Server Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/bin/frps -c /etc/frp/frps.ini
+
+[Install]
+WantedBy=multi-user.target
+
+# cat systemd/frpc.service
+
+[Unit]
+Description=Frp Client Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/bin/frpc -c /etc/frp/frpc.ini
+ExecReload=/usr/bin/frpc reload -c /etc/frp/frpc.ini
+
+[Install]
+WantedBy=multi-user.target
+```
+
+仅说明 `frps.service` 配置文件：
+
++ `frps` 启动程序放入 `/usr/bin` 目录中
++ `frps.ini` 配置文件放入 `/etc/frp` 目录中
++ `frps.service` 服务程序放入 `/lib/systemd/system` 目录中
+
+最后：
+
+```bash
+# 更新服务文件，记得加上 sudo
+sudo systemctl daemon-reload
+
+# 开启
+sudo systemctl start frps
 ```
 
