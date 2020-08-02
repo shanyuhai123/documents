@@ -5,7 +5,7 @@ autoPrev: README
 
 ## 安装
 
-网速慢可[切换源](/os/linux/#镜像源)。
+网速慢可使用[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/)。
 
 
 
