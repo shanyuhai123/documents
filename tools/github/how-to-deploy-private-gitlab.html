@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>如何搭建私有 gitlab | 飞跃高山与大洋的鱼</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="description" content="飞跃高山与大洋的鱼的文档, vuepress 文档">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="Ld_AEWr30siza2LmmZ12csitRGsSj9gqqEAch0UXkTc">
+    <link rel="preload" href="/assets/css/0.styles.2c4e402f.css" as="style"><link rel="preload" href="/assets/js/app.9cdbcf91.js" as="script"><link rel="preload" href="/assets/js/3.692463f1.js" as="script"><link rel="preload" href="/assets/js/171.e92641ef.js" as="script"><link rel="preload" href="/assets/js/5.aa894f00.js" as="script"><link rel="prefetch" href="/assets/js/10.7dda69af.js"><link rel="prefetch" href="/assets/js/100.6c6c8cfa.js"><link rel="prefetch" href="/assets/js/101.f1b51ad9.js"><link rel="prefetch" href="/assets/js/102.a3ebf584.js"><link rel="prefetch" href="/assets/js/103.7c31f77a.js"><link rel="prefetch" href="/assets/js/104.38125e14.js"><link rel="prefetch" href="/assets/js/105.994dcb4e.js"><link rel="prefetch" href="/assets/js/106.2418afc3.js"><link rel="prefetch" href="/assets/js/107.a877c657.js"><link rel="prefetch" href="/assets/js/108.90f57bb0.js"><link rel="prefetch" href="/assets/js/109.cb1ebb50.js"><link rel="prefetch" href="/assets/js/11.81ab6fb8.js"><link rel="prefetch" href="/assets/js/110.c58a3d72.js"><link rel="prefetch" href="/assets/js/111.d6cc9dc3.js"><link rel="prefetch" href="/assets/js/112.0a515fb9.js"><link rel="prefetch" href="/assets/js/113.28e73d42.js"><link rel="prefetch" href="/assets/js/114.d7e88e26.js"><link rel="prefetch" href="/assets/js/115.4902312a.js"><link rel="prefetch" href="/assets/js/116.4e3127ed.js"><link rel="prefetch" href="/assets/js/117.5b81d478.js"><link rel="prefetch" href="/assets/js/118.d63b627d.js"><link rel="prefetch" href="/assets/js/119.408db961.js"><link rel="prefetch" href="/assets/js/12.80348e69.js"><link rel="prefetch" href="/assets/js/120.1cdf7da0.js"><link rel="prefetch" href="/assets/js/121.a7ad39fb.js"><link rel="prefetch" href="/assets/js/122.e4dcbd36.js"><link rel="prefetch" href="/assets/js/123.dbe478e4.js"><link rel="prefetch" href="/assets/js/124.58725110.js"><link rel="prefetch" href="/assets/js/125.fbdbadb3.js"><link rel="prefetch" href="/assets/js/126.9cac9f8c.js"><link rel="prefetch" href="/assets/js/127.b02eb08b.js"><link rel="prefetch" href="/assets/js/128.c1614239.js"><link rel="prefetch" href="/assets/js/129.8f8cbc54.js"><link rel="prefetch" href="/assets/js/13.08b54d1d.js"><link rel="prefetch" href="/assets/js/130.d91a312c.js"><link rel="prefetch" href="/assets/js/131.d4754629.js"><link rel="prefetch" href="/assets/js/132.67794f53.js"><link rel="prefetch" href="/assets/js/133.41511d80.js"><link rel="prefetch" href="/assets/js/134.e0309e7a.js"><link rel="prefetch" href="/assets/js/135.5ca0a1b9.js"><link rel="prefetch" href="/assets/js/136.c6ec4d0b.js"><link rel="prefetch" href="/assets/js/137.c4062f58.js"><link rel="prefetch" href="/assets/js/138.161a2124.js"><link rel="prefetch" href="/assets/js/139.3dd72d23.js"><link rel="prefetch" href="/assets/js/14.0f1cd51f.js"><link rel="prefetch" href="/assets/js/140.97b14456.js"><link rel="prefetch" href="/assets/js/141.6d359388.js"><link rel="prefetch" href="/assets/js/142.4ae30a60.js"><link rel="prefetch" href="/assets/js/143.3a07f622.js"><link rel="prefetch" href="/assets/js/144.20affd06.js"><link rel="prefetch" href="/assets/js/145.7aa9c7c3.js"><link rel="prefetch" href="/assets/js/146.f56c7df2.js"><link rel="prefetch" href="/assets/js/147.fb011051.js"><link rel="prefetch" href="/assets/js/148.ed55eddd.js"><link rel="prefetch" href="/assets/js/149.6529aed8.js"><link rel="prefetch" href="/assets/js/15.3442cebb.js"><link rel="prefetch" href="/assets/js/150.abceecc7.js"><link rel="prefetch" href="/assets/js/151.f8d33c3a.js"><link rel="prefetch" href="/assets/js/152.6b6c0496.js"><link rel="prefetch" href="/assets/js/153.90694dcf.js"><link rel="prefetch" href="/assets/js/154.8bee4a69.js"><link rel="prefetch" href="/assets/js/155.4a2c8514.js"><link rel="prefetch" href="/assets/js/156.7af08e41.js"><link rel="prefetch" href="/assets/js/157.d947fcdf.js"><link rel="prefetch" href="/assets/js/158.8de6a7a2.js"><link rel="prefetch" href="/assets/js/159.ce902b7d.js"><link rel="prefetch" href="/assets/js/16.50cb3367.js"><link rel="prefetch" href="/assets/js/160.4100e0a2.js"><link rel="prefetch" href="/assets/js/161.2f833971.js"><link rel="prefetch" href="/assets/js/162.2c155220.js"><link rel="prefetch" href="/assets/js/163.5ec8c799.js"><link rel="prefetch" href="/assets/js/164.32c6c19d.js"><link rel="prefetch" href="/assets/js/165.f8cc5b22.js"><link rel="prefetch" href="/assets/js/166.5ca58b3f.js"><link rel="prefetch" href="/assets/js/167.50d11152.js"><link rel="prefetch" href="/assets/js/168.365689eb.js"><link rel="prefetch" href="/assets/js/169.ae4497c8.js"><link rel="prefetch" href="/assets/js/17.89305327.js"><link rel="prefetch" href="/assets/js/170.002c8ddc.js"><link rel="prefetch" href="/assets/js/172.8328e6fe.js"><link rel="prefetch" href="/assets/js/173.9d45fff2.js"><link rel="prefetch" href="/assets/js/174.743c04a2.js"><link rel="prefetch" href="/assets/js/175.39533891.js"><link rel="prefetch" href="/assets/js/176.c12f5ed0.js"><link rel="prefetch" href="/assets/js/177.fcba9e78.js"><link rel="prefetch" href="/assets/js/178.5709491a.js"><link rel="prefetch" href="/assets/js/179.74de1b86.js"><link rel="prefetch" href="/assets/js/18.376b78cf.js"><link rel="prefetch" href="/assets/js/180.bb00201b.js"><link rel="prefetch" href="/assets/js/181.8714a17a.js"><link rel="prefetch" href="/assets/js/182.42fd4ab9.js"><link rel="prefetch" href="/assets/js/183.dbc00997.js"><link rel="prefetch" href="/assets/js/184.a7bedcd6.js"><link rel="prefetch" href="/assets/js/185.d87fa293.js"><link rel="prefetch" href="/assets/js/186.cc823040.js"><link rel="prefetch" href="/assets/js/19.5ce214a0.js"><link rel="prefetch" href="/assets/js/20.ef00b565.js"><link rel="prefetch" href="/assets/js/21.1c9c7ec8.js"><link rel="prefetch" href="/assets/js/22.3c02ca7f.js"><link rel="prefetch" href="/assets/js/23.31466dc0.js"><link rel="prefetch" href="/assets/js/24.e78dd8f7.js"><link rel="prefetch" href="/assets/js/25.de17b42a.js"><link rel="prefetch" href="/assets/js/26.2dd8af0c.js"><link rel="prefetch" href="/assets/js/27.a2f60042.js"><link rel="prefetch" href="/assets/js/28.a437973a.js"><link rel="prefetch" href="/assets/js/29.fe6257e3.js"><link rel="prefetch" href="/assets/js/30.2acbde37.js"><link rel="prefetch" href="/assets/js/31.5f9b813d.js"><link rel="prefetch" href="/assets/js/32.29f93f82.js"><link rel="prefetch" href="/assets/js/33.02291521.js"><link rel="prefetch" href="/assets/js/34.3b9c5147.js"><link rel="prefetch" href="/assets/js/35.cfc7d0a4.js"><link rel="prefetch" href="/assets/js/36.360ddb3c.js"><link rel="prefetch" href="/assets/js/37.932b9d06.js"><link rel="prefetch" href="/assets/js/38.c855e186.js"><link rel="prefetch" href="/assets/js/39.a138151c.js"><link rel="prefetch" href="/assets/js/4.92911382.js"><link rel="prefetch" href="/assets/js/40.b5bd80a9.js"><link rel="prefetch" href="/assets/js/41.dc8e57ae.js"><link rel="prefetch" href="/assets/js/42.83fccf40.js"><link rel="prefetch" href="/assets/js/43.ab9f3cd0.js"><link rel="prefetch" href="/assets/js/44.4ba9931e.js"><link rel="prefetch" href="/assets/js/45.d3968255.js"><link rel="prefetch" href="/assets/js/46.f2c4af12.js"><link rel="prefetch" href="/assets/js/47.7b470be8.js"><link rel="prefetch" href="/assets/js/48.87776672.js"><link rel="prefetch" href="/assets/js/49.814cd000.js"><link rel="prefetch" href="/assets/js/50.412fb72d.js"><link rel="prefetch" href="/assets/js/51.b1866677.js"><link rel="prefetch" href="/assets/js/52.9fa8a1a5.js"><link rel="prefetch" href="/assets/js/53.c0dd546c.js"><link rel="prefetch" href="/assets/js/54.c50158f4.js"><link rel="prefetch" href="/assets/js/55.3d64152e.js"><link rel="prefetch" href="/assets/js/56.87522305.js"><link rel="prefetch" href="/assets/js/57.71a5eab6.js"><link rel="prefetch" href="/assets/js/58.af4e1e3c.js"><link rel="prefetch" href="/assets/js/59.6cbeb499.js"><link rel="prefetch" href="/assets/js/6.6d0234c4.js"><link rel="prefetch" href="/assets/js/60.b27e47db.js"><link rel="prefetch" href="/assets/js/61.4ebafadc.js"><link rel="prefetch" href="/assets/js/62.05f85692.js"><link rel="prefetch" href="/assets/js/63.ad6d9a42.js"><link rel="prefetch" href="/assets/js/64.ca4b3549.js"><link rel="prefetch" href="/assets/js/65.b06eb47a.js"><link rel="prefetch" href="/assets/js/66.990f6e36.js"><link rel="prefetch" href="/assets/js/67.0f32d55c.js"><link rel="prefetch" href="/assets/js/68.914dc021.js"><link rel="prefetch" href="/assets/js/69.9ba5de1d.js"><link rel="prefetch" href="/assets/js/7.b95f4f9f.js"><link rel="prefetch" href="/assets/js/70.9b8f804a.js"><link rel="prefetch" href="/assets/js/71.df33ee47.js"><link rel="prefetch" href="/assets/js/72.88eda626.js"><link rel="prefetch" href="/assets/js/73.5d1d4ab5.js"><link rel="prefetch" href="/assets/js/74.dd793cdb.js"><link rel="prefetch" href="/assets/js/75.40696195.js"><link rel="prefetch" href="/assets/js/76.f97dc7a6.js"><link rel="prefetch" href="/assets/js/77.dbf80b37.js"><link rel="prefetch" href="/assets/js/78.3f8700f5.js"><link rel="prefetch" href="/assets/js/79.9937dec2.js"><link rel="prefetch" href="/assets/js/8.a8622689.js"><link rel="prefetch" href="/assets/js/80.0b352a61.js"><link rel="prefetch" href="/assets/js/81.ba3f6060.js"><link rel="prefetch" href="/assets/js/82.70a49c12.js"><link rel="prefetch" href="/assets/js/83.a938ccd8.js"><link rel="prefetch" href="/assets/js/84.a4c6dd2b.js"><link rel="prefetch" href="/assets/js/85.efa66ba4.js"><link rel="prefetch" href="/assets/js/86.03fc4865.js"><link rel="prefetch" href="/assets/js/87.fc89207b.js"><link rel="prefetch" href="/assets/js/88.43ccf3dc.js"><link rel="prefetch" href="/assets/js/89.7c3cffd9.js"><link rel="prefetch" href="/assets/js/9.749dc084.js"><link rel="prefetch" href="/assets/js/90.40dadde7.js"><link rel="prefetch" href="/assets/js/91.427e5325.js"><link rel="prefetch" href="/assets/js/92.f99c1da8.js"><link rel="prefetch" href="/assets/js/93.500651ac.js"><link rel="prefetch" href="/assets/js/94.db5de06f.js"><link rel="prefetch" href="/assets/js/95.4bd41188.js"><link rel="prefetch" href="/assets/js/96.fe1b3c90.js"><link rel="prefetch" href="/assets/js/97.3edc929d.js"><link rel="prefetch" href="/assets/js/98.0b45c9bd.js"><link rel="prefetch" href="/assets/js/99.a255d255.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.31101da3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2c4e402f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">飞跃高山与大洋的鱼</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  先导
+</a></div><div class="nav-item"><a href="/computer/" class="nav-link">
+  计算机
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="系统" class="dropdown-title"><span class="title">系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/os/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/os/manjaro/" class="nav-link">
+  Manjaro
+</a></li><li class="dropdown-item"><!----> <a href="/os/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/os/centos/" class="nav-link">
+  CentOS
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/webpack/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/d3js/" class="nav-link">
+  D3
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/utils/" class="nav-link">
+  Utils
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/koa/" class="nav-link">
+  Koa
+</a></li><li class="dropdown-item"><!----> <a href="/backend/nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mongodb/" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/backend/docker/" class="nav-link">
+  Docker
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/github/" class="nav-link router-link-active">
+  Github
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode/" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome/" class="nav-link">
+  Chrome Developer tools
+</a></li><li class="dropdown-item"><!----> <a href="/tools/bookmark-scripts/" class="nav-link">
+  Bookmark scripts
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/interview/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/more/hodgepodge/" class="nav-link">
+  小工具
+</a></li><li class="dropdown-item"><!----> <a href="https://v1.vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress1.x 官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/shanyuhai123/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  先导
+</a></div><div class="nav-item"><a href="/computer/" class="nav-link">
+  计算机
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="系统" class="dropdown-title"><span class="title">系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/os/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/os/manjaro/" class="nav-link">
+  Manjaro
+</a></li><li class="dropdown-item"><!----> <a href="/os/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/os/centos/" class="nav-link">
+  CentOS
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/webpack/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/d3js/" class="nav-link">
+  D3
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/utils/" class="nav-link">
+  Utils
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/koa/" class="nav-link">
+  Koa
+</a></li><li class="dropdown-item"><!----> <a href="/backend/nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mongodb/" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/backend/docker/" class="nav-link">
+  Docker
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/github/" class="nav-link router-link-active">
+  Github
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode/" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome/" class="nav-link">
+  Chrome Developer tools
+</a></li><li class="dropdown-item"><!----> <a href="/tools/bookmark-scripts/" class="nav-link">
+  Bookmark scripts
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/interview/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/more/hodgepodge/" class="nav-link">
+  小工具
+</a></li><li class="dropdown-item"><!----> <a href="https://v1.vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress1.x 官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/shanyuhai123/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>GITHUB</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tools/github/" aria-current="page" class="sidebar-link">首页</a></li><li><a href="/tools/github/config-github-hosts.html" class="sidebar-link">访问 Github</a></li><li><a href="/tools/github/download-huge-project-from-github.html" class="sidebar-link">从 Github 下载大项目</a></li><li><a href="/tools/github/how-to-deploy-private-gitlab.html" aria-current="page" class="active sidebar-link">如何搭建私有 gitlab</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/tools/github/how-to-deploy-private-gitlab.html#安装-gitlab" class="sidebar-link">安装 gitlab</a></li><li class="sidebar-sub-header"><a href="/tools/github/how-to-deploy-private-gitlab.html#邮件服务" class="sidebar-link">邮件服务</a></li><li class="sidebar-sub-header"><a href="/tools/github/how-to-deploy-private-gitlab.html#hostname" class="sidebar-link">hostname</a></li></ul></li><li><a href="/tools/github/switch-multiple-github-accounts.html" class="sidebar-link">切换多个 github 账号</a></li><li><a href="/tools/github/sync-a-fork.html" class="sidebar-link">同步一个 fork</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="安装-gitlab"><a href="#安装-gitlab" class="header-anchor">#</a> 安装 gitlab</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 创建数据目录</span>
+<span class="token function">sudo</span> <span class="token function">mkdir</span> -p /srv/gitlab/config /srv/gitlab/logs /srv/gitlab/data
+
+<span class="token comment"># 验证</span>
+tree /srv
+
+<span class="token comment"># 安装 gitlab</span>
+<span class="token function">sudo</span> docker run --detach <span class="token punctuation">\</span>
+  --restart always <span class="token punctuation">\</span>
+  --hostname gitlab.example.com <span class="token punctuation">\</span>
+  <span class="token comment"># 注意修改 22 为 30022 后，利用 git 协议下载需指定其端口才可以下载，例如 git clone ssh://git@xxx.gitlab.com:port/.../xxx.git</span>
+  <span class="token comment"># 可配置 ssh config 指定端口，减少操作</span>
+  <span class="token comment"># 而 http 协议可正常下载（其实是因为 nginx 转了一层，否则也是得修改的）</span>
+  --publish <span class="token number">30443</span>:443 --publish <span class="token number">30080</span>:80 --publish <span class="token number">30022</span>:22 <span class="token punctuation">\</span>
+  --volume /srv/gitlab/config:/etc/gitlab <span class="token punctuation">\</span>
+  --volume /srv/gitlab/logs:/var/log/gitlab <span class="token punctuation">\</span>
+  --volume /srv/gitlab/data:/var/opt/gitlab <span class="token punctuation">\</span>
+  --name gitlab <span class="token punctuation">\</span>
+  gitlab/gitlab-ce
+
+<span class="token comment"># 验证</span>
+docker <span class="token function">ps</span>
+<span class="token function">netstat</span> -tunlp
+</code></pre></div><p>最后打开浏览器来验证。</p> <h2 id="邮件服务"><a href="#邮件服务" class="header-anchor">#</a> 邮件服务</h2> <p>多家对比后选择了<a href="https://exmail.qq.com/" target="_blank" rel="noopener noreferrer">腾讯企业邮箱<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，依次进入 <code>邮箱 =&gt; 邮箱设置 =&gt; 收发信设置 =&gt; 开启IMAP/SMTP服务</code>，再回到 <code>邮箱设置 =&gt; 邮箱绑定 =&gt; 安全登录</code> 获取授权码即可（至于配置域名，邮件配置可另行谷歌）。</p> <h3 id="_1-修改配置"><a href="#_1-修改配置" class="header-anchor">#</a> 1. 修改配置</h3> <p>找到 <code>Email Settings</code> 在后面追加对应的 <code>SMTP</code> 配置。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">vim</span> /srv/gitlab/config/gitlab.rb
+
+<span class="token comment"># 开启 SMTP 功能</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable'</span><span class="token punctuation">]</span><span class="token operator">=</span>true
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_address'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;smtp.exmail.qq.com&quot;</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_port'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">465</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_user_name'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;name@domain.com&quot;</span> <span class="token comment"># 邮件发送人</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_from'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;name@domain.com&quot;</span> <span class="token comment"># 与 smtp_user_name 一致</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_password'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;password&quot;</span> <span class="token comment"># 获取的授权码</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_domain'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;exmail.qq.com&quot;</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_authentication'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;login&quot;</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable_starttls_auto'</span><span class="token punctuation">]</span><span class="token operator">=</span>true
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_tls'</span><span class="token punctuation">]</span><span class="token operator">=</span>true
+</code></pre></div><h3 id="_2-验证服务"><a href="#_2-验证服务" class="header-anchor">#</a> 2. 验证服务</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 应用配置</span>
+docker <span class="token builtin class-name">exec</span> gitlab gitlab-ctl reconfigure
+
+<span class="token comment"># 进入 gitlab 容器</span>
+docker <span class="token builtin class-name">exec</span> -it gitlab <span class="token function">bash</span>
+
+<span class="token comment"># 开启 gitlab-rails</span>
+gitlab-rails console
+
+<span class="token comment"># 测试邮件发送，可换为自己的邮箱</span>
+Notify.test_email<span class="token punctuation">(</span><span class="token string">'someone@example.com'</span>, <span class="token string">'Message Subject'</span>, <span class="token string">'Message Body'</span><span class="token punctuation">)</span>.deliver_now
+</code></pre></div><p>等待邮件发送到自己的邮箱后即可。</p> <h2 id="hostname"><a href="#hostname" class="header-anchor">#</a> hostname</h2> <p><code>hostname</code> 会影响仓库下载、用户注册邀请等问题。</p> <p>在安装 <code>gitlab</code> 时为其设置 <code>hostname</code> 为 <code>gitlab.example.com</code>，此处还需要修改为你对应的域名或 <code>ip</code> 地址。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">vim</span> /srv/gitlab/config/gitlab.rb
+
+<span class="token comment"># 配置 external_url</span>
+external_url <span class="token string">'http://gitlab.example.com'</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shanyuhai123/documents/edit/master/docs/tools/github/how-to-deploy-private-gitlab.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020年7月29日星期三下午3点00分</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/tools/github/download-huge-project-from-github.html" class="prev">
+        从 Github 下载大项目
+      </a></span> <span class="next"><a href="/tools/github/switch-multiple-github-accounts.html">
+        切换多个 github 账号
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.9cdbcf91.js" defer></script><script src="/assets/js/3.692463f1.js" defer></script><script src="/assets/js/171.e92641ef.js" defer></script><script src="/assets/js/5.aa894f00.js" defer></script>
+  </body>
+</html>
