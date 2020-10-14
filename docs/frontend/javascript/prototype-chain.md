@@ -10,6 +10,16 @@ title: 原型链
 
 > 可通过 `Object.getPrototypeOf()` 查询对象的原型。
 
+::: danger 提前的要点
+
+1. `__proto__` 和 `constructor` 属性是对象所独有的
+2. `prototype` 属性是函数所独有的
+3. 但由于函数也是一种对象，所以函数也拥有 `__proto__` 和 `constructor` 属性
+
+:::
+
+
+
 ## 原型的继承
 
 对象除了 “自有属性（own property）”，还有一些属性是从原型对象继承来的。
