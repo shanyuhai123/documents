@@ -26,3 +26,19 @@ if (!/yarn\.js$/.test(process.env.npm_execpath || '')) {
 ```
 
 这样就大功告成了。
+
+
+
+## link
+
+`yarn link` 并不像 `npm link` 一样可以全局使用，需要安装到指定文件夹下才可使用，当然也是有一定的方法的：
+
+```json
+{
+  "scripts": {
+    "link:add": "yarn global add file:$(pwd)"
+  }
+}
+```
+
+执行 `yarn link:add` 即可。
