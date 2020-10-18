@@ -179,11 +179,15 @@ Checking Android licenses is taking an unexpectedly long time...
 flutter run -v
 ```
 
-发现时在下载 `gradle-5.6.2-all.zip` 引发了问题，手动该文件下载下来。
-
 > 接下来的操作与其他回答均不一致，算是新手一顿乱操作竟然能运行了。  
 
-然后修改项目的 `android/gradle/wrapper/gradle-wrapper.properties` 文件中 `distributionUrl` 查看实际指向位置，然后将下载的文件放入该位置即可。
+发现时在下载 `gradle-5.6.2-all.zip` 引发了问题，手动将该文件下载下来放入 `/home/your_name/.gradle/wrapper/dists` 中。
+
+然后修改项目的 `android/gradle/wrapper/gradle-wrapper.properties` 文件中 `distributionUrl` 指向 `file\:///home/your_name/.gradle/wrapper/dists/gradle-5.6.2-all.zip`，然后将下载的文件放入该位置即可。
+
+如果希望以后新建的项目都指向该地址呢？
+
+回到之前 `git clone flutter` 的位置，找到 `packages/flutter_tools/templates/app/android.tmpl/gradle/wrapper/gradle-wrapper.properties` 文件，将  `distributionUrl` 指向 `file\:///home/your_name/.gradle/wrapper/dists/gradle-5.6.2-all.zip` 即可。
 
 
 
