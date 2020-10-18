@@ -11,6 +11,23 @@ Flutter 官网地址为 [flutter.dev](https://flutter.dev/)
 
 
 
+::: danger 补充
+
+有意思的是，当我重新安装 `flutter` 后：
+
+ ````bash
+# 此处为 gitlab 非 gitee
+git clone https://github.com/flutter/flutter.git
+ ````
+
+以下在安装和使用时遇到的问题就消失了，但其中发生了什么也不可考究了。
+
+所以不妨先按以下进行操作，最后再切换为 `github` 的仓库。
+
+:::
+
+
+
 ## 安装
 
 ### 1. Flutter SDK
@@ -127,6 +144,8 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 糟糕的是，在 `flutter doctor` 检测下依然会提示未安装，但使用是可以使用的，[ubuntu 20.04 也存在该问题](https://stackoverflow.com/questions/57085479/android-studio-flutter-plugin-not-installed-this-adds-flutter-specific-functi)。
 
+
+
 ### 6. toolchain
 
 可以直接忽略：
@@ -138,8 +157,6 @@ flutter doctor --android-licenses
 
 
 ## 使用
-
-配置完上述即可以使用了。
 
 ### 1. 卡在 Creating Flutter Project
 
@@ -167,3 +184,19 @@ flutter run -v
 > 接下来的操作与其他回答均不一致，算是新手一顿乱操作竟然能运行了。  
 
 然后修改项目的 `android/gradle/wrapper/gradle-wrapper.properties` 文件中 `distributionUrl` 查看实际指向位置，然后将下载的文件放入该位置即可。
+
+
+
+## 配置
+
+### 1. 禁用 ios
+
+```bash
+# 查看使用说明及当前配置
+flutter config -h
+
+flutter config --no-enable-ios
+# Settings:
+#   enable-ios: false
+```
+
