@@ -16,6 +16,8 @@ title: Manjaro 的日常
 
 ![录屏闪烁](/os/manjaro/screen-flashing-when-recording.png)
 
+
+
 ## 禁用笔记本键盘
 
 ### 1. 问题情况
@@ -42,6 +44,8 @@ xinput set-prop 17 'Device Enabled' 0
 `关电源` > `打开后盖` > `拆除笔记本键盘排线`
 :::
 
+
+
 ## 修复文件夹名为英文
 
 ### 1. 问题情况
@@ -62,3 +66,20 @@ source ~/.config/user-dirs.dirs
 ```
 
 :::
+
+
+
+## 双显卡解决方案
+
+参考 [在 Manjaro 配置 Optimus manager 实现 Nvidia-Prime 双显卡解决方案](https://blog.kongjune.com/manjaro-prime/) 即可。
+
+由于使用的版本为 `manjaro Lysia`，所以配置项都无需处理，仅仅是：
+
+```bash
+sudo pacman -S optimus-manager optimus-manager-qt
+
+# 或需从 yay 安装
+yay -S optimus-manager-qt
+```
+
+接着启用即可。
