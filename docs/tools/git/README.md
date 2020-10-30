@@ -12,3 +12,4 @@ title: 首页
 
 1. [Github](https://help.github.com/en)
 2. [Git-scm](https://git-scm.com/book/zh/v2)
+2. [shafiul Community Book](https://shafiul.github.io/gitbook/index.html)
