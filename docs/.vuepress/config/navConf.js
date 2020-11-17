@@ -11,6 +11,7 @@ module.exports = [
   { text: '前端', items: [
     { text: 'JavaScript', link: '/frontend/javascript/' },
     { text: 'CSS', link: '/frontend/css/' },
+    { text: 'Vue', link: '/frontend/vue/' },
     { text: 'Webpack', link: '/frontend/webpack/' },
     { text: 'Flutter', link: '/frontend/flutter/' },
     { text: 'D3', link: '/frontend/d3js/' },
