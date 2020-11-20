@@ -1,5 +1,5 @@
 ---
-title: Vue Function-based API RFC
+title: Vue3 RFC
 sidebarDepth: 2
 ---
 
