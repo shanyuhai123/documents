@@ -34,6 +34,6 @@ module.exports = [
   { text: '更多', items: [
     { text: '面试题', link: '/more/interview/' },
     { text: '小工具', link: '/more/hodgepodge/' },
-    { text: 'VuePress1.x 官网', link: 'https://vuepress.vuejs.org/zh/' },
+    { text: 'VuePress 官网', link: 'https://vuepress.vuejs.org/zh/' },
   ]}
 ];
