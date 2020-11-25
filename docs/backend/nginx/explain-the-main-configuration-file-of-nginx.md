@@ -1,5 +1,6 @@
 ---
 title: 粗解配置文件
+autoPrev: configurin-systemd-service-for-nginx
 ---
 
 ## 配置格式

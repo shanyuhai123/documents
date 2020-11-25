@@ -1,5 +1,6 @@
 ---
 title: 安装 Nginx
+autoPrev: README
 ---
 
 ## 检测源

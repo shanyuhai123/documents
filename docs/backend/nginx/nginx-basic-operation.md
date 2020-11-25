@@ -1,6 +1,6 @@
 ---
 title: Nginx 基本操作
-autoPrev: README
+autoPrev: install-nginx
 ---
 
 ## 进程与端口
