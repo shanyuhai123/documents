@@ -26,6 +26,7 @@ sudo vim /etc/pacman.conf
 # 当然你也可以使用其他镜像
 [archlinuxcn]
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+# Server = https://mirrors.aliyun.com/archlinuxcn/$arch
 
 # 再添加源的 key
 sudo pacman -S archlinuxcn-keyring
