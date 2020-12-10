@@ -59,7 +59,7 @@ gitlab_rails['smtp_tls']=true
 ### 2. 验证服务
 
 ```bash
-# 应用配置
+# 以命令形式重新加载配置，也可进入容器后手动执行
 docker exec gitlab gitlab-ctl reconfigure
 
 # 进入 gitlab 容器
@@ -91,7 +91,35 @@ external_url 'http://gitlab.example.com'
 
 
 
+## 备份与恢复
 
+由于开始就将数据卷挂载到 `/srv/gitlab` 下，所以备份的数据也会在该目录的 `/srv/gitlab/data/backups` 中。
 
+```bash
+# 进入容器
+docker exec -it gitlab bash
 
+# 备份指令
+gitlab-rake gitlab:backup:create
+```
+
+更好的形式是定期备份：
+
+```bash
+crontab -e
+
+# 周末凌晨4点备份
+0 4 * * 0 gitlab-rake gitlab:backup:create &> /dev/null
+```
+
+根据备份恢复数据：
+
+```bash
+# 停止服务
+gitlab-ctl stop unicorn # 应用服务器
+gitlab-ctl stop sidekiq # 后台异步任务队列
+
+# 指定数据
+gitlab-rake gitlab:backup:restore BACKUP=1607523472_2020_12_09_13.2.1
+```
 
