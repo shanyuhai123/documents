@@ -92,3 +92,11 @@ npm version [参数]
 |                 major                 |                           | 主版本号，常用于不兼容的 API 修改，会导致 `patch`、`minor` 置为 0。 |
 | prepatch/preminor/premajor/prerelease | `--preid=<prerelease-id>` | 常见先行版本号名称有 `alpha`、`beta`。                       |
 
+### 1. 配合 git
+
+其更为好用的功能是配合 git 进行使用，更新 `package.json` 的同时打上 `tag`：
+
+```bash
+npm version patch -m "chore: 发布 tag %s"
+```
+
