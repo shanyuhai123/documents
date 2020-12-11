@@ -118,6 +118,7 @@ crontab -e
 # 停止服务
 gitlab-ctl stop unicorn # 应用服务器
 gitlab-ctl stop sidekiq # 后台异步任务队列
+gitlab-ctl status # 验证
 
 # 指定数据
 gitlab-rake gitlab:backup:restore BACKUP=1607523472_2020_12_09_13.2.1
