@@ -1,19 +1,17 @@
 {
   "name": "documents",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "shanyuhai123's docs web",
+  "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs --temp .temp",
-    "docs:build": "vuepress build docs",
-    "cname": "bash cname.sh"
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shanyuhai123/documents.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "shanyuhai123",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shanyuhai123/documents/issues"
