@@ -6,8 +6,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs --temp .temp",
     "docs:build": "vuepress build docs",
-    "cname": "bash cname.sh",
-    "algolia": "bash algolia.sh"
+    "cname": "bash cname.sh"
   },
   "repository": {
     "type": "git",
