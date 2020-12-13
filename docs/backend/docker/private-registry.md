@@ -65,3 +65,68 @@ docker pull 192.168.0.107:5000/tubuntu
 docker images
 ```
 
+
+
+## Harbor
+
+另外一个选择是使用 [Harbor](https://github.com/goharbor/harbor)。
+
+### 1. 获取 Harbor
+
+先下载文件。
+
+```bash
+# 目标压缩包
+wget https://github.com/goharbor/harbor/releases/download/v2.0.5/harbor-offline-installer-v2.0.5.tgz
+
+# gpg
+wget https://github.com/goharbor/harbor/releases/download/v2.0.5/harbor-offline-installer-v2.0.5.tgz.asc
+```
+
+获取文件后先校验有没有问题：
+
+```bash
+# 校验
+gpg --verify harbor-offline-installer-v2.0.5.tgz.asc harbor-offline-installer-v2.0.5.tgz
+# gpg: using RSA key 7722D168DAEC457806C96FF9644FF454C0B4115C
+# gpg: Can't check signature: No public key
+
+# 导入公钥
+gpg --keyserver hkps://keyserver.ubuntu.com --receive-keys 7722D168DAEC457806C96FF9644FF454C0B4115C
+
+# 再次校验
+gpg --verify harbor-offline-installer-v2.0.5.tgz.asc harbor-offline-installer-v2.0.5.tgz
+```
+
+### 2. 安装
+
+先进行解压：
+
+```bash
+tar xvf harbor-offline-installer-v2.0.5.tgz
+```
+
+修改配置文件：
+
+```bash
+cp harbor.yml.tmpl harbor.yml
+
+# 修改配置
+vim harbor.yml
+```
+
+其中 `data_volume` 挂载数据。
+
+在安装前需要确认已经准备好 `docker` 及 `docker-compose`。
+
+```bash
+bash install.sh
+```
+
+### 3. 重装
+
+当修改配置后运行 `bash prepare` 即可。
+
+### 4. 用户
+
+Harbor 使用前需要注册帐号，推送镜像前需要先创建项目，邀请成员才行。
