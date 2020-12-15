@@ -10,6 +10,13 @@ title: 首页
 
 
 
+
+## 插件
+
+插件安装位置为 `~/.vscode/extensions/` 下。
+
+
+
 ## 参考资料
 
 1. [VSCode](https://code.visualstudio.com/docs)
