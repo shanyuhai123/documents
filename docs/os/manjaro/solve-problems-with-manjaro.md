@@ -83,3 +83,19 @@ yay -S optimus-manager-qt
 ```
 
 接着启用即可。
+
+> 2020-12-17 更新
+
+在后续的使用中 `bbsswitch` 似乎被卸载了（不确定是我个人卸载，还是系统升级被移除）导致切换失败。
+
+在上面的页面中还有其他选择，如 `acpi_call`，所以：
+
+```bash
+# 安装
+sudo pacman -S acpi_call-dkms
+
+# 启用
+sudo modprobe acpi_call
+```
+
+除了面板的形式，还可以使用命令行工具 [optimus-switch-sddm](https://github.com/dglt1/optimus-switch-sddm)。
