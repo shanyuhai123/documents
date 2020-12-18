@@ -98,4 +98,7 @@ sudo pacman -S acpi_call-dkms
 sudo modprobe acpi_call
 ```
 
-除了面板的形式，还可以使用命令行工具 [optimus-switch-sddm](https://github.com/dglt1/optimus-switch-sddm)。
+接着可以使用命令行工具 [optimus-switch-sddm](https://github.com/dglt1/optimus-switch-sddm)。
+
+在界面 QT 工具中选用 `acpi_call` 导致桌面无法启动，未排查出原因，后续修改配置文件 `/etc/optimus-manager/optimus-manager.conf`，改回 `switching=bbswitch` 才使得桌面启动。
+
