@@ -102,3 +102,26 @@ sudo modprobe acpi_call
 
 在界面 QT 工具中选用 `acpi_call` 导致桌面无法启动，未排查出原因，后续修改配置文件 `/etc/optimus-manager/optimus-manager.conf`，改回 `switching=bbswitch` 才使得桌面启动。
 
+
+
+## 风扇起飞
+
+### 1. 问题情况
+
+系统风扇起飞，一般是由于某个程序占用资源过多导致。
+
+### 2. 解决方案
+
+> 解决后可能会导致其他问题。
+
+引起该问题有很多情况，之前也总是忘记抓罪犯：
+
+1. [baloo](https://wiki.archlinux.org/index.php/Baloo) 建立文件索引
+
+   ```bash
+   balooctl status  # 查看状态
+   balooctl suspend   # 停止
+   balooctl disable  # 禁用
+   ```
+
+   除了命令行还可以在 `系统` =》 `查找` 中找到该配置项。
