@@ -8,6 +8,36 @@ HTTPS（HyperText Transfer Protocol Secure）即超文本传输安全协议。HT
 
 
 
+## 增加 SSL 模块
+
+部分早期编译安装的 nginx 缺乏 ssl 模块，先查看一下当前模块：
+
+```bash
+/path/sbin/nginx -V
+```
+
+回到安装包位置，找到 `configure` 文件：
+
+```bash
+./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module
+```
+
+取代现有：
+
+```bash
+# 生成 ./objs/nginx
+make
+# 备份
+cp /path/sbin/nginx /path/sbin/nginx.bak
+# 覆盖前先停止 nginx 服务
+cp ./objs/nginx /path/sbin/
+
+# 再验证
+/path/sbin/nginx -V
+```
+
+
+
 ## 阿里云证书
 
 ### 1. 申请证书
