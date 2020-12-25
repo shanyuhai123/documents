@@ -19,7 +19,7 @@ HTTPS（HyperText Transfer Protocol Secure）即超文本传输安全协议。HT
 回到安装包位置，找到 `configure` 文件：
 
 ```bash
-./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module
+./configure --prefix=/usr/local/nginx --with-http_ssl_module
 ```
 
 取代现有：
