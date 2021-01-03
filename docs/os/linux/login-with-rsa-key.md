@@ -17,6 +17,9 @@ title: 使用 RSA 登录服务器
 ```bash
 # xxx.xxx.xxx.xxx 为你的 ip 地址
 ssh root@xxx.xxx.xxx.xxx
+
+# 指定密钥
+ssh user@xxx.xxx.xxx.xxx -p port -i ~/.ssh/id_rsa_xxxx
 ```
 
 ### 2. 拷贝公钥到服务器
@@ -111,7 +114,10 @@ ssh aliyun
 # 修改 4.快速访问服务器 的 User 为 User shanyuhai
 ```
 
+### 4. 其他配置
 
+1. 修改默认的 22 端口 `Port`
+2. 禁用空密码
 
 
 
