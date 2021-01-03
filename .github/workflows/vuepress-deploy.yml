@@ -26,4 +26,3 @@ jobs:
           REMOTE_HOST: ${{ secrets.SERVER_IP }}
           REMOTE_PORT: ${{ secrets.SERVER_PORT }}
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-          TARGET: ${{ secrets.SERVER_TARGET }}
