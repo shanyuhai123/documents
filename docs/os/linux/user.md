@@ -47,6 +47,8 @@ Linux 是多用户多任务操作系统，换句话说，Linux 系统支持多�
 | gpasswd  | 管理用户组。                                                 |
 | newgrep  | 设置初始组。                                                 |
 
+也可以选择更为简单的 `adduser`、`deluser` 进行交互式操作，可添加 `-h` 来查看帮助。
+
 
 
 ## useradd 解析
