@@ -18,11 +18,12 @@ jobs:
           npm run docs:build
 
       - name: Deploy 🚀
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "docs/.vuepress/dist"
-          REMOTE_HOST: ${{ secrets.SERVER_IP }}
-          REMOTE_PORT: ${{ secrets.SERVER_PORT }}
-          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: docs/.vuepress/dist/
+          remote_path: ${{ secrets.SERVER_TARGET }}
+          remote_host: ${{ secrets.SERVER_IP }}
+          remote_port: ${{ secrets.SERVER_PORT }}
+          remote_user: ${{ secrets.SSH_USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
