@@ -10,66 +10,41 @@ title: ESLint 格式化
 
 ## ESLint 依赖
 
-安装 `ESLint` 依赖，然后根据提示一步步确认生成 `.eslintrc.js` 配置文件：
+安装依赖：
 
 ```bash
+# 初始化
+npm init -y
+
+# 安装 eslint
 npm i eslint -D
-./node_modules/.bin/eslint --init
+# 如果需要支持 ts
+npm i typescript -D
 ```
 
-检测并格式化文件：
+初始化 eslint：
 
 ```bash
-./node_modules/.bin/eslint yourfile.js
-./node_modules/.bin/eslint yourfile.js --fix
+# https://docs.npmjs.com/cli/v7/commands/npx
+npx eslint --init
 ```
 
-个人更喜欢 `ESLint` + `Prettier` 的组合，安装对应的依赖：
+检测和格式化文件：
 
 ```bash
-npm i prettier eslint-plugin-prettier  @vue/eslint-config-prettier -D
-# 移除无需的依赖
-npm un eslint-config-google
+npx eslint yourfile.js
+npx eslint yourfile.js --fix
 ```
 
-配置 `.eslintrc.js`：
+也可以配置 `package.json` script：
 
-```js
-module.exports = {
-  'env': {
-    'browser': true,
-    'es6': true,
-    'node': true,
-  },
-  'extends': [
-    'plugin:vue/essential',
-    '@vue/prettier', // 替换为安装的 `prettier`
-  ],
-  'globals': {
-    'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly',
-  },
-  'parserOptions': {
-    'ecmaVersion': 2018,
-    'sourceType': 'module',
-  },
-  'plugins': [
-    'vue',
-  ],
-  'rules': {
-    // 'quotes': ['error', 'single'] // 启用单引号
-  },
-};
+```json
+"scripts": {
+  "lint": "eslint --ext .js ./ --fix",
+}
 ```
 
-当希望自定义规则时，除了添加 `rules`，还需要配置 `.prettierrc.js`：
-
-```js
-// 以 单引号 示例
-module.exports = {
-  singleQuote: true
-};
-```
+至于在 `git hooks` 处添加 `lint`，此处就不展开了。
 
 
 
@@ -83,24 +58,27 @@ module.exports = {
 配置 `ESLint` 后在编辑器中保存(`Ctrl + S`)即会自动格式化。
 
 ```json
+// eslint + format
+"eslint.options": {
+  "extensions": [
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx",
+    ".html",
+    ".vue"
+  ]
+},
+"eslint.validate": [
+  "javascript",
+  "javascriptreact",
+  "typescript",
+  "typescriptreact",
+  "html",
+  "vue"
+],
 "editor.codeActionsOnSave": {
-  "source.fixAll.eslint": true
+  "source.fixAll.eslint": true,
 }
 ```
-
-当希望对当前目录下的所有 `.js`、`.vue` 进行格式化时，在命令行执行：
-
-```bash
-./node_modules/.bin/eslint --ext .js,.vue ./ --fix
-```
-
-若觉得其麻烦可以在 `package.json` 中配置：
-
-```json
-"scripts": {
-  "lint": "./node_modules/.bin/eslint --ext .js,.vue ./ --fix",
-},
-```
-
-再在命令行执行 `npm run lint` 即可，当然你还可以在 `git hooks` 处添加 `lint`，不过此处就不展开了。
 
