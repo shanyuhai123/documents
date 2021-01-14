@@ -18,12 +18,9 @@ jobs:
           npm run docs:build
 
       - name: Deploy 🚀
-        uses: burnett01/rsync-deployments@4.1
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          switches: -avzr --delete
-          path: docs/.vuepress/dist/
-          remote_path: ${{ secrets.SERVER_TARGET }}
-          remote_host: ${{ secrets.SERVER_IP }}
-          remote_port: ${{ secrets.SERVER_PORT }}
-          remote_user: ${{ secrets.SSH_USERNAME }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vuepress/dist
+          cname: docs.shanyuhai.top
+          commit_message: ${{ github.event.head_commit.message }}
