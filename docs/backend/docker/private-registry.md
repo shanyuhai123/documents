@@ -130,3 +130,108 @@ bash install.sh
 ### 4. 用户
 
 Harbor 使用前需要注册帐号，推送镜像前需要先创建项目，邀请成员才行。
+
+
+
+## 自签证书
+
+Harbor 在非 `https` 的环境下总是会出现各种各样的问题，而内网使用时需要自签证书解决 `https` 问题。
+
+Harbor 官网对这一部分有详细的[说明](https://goharbor.io/docs/2.1.0/install-config/configure-https/)，此处稍微简化。
+
+### 1. 生成 CA 证书
+
+先生成 `ca` 私钥：
+
+```bash
+openssl genrsa -out ca.key 4096
+```
+
+再生成 `ca` 证书：
+
+```bash
+openssl req -x509 -new -nodes -sha512 -days 3650 \
+ -subj "/C=CN/ST=Beijing/L=Beijing/O=example/OU=Personal/CN=harbor.xxx.com" \
+ -key ca.key \
+ -out ca.crt
+```
+
+### 2. 生成服务端证书
+
+服务端证书包含 `.crt` 及 `.key` 文件。
+
+先生成域名私钥：
+
+```bash
+openssl genrsa -out harbor.xxx.com.key 4096
+```
+
+再生成证书签名请求（Certificate Signing Request）：
+
+```bash
+openssl req -sha512 -new \
+    -subj "/C=CN/ST=Beijing/L=Beijing/O=example/OU=Personal/CN=harbor.xxx.com" \
+    -key harbor.xxx.com.key \
+    -out harbor.xxx.com.csr
+```
+
+再生成 `x509 v3` 扩展：
+
+```bash
+cat > v3.ext <<-EOF
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1=harbor.xxx.com
+DNS.2=xxx
+DNS.3=hostname
+EOF
+```
+
+根据 `v3.ext` 生成证书：
+
+```bash
+openssl x509 -req -sha512 -days 3650 \
+    -extfile v3.ext \
+    -CA ca.crt -CAkey ca.key -CAcreateserial \
+    -in harbor.xxx.com.csr \
+    -out harbor.xxx.com.crt
+```
+
+将 `crt` 转为 `cert`，以供 Docker client 使用：
+
+```bash
+openssl x509 -inform PEM -in harbor.xxx.com.crt -out harbor.xxx.com.cert
+```
+
+### 3. Docker 客户端使用
+
+需要将证书拷贝至 `docker` 配置即`/etc/docker/certs.d/harbor.xxx.com/` 目录下，增加 `ca.crt` 、`harbor.xxx.com.cert` 、`harbor.xxx.com.key` 三个文件，最后结构如下：
+
+```bash
+/etc/docker/certs.d/
+    └── harbor.xxx.com
+       ├── harbor.xxx.com.cert
+       ├── harbor.xxx.com.key
+       └── ca.crt
+```
+
+配置完成后还需重启 Docker。
+
+### 4. 浏览器使用
+
+Manjaro 下找到 SSL 设置，添加 `harbor.xxx.com.crt` 证书即可。
+
+### 5. 注意事项
+
+在使用 Nginx 反向代理 `push` 存在[问题](https://github.com/goharbor/harbor/issues/13553)。根据 `common/config/nginx/nginx.conf` 中的提示注释，需注意不止一处：
+
+```nginx
+# When setting up Harbor behind other proxy, such as an Nginx instance, remove the below line if the proxy already has similar settings.
+#proxy_set_header X-Forwarded-Proto $scheme;
+```
+
