@@ -20,7 +20,7 @@ docker run -d \
   mysql:8.0
 ```
 
-调试工具为 MySQL Workbench。
+调试工具为 MySQL Workbench，可在 `Preferences` 中为其设置 `Use UPPERCASE`。
 
 
 
