@@ -1,5 +1,6 @@
 ---
-title: 开始 Node
+title: 开始
+autoPrev: README
 ---
 
 ## 安装

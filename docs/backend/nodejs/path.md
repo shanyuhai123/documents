@@ -1,5 +1,5 @@
 ---
-title: 路径 path
+title: Path
 ---
 
 ## 介绍
