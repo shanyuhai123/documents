@@ -8,7 +8,7 @@ title: INSERT、UPDATE & DELETE
 
 多行数据以 `,` 分隔。
 
-```mysql
+```sql
 INSERT INTO customers
 	(cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country)
 VALUES
@@ -26,7 +26,7 @@ VALUES
 + 列名和它们的新值
 + 确定要更新行的过滤条件
 
-```mysql
+```sql
 UPDATE customers
 SET 
 	cust_name = 'The Fudd',
@@ -40,7 +40,7 @@ WHERE cust_id = 10005
 
 注意检查 WHERE 有没有使用。
 
-```mysql
+```sql
 DELETE FROM customers
 WHERE cust_id = 10006
 ```

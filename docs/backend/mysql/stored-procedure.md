@@ -22,7 +22,7 @@ title: Stored Procedure
 
 ## 创建存储过程
 
-```mysql
+```sql
 DROP PROCEDURE IF EXISTS get_customer_by_id;
 
 DELIMITER //
@@ -40,7 +40,7 @@ DELIMITER ;
 
 再调用：
 
-```mysql
+```sql
 CALL get_customer_by_id(10003)
 ```
 

@@ -22,7 +22,7 @@ title: VIEWS
 
 创建视图：
 
-```mysql
+```sql
 CREATE VIEW product_customers AS
 	SELECT
 		cust_name,
@@ -37,7 +37,7 @@ CREATE VIEW product_customers AS
 
 使用视图：
 
-```mysql
+```sql
 SELECT
 	cust_name,
   cust_contact

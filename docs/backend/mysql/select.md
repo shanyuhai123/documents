@@ -22,7 +22,7 @@ title: SELECT
 
 ### 列选择
 
-```mysql
+```sql
 -- 单列
 SELECT 
 	prod_name
@@ -41,7 +41,7 @@ SELECT * FROM products
 
 ### 限制结果
 
-```mysql
+```sql
 -- 直接在列上限制
 SELECT 
 	DISTINCT vend_id
@@ -66,7 +66,7 @@ LIMIT 5, 5
 
 排序的概念比较简单，需要注意的是一般会将其放在后面执行。
 
-```mysql
+```sql
 -- 指定排序
 SELECT 
 	prod_name
@@ -99,7 +99,7 @@ ORDER BY prod_price DESC, prod_name
 
 ### 简单 WHERE
 
-```mysql
+```sql
 -- 简单
 SELECT 
 	prod_name,
@@ -126,7 +126,7 @@ WHERE cust_email IS NULL
 
 注意 AND 和 OR 同时使用时 AND 计算优先级更高，在任何多种操作符存在时都使用 `()`  明确区分，避免出现问题。
 
-```mysql
+```sql
 SELECT 
 	vend_id,
 	prod_id,
@@ -140,7 +140,7 @@ WHERE vend_id = 1002 OR vend_id = 1003 AND prod_price <= 5
 
 `IN` 操作符可表示条件范围，可利用 IN WHERE 子句完成一些麻烦的手写行为。
 
-```mysql
+```sql
 SELECT 
 	vend_id,
 	prod_id,
@@ -182,7 +182,7 @@ WHERE cust_id IN (
 
 前面的过滤很常见，但更实用的还看通配符。
 
-```mysql
+```sql
 -- % 表示任何字符出现任意次数
 SELECT 
 	prod_id,
@@ -209,7 +209,7 @@ WHERE prod_name LIKE "_et%"
 
 无论啥语言都逃不过正则表达式的魔爪，幸运的是它们的规则、关键字基本相通，减少了学习成本。
 
-```mysql
+```sql
 SELECT 
 	prod_id,
 	prod_name
@@ -228,7 +228,7 @@ WHERE prod_name REGEXP '\\d{4}'
 
 例如日期格式，当仅想对比到日时：
 
-```mysql
+```sql
 SELECT 
 	cust_id,
   order_num,
@@ -245,7 +245,7 @@ WHERE date(order_date) = '2005-09-01'
 
 很多时候是由计算返回的结果。别名 `alias` 可简写为 AS，甚至还可忽略。
 
-```mysql
+```sql
 SELECT 
 	vend_id,
   concat(vend_name, '(',vend_country, ')') vend_title
@@ -281,7 +281,7 @@ ORDER BY cust_name
 
 如果对 `count(*)` 存在困惑的话，配合上分组就好理解了。
 
-```mysql
+```sql
 SELECT 
 	vend_id,
   count(*) AS num_prods
@@ -291,7 +291,7 @@ GROUP BY vend_id
 
 需注意配合分组使用的是 `HAVING` 而非 `WHERE`，一种理解是 `WHERE` 在数据分组前进行过滤，`HAVING` 在数据分组后进行过滤，到底是怎么回事得看 MySQL 的源码了。
 
-```mysql
+```sql
 SELECT 
 	vend_id,
   count(*) AS num_prods

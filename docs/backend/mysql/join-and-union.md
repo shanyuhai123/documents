@@ -14,7 +14,7 @@ title: JOIN & UNION
 
 内部联结又称为等值联结，它基于两个表之间的相等测试。
 
-```mysql
+```sql
 SELECT
 	vend_name,
   prod_name,
@@ -38,7 +38,7 @@ JOIN products p2
 
 ### 外部联结
 
-```mysql
+```sql
 SELECT
 	c.cust_id,
   o.order_num
@@ -51,7 +51,7 @@ LEFT JOIN orders o
 
 ### 聚集函数
 
-```mysql
+```sql
 SELECT
 	c.cust_name,
   c.cust_id,
@@ -70,7 +70,7 @@ GROUP BY c.cust_id
 
 UNION 中每个查询必须包含相同的列、表达式或聚集函数。
 
-```mysql
+```sql
 -- 指定 ALL 不会取消重复的行
 SELECT
 	vend_id,
