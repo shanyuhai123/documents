@@ -237,7 +237,7 @@ FROM orders
 WHERE date(order_date) = '2005-09-01'
 ```
 
-
+更多内置的方法可[参考](https://dev.mysql.com/doc/refman/8.0/en/numeric-functions.html)。
 
 
 
