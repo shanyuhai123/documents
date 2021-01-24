@@ -27,3 +27,4 @@ docker run -d \
 ## 参考资料
 
 1. 《MySQL 必知必会》
+2. 《高性能 MySQL》
