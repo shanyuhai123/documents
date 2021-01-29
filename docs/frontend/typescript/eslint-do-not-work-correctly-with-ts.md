@@ -4,7 +4,11 @@ title: ESLint 错误提示
 
 ## 情况
 
-ESLint 的提示在 TypeScript 下没有好好工作：
+ESLint 的提示在 TypeScript 下没有好好工作。
+
+
+
+## enum is defined but never used
 
 ```tsx
 // xxx is defined but never used. eslint(no-unused-vars)
@@ -27,3 +31,22 @@ module.exports = {
 
 ```
 
+
+
+## Cannot read property 'loc' of undefined
+
+参考 [Cannot read property 'loc' of undefined](https://github.com/microsoft/vscode-eslint/issues/1149) 修改：
+
+```js
+module.exports = {
+  // ...
+  rules: {
+    'indent': 'off',
+    '@typescript-eslint/indent': [
+      'error',
+      2
+    ]
+  }
+}
+
+```
