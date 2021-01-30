@@ -48,5 +48,19 @@ module.exports = {
     ]
   }
 }
-
 ```
+
+
+
+## Cannot read property 'body' of null
+
+```tsx
+module.exports = {
+  // ...
+  rules: {
+    'no-useless-constructor': 'off',
+    '@typescript-eslint/no-useless-constructor': 'error'
+  }
+}
+```
+
