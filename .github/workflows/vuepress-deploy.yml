@@ -9,15 +9,23 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
-        with:
-          persist-credentials: false
+        # with:
+        #   persist-credentials: false
 
       - name: Install and Build 🔧
         run: |
           npm install
           npm run docs:build
 
-      - name: Deploy 🚀
+      - name: Deploy Github 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PAGES_TOKEN }}
+          publish_dir: docs/.vuepress/dist
+          cname: docs.shanyuhai.top
+          commit_message: ${{ github.event.head_commit.message }}
+
+      - name: Deploy Server 🚀
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete
