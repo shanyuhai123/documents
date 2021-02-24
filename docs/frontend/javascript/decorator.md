@@ -363,4 +363,5 @@ Log = __decorate([
 ], Log)
 ```
 
-使用了 [Reflect](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)，[比较 Reflect 和 Object 方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect/%E6%AF%94%E8%BE%83_Reflect_%E5%92%8C_Object_%E6%96%B9%E6%B3%95)。
+使用了 [Reflect](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)，[比较 Reflect 和 Object 方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect/%E6%AF%94%E8%BE%83_Reflect_%E5%92%8C_Object_%E6%96%B9%E6%B3%95)，注意其中只使用了 `Reflect.decorate` 来实现装饰器的功能，缺乏 [Reflect.metadata](https://rbuckton.github.io/reflect-metadata/) 反射获取注解信息，而 [InversifyJS](https://github.com/inversify/InversifyJS) 在这方面有很好的应用。
+
