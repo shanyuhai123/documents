@@ -23,6 +23,7 @@ module.exports = [
   { text: '后端', items: [
     { text: 'Nodejs', link: '/backend/nodejs/' },
     { text: 'Nestjs', link: '/backend/nestjs/' },
+    { text: 'Golang', link: '/backend/golang/' },
     { text: 'Nginx', link: '/backend/nginx/' },
     { text: 'MySQL', link: '/backend/mysql/' },
     { text: 'MongoDB', link: '/backend/mongodb/' },
