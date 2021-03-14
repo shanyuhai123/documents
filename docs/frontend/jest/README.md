@@ -61,3 +61,4 @@ title: JEST
 
 1. [jestjs.io](https://jestjs.io/)
 2. [Vue Test Utils](https://vue-test-utils.vuejs.org/zh/)
+3. [ts-jest](https://kulshekhar.github.io/ts-jest/docs/)
