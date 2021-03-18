@@ -79,7 +79,9 @@ type cases = [
 ```ts
 import { Equal, Expect } from '@type-challenges/utils'
 
-type MyPick<T, K> = any
+type MyPick<T, K extends keyof T> = {
+  [P in K]: T[P]
+}
 
 interface Todo {
   title: string
@@ -97,8 +99,8 @@ interface Expected2 {
 }
 
 type cases = [
-  Expect<Equal<Expected1, Pick<Todo, 'title'>>>,
-  Expect<Equal<Expected2, Pick<Todo, 'title' | 'completed'>>>
+  Expect<Equal<Expected1, MyPick<Todo, 'title'>>>,
+  Expect<Equal<Expected2, MyPick<Todo, 'title' | 'completed'>>>
 ]
 ```
 
@@ -227,6 +229,47 @@ type cases = [
   Expect<Equal<Concat<[], [1]>, [1]>>,
   Expect<Equal<Concat<[1, 2], [3, 4]>, [1, 2, 3, 4]>>,
   Expect<Equal<Concat<['1', 2, '3'], [false, boolean, '4']>, ['1', 2, '3', false, boolean, '4']>>,
+]
+```
+
+### Includes
+
+```ts
+import { Equal, Expect } from '@type-challenges/utils'
+
+type Includes<T extends any[], U> = U extends T[number] ? true : false
+
+type cases = [
+  Expect<Equal<Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Kars'>, true>>,
+  Expect<Equal<Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Dio'>, false>>,
+  Expect<Equal<Includes<[1, 2, 3, 5, 6, 7], 4>, false>>,
+]
+```
+
+### Get Return Type
+
+```ts
+import { Equal, Expect } from '@type-challenges/utils'
+
+type ComplexObject = {
+  a: [12, 'foo']
+  bar: 'hello'
+  prev(): number
+}
+
+const fn = (v: boolean) => v ? 1 : 2
+const fn1 = (v: boolean, w: any) => v ? 1 : 2
+
+type MyReturnType<T extends Function> = T extends (...args: any) => infer R ? R : any
+
+type cases = [
+  Expect<Equal<string, MyReturnType<() => string>>>,
+  Expect<Equal<123, MyReturnType<() => 123>>>,
+  Expect<Equal<ComplexObject, MyReturnType<() => ComplexObject>>>,
+  Expect<Equal<Promise<boolean>, MyReturnType<() => Promise<boolean>>>>,
+  Expect<Equal<() => 'foo', MyReturnType<() => () => 'foo'>>>,
+  Expect<Equal<1 | 2, MyReturnType<typeof fn>>>,
+  Expect<Equal<1 | 2, MyReturnType<typeof fn1>>>,
 ]
 ```
 
