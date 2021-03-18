@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>kubeadm 部署 k8s 集群 | 飞跃高山与大洋的鱼</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="description" content="飞跃高山与大洋的鱼的文档, vuepress 文档">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="Ld_AEWr30siza2LmmZ12csitRGsSj9gqqEAch0UXkTc">
+    
+    <link rel="preload" href="/assets/css/0.styles.e554653d.css" as="style"><link rel="preload" href="/assets/js/app.7af639cc.js" as="script"><link rel="preload" href="/assets/js/2.ccd9c097.js" as="script"><link rel="preload" href="/assets/js/156.0ee20a48.js" as="script"><link rel="preload" href="/assets/js/4.80f6fb2c.js" as="script"><link rel="prefetch" href="/assets/js/10.c2cd98b4.js"><link rel="prefetch" href="/assets/js/100.0fbada98.js"><link rel="prefetch" href="/assets/js/101.70c0f832.js"><link rel="prefetch" href="/assets/js/102.cca6b5ae.js"><link rel="prefetch" href="/assets/js/103.e5f98ec4.js"><link rel="prefetch" href="/assets/js/104.3c35890a.js"><link rel="prefetch" href="/assets/js/105.62ceed0a.js"><link rel="prefetch" href="/assets/js/106.b3b73f5d.js"><link rel="prefetch" href="/assets/js/107.97f8d6d0.js"><link rel="prefetch" href="/assets/js/108.3726ac5d.js"><link rel="prefetch" href="/assets/js/109.649bde90.js"><link rel="prefetch" href="/assets/js/11.e91346a0.js"><link rel="prefetch" href="/assets/js/110.4ee7dbae.js"><link rel="prefetch" href="/assets/js/111.74d8c7e5.js"><link rel="prefetch" href="/assets/js/112.c8303a42.js"><link rel="prefetch" href="/assets/js/113.841fd7ad.js"><link rel="prefetch" href="/assets/js/114.624e564d.js"><link rel="prefetch" href="/assets/js/115.daf87590.js"><link rel="prefetch" href="/assets/js/116.96e4df08.js"><link rel="prefetch" href="/assets/js/117.7f8127cd.js"><link rel="prefetch" href="/assets/js/118.4b76d880.js"><link rel="prefetch" href="/assets/js/119.2ffc6951.js"><link rel="prefetch" href="/assets/js/12.45228ec9.js"><link rel="prefetch" href="/assets/js/120.366dcfda.js"><link rel="prefetch" href="/assets/js/121.fe1a7262.js"><link rel="prefetch" href="/assets/js/122.701a418c.js"><link rel="prefetch" href="/assets/js/123.8bbe65c5.js"><link rel="prefetch" href="/assets/js/124.ee30a04d.js"><link rel="prefetch" href="/assets/js/125.084406a4.js"><link rel="prefetch" href="/assets/js/126.017a8571.js"><link rel="prefetch" href="/assets/js/127.1c2340dd.js"><link rel="prefetch" href="/assets/js/128.0d4a75b7.js"><link rel="prefetch" href="/assets/js/129.826806db.js"><link rel="prefetch" href="/assets/js/13.c6e100a0.js"><link rel="prefetch" href="/assets/js/130.0925b3b1.js"><link rel="prefetch" href="/assets/js/131.b912d239.js"><link rel="prefetch" href="/assets/js/132.d572f99a.js"><link rel="prefetch" href="/assets/js/133.5ee173f1.js"><link rel="prefetch" href="/assets/js/134.a54ca93f.js"><link rel="prefetch" href="/assets/js/135.54ba45fe.js"><link rel="prefetch" href="/assets/js/136.b30c63cf.js"><link rel="prefetch" href="/assets/js/137.4797a409.js"><link rel="prefetch" href="/assets/js/138.75002190.js"><link rel="prefetch" href="/assets/js/139.f8e5b170.js"><link rel="prefetch" href="/assets/js/14.c8a9978e.js"><link rel="prefetch" href="/assets/js/140.2917df2a.js"><link rel="prefetch" href="/assets/js/141.0b05e1f7.js"><link rel="prefetch" href="/assets/js/142.02cf740a.js"><link rel="prefetch" href="/assets/js/143.e3c1fa63.js"><link rel="prefetch" href="/assets/js/144.60e457c6.js"><link rel="prefetch" href="/assets/js/145.81586533.js"><link rel="prefetch" href="/assets/js/146.34a4ed02.js"><link rel="prefetch" href="/assets/js/147.a14f5e0b.js"><link rel="prefetch" href="/assets/js/148.11aa57fa.js"><link rel="prefetch" href="/assets/js/149.317e652e.js"><link rel="prefetch" href="/assets/js/15.fa93eeaa.js"><link rel="prefetch" href="/assets/js/150.fe4ee808.js"><link rel="prefetch" href="/assets/js/151.c1c103ed.js"><link rel="prefetch" href="/assets/js/152.73ade835.js"><link rel="prefetch" href="/assets/js/153.48372c5e.js"><link rel="prefetch" href="/assets/js/154.23b902cb.js"><link rel="prefetch" href="/assets/js/155.d3aa464a.js"><link rel="prefetch" href="/assets/js/157.a1a4b4ad.js"><link rel="prefetch" href="/assets/js/158.b6c44bbc.js"><link rel="prefetch" href="/assets/js/159.f4c4f05e.js"><link rel="prefetch" href="/assets/js/16.8e4c20c2.js"><link rel="prefetch" href="/assets/js/160.7011ae0c.js"><link rel="prefetch" href="/assets/js/161.b59dc864.js"><link rel="prefetch" href="/assets/js/162.8438f3e8.js"><link rel="prefetch" href="/assets/js/163.e90e9836.js"><link rel="prefetch" href="/assets/js/164.b7b4fe72.js"><link rel="prefetch" href="/assets/js/165.4cdff842.js"><link rel="prefetch" href="/assets/js/166.828d5c4d.js"><link rel="prefetch" href="/assets/js/167.4fa53931.js"><link rel="prefetch" href="/assets/js/168.cfb3173e.js"><link rel="prefetch" href="/assets/js/169.f1327d2e.js"><link rel="prefetch" href="/assets/js/17.d4567bda.js"><link rel="prefetch" href="/assets/js/170.bca3934e.js"><link rel="prefetch" href="/assets/js/171.be0d1cf2.js"><link rel="prefetch" href="/assets/js/172.88423639.js"><link rel="prefetch" href="/assets/js/173.41401dbe.js"><link rel="prefetch" href="/assets/js/174.a0d3a582.js"><link rel="prefetch" href="/assets/js/175.27869a07.js"><link rel="prefetch" href="/assets/js/176.1f0df7bb.js"><link rel="prefetch" href="/assets/js/177.92f81f70.js"><link rel="prefetch" href="/assets/js/178.2fcef2b3.js"><link rel="prefetch" href="/assets/js/179.3918a50c.js"><link rel="prefetch" href="/assets/js/18.4cd66cc0.js"><link rel="prefetch" href="/assets/js/180.772256d8.js"><link rel="prefetch" href="/assets/js/181.eb21aea0.js"><link rel="prefetch" href="/assets/js/182.c1fa50fb.js"><link rel="prefetch" href="/assets/js/183.7d41ff6d.js"><link rel="prefetch" href="/assets/js/184.6807b0ba.js"><link rel="prefetch" href="/assets/js/185.be1b63c9.js"><link rel="prefetch" href="/assets/js/186.58529f90.js"><link rel="prefetch" href="/assets/js/187.b366ca2f.js"><link rel="prefetch" href="/assets/js/188.72c62d31.js"><link rel="prefetch" href="/assets/js/189.d8fa166e.js"><link rel="prefetch" href="/assets/js/19.31524364.js"><link rel="prefetch" href="/assets/js/190.263f6003.js"><link rel="prefetch" href="/assets/js/191.c723804a.js"><link rel="prefetch" href="/assets/js/192.1d187bf2.js"><link rel="prefetch" href="/assets/js/193.cf544fa5.js"><link rel="prefetch" href="/assets/js/194.9dae1177.js"><link rel="prefetch" href="/assets/js/195.5169cdae.js"><link rel="prefetch" href="/assets/js/196.498d5462.js"><link rel="prefetch" href="/assets/js/197.886bc227.js"><link rel="prefetch" href="/assets/js/198.94201e73.js"><link rel="prefetch" href="/assets/js/199.91a745ac.js"><link rel="prefetch" href="/assets/js/20.40361546.js"><link rel="prefetch" href="/assets/js/200.f5cba53c.js"><link rel="prefetch" href="/assets/js/201.3bb28698.js"><link rel="prefetch" href="/assets/js/202.152c6ba2.js"><link rel="prefetch" href="/assets/js/203.1b4d7254.js"><link rel="prefetch" href="/assets/js/204.56889f06.js"><link rel="prefetch" href="/assets/js/205.af8dedc1.js"><link rel="prefetch" href="/assets/js/206.dc760a76.js"><link rel="prefetch" href="/assets/js/207.3c31401e.js"><link rel="prefetch" href="/assets/js/208.c04f8ae7.js"><link rel="prefetch" href="/assets/js/209.d3a58303.js"><link rel="prefetch" href="/assets/js/21.e217cc91.js"><link rel="prefetch" href="/assets/js/210.2e115754.js"><link rel="prefetch" href="/assets/js/211.091671f4.js"><link rel="prefetch" href="/assets/js/212.22647e82.js"><link rel="prefetch" href="/assets/js/213.5b39cddc.js"><link rel="prefetch" href="/assets/js/214.86ee8d51.js"><link rel="prefetch" href="/assets/js/215.ac111243.js"><link rel="prefetch" href="/assets/js/216.7c765a3c.js"><link rel="prefetch" href="/assets/js/217.be965dbd.js"><link rel="prefetch" href="/assets/js/218.b10e2fdc.js"><link rel="prefetch" href="/assets/js/219.319d6dc1.js"><link rel="prefetch" href="/assets/js/22.c4c9f807.js"><link rel="prefetch" href="/assets/js/220.03519a77.js"><link rel="prefetch" href="/assets/js/221.b21555c8.js"><link rel="prefetch" href="/assets/js/222.9829ea12.js"><link rel="prefetch" href="/assets/js/223.ed4e9e54.js"><link rel="prefetch" href="/assets/js/224.93bcfbb4.js"><link rel="prefetch" href="/assets/js/225.e80ab493.js"><link rel="prefetch" href="/assets/js/226.9498745d.js"><link rel="prefetch" href="/assets/js/227.bd73d9a8.js"><link rel="prefetch" href="/assets/js/228.8a459c1b.js"><link rel="prefetch" href="/assets/js/229.b618124f.js"><link rel="prefetch" href="/assets/js/23.a51e8fd2.js"><link rel="prefetch" href="/assets/js/230.f2c22e08.js"><link rel="prefetch" href="/assets/js/231.19ca926f.js"><link rel="prefetch" href="/assets/js/232.1561209f.js"><link rel="prefetch" href="/assets/js/233.9ba92414.js"><link rel="prefetch" href="/assets/js/234.a55b5578.js"><link rel="prefetch" href="/assets/js/235.4acc5d5c.js"><link rel="prefetch" href="/assets/js/236.46a84ad4.js"><link rel="prefetch" href="/assets/js/237.6afc0b2b.js"><link rel="prefetch" href="/assets/js/238.324514cb.js"><link rel="prefetch" href="/assets/js/24.18212ded.js"><link rel="prefetch" href="/assets/js/25.0821c0bb.js"><link rel="prefetch" href="/assets/js/26.0f633b28.js"><link rel="prefetch" href="/assets/js/27.526bb705.js"><link rel="prefetch" href="/assets/js/28.debf453b.js"><link rel="prefetch" href="/assets/js/29.7e53285d.js"><link rel="prefetch" href="/assets/js/3.4042c39e.js"><link rel="prefetch" href="/assets/js/30.7914fda6.js"><link rel="prefetch" href="/assets/js/31.2fdacf64.js"><link rel="prefetch" href="/assets/js/32.b1980138.js"><link rel="prefetch" href="/assets/js/33.9c9b8199.js"><link rel="prefetch" href="/assets/js/34.41d2f212.js"><link rel="prefetch" href="/assets/js/35.abdaf1bb.js"><link rel="prefetch" href="/assets/js/36.9132eb88.js"><link rel="prefetch" href="/assets/js/37.91c8aa2d.js"><link rel="prefetch" href="/assets/js/38.e80dff6d.js"><link rel="prefetch" href="/assets/js/39.a7296d66.js"><link rel="prefetch" href="/assets/js/40.383cc2e7.js"><link rel="prefetch" href="/assets/js/41.be336153.js"><link rel="prefetch" href="/assets/js/42.aeb47d62.js"><link rel="prefetch" href="/assets/js/43.0296c1bc.js"><link rel="prefetch" href="/assets/js/44.e8a04c24.js"><link rel="prefetch" href="/assets/js/45.1e7db537.js"><link rel="prefetch" href="/assets/js/46.32aaab3b.js"><link rel="prefetch" href="/assets/js/47.5b5d5edd.js"><link rel="prefetch" href="/assets/js/48.9c02ce78.js"><link rel="prefetch" href="/assets/js/49.b059e3ec.js"><link rel="prefetch" href="/assets/js/5.d8ba792b.js"><link rel="prefetch" href="/assets/js/50.c1e7f694.js"><link rel="prefetch" href="/assets/js/51.3b0e5a33.js"><link rel="prefetch" href="/assets/js/52.e9f158e0.js"><link rel="prefetch" href="/assets/js/53.32b878b7.js"><link rel="prefetch" href="/assets/js/54.4a7670ec.js"><link rel="prefetch" href="/assets/js/55.f962b8d6.js"><link rel="prefetch" href="/assets/js/56.ba99c4ca.js"><link rel="prefetch" href="/assets/js/57.2f1d3749.js"><link rel="prefetch" href="/assets/js/58.b2178944.js"><link rel="prefetch" href="/assets/js/59.c583bd16.js"><link rel="prefetch" href="/assets/js/6.108bde29.js"><link rel="prefetch" href="/assets/js/60.7259633e.js"><link rel="prefetch" href="/assets/js/61.bae7c3ce.js"><link rel="prefetch" href="/assets/js/62.ff2bc2a8.js"><link rel="prefetch" href="/assets/js/63.ff974e8d.js"><link rel="prefetch" href="/assets/js/64.219a7ba8.js"><link rel="prefetch" href="/assets/js/65.f9b3bac9.js"><link rel="prefetch" href="/assets/js/66.70a1e35f.js"><link rel="prefetch" href="/assets/js/67.35e6e49e.js"><link rel="prefetch" href="/assets/js/68.7fedfe2d.js"><link rel="prefetch" href="/assets/js/69.59464954.js"><link rel="prefetch" href="/assets/js/7.f5cda415.js"><link rel="prefetch" href="/assets/js/70.00742c86.js"><link rel="prefetch" href="/assets/js/71.1b4d1eed.js"><link rel="prefetch" href="/assets/js/72.746b05c6.js"><link rel="prefetch" href="/assets/js/73.38706945.js"><link rel="prefetch" href="/assets/js/74.8abf45f0.js"><link rel="prefetch" href="/assets/js/75.e0e59a3c.js"><link rel="prefetch" href="/assets/js/76.678d97fd.js"><link rel="prefetch" href="/assets/js/77.7c5e46cd.js"><link rel="prefetch" href="/assets/js/78.21b84919.js"><link rel="prefetch" href="/assets/js/79.5ced43ae.js"><link rel="prefetch" href="/assets/js/8.035d9478.js"><link rel="prefetch" href="/assets/js/80.2dfe5037.js"><link rel="prefetch" href="/assets/js/81.c04eb954.js"><link rel="prefetch" href="/assets/js/82.637d75bd.js"><link rel="prefetch" href="/assets/js/83.0489f90b.js"><link rel="prefetch" href="/assets/js/84.b736759c.js"><link rel="prefetch" href="/assets/js/85.88a37bdb.js"><link rel="prefetch" href="/assets/js/86.708f07a3.js"><link rel="prefetch" href="/assets/js/87.9c9574d5.js"><link rel="prefetch" href="/assets/js/88.973b7627.js"><link rel="prefetch" href="/assets/js/89.69befab1.js"><link rel="prefetch" href="/assets/js/9.82402190.js"><link rel="prefetch" href="/assets/js/90.243c59c9.js"><link rel="prefetch" href="/assets/js/91.a0c964f6.js"><link rel="prefetch" href="/assets/js/92.7ea239e5.js"><link rel="prefetch" href="/assets/js/93.f8d1396e.js"><link rel="prefetch" href="/assets/js/94.48114dac.js"><link rel="prefetch" href="/assets/js/95.b7640049.js"><link rel="prefetch" href="/assets/js/96.922fc0a5.js"><link rel="prefetch" href="/assets/js/97.2810dbc1.js"><link rel="prefetch" href="/assets/js/98.2515eb32.js"><link rel="prefetch" href="/assets/js/99.ed5e579e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e554653d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">飞跃高山与大洋的鱼</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  先导
+</a></div><div class="nav-item"><a href="/computer/" class="nav-link">
+  计算机
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="系统" class="dropdown-title"><span class="title">系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="系统" class="mobile-dropdown-title"><span class="title">系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/os/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/os/manjaro/" class="nav-link">
+  Manjaro
+</a></li><li class="dropdown-item"><!----> <a href="/os/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/os/centos/" class="nav-link">
+  CentOS
+</a></li><li class="dropdown-item"><!----> <a href="/os/kubernetes/" class="nav-link router-link-active">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/typescript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/webpack/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/flutter/" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/d3js/" class="nav-link">
+  D3
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/jest/" class="nav-link">
+  Jest
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/utils/" class="nav-link">
+  Utils
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/nestjs/" class="nav-link">
+  Nestjs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/golang/" class="nav-link">
+  Golang
+</a></li><li class="dropdown-item"><!----> <a href="/backend/nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mongodb/" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/backend/docker/" class="nav-link">
+  Docker
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发工具" class="mobile-dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode/" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome/" class="nav-link">
+  Chrome Developer tools
+</a></li><li class="dropdown-item"><!----> <a href="/tools/bookmark-scripts/" class="nav-link">
+  Bookmark scripts
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow down"></span></button> <button type="button" aria-label="更多" class="mobile-dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/interview/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/more/hodgepodge/" class="nav-link">
+  小工具
+</a></li><li class="dropdown-item"><!----> <a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress 官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <a href="https://github.com/shanyuhai123/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  先导
+</a></div><div class="nav-item"><a href="/computer/" class="nav-link">
+  计算机
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="系统" class="dropdown-title"><span class="title">系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="系统" class="mobile-dropdown-title"><span class="title">系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/os/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/os/manjaro/" class="nav-link">
+  Manjaro
+</a></li><li class="dropdown-item"><!----> <a href="/os/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/os/centos/" class="nav-link">
+  CentOS
+</a></li><li class="dropdown-item"><!----> <a href="/os/kubernetes/" class="nav-link router-link-active">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/typescript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/webpack/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/flutter/" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/d3js/" class="nav-link">
+  D3
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/jest/" class="nav-link">
+  Jest
+</a></li><li class="dropdown-item"><!----> <a href="/frontend/utils/" class="nav-link">
+  Utils
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/nestjs/" class="nav-link">
+  Nestjs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/golang/" class="nav-link">
+  Golang
+</a></li><li class="dropdown-item"><!----> <a href="/backend/nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mongodb/" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/backend/docker/" class="nav-link">
+  Docker
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发工具" class="mobile-dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode/" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome/" class="nav-link">
+  Chrome Developer tools
+</a></li><li class="dropdown-item"><!----> <a href="/tools/bookmark-scripts/" class="nav-link">
+  Bookmark scripts
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow down"></span></button> <button type="button" aria-label="更多" class="mobile-dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/interview/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/more/hodgepodge/" class="nav-link">
+  小工具
+</a></li><li class="dropdown-item"><!----> <a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress 官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <a href="https://github.com/shanyuhai123/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>KUBERNETES</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/os/kubernetes/" aria-current="page" class="sidebar-link">KUBERNETES</a></li><li><a href="/os/kubernetes/concept.html" class="sidebar-link">重要概念</a></li><li><a href="/os/kubernetes/dashboard.html" class="sidebar-link">Dashboard</a></li><li><a href="/os/kubernetes/deploy-k8s-with-kubeadm.html" aria-current="page" class="active sidebar-link">kubeadm 部署 k8s 集群</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/os/kubernetes/deploy-k8s-with-kubeadm.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/os/kubernetes/deploy-k8s-with-kubeadm.html#初始化操作" class="sidebar-link">初始化操作</a></li><li class="sidebar-sub-header"><a href="/os/kubernetes/deploy-k8s-with-kubeadm.html#安装依赖" class="sidebar-link">安装依赖</a></li><li class="sidebar-sub-header"><a href="/os/kubernetes/deploy-k8s-with-kubeadm.html#部署" class="sidebar-link">部署</a></li><li class="sidebar-sub-header"><a href="/os/kubernetes/deploy-k8s-with-kubeadm.html#清理" class="sidebar-link">清理</a></li><li class="sidebar-sub-header"><a href="/os/kubernetes/deploy-k8s-with-kubeadm.html#测试" class="sidebar-link">测试</a></li></ul></li><li><a href="/os/kubernetes/deploy-mysql-with-nfs.html" class="sidebar-link">部署 MySQL</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>虽然 kubeadm 屏蔽了细节，遇到问题难以排查，但是它简单快捷。</p> <p>规划为单 master 三 node 的集群，并在 master 中设置 hosts。</p> <div class="language- extra-class"><pre class="language-text"><code>hostnamectl set-hostname k8s-master
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;&gt;</span> /etc/hosts <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+10.0.0.140 k8s-master
+10.0.0.141 k8s-node1
+10.0.0.142 k8s-node2
+10.0.0.143 k8s-node3
+EOF</span>
+</code></pre></div><h2 id="初始化操作"><a href="#初始化操作" class="header-anchor">#</a> 初始化操作</h2> <h3 id="_1-关闭防火墙"><a href="#_1-关闭防火墙" class="header-anchor">#</a> 1. 关闭防火墙</h3> <p>方便测试，具体可根据 <a href="https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports" target="_blank" rel="noopener noreferrer">检查所需端口<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>systemctl stop firewalld
+systemctl disable firewalld
+</code></pre></div><h3 id="_2-关闭-selinux"><a href="#_2-关闭-selinux" class="header-anchor">#</a> 2. 关闭 selinux</h3> <p>这是允许容器访问主机文件系统所必需的，而这些操作时为了例如 Pod 网络工作正常。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>setenforce <span class="token number">0</span>
+
+<span class="token function">sed</span> -i <span class="token string">'s/enforcing/disabled/'</span> /etc/selinux/config
+</code></pre></div><h3 id="_3-关闭-swap"><a href="#_3-关闭-swap" class="header-anchor">#</a> 3. 关闭 swap</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>swapoff -a
+
+<span class="token function">sed</span> -ri <span class="token string">'s/.*swap.*/#&amp;/'</span> /etc/fstab
+</code></pre></div><h3 id="_4-允许-iptables-检查桥接流量"><a href="#_4-允许-iptables-检查桥接流量" class="header-anchor">#</a> 4. 允许 iptables 检查桥接流量</h3> <p>确保 <code>br_netfilter</code> 模块被加载。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/modules-load.d/k8s.conf</span>
+br_netfilter
+EOF</span>
+
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/sysctl.d/k8s.conf</span>
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF</span>
+sysctl --system  <span class="token comment"># 生效</span>
+</code></pre></div><h3 id="_5-时间同步"><a href="#_5-时间同步" class="header-anchor">#</a> 5. 时间同步</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>yum <span class="token function">install</span> ntpdate -y
+ntpdate ntp1.aliyun.com
+</code></pre></div><h2 id="安装依赖"><a href="#安装依赖" class="header-anchor">#</a> 安装依赖</h2> <h3 id="_1-安装-docker"><a href="#_1-安装-docker" class="header-anchor">#</a> 1. 安装 docker</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">curl</span> -fsSL https://get.docker.com -o get-docker.sh
+<span class="token function">sh</span> get-docker.sh --mirror Aliyun
+
+systemctl <span class="token builtin class-name">enable</span> docker <span class="token operator">&amp;&amp;</span> systemctl start docker
+
+docker --version
+</code></pre></div><p>还需要配置 Docker 源</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;</span> /etc/docker/daemon.json <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+{
+  &quot;registry-mirrors&quot;: [
+    &quot;https://hub-mirror.c.163.com&quot;,
+    &quot;https://docker.mirrors.ustc.edu.cn&quot;
+  ]
+}
+EOF</span>
+
+systemctl daemon-reload
+systemctl restart docker
+</code></pre></div><h3 id="_2-安装-kubeadm、kubelet-和-kubectl"><a href="#_2-安装-kubeadm、kubelet-和-kubectl" class="header-anchor">#</a> 2. 安装 kubeadm、kubelet 和 kubectl</h3> <p>说明：</p> <ul><li><code>kubeadm</code>：用来初始化集群的指令</li> <li><code>kubelet</code>：在集群中的每个节点上用来启动 Pod 和容器等</li> <li><code>kubectl</code>：用来与集群通信的命令行工具</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;</span> /etc/yum.repos.d/kubernetes.repo <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=0
+repo_gpgcheck=0
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF</span>
+
+<span class="token comment"># 需确保以下工具版本相同</span>
+yum <span class="token function">install</span> -y kubelet-1.18.0 kubeadm-1.18.0 kubectl-1.18.0
+
+systemctl <span class="token builtin class-name">enable</span> kubelet
+systemctl daemon-reload
+systemctl restart kubelet
+</code></pre></div><h2 id="部署"><a href="#部署" class="header-anchor">#</a> 部署</h2> <h3 id="_1-在-master-进行-init"><a href="#_1-在-master-进行-init" class="header-anchor">#</a> 1. 在 master 进行 init</h3> <p>master 节点至少需要有2个 CPU。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>kubeadm init <span class="token punctuation">\</span>
+  --apiserver-advertise-address<span class="token operator">=</span><span class="token number">10.0</span>.0.140 <span class="token punctuation">\</span>
+  --image-repository registry.aliyuncs.com/google_containers <span class="token punctuation">\</span>
+  --kubernetes-version v1.18.0 <span class="token punctuation">\</span>
+  --pod-network-cidr<span class="token operator">=</span><span class="token number">10.244</span>.0.0/16
+</code></pre></div><p>然后根据提示：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> -p <span class="token environment constant">$HOME</span>/.kube
+<span class="token function">sudo</span> <span class="token function">cp</span> -i /etc/kubernetes/admin.conf <span class="token environment constant">$HOME</span>/.kube/config
+<span class="token function">sudo</span> <span class="token function">chown</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -u<span class="token variable">)</span></span><span class="token builtin class-name">:</span><span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -g<span class="token variable">)</span></span> <span class="token environment constant">$HOME</span>/.kube/config
+
+<span class="token comment"># 检查 nodes</span>
+kubectl get nodes
+</code></pre></div><h3 id="_2-在-node-申请加入"><a href="#_2-在-node-申请加入" class="header-anchor">#</a> 2. 在 node 申请加入</h3> <p>master init 后存在如下提示，切换到 node 节点</p> <div class="language-bash extra-class"><pre class="language-bash"><code>Then you can <span class="token function">join</span> any number of worker nodes by running the following on each as root:
+
+kubeadm <span class="token function">join</span> <span class="token number">10.0</span>.0.130:6443 --token 5q3hp6.bfy624lj790rb68n <span class="token punctuation">\</span>
+    --discovery-token-ca-cert-hash sha256:49820391560bf7286be2ebf0d86fe0ba32352f1032b468896dc71383600cd697
+</code></pre></div><p>token 有效期为 12 小时。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>kubeadm token create --print-join-command
+</code></pre></div><h3 id="_3-增加-cni-网络插件"><a href="#_3-增加-cni-网络插件" class="header-anchor">#</a> 3. 增加 CNI 网络插件</h3> <p>查看 nodes 的 STATUS 还是 NotReady。是由于必须部署一个基于 Pod 网络插件的 容器网络接口（CNI），以便于 Pod 之间互相通信。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+kubectl get pods -n kube-system
+</code></pre></div><p>如果存在 STATUS 为 Init:ImagePullBackOff，那么可前往 yml 配置文件寻找<a href="https://github.com/coreos/flannel/releases" target="_blank" rel="noopener noreferrer">对应的镜像<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，手动 <code>docker pull</code> 或 <code>docker load</code>。</p> <p>最后得到：</p> <div class="language- extra-class"><pre class="language-text"><code>NAME         STATUS     ROLES    AGE    VERSION
+k8s-master   Ready      master   3m8s   v1.18.0
+k8s-node1    Ready      &lt;none&gt;   55s    v1.18.0
+k8s-node2    Ready      &lt;none&gt;   54s    v1.18.0
+k8s-node3    Ready      &lt;none&gt;   51s    v1.18.0
+</code></pre></div><h2 id="清理"><a href="#清理" class="header-anchor">#</a> 清理</h2> <p>如果你在集群中使用了一次性服务器进行测试，则可以关闭这些服务器，而无需进一步清理。你可以使用 <code>kubectl config delete-cluster</code> 删除对集群的本地引用。</p> <p>但是，如果要更干净地取消配置群集， 则应首先清空节点并确保该节点为空， 然后取消配置该节点。</p> <h3 id="删除节点"><a href="#删除节点" class="header-anchor">#</a> 删除节点</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets</span>
+kubectl drain k8s-node1 --delete-local-data --force --ignore-daemonsets
+kubectl drain k8s-node2 --delete-local-data --force --ignore-daemonsets
+kubectl drain k8s-node3 --delete-local-data --force --ignore-daemonsets
+</code></pre></div><p>在删除节点前重置状态：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>kubeadm reset
+</code></pre></div><p>清除 iptables 规则及重置 IPVS 表：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>iptables -F <span class="token operator">&amp;&amp;</span> iptables -t nat -F <span class="token operator">&amp;&amp;</span> iptables -t mangle -F <span class="token operator">&amp;&amp;</span> iptables -X
+
+ipvsadm -C
+</code></pre></div><p>最后删除节点：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># kubectl delete node &lt;node name&gt;</span>
+kubectl delete node k8s-node1
+kubectl delete node k8s-node2
+kubectl delete node k8s-node3
+</code></pre></div><h2 id="测试"><a href="#测试" class="header-anchor">#</a> 测试</h2> <div class="language-bash extra-class"><pre class="language-bash"><code>kubectl create deployment nginx --image<span class="token operator">=</span>nginx
+kubectl expose deployment nginx --port<span class="token operator">=</span><span class="token number">80</span> --type<span class="token operator">=</span>NodePort
+
+<span class="token comment"># 根据提示访问对应端口</span>
+kubectl get pod,svc
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shanyuhai123/documents/edit/master/docs/os/kubernetes/deploy-k8s-with-kubeadm.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021年3月16日星期二上午10点09分</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/os/kubernetes/dashboard.html" class="prev">
+        Dashboard
+      </a></span> <span class="next"><a href="/os/kubernetes/deploy-mysql-with-nfs.html">
+        部署 MySQL
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.7af639cc.js" defer></script><script src="/assets/js/2.ccd9c097.js" defer></script><script src="/assets/js/156.0ee20a48.js" defer></script><script src="/assets/js/4.80f6fb2c.js" defer></script>
+  </body>
+</html>
