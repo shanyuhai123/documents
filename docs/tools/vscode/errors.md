@@ -31,3 +31,14 @@ fs.inotify.max_user_watches = 19200 # 利用 vim 修改后重启成功
 在一次更新之后 VSCode 添加了新的特性 `Compact Folders`，这种行为与 Chrome 浏览器擅自遮挡 `www` 一样恶心。
 
 打开 `Settings`，输入 `Compact Folders` 取消选中即可。
+
+
+
+## 删除文件/文件夹时卡顿
+
+在 Arch 的 KDE 环境下会存在该问题，这是由于 [ELECTRON 引起的](https://github.com/microsoft/vscode/issues/90034#issuecomment-582115953)。可通过在 `~/.config/plasma-workspace/env/electron-trash-gio.sh` 增加如下内容解决：
+
+```bash
+export ELECTRON_TRASH=gio
+```
+
