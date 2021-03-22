@@ -22,12 +22,14 @@ module.exports = {
     transformer: (timestamp) => moment(timestamp).format('LLLL')
   },
   "vuepress-plugin-auto-sidebar": {
-    titleMode: "uppercase",
-    titleMap: {
-      javascript: "JS 基础",
+    title: {
+      mode: "uppercase",
+      map: {
+        "/frontend/javascript/": "JS 基础",
+      }
     },
-    collapseList: [
-      "/frontend/javascript/"
-    ]
+    collapse: {
+      collapseList: ["/frontend/javascript/"]
+    }
   }
 };
