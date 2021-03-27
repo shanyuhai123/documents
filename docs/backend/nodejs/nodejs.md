@@ -51,6 +51,8 @@ nvm use v13.13.0
 nvm install v12.16.3 --reinstall-packages-from=v12.4.0
 ```
 
+在利用 `npm install -g npm` 升级时同样会导致全局包丢失，所以在任何情况都应该通过 `nvm` 升级。
+
 
 
 ## 切换源
