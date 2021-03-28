@@ -1,5 +1,5 @@
 ---
-title: npm 传递参数
+title: npm 传参
 ---
 
 ## npm run

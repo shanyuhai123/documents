@@ -1,5 +1,5 @@
 ---
-title: 利用 verdaccio 部署私有 npm
+title: 私有 npm
 ---
 
 ## 起始
