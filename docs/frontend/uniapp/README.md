@@ -1,5 +1,5 @@
 ---
-title: Taro
+title: uni-app
 ---
 
 ## 微信环境
@@ -10,5 +10,4 @@ title: Taro
 
 ## 参考资料
 
-1. [Taro UI](https://taro-ui.jd.com/#/)
-2. [Taro UI Vue3](https://b2nil.github.io/taro-ui-vue3/)
+1. [uni-app](https://uniapp.dcloud.io/)
