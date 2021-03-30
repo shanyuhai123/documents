@@ -16,7 +16,7 @@ module.exports = [
     { text: 'Vue', link: '/frontend/vue/' },
     { text: 'Webpack', link: '/frontend/webpack/' },
     { text: 'Flutter', link: '/frontend/flutter/' },
-    { text: 'uni-app', link: '/frontend/uniapp/' },
+    { text: 'weapp', link: '/frontend/weapp/' },
     { text: 'D3', link: '/frontend/d3js/' },
     { text: 'Jest', link: '/frontend/jest/' },
     { text: 'Utils', link: '/frontend/utils/' },
