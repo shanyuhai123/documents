@@ -39,6 +39,12 @@ sudo rm /usr/local/bin/docker-compose
 
 
 
+## 命令行
+
+在配置完成后可以执行 `docker-compose config` 来校验并查看实际运行的配置。
+
+
+
 ## 核心配置
 
 一份标准配置文件应该包含 `version`、`services`、`networks` 三大部分，其中最关键的就是 `services` 和 `networks` 部分。
