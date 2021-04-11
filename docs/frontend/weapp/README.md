@@ -12,4 +12,4 @@ title: 微信小程序
 
 1. [微信小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AE%80%E4%BB%8B)
 2. [uni-app](https://uniapp.dcloud.io/)
-3. [taro-ui-vue3](https://b2nil.github.io/taro-ui-vue3/)
+3. [uView](https://www.uviewui.com/)
