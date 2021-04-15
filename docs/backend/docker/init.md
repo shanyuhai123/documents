@@ -185,6 +185,27 @@ sudo usermod -aG docker USER_NAME
 
 
 
+## 修改存储路径
+
+通过 `docker info` 可以看到默认路径为 `/var/lib/docker`，而一般服务器会额外挂载硬盘。
+
+```bash
+# 修改配置文件
+vim /etc/docker/daemon.json
+
+# 增加
+{
+  "data-root": "/path/to/docker"
+}
+
+# 重启 docker
+systemctl restart docker
+```
+
+执行 `docker info` 进行校验。
+
+
+
 ## 安装验证
 
 ```bash
