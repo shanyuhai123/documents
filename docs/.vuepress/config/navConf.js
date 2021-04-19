@@ -26,6 +26,7 @@ module.exports = [
     { text: 'Nestjs', link: '/backend/nestjs/' },
     { text: 'Golang', link: '/backend/golang/' },
     { text: 'Nginx', link: '/backend/nginx/' },
+    { text: 'Traefik', link: '/backend/traefik/' },
     { text: 'MySQL', link: '/backend/mysql/' },
     { text: 'MongoDB', link: '/backend/mongodb/' },
     { text: 'Redis', link: '/backend/redis/' },
