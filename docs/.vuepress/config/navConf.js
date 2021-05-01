@@ -33,6 +33,7 @@ module.exports = [
     { text: 'Docker', link: '/backend/docker/' },
   ]},
   { text: '算法', items: [
+    { text: '排序', link: '/algorithms/sort/' },
     { text: '分而治之', link: '/algorithms/divide-and-conquer/' },
     { text: '动态规划', link: '/algorithms/dynamic-programming/' },
   ]},
