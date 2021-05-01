@@ -32,6 +32,10 @@ module.exports = [
     { text: 'Redis', link: '/backend/redis/' },
     { text: 'Docker', link: '/backend/docker/' },
   ]},
+  { text: '算法', items: [
+    { text: '分而治之', link: '/algorithms/divide-and-conquer/' },
+    { text: '动态规划', link: '/algorithms/dynamic-programming/' },
+  ]},
   { text: '开发工具', items: [
     { text: 'Git', link: '/tools/git/' },
     { text: 'Github', link: '/tools/github/' },
