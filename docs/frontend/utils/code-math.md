@@ -980,3 +980,22 @@ const standardDeviation = (arr, usePopulation = false) => {
 standardDeviation([10, 2, 38, 23, 38, 23, 21]); // 13.284434142114991 (sample)
 standardDeviation([10, 2, 38, 23, 38, 23, 21], true); // 12.29899614287479 (population)
 ```
+
+
+
+## 最值
+
+### 1. 数组最大/最小值
+
+```js
+const arr = [1, 20, 99, 16]
+
+arr.reduce((prev,next) => Math.max(prev, next)) // 99
+arr.reduce((prev,next) => Math.min(prev, next)) // 1
+
+Math.max(...arr) // 99
+Math.min(...arr) // 1
+
+Reflect.apply(Math.max, undefined, arr) // 99
+Reflect.apply(Math.min, undefined, arr) // 1
+```
