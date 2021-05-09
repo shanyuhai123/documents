@@ -56,7 +56,29 @@ formatDuration(1001); // '1 second, 1 millisecond'
 formatDuration(34325055574); // '397 days, 6 hours, 44 minutes, 15 seconds, 574 milliseconds'
 ```
 
-### 3. getColonTimeFromDate（time）
+### 3. formatSeconds（格式化秒）
+
+**FUNCTION：**
+
+```js
+const formatSeconds = s => {
+  if (s < 0) s = 0;
+  
+  return [s / 3600, s % 60 / 60, s % 60]
+    .map(v => `${Math.floor(v).toString().padStart(2, '0')}`)
+    .join(':')
+}
+```
+
+**EXAMPLES：**
+
+```js
+formatSeconds(-200); // "00:00:00"
+formatSeconds(200); // "00:03:20"
+formatSeconds(99999); // "27:46:39"
+```
+
+### 4. getColonTimeFromDate（time）
 
 **FROM**
 
@@ -74,7 +96,7 @@ const getColonTimeFromDate = date => date.toTimeString().slice(0, 8);
 getColonTimeFromDate(new Date()); // "08:38:00"
 ```
 
-### 3. getDaysDiffBetweenDates（天数间隔）
+### 5. getDaysDiffBetweenDates（天数间隔）
 
 **FROM**
 
@@ -93,7 +115,7 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 ```
 
-### 4. getMeridiemSuffixOfInteger（am/pm）
+### 6. getMeridiemSuffixOfInteger（am/pm）
 
 **FROM**
 
@@ -121,7 +143,7 @@ getMeridiemSuffixOfInteger(13); // "1pm"
 getMeridiemSuffixOfInteger(25); // "1pm"
 ```
 
-### 5. isBeforeDate/isAfterDate/isSameDate
+### 7. isBeforeDate/isAfterDate/isSameDate
 
 **FROM**
 
@@ -143,7 +165,7 @@ isAfterDate(new Date(2010, 10, 21), new Date(2010, 10, 20)); // true
 isSameDate(new Date(2010, 10, 20), new Date(2010, 10, 20)); // true
 ```
 
-### 6. isLeapYear（闰年）
+### 8. isLeapYear（闰年）
 
 **FROM**
 
@@ -167,7 +189,7 @@ isAfterDate(new Date(2010, 10, 21), new Date(2010, 10, 20)); // true
 isSameDate(new Date(2010, 10, 20), new Date(2010, 10, 20)); // true
 ```
 
-### 7. isWeekday/isWeekend
+### 9. isWeekday/isWeekend
 
 **FROM**
 
@@ -191,7 +213,7 @@ isWeekday(); // true (if current date is 2019-07-19)
 isWeekend(); // 2018-10-19 (if current date is 2018-10-18)
 ```
 
-### 8. minDate/maxDate
+### 10. minDate/maxDate
 
 **FROM**
 
@@ -227,7 +249,7 @@ const array = [
 maxDate(array); // 2018-03-11T22:00:00.000Z
 ```
 
-### 8. yesterday/tomorrow
+### 11. yesterday/tomorrow
 
 **FROM**
 
