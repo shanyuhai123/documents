@@ -11,6 +11,14 @@ ls -al test.txt* # 验证
 
 
 
+## 清空文件
+
+```bash
+true > access.log
+```
+
+
+
 ## 创建文件夹
 
 ```bash
