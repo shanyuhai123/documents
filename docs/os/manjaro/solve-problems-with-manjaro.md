@@ -1,5 +1,5 @@
 ---
-title: Manjaro 的日常
+title: Manjaro 的异常处理
 ---
 
 ## 解决 Manjaro 录屏闪烁

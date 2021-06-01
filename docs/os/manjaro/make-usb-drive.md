@@ -1,5 +1,6 @@
 ---
 title: 制作U盘启动
+autoPrev: README
 ---
 
 ## 说明

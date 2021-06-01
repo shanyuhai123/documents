@@ -1,5 +1,6 @@
 ---
 title: 如何在虚拟机中安装 Manjaro
+autoPrev: make-usb-drive
 ---
 
 ## 准备环境
