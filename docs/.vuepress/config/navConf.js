@@ -45,7 +45,6 @@ module.exports = [
     { text: 'Bookmark scripts', link: '/tools/bookmark-scripts/' },
   ]},
   { text: '更多', items: [
-    { text: '小工具', link: '/more/hodgepodge/' },
     { text: 'VuePress 官网', link: 'https://vuepress.vuejs.org/zh/' },
   ]}
 ];
