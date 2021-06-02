@@ -2,6 +2,9 @@ module.exports = [
   { text: '首页', link: '/' },
   { text: '先导', link: '/guide/' },
   { text: '计算机', link: '/computer/' },
+  { text: '基石', items: [
+    { text: '数学', link: '/cornerstone/math/' },
+  ]},
   { text: '系统', items: [
     { text: 'Linux', link: '/os/linux/' },
     { text: 'Manjaro', link: '/os/manjaro/' },
