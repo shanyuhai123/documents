@@ -280,3 +280,23 @@ const tomorrow = () => {
 yesterday(); // 2018-10-17 (if current date is 2018-10-18)
 tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 ```
+
+### 12. getMonthDays（获取月份天数）
+
+**FUNCTION：**
+
+```js
+const getMonthDays = (year, month) => {
+  const today = new Date();
+  
+  return new Date(year || today.getFullYear(), month || (today.getMonth() + 1), 0).getDate();
+};
+```
+
+**EXAMPLES：**
+
+```js
+getMonthDays(); // 30
+getMonthDays(2020, 2); // 29
+getMonthDays(2021, 2); // 28
+```
