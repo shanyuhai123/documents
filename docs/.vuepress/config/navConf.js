@@ -40,6 +40,9 @@ module.exports = [
     { text: '分而治之', link: '/algorithms/divide-and-conquer/' },
     { text: '动态规划', link: '/algorithms/dynamic-programming/' },
   ]},
+  { text: '设计', items: [
+    { text: '像素风', link: '/design/pixel/' },
+  ]},
   { text: '开发工具', items: [
     { text: 'Git', link: '/tools/git/' },
     { text: 'Github', link: '/tools/github/' },
