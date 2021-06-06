@@ -6,6 +6,13 @@ title: 导航 🎉
 
 
 
+## 社区
+
+<CardsGrid :sites="communities" />
+
+
+
+
 ## 前端开发
 
 + [Can I use](https://caniuse.com/)
@@ -53,3 +60,34 @@ title: 导航 🎉
 | Humaaans   | [www.humaaans.com](https://www.humaaans.com/)              | 人物         |
 | Pngtree    | [pngtree.com](https://pngtree.com)                         | 量大管饱     |
 
+
+<script>
+export default {
+  data() {
+    return {
+      communities: [
+        {
+          name: "v2ex",
+          desc: "摸鱼社区",
+          link: "https://www.v2ex.com"
+        },
+        {
+          name: "掘金",
+          desc: "前端社区",
+          link: "https://juejin.cn"
+        },
+        {
+          name: "思否",
+          desc: "曾经用的最多的技术问答社区",
+          link: "https://segmentfault.com"
+        },
+        {
+          name: "InfoQ",
+          desc: "了解新技术走向",
+          link: "https://www.infoq.cn"
+        },
+      ],
+    }
+  }
+}
+</script>
