@@ -8,6 +8,10 @@ title: 像素
 
 ## 资料
 
-1. [在线工具 pixilart](https://www.pixilart.com/)
-2. [在线工具 piskelapp](https://www.piskelapp.com/)
+1. [pixilart](https://www.pixilart.com/)
+
+2. [piskelapp](https://www.piskelapp.com/)
+
+3. [aseprite](https://github.com/aseprite/aseprite)
+
 
