@@ -50,6 +50,9 @@ module.exports = [
     { text: 'Chrome Developer tools', link: '/tools/chrome/' },
     { text: 'Bookmark scripts', link: '/tools/bookmark-scripts/' },
   ]},
+  { text: '教程', items: [
+    { text: 'Aseprite 安装', link: '/tutorials/aseprite/install-aseprite' },
+  ]},
   { text: '更多', items: [
     { text: '导航 🎉', link: '/更多🎉/navigation' },
     { text: 'VuePress 侧边栏插件', link: 'https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/' },
