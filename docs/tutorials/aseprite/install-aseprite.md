@@ -3,6 +3,8 @@ title: Aseprite 安装
 ---
 
 > 由于使用 `yay` 安装失败，于是另辟蹊径
+>
+> [视频版](https://www.bilibili.com/video/BV1Vh411a7SS/)
 
 
 
@@ -31,6 +33,8 @@ docker-compose up
 ```bash
 https://gitee.com/shanyuhai123/docker-aseprite-linux.git
 ```
+
+安装完成后执行 `docker-aseprite-linux/output/aseprite/build/bin/aseprite` 即可启动。
 
 
 
