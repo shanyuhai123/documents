@@ -14,7 +14,7 @@ title: Aseprite 安装
 
 ## 安装
 
-如果你可以访问 Github：
+如果你可以访问 [Github](https://github.com/shanyuhai123/docker-aseprite-linux)：
 
 ```bash
 # clone
@@ -26,7 +26,7 @@ docker-compose build
 docker-compose up
 ```
 
-缺乏网络代理的情况下可用 Gitee：
+缺乏网络代理的情况下可用 [Gitee](https://gitee.com/shanyuhai123/docker-aseprite-linux)：
 
 ```bash
 https://gitee.com/shanyuhai123/docker-aseprite-linux.git
