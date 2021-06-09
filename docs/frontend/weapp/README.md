@@ -4,7 +4,12 @@ title: 微信小程序
 
 ## 微信环境
 
-由于开发环境为 manjaro，所以开发环境也得[折腾一下](https://github.com/dragonation/wechat-devtools)，下载好包后还需要准备好 `wine` 支持，否则在使用时会出现一些问题。
+~~由于开发环境为 manjaro，所以开发环境也得[折腾一下](https://github.com/dragonation/wechat-devtools)，下载好包后还需要准备好 `wine` 支持，否则在使用时会出现一些问题。~~
+
+[wechat-devtools](https://github.com/dragonation/wechat-devtools) 没有继续维护，折腾两天升级 1.05 失败，老实回归 Windows，要解决的就剩下数据共享问题：
+
+1. `ln` 软连接到共享文件夹，由于微信开发者工具不能直接打开共享文件夹，采用 [FreeFileSync](https://freefilesync.org/) 同步两个文件夹
+2. 或许直接外部数据方案会更好一些
 
 
 
