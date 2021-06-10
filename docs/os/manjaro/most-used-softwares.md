@@ -108,54 +108,6 @@ zsh 在使用时会存在一些问题:
 
 
 
-## Shodowsocks
-
-### 1. 介绍
-
-一款用于上网的工具。
-
-### 2. 使用方式
-
-::: tip 步骤
-
-1. 首先需要安装 `shadowsocks` 。
-
-2. 接着修改安装在 `/etc/shadowsocks/config.json` 文件：
-   
-   ```json
-   {
-       "server": "xxx.xxx.xxx.xxx",
-       "server_port": port,
-       "local_address": "127.0.0.1",
-       "local_port": 1080,
-       "password": "yourpassword",
-       "timeout": 300,
-       "method": "aes-256-cfb",
-       "fast_open": false,
-       "workers": 1,
-       "prefer_ipv6": false
-   }
-   ```
-   
-   不一定非要是 `config` 这个文件名，设置多个可以快速切换。
-   
-3. 启动，选择一个你需要的配置来启动，此处选用 `config`：
-
-   ```bash
-   sslocal -c /etc/shadowsocks/config.json
-   ```
-
-4. 守护，系统优化时，重启时启动的任务就没了，所以需要添加一个守护：
-
-   ```bash
-   systemctl start shadowsocks@config # 守护
-   systemctl enable shadowsocks@config # 开机自启
-   ```
-
-5. 接下来就是代理了。
-
-:::
-
 
 
 ## VirtualBox
@@ -171,7 +123,6 @@ zsh 在使用时会存在一些问题:
 1. 首先需要安装 `virtualbox` 。
 
 2. 然后准备好对应系统的 `IOS` 文件启动即可。
-   
 
 :::
 
