@@ -67,6 +67,11 @@ export default {
     return {
       communities: [
         {
+          name: "Stack Overflow",
+          desc: "最好的问答网站",
+          link: "https://stackoverflow.com"
+        },
+        {
           name: "v2ex",
           desc: "摸鱼社区",
           link: "https://www.v2ex.com"
@@ -85,6 +90,11 @@ export default {
           name: "InfoQ",
           desc: "了解新技术走向",
           link: "https://www.infoq.cn"
+        },
+        {
+          name: "知乎",
+          desc: "分享你刚编的故事",
+          link: "https://www.zhihu.com"
         },
       ],
     }
