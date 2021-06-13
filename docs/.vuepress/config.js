@@ -6,6 +6,11 @@ module.exports = {
   title: '飞跃高山与大洋的鱼',
   description: '飞跃高山与大洋的鱼的文档, vuepress 文档',
   head: headConf,
+  markdown: {
+    plugins: {
+      'markdown-it-katex': {}
+    }
+  },
   plugins: pluginConf,
   themeConfig: {
     lastUpdated: '上次更新',
