@@ -27,6 +27,6 @@
     "vuepress": "^1.8.2"
   },
   "dependencies": {
-    "vuepress-plugin-auto-sidebar": "^2.2.3"
+    "vuepress-plugin-auto-sidebar": "^2.3.0"
   }
 }
