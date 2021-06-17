@@ -54,6 +54,7 @@ title: 导航 🎉
 | 谷歌字体       | [fonts.google.com](https://fonts.google.com/)                | 字体、图标                                                   |
 | icons8         | [icons8.com](https://icons8.com/)                            | 以前用的                                                     |
 | OpenGameArt    | [opengameart.org](https://opengameart.org)                   | 游戏图标，其中一款 [RPG](https://opengameart.org/content/98-pixel-art-rpg-icons) |
+| Emojipedia     | [https://emojipedia.org](https://emojipedia.org)             | emoji 图标                                                   |
 
 
 
