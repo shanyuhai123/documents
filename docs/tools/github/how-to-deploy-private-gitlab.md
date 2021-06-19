@@ -93,14 +93,13 @@ external_url 'http://gitlab.example.com'
 
 ## 备份与恢复
 
+> 一个有意思的尝试是直接更新镜像也会自动迁移配置，商业数据请小心该尝试
+
 由于开始就将数据卷挂载到 `/srv/gitlab` 下，所以备份的数据也会在该目录的 `/srv/gitlab/data/backups` 中。
 
 ```bash
-# 进入容器
-docker exec -it gitlab bash
-
-# 备份指令
-gitlab-rake gitlab:backup:create
+# GitLab 12.2 之后的版本备份指令
+docker exec -t <container name> gitlab-backup create
 ```
 
 更好的形式是定期备份：
@@ -109,7 +108,7 @@ gitlab-rake gitlab:backup:create
 crontab -e
 
 # 周末凌晨4点备份
-0 4 * * 0 gitlab-rake gitlab:backup:create &> /dev/null
+0 4 * * 0 docker exec -t gitlab gitlab-backup create &> /dev/null
 ```
 
 根据备份恢复数据：
