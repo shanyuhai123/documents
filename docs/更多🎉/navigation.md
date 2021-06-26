@@ -6,6 +6,12 @@ title: 导航 🎉
 
 
 
+## 比技术更重要的
+
+<CardsGrid :sites="life" />
+
+
+
 ## 有趣的
 
 <CardsGrid :sites="interesting" />
@@ -72,6 +78,13 @@ title: 导航 🎉
 export default {
   data() {
     return {
+      life: [
+        {
+          name: "裁判文书网",
+          desc: "指导更好的生活",
+          link: "https://wenshu.court.gov.cn"
+        },
+      ],
       communities: [
         {
           name: "Stack Overflow",
@@ -92,6 +105,11 @@ export default {
           name: "思否",
           desc: "曾经用的最多的技术问答社区",
           link: "https://segmentfault.com"
+        },
+        {
+          name: "DEV Community",
+          desc: "一个不错的广告宣传地",
+          link: "https://dev.to"
         },
         {
           name: "InfoQ",
