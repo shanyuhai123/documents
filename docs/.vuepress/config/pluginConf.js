@@ -1,5 +1,5 @@
 const moment = require('moment');
-const secretKeyConf = require('./secretKeyConf.js');
+require('dotenv').config();
 
 moment.locale("zh-cn");
 
@@ -13,7 +13,7 @@ module.exports = {
   },
   '@vuepress/back-to-top': true,
   '@vuepress/google-analytics': {
-    'ga': secretKeyConf.ga
+    'ga': process.env.GOOGLE_GA
   },
   '@vuepress/medium-zoom': {
     selector: '.content__default img',
