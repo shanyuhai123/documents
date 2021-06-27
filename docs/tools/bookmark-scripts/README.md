@@ -27,6 +27,10 @@ title: 首页
 :::
 
 
+<a href="javascript: document.querySelectorAll('a').forEach(a=>{if(!a.style.pointerEvents){a.setAttribute('markPointerEvents',true);a.style.pointerEvents='none';return;}if(a.getAttribute('markPointerEvents')&&a.style.pointerEvents==='none'){a.removeAttribute('markPointerEvents');a.style.pointerEvents='';return;}})"><Badge text="阻止链接跳转" type="error" vertical="middle"/></a>
 
+::: details 说明
 
+阻止 a 链接跳转，便于复制文字。
 
+:::
