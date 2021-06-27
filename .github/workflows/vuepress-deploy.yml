@@ -14,10 +14,8 @@ jobs:
           persist-credentials: false
 
       - name: Install and Build 🔧
-        env:
-          GOOGLE_GA: ${{ GOOGLE_GA }}
-          GOOGLE_SEARCH_CONSOLE: ${{ GOOGLE_SEARCH_CONSOLE }}
         run: |
+          export GOOGLE_GA=${{ secrets.GOOGLE_GA }} GOOGLE_SEARCH_CONSOLE=${{ secrets.GOOGLE_SEARCH_CONSOLE }}
           git --no-pager log --oneline -n 20
           npm install
           npm run docs:build
