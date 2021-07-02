@@ -58,6 +58,17 @@ lerna create pkg-2 -y
    ```bash
    lerna add module1 packages/pkg-1
    ```
+   
+3. 卸载
+
+   ```bash
+   # 所有
+   lerna exec -- "yarn remove pkg-2"
+   # 指定
+   lerna exec --scope=pkg-1 "yarn remove pkg-2"
+   # 或使用空格替代 `=`
+   lerna exec --scope pkg-1 "yarn remove pkg-2"
+   ```
 
 
 
