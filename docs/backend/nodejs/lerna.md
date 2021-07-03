@@ -1,5 +1,6 @@
 ---
 title: Lerna
+sidebarDepth: 2
 ---
 
 ## 说明
@@ -69,6 +70,39 @@ lerna create pkg-2 -y
    # 或使用空格替代 `=`
    lerna exec --scope pkg-1 "yarn remove pkg-2"
    ```
+
+### 3. workspaces
+
+为了减少子模块的重复依赖可以使用 `workspaces` 将依赖提取到上级目录。
+
+启用该模式非常简单：
+
+1. 在 `lerna.json` 中添加 `"useWorkspaces": true`
+
+2. 在 `package.json` 中添加 `"workspaces": ["packages/*"]`
+
+   按照约定俗成将模块放置于 `packages` 目录下
+
+有时候也会希望不同的模块走不同的依赖版本，这需要使用 [nohoist](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/)：
+
+> 注意，需要模块为 `private`
+
+```json
+"workspaces": {
+  "packages": ["packages/*"],
+  "nohoist": ["**/vue", "**/vue/**"]
+}
+```
+
+也可以在模块中进行设置：
+
+```json
+"workspaces": {
+  "nohoist": ["vue", "vue/**"]
+}
+```
+
+`lerna bootstrap` 也提供了参数 [--nohoist](https://github.com/chinanf-boy/lerna-zh/blob/master/commands/bootstrap/README.zh.md#--nohoist-glob)。
 
 
 
