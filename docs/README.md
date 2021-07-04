@@ -1,8 +1,8 @@
 ---
 home: true
-heroImage: /app.png
+heroImage: /hero.jpg
 heroText: 飞跃高山与大洋的鱼
-tagline: 文档, 博客
+tagline: 文档, 笔记
 actionText: 进入笔记 →
 actionLink: /guide/
 ---
