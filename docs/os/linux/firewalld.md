@@ -42,7 +42,7 @@ firewall-cmd [Options ... ]
 | option                   | effect                                                       |
 | ------------------------ | ------------------------------------------------------------ |
 | --get-log-denied         | 获取记录被拒绝的日志。                                       |
-| --set-log-denied=<value> | 设置记录被拒绝的日志，只能为 'all','unicast','broadcast','multicast','off' 其中的一个。 |
+| --set-log-denied=value | 设置记录被拒绝的日志，只能为 'all','unicast','broadcast','multicast','off' 其中的一个。 |
 
 
 

@@ -30,9 +30,10 @@ margin: inherit
 在默认 `writing-mode` 情况下。
 
 ```vue
-<style lang="stylus" scoped>
-p.margin-demo-1
-   margin 20px 0
+<style lang="scss" scoped>
+p.margin-demo-1 {
+  margin: 20px 0;
+}
 </style>
 
 <p class="margin-demo-1">第一段</p>
@@ -41,9 +42,10 @@ p.margin-demo-1
 
 ::: details 效果
 
-<style lang="stylus" scoped>
-p.margin-demo-1
-   margin 20px 0
+<style lang="scss" scoped>
+p.margin-demo-1 {
+  margin: 20px 0;
+}
 </style>
 
 <p class="margin-demo-1">第一段</p>
@@ -54,14 +56,17 @@ p.margin-demo-1
 ### 2. 父元素与后代元素（第一个/最后一个）
 
 ```vue
-<style lang="stylus" scoped>
-section.margin-demo-2
-  margin-top 5px
-  margin-bottom 20px
-header.margin-demo-2
-    margin-top 20px
-footer.margin-demo-2
-    margin-bottom 5px
+<style lang="scss" scoped>
+section.margin-demo-2 {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+header.margin-demo-2 {
+  margin-top: 20px;
+}
+footer.margin-demo-2 {
+  margin-bottom: 5px;
+}
 </style>
 
 <section class="margin-demo-2">
@@ -73,14 +78,17 @@ footer.margin-demo-2
 
 ::: details 效果
 
-<style lang="stylus" scoped>
-section.margin-demo-2
-  margin-top 5px
-  margin-bottom 20px
-header.margin-demo-2
-    margin-top 20px
-footer.margin-demo-2
-    margin-bottom 5px
+<style lang="scss" scoped>
+section.margin-demo-2 {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+header.margin-demo-2 {
+  margin-top: 20px;
+}
+footer.margin-demo-2 {
+  margin-bottom: 5px;
+}
 </style>
 
 <section class="margin-demo-2">
@@ -94,11 +102,13 @@ footer.margin-demo-2
 ### 3. 空的块级元素
 
 ```vue
-<style lang="stylus" scoped>
-p.margin-demo-3
-  margin 0
-div.margin-demo-3
-  margin 20px 0
+<style lang="scss" scoped>
+p.margin-demo-3 {
+  margin: 0;
+}
+div.margin-demo-3 {
+  margin: 20px 0;
+}
 </style>
 
 <p class="margin-demo-3">上 margin 20px</p>
@@ -106,11 +116,13 @@ div.margin-demo-3
 <p class="margin-demo-3">下 margin 20px</p>
 ```
 
-<style lang="stylus" scoped>
-p.margin-demo-3
-  margin 0
-div.margin-demo-3
-  margin 20px 0
+<style lang="scss" scoped>
+p.margin-demo-3 {
+  margin: 0;
+}
+div.margin-demo-3 {
+  margin: 20px 0;
+}
 </style>
 
 ::: details 效果

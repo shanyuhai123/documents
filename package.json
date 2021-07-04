@@ -4,7 +4,7 @@
   "description": "shanyuhai123's docs web",
   "private": true,
   "scripts": {
-    "docs:dev": "vuepress dev docs --temp .temp",
+    "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
   "repository": {
@@ -18,16 +18,18 @@
   },
   "homepage": "https://github.com/shanyuhai123/documents#readme",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.8.2",
-    "@vuepress/plugin-google-analytics": "^1.8.2",
-    "@vuepress/plugin-medium-zoom": "^1.8.2",
-    "@vuepress/plugin-pwa": "^1.8.2",
+    "@vuepress/plugin-google-analytics": "^2.0.0-beta.21",
+    "@vuepress/plugin-medium-zoom": "^2.0.0-beta.21",
+    "@vuepress/plugin-pwa": "^2.0.0-beta.21",
+    "@vuepress/plugin-pwa-popup": "^2.0.0-beta.21",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.21",
+    "@vuepress/plugin-search": "^2.0.0-beta.21",
     "markdown-it-katex": "^2.0.3",
-    "moment": "^2.29.1",
-    "vuepress": "^1.8.2"
+    "vuepress": "^2.0.0-beta.21",
+    "vuepress-vite": "^2.0.0-beta.21"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
-    "vuepress-plugin-auto-sidebar": "^2.3.0"
+    "vuepress-plugin-auto-sidebar": "^2.4.0-alpha.1"
   }
 }
