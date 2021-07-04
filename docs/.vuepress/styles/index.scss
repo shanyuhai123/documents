@@ -1,22 +1,16 @@
-$accentColor: #2486b9;
+:root {
+  --c-brand: #2486b9 !important;
+}
 
 strong {
   font-weight: 700;
   color: #282c34;
 }
-.theme-container {
-  background: url("data:image/pngbase64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==");
-  background-repeat: repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-  .page-nav .inner {
-    border-top: 1px solid $accentColor;
-  }
-}
+
+// code icon
 .theme-default-content pre, .theme-default-content pre[class*="language-"] {
   padding: 1.8rem 1.5rem 1.25rem;
 }
-
 div[class*="language-"]::after, 
 pre[class*="language-"]::after, 
 pre[class*="language-"]::before {
@@ -30,20 +24,31 @@ pre[class*="language-"]::before {
   display: inline-block;
   background: #ff4742;
 }
-
 pre[class*="language-"]::before {
   left: 1.5rem;
   background: #b300eb;
 }
-
 pre[class*="language-"]::after {
   left: 3rem;
   background: #fcd019;
 }
 
-a.sidebar-link.active {
-  background-color: tint($accentColor, 65%);
-}
-.sidebar-sub-headers a.sidebar-link.active {
-  background-color: tint($accentColor, 90%);
+#app {
+  .page {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    
+    .page-nav .inner {
+      border-top: 1px solid var(--c-text-accent);
+    }
+  }
+  // link
+  a.sidebar-item.active {
+    background: linear-gradient(90deg, var(--c-text-accent), transparent 18%);
+  }
+  .sidebar-sub-headers a.sidebar-item.active {
+    background: linear-gradient(90deg, var(--c-text-accent), transparent 18%);
+  }
 }

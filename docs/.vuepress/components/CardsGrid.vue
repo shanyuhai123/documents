@@ -29,6 +29,7 @@
       background: linear-gradient(250deg, orangered, gold, lightgreen, cyan, dodgerblue, mediumpurple, hotpink);
       background-size: 10vw;
       background-clip: text;
+      -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
     }

@@ -131,6 +131,17 @@ module.exports = {
       ]
     }
   ],
+  "/cornerstone/math/": [
+    {
+      "text": "MATH",
+      "title": "MATH",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
   "/frontend/flutter/": [
     {
       "text": "FLUTTER",
@@ -152,17 +163,6 @@ module.exports = {
         "README.md",
         "loader.md",
         "simple-bundle-analysis.md"
-      ]
-    }
-  ],
-  "/cornerstone/math/": [
-    {
-      "text": "MATH",
-      "title": "MATH",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
@@ -436,6 +436,17 @@ module.exports = {
       ]
     }
   ],
+  "/design/pixel/": [
+    {
+      "text": "PIXEL",
+      "title": "PIXEL",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
   "/frontend/css/": [
     {
       "text": "CSS",
@@ -461,17 +472,6 @@ module.exports = {
         "README.md",
         "vue-composition-api.md",
         "vue3-rfc.md"
-      ]
-    }
-  ],
-  "/design/pixel/": [
-    {
-      "text": "PIXEL",
-      "title": "PIXEL",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
