@@ -1,0 +1,1 @@
+const e={key:"v-c10752c2",path:"/backend/nginx/nginx-forbidden-ip-access.html",title:"禁止 IP 访问",lang:"zh-CN",frontmatter:{title:"禁止 IP 访问"},excerpt:"",headers:[{level:2,title:"修改配置",slug:"修改配置",children:[]}],filePathRelative:"backend/nginx/nginx-forbidden-ip-access.md",git:{updatedTime:1606305777e3,contributors:[]}};export{e as data};

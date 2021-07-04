@@ -1,0 +1,1 @@
+const e={key:"v-6701617b",path:"/backend/docker/",title:"首页",lang:"zh-CN",frontmatter:{title:"首页"},excerpt:"",headers:[{level:2,title:"介绍",slug:"介绍",children:[]},{level:2,title:"参考资料",slug:"参考资料",children:[]}],filePathRelative:"backend/docker/README.md",git:{updatedTime:1619877925e3,contributors:[]}};export{e as data};

@@ -1,0 +1,1 @@
+const e={key:"v-1c1e9fac",path:"/frontend/typescript/provide-js-ext.html",title:"提供 .js 后缀",lang:"zh-CN",frontmatter:{title:"提供 .js 后缀"},excerpt:"",headers:[{level:2,title:"前置",slug:"前置",children:[]},{level:2,title:"解决方案",slug:"解决方案",children:[]}],filePathRelative:"frontend/typescript/provide-js-ext.md",git:{updatedTime:1611756757e3,contributors:[]}};export{e as data};

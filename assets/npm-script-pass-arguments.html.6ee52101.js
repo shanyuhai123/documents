@@ -1,0 +1,1 @@
+const e={key:"v-6af3d8cf",path:"/backend/nodejs/npm-script-pass-arguments.html",title:"npm 传参",lang:"zh-CN",frontmatter:{title:"npm 传参"},excerpt:"",headers:[{level:2,title:"npm run",slug:"npm-run",children:[]}],filePathRelative:"backend/nodejs/npm-script-pass-arguments.md",git:{updatedTime:1616912473e3,contributors:[]}};export{e as data};

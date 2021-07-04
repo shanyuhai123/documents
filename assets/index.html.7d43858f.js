@@ -1,0 +1,1 @@
+const e={key:"v-5dd6ff13",path:"/backend/http/",title:"HTTP",lang:"zh-CN",frontmatter:{title:"HTTP"},excerpt:"",headers:[{level:2,title:"说明",slug:"说明",children:[]},{level:2,title:"过期",slug:"过期",children:[]}],filePathRelative:"backend/http/README.md",git:{updatedTime:1602691617e3,contributors:[]}};export{e as data};

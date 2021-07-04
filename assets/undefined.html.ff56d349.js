@@ -1,0 +1,1 @@
+const e={key:"v-8c12b532",path:"/frontend/javascript/undefined.html",title:"全局属性 undefined",lang:"zh-CN",frontmatter:{title:"全局属性 undefined"},excerpt:"",headers:[{level:2,title:"描述",slug:"描述",children:[]},{level:2,title:"变量名",slug:"变量名",children:[]}],filePathRelative:"frontend/javascript/undefined.md",git:{updatedTime:1594133217e3,contributors:[]}};export{e as data};

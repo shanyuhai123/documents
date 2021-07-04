@@ -1,0 +1,1 @@
+const t={key:"v-42a38b6c",path:"/tools/github/config-github-hosts.html",title:"访问 Github",lang:"zh-CN",frontmatter:{title:"访问 Github"},excerpt:"",headers:[{level:2,title:"介绍",slug:"介绍",children:[]},{level:2,title:"配置",slug:"配置",children:[]}],filePathRelative:"tools/github/config-github-hosts.md",git:{updatedTime:1585484549e3,contributors:[]}};export{t as data};

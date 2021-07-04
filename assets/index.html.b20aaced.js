@@ -1,0 +1,1 @@
+const e={key:"v-8daa1a0e",path:"/",title:"",lang:"zh-CN",frontmatter:{home:!0,heroImage:"/app.png",heroText:"飞跃高山与大洋的鱼",tagline:"文档, 博客",actionText:"进入笔记 →",actionLink:"/guide/"},excerpt:"",headers:[{level:2,title:"关于文档笔记",slug:"关于文档笔记",children:[]}],filePathRelative:"README.md",git:{updatedTime:1577978046e3,contributors:[]}};export{e as data};
