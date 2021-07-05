@@ -57,6 +57,7 @@ module.exports = [
   ]},
   { text: '更多', children: [
     { text: '导航 🎉', link: '/更多🎉/navigation.html' },
+    { text: 'Github', link: 'https://github.com/shanyuhai123/documents' },
     { text: 'VuePress 侧边栏插件', link: 'https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/' },
     { text: 'VuePress 官网', link: 'https://vuepress.vuejs.org/zh/' },
   ]}
