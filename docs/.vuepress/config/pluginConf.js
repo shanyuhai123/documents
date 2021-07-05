@@ -19,10 +19,7 @@ module.exports = [
       filename: 'config/sidebarConf'
     },
     title: {
-      mode: "uppercase",
-      map: {
-        "/frontend/javascript/": "JS 基础",
-      }
+      mode: "uppercase"
     },
     collapse: {
       collapseList: ["/frontend/javascript/"]

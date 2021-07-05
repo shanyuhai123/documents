@@ -34,18 +34,18 @@ module.exports = {
   ],
   "/frontend/javascript/": [
     {
-      "text": "JS 基础",
-      "title": "JS 基础",
+      "text": "JAVASCRIPT",
+      "title": "JAVASCRIPT",
       "collapsable": true,
       "sidebarDepth": 1,
       "children": [
         "README.md",
         "statements-and-expressions.md",
         "array-empty.md",
-        "arrow-function.md",
         "can-not-read-property-of-undefined-or-null.md",
         "currying.md",
         "decorator.md",
+        "easy-to-use-es6.md",
         "error.md",
         "event-loop.md",
         "function-methods.md",
@@ -55,50 +55,12 @@ module.exports = {
         "operator-precedence.md",
         "prototype-chain.md",
         "regex-exec.md",
-        "resolve-function-call-in-jsx.md",
         "scope-and-closures.md",
         "setup-babel7-step-by-step.md",
         "this-identifier.md",
         "typeof-identifier.md",
         "undefined.md",
         "update-expressions.md"
-      ]
-    },
-    {
-      "text": "对象方法",
-      "title": "对象方法",
-      "collapsable": true,
-      "sidebarDepth": 1,
-      "children": [
-        "object-constructor-methods.md",
-        "object-constructor-methods-freeze.md",
-        "object-constructor-methods-property.md",
-        "object-instance-methods.md"
-      ]
-    },
-    {
-      "text": "数组方法",
-      "title": "数组方法",
-      "collapsable": true,
-      "sidebarDepth": 1,
-      "children": [
-        "array.md",
-        "array-accessor-methods.md",
-        "array-iteration-methods.md",
-        "array-mutator-methods.md"
-      ]
-    },
-    {
-      "text": "字符串方法",
-      "title": "字符串方法",
-      "collapsable": true,
-      "sidebarDepth": 1,
-      "children": [
-        "string-concat.md",
-        "string-format.md",
-        "string-query.md",
-        "string-regexp.md",
-        "string-substring.md"
       ]
     }
   ],
@@ -213,6 +175,17 @@ module.exports = {
       ]
     }
   ],
+  "/backend/golang/": [
+    {
+      "text": "GOLANG",
+      "title": "GOLANG",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
   "/backend/docker/": [
     {
       "text": "DOCKER",
@@ -230,17 +203,6 @@ module.exports = {
         "namespace-&-cgroups.md",
         "private-registry.md",
         "volumes.md"
-      ]
-    }
-  ],
-  "/backend/golang/": [
-    {
-      "text": "GOLANG",
-      "title": "GOLANG",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
