@@ -21,9 +21,10 @@ module.exports = {
   head: headConf,
   plugins: pluginConf,
   themeConfig: {
+    logo: '/hero.jpg',
+    repo: 'shanyuhai123/documents',
     lastUpdatedText: '上次更新',
     contributorsText: '贡献者',
-    repo: 'shanyuhai123/documents',
     editLinks: true,
     editLinkText: '编辑文档！',
     docsDir: 'docs',

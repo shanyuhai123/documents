@@ -38,6 +38,14 @@ pre[class*="language-"]::after {
   .home .hero img {
     border-radius: 1rem;
   }
+  .navbar .logo {
+    border-radius: 4px;
+  }
+  .navbar-links {
+    .navbar-links-item:last-child {
+      display: none;
+    }
+  }
   // page
   .page {
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==");

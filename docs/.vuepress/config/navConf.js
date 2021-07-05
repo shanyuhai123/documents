@@ -1,6 +1,6 @@
 module.exports = [
   { text: '首页', link: '/' },
-  { text: '先导', link: '/guide/' },
+  { text: '先看', link: '/pre-reading.html' },
   { text: '计算机', link: '/computer/' },
   { text: '基石', children: [
     { text: '数学', link: '/cornerstone/math/' },

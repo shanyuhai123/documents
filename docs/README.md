@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.jpg
 heroText: 飞跃高山与大洋的鱼
-tagline: 文档, 笔记
+tagline: 文档、笔记、博客
 actionText: 进入笔记 →
 actionLink: /guide/
 ---

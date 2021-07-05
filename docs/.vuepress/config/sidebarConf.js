@@ -395,7 +395,8 @@ module.exports = {
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
-        "README.md"
+        "README.md",
+        "quick-start.md"
       ]
     }
   ],
@@ -555,24 +556,6 @@ module.exports = {
       ]
     }
   ],
-  "/tools/git/": [
-    {
-      "text": "GIT",
-      "title": "GIT",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md",
-        "commit-message.md",
-        "daily-git.md",
-        "git-concept.md",
-        "git-flight-rules.md",
-        "git-proxy.md",
-        "gitignore.md",
-        "submodule.md"
-      ]
-    }
-  ],
   "/os/centos/": [
     {
       "text": "CENTOS",
@@ -604,6 +587,24 @@ module.exports = {
         "frp-and-nginx-share-80-port.md",
         "install-the-latest-version-of-nginx.md",
         "ubuntu-computer-config.md"
+      ]
+    }
+  ],
+  "/tools/git/": [
+    {
+      "text": "GIT",
+      "title": "GIT",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "commit-message.md",
+        "daily-git.md",
+        "git-concept.md",
+        "git-flight-rules.md",
+        "git-proxy.md",
+        "gitignore.md",
+        "submodule.md"
       ]
     }
   ],
@@ -660,19 +661,6 @@ module.exports = {
         "user.md",
         "view-text-context.md",
         "xargs.md"
-      ]
-    }
-  ],
-  "/guide/": [
-    {
-      "text": "GUIDE",
-      "title": "GUIDE",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md",
-        "about-me.md",
-        "docs-style.md"
       ]
     }
   ],
