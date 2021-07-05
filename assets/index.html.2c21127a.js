@@ -1,1 +1,0 @@
-const e={key:"v-fffb8e28",path:"/guide/",title:"介绍",lang:"zh-CN",frontmatter:{title:"介绍"},excerpt:"",headers:[{level:2,title:"前言",slug:"前言",children:[]},{level:2,title:"写文档的目的 ?",slug:"写文档的目的",children:[]},{level:2,title:"写文档的想法",slug:"写文档的想法",children:[]}],filePathRelative:"guide/README.md",git:{updatedTime:157893441e4,contributors:[]}};export{e as data};

@@ -1,1 +1,0 @@
-const t={key:"v-648ca05a",path:"/frontend/canvas/",title:"Canvas",lang:"zh-CN",frontmatter:{title:"Canvas"},excerpt:"",headers:[],filePathRelative:"frontend/canvas/README.md",git:{updatedTime:1624886556e3,contributors:[]}};export{t as data};

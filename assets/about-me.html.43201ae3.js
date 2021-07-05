@@ -1,1 +1,0 @@
-const e={key:"v-063e7ad6",path:"/guide/about-me.html",title:"关于我",lang:"zh-CN",frontmatter:{title:"关于我"},excerpt:"",headers:[],filePathRelative:"guide/about-me.md",git:{updatedTime:1563692156e3,contributors:[]}};export{e as data};
