@@ -36,7 +36,7 @@ module.exports = {
     {
       "text": "JAVASCRIPT",
       "title": "JAVASCRIPT",
-      "collapsable": true,
+      "collapsable": false,
       "sidebarDepth": 1,
       "children": [
         "README.md",
@@ -158,7 +158,6 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "quick-start.md",
         "traefik-with-frp.md"
       ]
     }
@@ -172,17 +171,6 @@ module.exports = {
       "children": [
         "README.md",
         "graphics.md"
-      ]
-    }
-  ],
-  "/backend/golang/": [
-    {
-      "text": "GOLANG",
-      "title": "GOLANG",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
@@ -203,6 +191,17 @@ module.exports = {
         "namespace-&-cgroups.md",
         "private-registry.md",
         "volumes.md"
+      ]
+    }
+  ],
+  "/backend/golang/": [
+    {
+      "text": "GOLANG",
+      "title": "GOLANG",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],
@@ -399,17 +398,6 @@ module.exports = {
       ]
     }
   ],
-  "/design/pixel/": [
-    {
-      "text": "PIXEL",
-      "title": "PIXEL",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
   "/frontend/css/": [
     {
       "text": "CSS",
@@ -435,6 +423,17 @@ module.exports = {
         "README.md",
         "vue-composition-api.md",
         "vue3-rfc.md"
+      ]
+    }
+  ],
+  "/design/pixel/": [
+    {
+      "text": "PIXEL",
+      "title": "PIXEL",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],

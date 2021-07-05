@@ -20,9 +20,6 @@ module.exports = [
     },
     title: {
       mode: "uppercase"
-    },
-    collapse: {
-      collapseList: ["/frontend/javascript/"]
     }
   }],
   ['@vuepress/plugin-search', {
