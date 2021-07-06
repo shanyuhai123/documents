@@ -1,1 +1,0 @@
-const e={key:"v-9e80f836",path:"/backend/nodejs/yarn.html",title:"Yarn",lang:"zh-CN",frontmatter:{title:"Yarn"},excerpt:"",headers:[{level:2,title:"强制使用 yarn",slug:"强制使用-yarn",children:[]},{level:2,title:"link",slug:"link",children:[]}],filePathRelative:"backend/nodejs/yarn.md",git:{updatedTime:1602690984e3,contributors:[]}};export{e as data};
