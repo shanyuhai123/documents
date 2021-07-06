@@ -1,5 +1,8 @@
 ---
-title: Lerna
+title: 使用 Lerna 维护关联的模块
+description: 使用 Lerna 维护关联的模块
+tags:
+  - lerna
 sidebarDepth: 2
 ---
 

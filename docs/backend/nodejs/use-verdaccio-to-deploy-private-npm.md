@@ -1,5 +1,8 @@
 ---
-title: 私有 npm
+title: 使用 verdaccio 搭建私有 npm
+description: 使用 verdaccio 搭建私有 npm
+tags:
+  - verdaccio
 ---
 
 ## 起始

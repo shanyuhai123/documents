@@ -226,14 +226,9 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "nodejs.md",
         "lerna.md",
-        "npm-script-pass-arguments.md",
-        "npm-version.md",
-        "npx.md",
-        "path.md",
-        "use-verdaccio-to-deploy-private-npm.md",
-        "yarn.md"
+        "npm-and-yarn-commands.md",
+        "use-verdaccio-to-deploy-private-npm.md"
       ]
     }
   ],
@@ -398,6 +393,17 @@ module.exports = {
       ]
     }
   ],
+  "/design/pixel/": [
+    {
+      "text": "PIXEL",
+      "title": "PIXEL",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
   "/frontend/css/": [
     {
       "text": "CSS",
@@ -423,17 +429,6 @@ module.exports = {
         "README.md",
         "vue-composition-api.md",
         "vue3-rfc.md"
-      ]
-    }
-  ],
-  "/design/pixel/": [
-    {
-      "text": "PIXEL",
-      "title": "PIXEL",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
