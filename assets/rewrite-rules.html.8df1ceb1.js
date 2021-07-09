@@ -1,1 +1,0 @@
-const e={key:"v-59dc43cc",path:"/backend/nginx/rewrite-rules.html",title:"rewrite 规则",lang:"zh-CN",frontmatter:{title:"rewrite 规则"},excerpt:"",headers:[{level:2,title:"介绍",slug:"介绍",children:[]},{level:2,title:"flag",slug:"flag",children:[]}],filePathRelative:"backend/nginx/rewrite-rules.md",git:{updatedTime:1582371353e3,contributors:[]}};export{e as data};
