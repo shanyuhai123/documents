@@ -1,5 +1,6 @@
 ---
 title: 主从 Nginx
+description: 主从 Nginx
 ---
 
 ## 准备

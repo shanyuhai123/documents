@@ -185,17 +185,6 @@ module.exports = {
       ]
     }
   ],
-  "/backend/golang/": [
-    {
-      "text": "GOLANG",
-      "title": "GOLANG",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
   "/backend/docker/": [
     {
       "text": "DOCKER",
@@ -213,6 +202,17 @@ module.exports = {
         "namespace-&-cgroups.md",
         "private-registry.md",
         "volumes.md"
+      ]
+    }
+  ],
+  "/backend/golang/": [
+    {
+      "text": "GOLANG",
+      "title": "GOLANG",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],
@@ -300,17 +300,11 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "install-nginx.md",
-        "nginx-basic-operation.md",
-        "configurin-systemd-service-for-nginx.md",
-        "explain-the-main-configuration-file-of-nginx.md",
-        "built-in-variables.md",
         "handle-error.md",
         "install-goaccess.md",
         "limit-module.md",
         "location-rules.md",
         "master-slave-nginx.md",
-        "nginx-forbidden-ip-access.md",
         "nginx-upstream.md",
         "proxy-pass-rules.md",
         "referer-module.md",

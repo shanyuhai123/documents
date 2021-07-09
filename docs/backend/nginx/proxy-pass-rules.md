@@ -1,5 +1,6 @@
 ---
-title: proxy_pass 规则
+title: Nginx 的 proxy_pass 规则
+description: Nginx 的 proxy_pass 规则
 ---
 
 ## 前言

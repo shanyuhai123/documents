@@ -1,5 +1,6 @@
 ---
-title: 防盗链
+title: Nginx 防盗链
+description: Nginx 防盗链
 ---
 
 ## 介绍

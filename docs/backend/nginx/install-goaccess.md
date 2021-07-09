@@ -1,5 +1,9 @@
 ---
-title: 可视化 access 日志
+title: 使用 goaccess 可视化查看日志
+description: 使用 goaccess 可视化查看日志
+tags:
+  - nginx
+  - goaccess
 ---
 
 ## 介绍

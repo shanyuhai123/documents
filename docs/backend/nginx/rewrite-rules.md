@@ -1,5 +1,6 @@
 ---
-title: rewrite 规则
+title: Nginx 的 rewrite 规则
+description: Nginx 的 rewrite 规则
 ---
 
 ## 介绍

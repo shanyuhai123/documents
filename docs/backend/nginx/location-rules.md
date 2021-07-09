@@ -1,5 +1,6 @@
 ---
-title: location 规则
+title: Nginx 的 location 规则
+description: Nginx 的 location 规则
 ---
 
 ## 规则

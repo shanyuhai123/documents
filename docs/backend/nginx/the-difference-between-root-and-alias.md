@@ -1,5 +1,6 @@
 ---
 title: root 与 alias 区别
+description: root 与 alias 区别
 ---
 
 ## 前言
