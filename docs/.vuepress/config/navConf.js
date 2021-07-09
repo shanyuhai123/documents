@@ -19,6 +19,7 @@ module.exports = [
     { text: 'Canvas', link: '/frontend/canvas/' },
     { text: 'Vue', link: '/frontend/vue/' },
     { text: 'Vite', link: '/frontend/vite/' },
+    { text: 'NuxtJS', link: '/frontend/nuxtjs/' },
     { text: 'Webpack', link: '/frontend/webpack/' },
     { text: 'Flutter', link: '/frontend/flutter/' },
     { text: 'D3', link: '/frontend/d3js/' },

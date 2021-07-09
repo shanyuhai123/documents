@@ -174,6 +174,28 @@ module.exports = {
       ]
     }
   ],
+  "/frontend/nuxtjs/": [
+    {
+      "text": "NUXTJS",
+      "title": "NUXTJS",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
+  "/backend/golang/": [
+    {
+      "text": "GOLANG",
+      "title": "GOLANG",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
   "/backend/docker/": [
     {
       "text": "DOCKER",
@@ -191,17 +213,6 @@ module.exports = {
         "namespace-&-cgroups.md",
         "private-registry.md",
         "volumes.md"
-      ]
-    }
-  ],
-  "/backend/golang/": [
-    {
-      "text": "GOLANG",
-      "title": "GOLANG",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
@@ -341,18 +352,6 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md"
-      ]
-    }
-  ],
-  "/frontend/nuxt/": [
-    {
-      "text": "NUXT",
-      "title": "NUXT",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md",
-        "quick-start.md"
       ]
     }
   ],
