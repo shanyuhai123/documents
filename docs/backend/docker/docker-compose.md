@@ -1,8 +1,9 @@
 ---
-title: Compose
+title: Docker Compose 管理多个服务
+description: Docker Compose 管理多个服务
 ---
 
-## 概念
+## 为什么需要 Docker Compose
 
 先简单理解 Docker 的使用过程：
 

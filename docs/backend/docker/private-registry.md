@@ -1,5 +1,7 @@
 ---
-title: 搭建私有仓库
+title: 使用 Harbor 构建私有镜像仓库
+description: 使用 Harbor 构建私有镜像仓库
+autoSort: -999
 ---
 
 ## 环境

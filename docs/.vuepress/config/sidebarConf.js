@@ -193,15 +193,12 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "init.md",
-        "compose.md",
-        "container.md",
         "dockerfile.md",
-        "hot-images.md",
+        "container.md",
+        "docker-compose.md",
         "image.md",
-        "namespace-&-cgroups.md",
-        "private-registry.md",
-        "volumes.md"
+        "volumes.md",
+        "private-registry.md"
       ]
     }
   ],
@@ -300,6 +297,7 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
+        "configurin-systemd-service-for-nginx.md",
         "handle-error.md",
         "install-goaccess.md",
         "limit-module.md",
@@ -326,6 +324,17 @@ module.exports = {
       ]
     }
   ],
+  "/frontend/jest/": [
+    {
+      "text": "JEST",
+      "title": "JEST",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
   "/frontend/d3js/": [
     {
       "text": "D3JS",
@@ -335,17 +344,6 @@ module.exports = {
       "children": [
         "README.md",
         "hello-d3.md"
-      ]
-    }
-  ],
-  "/frontend/jest/": [
-    {
-      "text": "JEST",
-      "title": "JEST",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
