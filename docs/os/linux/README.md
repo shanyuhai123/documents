@@ -2,9 +2,20 @@
 title: 首页
 ---
 
+::: danger 注意事项
+
+1. 虚拟机的桥接网卡需要根据宿主机进行替换，若宿主使用了 WIFI 时，虚拟机也需记得替换对应的桥接网卡。  
+
+:::
+
+
+
 ## 介绍
 
-主要用于解决在使用 Linux 时遇到的问题，终究还是计划将更基础的知识从 Ubuntu 分类中拆离出来，毕竟真一块的东西实在是太多了，无论是划分到 CentOS 还是 Ubuntu 等其余 Linux 发行版都感觉差了那么一些。
+很多时候直接使用物理机安装 Linux 并不是一个明智的选择，因为你可能频繁的出错，导致频繁的重装系统，可以利用虚拟机打上快照来步步操作，学习 Linux 的使用。
+
+1. [Manjaro 的安装](/os/manjaro/how-to-install-manjaro-on-virtualbox) :cookie:
+2. [CentOS 的安装](/os/centos/how-to-install-centos-on-virtualbox) :tiger:
 
 
 

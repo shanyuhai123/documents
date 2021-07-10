@@ -324,17 +324,6 @@ module.exports = {
       ]
     }
   ],
-  "/frontend/jest/": [
-    {
-      "text": "JEST",
-      "title": "JEST",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
   "/frontend/d3js/": [
     {
       "text": "D3JS",
@@ -344,6 +333,17 @@ module.exports = {
       "children": [
         "README.md",
         "hello-d3.md"
+      ]
+    }
+  ],
+  "/frontend/jest/": [
+    {
+      "text": "JEST",
+      "title": "JEST",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],
@@ -594,16 +594,14 @@ module.exports = {
         "fail2ban.md",
         "firewalld.md",
         "gaudy-and-pragmatical-command.md",
-        "generate-ssh-key.md",
         "grep-sed-awk.md",
         "how-to-enable-the-hard-disk.md",
-        "how-to-install-linux-on-virtualbox.md",
         "io-redirection.md",
         "job-control.md",
-        "login-with-rsa-key.md",
         "prometheus.md",
         "raid.md",
         "rsync-and-scp.md",
+        "ssh-makes-your-server-more-secure.md",
         "systemd.md",
         "user.md",
         "view-text-context.md",
