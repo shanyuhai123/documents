@@ -109,12 +109,36 @@ sshd -t
 
 ### SSH 隧道
 
-我们需要访问部署在服务器上的服务，但很多时候又不想暴露在公网，可以使用 SSH 隧道来进行端口转发。
+可以使用 SSH 隧道（SSH Tunnel）的[转发模式](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding)有三种：
 
-例如在服务器的 30000 端口部署了 `potainer` 服务，这种服务访问频率低，当需要访问时进行转发即可：
++ 本地端口转发（Local port forwarding）
++ 远程端口转发（Remote port forwarding）
++ 动态端口转发（Dynamic port forwarding）
+
+我们需要在本地访问部署在服务器上的服务，选择本地端口转发即可。例如在服务器的 30000 端口部署了 Web 服务。
+
+可通过 `man ssh` 查看语法：
 
 ```bash
-ssh -L 30000:localhost:30000 user@hostname -N
+-L [bind_address:]port:host:hostport
+-L [bind_address:]port:remote_socket
+-L local_socket:host:hostport
+-L local_socket:remote_socket
+```
+
+选择第一种，`ip + port` 的形式即可：
+
+```bash
+# 将服务器上 30000 端口转发到本地的 8080，打开浏览器即可验证
+# -N 表示不登录服务器，仅转发端口
+ssh -L localhost:8080:localhost:30000 user@hostname -N
+```
+
+当 `bind_address` 省略时，表示绑至所有网卡。在远程我们同样使用 `localhost` 指定为服务器主机，你也可以使用对应的 IP 进行替换，如果在局域网内，也可指定为局域网内其他服务器的 IP 地址，例如在 `172.21.0.2` 上：
+
+```bash
+# 将服务器上 80 端口转发到本地的 8080，打开浏览器即可验证
+ssh -L localhost:8080:172.21.0.2:80 user@hostname -N
 ```
 
 ### 服务认证
