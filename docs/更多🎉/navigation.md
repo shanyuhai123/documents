@@ -84,6 +84,16 @@ export default {
           desc: "指导更好的生活",
           link: "https://wenshu.court.gov.cn"
         },
+        {
+          name: "12315",
+          desc: "当你的合法权益受到侵犯时",
+          link: "http://www.12315.cn"
+        },
+        {
+          name: "黑猫投诉",
+          desc: "配合 12315 使用",
+          link: "https://tousu.sina.com.cn"
+        },
       ],
       communities: [
         {
