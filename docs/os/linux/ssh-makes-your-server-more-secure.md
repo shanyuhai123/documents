@@ -109,7 +109,7 @@ sshd -t
 
 ### SSH 隧道
 
-可以使用 SSH 隧道（SSH Tunnel）的[转发模式](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding)有三种：
+可以使用 SSH 隧道（SSH Tunnel）的[转发模式](https://en.wikipedia.org/wiki/Port_forwarding)有三种：
 
 + 本地端口转发（Local port forwarding）
 + 远程端口转发（Remote port forwarding）
