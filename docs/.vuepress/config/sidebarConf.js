@@ -73,6 +73,7 @@ module.exports = {
       "children": [
         "README.md",
         "eslint-do-not-work-correctly-with-ts.md",
+        "resolve-axios-exceptions.md",
         "type-challenges.md",
         "typescript-normal-problems.md"
       ]
@@ -181,17 +182,6 @@ module.exports = {
       ]
     }
   ],
-  "/backend/golang/": [
-    {
-      "text": "GOLANG",
-      "title": "GOLANG",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
   "/backend/docker/": [
     {
       "text": "DOCKER",
@@ -206,6 +196,17 @@ module.exports = {
         "image.md",
         "volumes.md",
         "private-registry.md"
+      ]
+    }
+  ],
+  "/backend/golang/": [
+    {
+      "text": "GOLANG",
+      "title": "GOLANG",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],
@@ -320,21 +321,6 @@ module.exports = {
       ]
     }
   ],
-  "/os/kubernetes/": [
-    {
-      "text": "KUBERNETES",
-      "title": "KUBERNETES",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md",
-        "concept.md",
-        "dashboard.md",
-        "deploy-k8s-with-kubeadm.md",
-        "deploy-mysql-with-nfs.md"
-      ]
-    }
-  ],
   "/frontend/d3js/": [
     {
       "text": "D3JS",
@@ -366,6 +352,21 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md"
+      ]
+    }
+  ],
+  "/os/kubernetes/": [
+    {
+      "text": "KUBERNETES",
+      "title": "KUBERNETES",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "concept.md",
+        "dashboard.md",
+        "deploy-k8s-with-kubeadm.md",
+        "deploy-mysql-with-nfs.md"
       ]
     }
   ],
