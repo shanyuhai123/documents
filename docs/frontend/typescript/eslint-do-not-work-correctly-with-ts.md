@@ -1,8 +1,8 @@
 ---
-title: ESLint 错误提示
+description: 处理 ESLint 在 TypeScript 未能好好工作
 ---
 
-## 情况
+# ESLint 在 TypeScript 未能好好工作
 
 ESLint 的提示在 TypeScript 下没有好好工作。
 

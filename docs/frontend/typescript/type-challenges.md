@@ -1,14 +1,14 @@
 ---
-title: 类型挑战
+description: TypeScript 类型挑战
 ---
 
-## 感谢
+# TypeScript 类型挑战
 
-感谢 [type-challenges](https://github.com/type-challenges/type-challenges) 这个项目，在初步学习 TypeScript 后得到了良好的练习。
+以下来自于 [type-challenges](https://github.com/type-challenges/type-challenges) 这个项目，来点 TypeScript 类型体操练习吧。
 
 
 
-## 工具
+## 辅助工具
 
 该项目提供了一些基础的工具来帮助测试。
 
@@ -59,7 +59,7 @@ export type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) ex
 
 
 
-## 练习
+## 开始练习
 
 ### Hello World
 
