@@ -1,1 +1,0 @@
-const e={key:"v-7cf9d8a8",path:"/frontend/typescript/excess-property-checks.html",title:"过量属性检测",lang:"zh-CN",frontmatter:{title:"过量属性检测"},excerpt:"",headers:[{level:2,title:"PR",slug:"pr",children:[]},{level:2,title:"疑惑",slug:"疑惑",children:[]}],filePathRelative:"frontend/typescript/excess-property-checks.md",git:{updatedTime:161228393e4,contributors:[]}};export{e as data};
