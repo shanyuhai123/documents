@@ -1,8 +1,8 @@
 ---
-description: 处理 axios 返回类型错误
+description: 修改 axios response 返回类型
 ---
 
-# 处理 axios 返回类型错误
+# 修改 axios response 返回类型
 
 ## TypeScript 错误的类型提示
 
@@ -31,7 +31,7 @@ type T = typeof res
 
 解决方案参考：[How to use Axios with TypeScript when using response interceptors (AxiosResponse issue)](https://github.com/axios/axios/issues/1510)
 
-### 修改定义
+### 1. 修改定义
 
 这并不是一个好的方案，会影响到其他内容。
 
@@ -64,7 +64,7 @@ declare module 'axios' {
 }
 ```
 
-### 指定返回类型
+### 2. 指定返回类型
 
 这是一个更好的选择，在 [Allow custom return types(PR)](https://github.com/axios/axios/pull/1605) 中：
 
@@ -118,4 +118,6 @@ const res = axios.request<any, AxiosResponseData<User[]>>({})
 type T = typeof res
 // type T = Promise<AxiosResponseData<User[]>>
 ```
+
+如果在响应拦截做了处理，则可以省略这一部分，毕竟每个 `interface` 都加这个还是有些麻烦的。
 

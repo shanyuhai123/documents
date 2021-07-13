@@ -72,8 +72,8 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
+        "change-axios-response-type.md",
         "eslint-do-not-work-correctly-with-ts.md",
-        "resolve-axios-exceptions.md",
         "type-challenges.md",
         "typescript-normal-problems.md"
       ]
@@ -87,17 +87,6 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "install-aseprite.md"
-      ]
-    }
-  ],
-  "/cornerstone/math/": [
-    {
-      "text": "MATH",
-      "title": "MATH",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
@@ -125,10 +114,10 @@ module.exports = {
       ]
     }
   ],
-  "/algorithms/sort/": [
+  "/cornerstone/math/": [
     {
-      "text": "SORT",
-      "title": "SORT",
+      "text": "MATH",
+      "title": "MATH",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
@@ -156,6 +145,17 @@ module.exports = {
       "children": [
         "README.md",
         "traefik-with-frp.md"
+      ]
+    }
+  ],
+  "/algorithms/sort/": [
+    {
+      "text": "SORT",
+      "title": "SORT",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],
@@ -370,10 +370,10 @@ module.exports = {
       ]
     }
   ],
-  "/backend/http/": [
+  "/design/pixel/": [
     {
-      "text": "HTTP",
-      "title": "HTTP",
+      "text": "PIXEL",
+      "title": "PIXEL",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
@@ -381,10 +381,10 @@ module.exports = {
       ]
     }
   ],
-  "/design/pixel/": [
+  "/backend/http/": [
     {
-      "text": "PIXEL",
-      "title": "PIXEL",
+      "text": "HTTP",
+      "title": "HTTP",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
