@@ -1,6 +1,4 @@
----
-title: CentOS 下安装最新版本的 Nginx
----
+# CentOS 下安装最新版本的 Nginx
 
 ## 安装依赖
 

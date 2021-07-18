@@ -509,11 +509,9 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "how-to-install-centos-on-virtualbox.md",
-        "install-centos-for-the-first-time.md",
+        "you-need-to-know-yum.md",
         "install-the-latest-version-of-nginx.md",
-        "modify-the-network-named-eth.md",
-        "you-need-to-know-yum.md"
+        "modify-the-network-named-eth.md"
       ]
     }
   ],
