@@ -1,1 +1,0 @@
-const e={key:"v-deab4a9e",path:"/os/centos/",title:"首页",lang:"zh-CN",frontmatter:{title:"首页"},excerpt:"",headers:[{level:2,title:"介绍",slug:"介绍",children:[]},{level:2,title:"配置详情",slug:"配置详情",children:[]}],filePathRelative:"os/centos/README.md",git:{updatedTime:1564908855e3,contributors:[]}};export{e as data};
