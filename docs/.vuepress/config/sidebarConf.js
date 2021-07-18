@@ -74,6 +74,7 @@ module.exports = {
         "README.md",
         "change-axios-response-type.md",
         "eslint-do-not-work-correctly-with-ts.md",
+        "extend-vue-router-meta-interface.md",
         "type-challenges.md",
         "typescript-normal-problems.md"
       ]
@@ -87,6 +88,17 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "install-aseprite.md"
+      ]
+    }
+  ],
+  "/cornerstone/math/": [
+    {
+      "text": "MATH",
+      "title": "MATH",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],
@@ -111,40 +123,6 @@ module.exports = {
         "README.md",
         "loader.md",
         "simple-bundle-analysis.md"
-      ]
-    }
-  ],
-  "/cornerstone/math/": [
-    {
-      "text": "MATH",
-      "title": "MATH",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
-  "/backend/mongodb/": [
-    {
-      "text": "MONGODB",
-      "title": "MONGODB",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
-  "/backend/traefik/": [
-    {
-      "text": "TRAEFIK",
-      "title": "TRAEFIK",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md",
-        "traefik-with-frp.md"
       ]
     }
   ],
@@ -175,6 +153,60 @@ module.exports = {
     {
       "text": "NUXTJS",
       "title": "NUXTJS",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
+  "/backend/mongodb/": [
+    {
+      "text": "MONGODB",
+      "title": "MONGODB",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
+  "/backend/traefik/": [
+    {
+      "text": "TRAEFIK",
+      "title": "TRAEFIK",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "traefik-with-frp.md"
+      ]
+    }
+  ],
+  "/frontend/utils/": [
+    {
+      "text": "UTILS",
+      "title": "UTILS",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "code-array.md",
+        "code-browser.md",
+        "code-date.md",
+        "code-function.md",
+        "code-math.md",
+        "code-node.md",
+        "code-object.md",
+        "code-string.md",
+        "code-type.md"
+      ]
+    }
+  ],
+  "/frontend/weapp/": [
+    {
+      "text": "WEAPP",
+      "title": "WEAPP",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
@@ -237,30 +269,33 @@ module.exports = {
       ]
     }
   ],
-  "/frontend/utils/": [
+  "/frontend/d3js/": [
     {
-      "text": "UTILS",
-      "title": "UTILS",
+      "text": "D3JS",
+      "title": "D3JS",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "code-array.md",
-        "code-browser.md",
-        "code-date.md",
-        "code-function.md",
-        "code-math.md",
-        "code-node.md",
-        "code-object.md",
-        "code-string.md",
-        "code-type.md"
+        "hello-d3.md"
       ]
     }
   ],
-  "/frontend/weapp/": [
+  "/frontend/jest/": [
     {
-      "text": "WEAPP",
-      "title": "WEAPP",
+      "text": "JEST",
+      "title": "JEST",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
+  "/frontend/vite/": [
+    {
+      "text": "VITE",
+      "title": "VITE",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
@@ -321,40 +356,6 @@ module.exports = {
       ]
     }
   ],
-  "/frontend/d3js/": [
-    {
-      "text": "D3JS",
-      "title": "D3JS",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md",
-        "hello-d3.md"
-      ]
-    }
-  ],
-  "/frontend/jest/": [
-    {
-      "text": "JEST",
-      "title": "JEST",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
-  "/frontend/vite/": [
-    {
-      "text": "VITE",
-      "title": "VITE",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
   "/os/kubernetes/": [
     {
       "text": "KUBERNETES",
@@ -374,17 +375,6 @@ module.exports = {
     {
       "text": "PIXEL",
       "title": "PIXEL",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
-  "/backend/http/": [
-    {
-      "text": "HTTP",
-      "title": "HTTP",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
@@ -417,6 +407,17 @@ module.exports = {
         "README.md",
         "vue-composition-api.md",
         "vue3-rfc.md"
+      ]
+    }
+  ],
+  "/backend/http/": [
+    {
+      "text": "HTTP",
+      "title": "HTTP",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],
