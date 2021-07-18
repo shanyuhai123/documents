@@ -395,7 +395,7 @@ initializeArrayWithRangeRight(9, 0, 2); // [8,6,4,2,0]
 
 **DETAIL：**
 
-对 [empty](/frontend/javascript/array-empty) 的处理。
+对 [empty](/frontend/javascript/array-empty.html) 的处理。
 
 **FUNCTION：**
 
@@ -417,7 +417,7 @@ initializeArrayWithValues(5, 2); // [2, 2, 2, 2, 2]
 
 **DETAIL：**
 
-对 [empty](/frontend/javascript/array-empty) 的处理。
+对 [empty](/frontend/javascript/array-empty.html) 的处理。
 
 **FUNCTION：**
 

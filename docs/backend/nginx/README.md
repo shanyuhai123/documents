@@ -50,7 +50,7 @@ yum list | grep nginx
 
 [官网](http://nginx.org/en/download.html) 中 Nginx 稳定版本已经是 `1.20.1` ，而检测结果依然是 `1.12.2`，[修改](http://nginx.org/en/linux_packages.html) yum 源来获取最新版。
 
-更新 Nginx 的源在 [CentOS](/os/centos/install-the-latest-version-of-nginx)、[Ubuntu](/os/ubuntu/install-the-latest-version-of-nginx) 中稍有不同，需要区别安装。
+更新 Nginx 的源在 [CentOS](/os/centos/install-the-latest-version-of-nginx.html)、[Ubuntu](/os/ubuntu/install-the-latest-version-of-nginx.html) 中稍有不同，需要区别安装。
 
 ### 3. 编译安装
 

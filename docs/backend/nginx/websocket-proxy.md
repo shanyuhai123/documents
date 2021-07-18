@@ -5,7 +5,7 @@ description: websocket 反向代理
 
 ## 介绍
 
-在理解[反向代理与负载均衡](/backend/nginx/nginx-upstream)后就可以快速实现 websocket 的反向代理，在之前的[配置](/backend/nginx/nginx-directives.html#alias) 的配置上进行修改。
+在理解[反向代理与负载均衡](/backend/nginx/nginx-upstream.html)后就可以快速实现 websocket 的反向代理。
 
 
 

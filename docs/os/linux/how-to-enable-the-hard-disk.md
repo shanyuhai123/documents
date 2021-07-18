@@ -30,7 +30,7 @@ title: 如何启用硬盘
 
 ## 磁盘进行 RAID
 
-为了数据更安全，更快捷，需要进行 [RAID](/os/linux/raid)。
+为了数据更安全，更快捷，需要进行 [RAID](/os/linux/raid.html)。
 
 此处缺乏 RAID 实践，以后可能会补上，参考资料：
 
@@ -127,7 +127,7 @@ title: 如何启用硬盘
 
 ## 分区文件系统
 
-磁盘需要借助[文件系统](https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)才能实现磁盘管理，[数据存取](/computer/data-write)。
+磁盘需要借助[文件系统](https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)才能实现磁盘管理，[数据存取](/computer/data-write.html)。
 
 ### 1. 操作步骤
 

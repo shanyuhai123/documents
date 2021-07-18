@@ -85,5 +85,5 @@ CentOS7 之前的 ethX 数字编号的网卡命名往往不一定准确对应网
    net.ifnames=0 biosdevname=0
    ```
 
-2. [形式二](/os/centos/modify-the-network-named-eth)。
+2. [形式二](/os/centos/modify-the-network-named-eth.html)。
 

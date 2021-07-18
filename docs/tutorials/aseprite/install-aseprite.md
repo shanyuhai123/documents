@@ -10,7 +10,7 @@ title: Aseprite 安装
 
 ## 环境准备
 
-虽然也可以本地安装依赖编译，但为了避免对现有的环境造成影响，选择了 Docker，需要准备好 [Docker](/backend/docker/init) 及 [Docker Compose](/backend/docker/compose) 环境。
+虽然也可以本地安装依赖编译，但为了避免对现有的环境造成影响，选择了 Docker，需要准备好 [Docker](/backend/docker/init.html) 及 [Docker Compose](/backend/docker/compose.html) 环境。
 
 
 

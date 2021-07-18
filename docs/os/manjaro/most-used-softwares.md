@@ -228,15 +228,3 @@ virtualbox 在启动时直接失败:
    可以看到输出结果相对于之前多了 `vmnet1`、`vmnet8` 两块网卡的配置，这是 VMware 由于默认开启了 Host-Only 模式和 NAT 模式（NAT 可能是我开启的，暂不纠正），如果启动了 Briged（桥接网卡）还会出现 `vmnet0`。
 
    回到 VMware，点击 `Edit > Virtual Network Editor` 进一步配置，此时你就可以修改 Host-Only 模式、NAT 模式、Briged 模式的配置了。
-
-
-
-## mpv
-
-### 1. 介绍
-
-一款视频播放软件。
-
-### 2. 使用方式
-
-mpv [快捷键](/more/hodgepodge/mpv-keyboards)。

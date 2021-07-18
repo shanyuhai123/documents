@@ -20,7 +20,7 @@ FRP（Fast Reverse Proxy）is a fast reverse proxy to help you expose a local se
 
 ### 1. 安全设置
 
-这是一件有风险的事情，所以开始前最好确认你的公网、内网服务器都已经做好防护工作，例如[修改 ssh 配置](/os/linux/login-with-rsa-key)：禁用 root、使用密钥替换密码登录、切换端口等操作。
+这是一件有风险的事情，所以开始前最好确认你的公网、内网服务器都已经做好防护工作，可参考[SSH 让你的服务器更安全](/os/linux/ssh-makes-your-server-more-secure.html)。
 
 ### 2. 资源下载
 

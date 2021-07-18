@@ -27,7 +27,7 @@ Context: http, server, location, if in location
 
 ## 区别
 
-此中区别与 [proxy_pass](/backend/nginx/proxy-pass-rules) 相似。
+此中区别与 [proxy_pass](/backend/nginx/proxy-pass-rules.html) 相似。
 
 | directives | difference                            |
 | :--------: | ------------------------------------- |

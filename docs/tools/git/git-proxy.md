@@ -12,7 +12,7 @@ clone 大项目时总是乏力，下载速度极慢，这时就需要为其设�
 
 1. 全局代理
 
-   该项可参考 [alias](/os/linux/alias) 部分内容。
+   该项可参考 [alias](/os/linux/alias.html) 部分内容。
 
    ```bash
    gfw

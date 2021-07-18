@@ -147,7 +147,7 @@ ssh -L localhost:8080:172.21.0.2:80 user@hostname -N
 
 ### fail2ban
 
-如果有黑客持续爆破你的服务器，那么可以使用 [fail2ban](/os/linux/fail2ban) 来限制他的 IP。
+如果有黑客持续爆破你的服务器，那么可以使用 [fail2ban](/os/linux/fail2ban.html) 来限制他的 IP。
 
 
 
