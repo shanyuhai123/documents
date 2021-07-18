@@ -137,29 +137,6 @@ module.exports = {
       ]
     }
   ],
-  "/frontend/canvas/": [
-    {
-      "text": "CANVAS",
-      "title": "CANVAS",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md",
-        "graphics.md"
-      ]
-    }
-  ],
-  "/frontend/nuxtjs/": [
-    {
-      "text": "NUXTJS",
-      "title": "NUXTJS",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
   "/backend/mongodb/": [
     {
       "text": "MONGODB",
@@ -183,30 +160,22 @@ module.exports = {
       ]
     }
   ],
-  "/frontend/utils/": [
+  "/frontend/canvas/": [
     {
-      "text": "UTILS",
-      "title": "UTILS",
+      "text": "CANVAS",
+      "title": "CANVAS",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "code-array.md",
-        "code-browser.md",
-        "code-date.md",
-        "code-function.md",
-        "code-math.md",
-        "code-node.md",
-        "code-object.md",
-        "code-string.md",
-        "code-type.md"
+        "graphics.md"
       ]
     }
   ],
-  "/frontend/weapp/": [
+  "/frontend/nuxtjs/": [
     {
-      "text": "WEAPP",
-      "title": "WEAPP",
+      "text": "NUXTJS",
+      "title": "NUXTJS",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
@@ -269,33 +238,30 @@ module.exports = {
       ]
     }
   ],
-  "/frontend/d3js/": [
+  "/frontend/utils/": [
     {
-      "text": "D3JS",
-      "title": "D3JS",
+      "text": "UTILS",
+      "title": "UTILS",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "hello-d3.md"
+        "code-array.md",
+        "code-browser.md",
+        "code-date.md",
+        "code-function.md",
+        "code-math.md",
+        "code-node.md",
+        "code-object.md",
+        "code-string.md",
+        "code-type.md"
       ]
     }
   ],
-  "/frontend/jest/": [
+  "/frontend/weapp/": [
     {
-      "text": "JEST",
-      "title": "JEST",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
-  "/frontend/vite/": [
-    {
-      "text": "VITE",
-      "title": "VITE",
+      "text": "WEAPP",
+      "title": "WEAPP",
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
@@ -356,6 +322,40 @@ module.exports = {
       ]
     }
   ],
+  "/frontend/d3js/": [
+    {
+      "text": "D3JS",
+      "title": "D3JS",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "hello-d3.md"
+      ]
+    }
+  ],
+  "/frontend/jest/": [
+    {
+      "text": "JEST",
+      "title": "JEST",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
+  "/frontend/vite/": [
+    {
+      "text": "VITE",
+      "title": "VITE",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
+      ]
+    }
+  ],
   "/os/kubernetes/": [
     {
       "text": "KUBERNETES",
@@ -368,6 +368,17 @@ module.exports = {
         "dashboard.md",
         "deploy-k8s-with-kubeadm.md",
         "deploy-mysql-with-nfs.md"
+      ]
+    }
+  ],
+  "/backend/http/": [
+    {
+      "text": "HTTP",
+      "title": "HTTP",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md"
       ]
     }
   ],
@@ -407,17 +418,6 @@ module.exports = {
         "README.md",
         "vue-composition-api.md",
         "vue3-rfc.md"
-      ]
-    }
-  ],
-  "/backend/http/": [
-    {
-      "text": "HTTP",
-      "title": "HTTP",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
       ]
     }
   ],
@@ -544,10 +544,6 @@ module.exports = {
       "children": [
         "README.md",
         "commit-message.md",
-        "daily-git.md",
-        "git-concept.md",
-        "git-flight-rules.md",
-        "git-proxy.md",
         "gitignore.md",
         "submodule.md"
       ]

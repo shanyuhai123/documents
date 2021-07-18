@@ -1,8 +1,4 @@
----
-title: 子模块
----
-
-## 概念
+# Git 使用子模块
 
 当希望某个项目依赖于另外一个项目，虽然有 lerna 的方案可以选择，但若希望它具有独立的 `issue`、`feature` 管理，那么可能需要 `multi-repo` 的形式。
 
@@ -10,7 +6,7 @@ title: 子模块
 
 
 
-## 使用
+## 使用 submodule
 
 ```bash
 git submodule -h
