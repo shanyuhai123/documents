@@ -1,1 +1,0 @@
-const t={key:"v-346cc890",path:"/tools/git/git-proxy.html",title:"Git 代理",lang:"zh-CN",frontmatter:{title:"Git 代理"},excerpt:"",headers:[{level:2,title:"介绍",slug:"介绍",children:[]},{level:2,title:"代理",slug:"代理",children:[]},{level:2,title:"说明",slug:"说明",children:[]}],filePathRelative:"tools/git/git-proxy.md",git:{updatedTime:1626575209e3,contributors:[]}};export{t as data};

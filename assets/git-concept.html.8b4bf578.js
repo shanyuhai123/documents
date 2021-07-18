@@ -1,1 +1,0 @@
-const t={key:"v-22243f96",path:"/tools/git/git-concept.html",title:"Git 概念",lang:"zh-CN",frontmatter:{title:"Git 概念"},excerpt:"",headers:[{level:2,title:"Git 生命周期",slug:"git-生命周期",children:[]}],filePathRelative:"tools/git/git-concept.md",git:{updatedTime:1565349148e3,contributors:[]}};export{t as data};
