@@ -1,6 +1,4 @@
----
-title: 如何搭建私有 gitlab
----
+# 如何搭建私有 gitlab
 
 ## 安装 gitlab
 
@@ -121,5 +119,62 @@ gitlab-ctl status # 验证
 
 # 指定数据
 gitlab-rake gitlab:backup:restore BACKUP=1607523472_2020_12_09_13.2.1
+```
+
+
+
+## 添加 Runner
+
+```bash
+# 注册（删除 register 及以后可交互式注册）
+docker run --rm -it \
+  -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+  gitlab/gitlab-runner:latest register \
+    --non-interactive \
+    --url "https://gitlab.com/" \
+    --registration-token "PROJECT_REGISTRATION_TOKEN" \
+    --executor "docker" \
+    --docker-image alpine:latest \
+    --description "docker-runner" \
+    --tag-list "docker" \
+    --run-untagged="true" \
+    --locked="false" \
+    --access-level="not_protected"
+
+# 指定配置启动
+docker run -d \
+  --restart always \
+  -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --name gitlab-runner \
+  gitlab/gitlab-runner:latest
+```
+
+### privileged
+
+当存在 `error during connect no such host` 报错时修改 runner config 的 `privileged` 属性为 `true`。
+
+### 自签证书
+
+根据 [tls-self-signed](https://docs.gitlab.com/runner/configuration/tls-self-signed.html) 去信任 ca：
+
+```bash
+# 宿主机
+docker cp /etc/gitlab-runner/certs/ca.crt gitlab-runner-node:/usr/local/share/ca-certificates/ca.crt
+
+# 容器内
+apt-get install -y ca-certificates
+update-ca-certificates --fresh
+
+curl https://example.com # 访问成功
+```
+
+修改配置文件：
+
+```bash
+vim /srv/gitlab-runner/config/config.toml
+
+# 增加 docker 本地环境引用
+volumes = ["/cache", "/var/run/docker.sock:/var/run/docker.sock"]
 ```
 
