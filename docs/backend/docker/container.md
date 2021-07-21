@@ -1,6 +1,7 @@
 ---
 title: 了解 Docker 容器
 description: 了解 Docker 容器
+autoPrev: image
 sidebarDepth: 2
 ---
 

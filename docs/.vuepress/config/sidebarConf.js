@@ -192,10 +192,11 @@ module.exports = {
       "children": [
         "README.md",
         "dockerfile.md",
-        "container.md",
-        "docker-compose.md",
         "image.md",
+        "container.md",
         "volumes.md",
+        "docker-compose.md",
+        "etcd.md",
         "private-registry.md"
       ]
     }
@@ -352,7 +353,8 @@ module.exports = {
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
-        "README.md"
+        "README.md",
+        "vue-cli.md"
       ]
     }
   ],
