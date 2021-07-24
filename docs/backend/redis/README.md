@@ -1,10 +1,21 @@
----
-title: 首页
----
+# 快速尝试 Redis
 
-## 介绍
+```bash
+docker exec -it some-redis sh
+```
 
-主要用于解决在使用 Redis 时遇到的问题，以及是怎么解决的。
+## 命令
+
+```bash
+# 进入 cli
+docker exec -it some-redis redis-cli
+
+# 获取所有 keys
+KEYS *
+
+# 清空所有
+FLUSHALL
+```
 
 
 
