@@ -1,6 +1,4 @@
----
-title: Manjaro 的异常处理
----
+# Manjaro 的异常处理
 
 ## 解决 Manjaro 录屏闪烁
 
@@ -125,3 +123,29 @@ sudo modprobe acpi_call
    ```
 
    除了命令行还可以在 `系统` =》 `查找` 中找到该配置项。
+
+
+
+## 旧系统内核无法删除
+
+### 1. 问题情况
+
+卸载时出现以下提示：
+
+``` 
+checking dependencies...
+:: removing linux510-headers breaks dependency 'linux510-headers' required by linux-latest-headers
+:: removing linux510-r8168 breaks dependency 'linux510-r8168' required by linux-latest-r8168
+```
+
+### 2. 解决方案
+
+参考 [Cannot remove linux57 - breaks dependency .. required by linux-latest-[something]](https://forum.manjaro.org/t/cannot-remove-linux57-breaks-dependency-required-by-linux-latest-something/7679)，执行：
+
+```bash
+sudo pacman -Rcsnu linux510-headers
+sudo pacman -Rcsnu linux510-r8168
+```
+
+再次尝试后即可。
+
