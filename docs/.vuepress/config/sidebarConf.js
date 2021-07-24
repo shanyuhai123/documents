@@ -353,8 +353,7 @@ module.exports = {
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
-        "README.md",
-        "vue-cli.md"
+        "README.md"
       ]
     }
   ],
@@ -484,8 +483,6 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "make-usb-drive.md",
-        "how-to-install-manjaro-on-virtualbox.md",
         "archlinux-aur.md",
         "change-manjaro-repos.md",
         "enhance-virtualbox-tools-on-manjaro.md",
