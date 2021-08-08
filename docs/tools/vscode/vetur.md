@@ -1,6 +1,8 @@
----
-title: Vetur
----
+# Vetur 插件
+
+[Vetur](https://vuejs.github.io/vetur/)。
+
+
 
 ## 修改模板
 

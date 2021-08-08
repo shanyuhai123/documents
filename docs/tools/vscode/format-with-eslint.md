@@ -1,8 +1,4 @@
----
-title: ESLint 格式化
----
-
-## 介绍
+# ESLint 格式化
 
 格式化插件 [ESLint](https://cn.eslint.org/)。
 

@@ -460,17 +460,12 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "version-upgrade.md",
         "errors.md",
-        "focus-code.md",
         "format-with-eslint.md",
         "identify-alias.md",
-        "live-preview.md",
         "set-the-font.md",
         "settings-sync.md",
         "share-code-snippet.md",
-        "theme-color.md",
-        "timeline-view.md",
         "vetur.md"
       ]
     }

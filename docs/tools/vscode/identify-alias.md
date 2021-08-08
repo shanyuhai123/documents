@@ -1,8 +1,4 @@
----
-title: 识别 alias
----
-
-## 介绍
+# VSCode 识别 alias
 
 很多时候为了避免复杂的层级关系，常常使用 webpack 的 `alias` 功能来简化路径，但这也产生了新的问题，无法实时解析文件中的内容，导致缺乏提示。
 
@@ -12,8 +8,9 @@ title: 识别 alias
 
 ## 配置文件
 
+在项目根目录下新建 `jsconfig.json`：
+
 ```json
-# jsconfig.json
 {
   "compilerOptions": {
     "target": "es6",
