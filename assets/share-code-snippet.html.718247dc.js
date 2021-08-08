@@ -1,1 +1,0 @@
-const e={key:"v-389d68d4",path:"/tools/vscode/share-code-snippet.html",title:"分享代码片段",lang:"zh-CN",frontmatter:{title:"分享代码片段"},excerpt:"",headers:[{level:2,title:"历程",slug:"历程",children:[]}],filePathRelative:"tools/vscode/share-code-snippet.md",git:{updatedTime:1584258103e3,contributors:[]}};export{e as data};
