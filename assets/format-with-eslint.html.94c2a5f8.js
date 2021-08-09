@@ -1,1 +1,0 @@
-const t={key:"v-50f3729f",path:"/tools/vscode/format-with-eslint.html",title:"ESLint 格式化",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"ESLint 依赖",slug:"eslint-依赖",children:[]},{level:2,title:"启用插件",slug:"启用插件",children:[]}],filePathRelative:"tools/vscode/format-with-eslint.md",git:{updatedTime:1628441367e3,contributors:[]}};export{t as data};
