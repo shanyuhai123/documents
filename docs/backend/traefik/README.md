@@ -278,20 +278,9 @@ services:
 
 ```toml
 # config/default.toml
-# tricks 实现，提供 HTTP 默认转发 HTTPS
-# https://github.com/containous/traefik/issues/4863#issuecomment-491093096
-[http.services.noop.LoadBalancer]
-[[http.services.noop.LoadBalancer.servers]]
-url = "" # or url = "localhost"
-
-[http.routers.https-redirect]
-entryPoints = ["web"]
-rule = "HostRegexp(`{any:.*}`)"
-middlewares = ["https-redirect"]
-service = "noop"
-
 [http.middlewares.https-redirect.redirectScheme]
 scheme = "https"
+permanent = true
 ```
 
 使用：
