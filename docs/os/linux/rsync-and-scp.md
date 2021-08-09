@@ -93,6 +93,12 @@ rsync [OPTION]    rsync://[USER@]HOST[:PORT]/SRC    [DEST]
   cat /opt/hosts # 验证
   ```
 
++ 配合 `sshpass` 使用：
+
+  ```bash
+  sshpass -p 'your_password' rsync -avz /srv/app/dist tencent:/app
+  ```
+
 ### 4. 可能存在的问题
 
 看到部分文章说 rsync 传输大量小文件时会停止僵死（小文件是多小，大量是多大也没有描述清楚），这个问题搜了下，尚未得知具体的原因：
