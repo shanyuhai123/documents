@@ -79,17 +79,6 @@ module.exports = {
       ]
     }
   ],
-  "/tutorials/aseprite/": [
-    {
-      "text": "ASEPRITE",
-      "title": "ASEPRITE",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "install-aseprite.md"
-      ]
-    }
-  ],
   "/cornerstone/math/": [
     {
       "text": "MATH",
@@ -389,7 +378,8 @@ module.exports = {
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
-        "README.md"
+        "README.md",
+        "install-aseprite-on-linux.md"
       ]
     }
   ],

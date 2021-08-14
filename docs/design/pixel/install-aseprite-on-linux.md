@@ -1,6 +1,4 @@
----
-title: Aseprite 安装
----
+# 在 Linux 下安装 Aseprite
 
 > 由于使用 `yay` 安装失败，于是另辟蹊径
 >
