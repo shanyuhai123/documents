@@ -416,9 +416,7 @@ module.exports = {
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
-        "README.md",
-        "vue-composition-api.md",
-        "vue3-rfc.md"
+        "README.md"
       ]
     }
   ],
@@ -479,7 +477,6 @@ module.exports = {
       "children": [
         "README.md",
         "archlinux-aur.md",
-        "change-manjaro-repos.md",
         "enhance-virtualbox-tools-on-manjaro.md",
         "fix-idea.md",
         "konsole-profile-command.md",
