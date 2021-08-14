@@ -48,7 +48,6 @@ module.exports = {
         "easy-to-use-es6.md",
         "error.md",
         "event-loop.md",
-        "function-methods.md",
         "implicit-coercion.md",
         "invocation-expression.md",
         "invoking-functions.md",
