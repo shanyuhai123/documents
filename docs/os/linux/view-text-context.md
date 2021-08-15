@@ -42,6 +42,19 @@ cat [选项] 文件名
   ```bash
   tac test.txt
   ```
+  
++ 追加多行内容到文件
+
+  ```bash
+  cat > /etc/docker/daemon.json << EOF
+  {
+    "registry-mirrors": [
+      "https://hub-mirror.c.163.com",
+      "https://docker.mirrors.ustc.edu.cn"
+    ]
+  }
+  EOF
+  ```
 
 
 
