@@ -38,9 +38,23 @@
 
 先按下 `CTRL + K`，再按下 `CTRL + S` 即可进入快捷键设置。输入 `newFile` 绑定按键 `CTRL + N`，在搜索 `newFolder` 绑定按键 `CTRL + SHIFT + N`，当然也可以选择你喜欢的。
 
-### 6. 命令行
 
-按下 `CTRL + ~` 即可。
+
+## 快捷键
+
+### 切换工作区
+
+编辑：`Ctrl + 1/2/3`
+
+命令行：`CTRL + ~`
+
+菜单（资源管理器）：`Ctrl + Shift + E`
+
+菜单（搜索）：`Ctrl + Shift + S`
+
+菜单（源代码管理器）：`Ctrl + Shift + G`
+
+菜单（调试）：`Ctrl + Shift + D`
 
 
 
