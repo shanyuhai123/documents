@@ -439,6 +439,18 @@ module.exports = {
       ]
     }
   ],
+  "/tools/google/": [
+    {
+      "text": "GOOGLE",
+      "title": "GOOGLE",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "google-analytics.md"
+      ]
+    }
+  ],
   "/tools/vscode/": [
     {
       "text": "VSCODE",

@@ -50,7 +50,8 @@ module.exports = [
     { text: 'Git', link: '/tools/git/' },
     { text: 'Github', link: '/tools/github/' },
     { text: 'VSCode', link: '/tools/vscode/' },
-    { text: 'Chrome Developer tools', link: '/tools/chrome/' },
+    { text: 'Chrome', link: '/tools/chrome/' },
+    { text: 'Google', link: '/tools/google/' },
     { text: 'Bookmark scripts', link: '/tools/bookmark-scripts/' },
   ]},
   { text: '更多', children: [
