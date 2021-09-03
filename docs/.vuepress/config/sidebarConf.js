@@ -460,6 +460,7 @@ module.exports = {
       "children": [
         "README.md",
         "errors.md",
+        "fix-todo-highlight-links.md",
         "format-with-eslint.md",
         "identify-alias.md",
         "set-the-font.md",
