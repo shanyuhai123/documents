@@ -19,7 +19,10 @@ module.exports = [
       filename: 'config/sidebarConf'
     },
     title: {
-      mode: "uppercase"
+      mode: "uppercase",
+      map: {
+        "/more/": "更多🎉"
+      }
     }
   }],
   ['@vuepress/plugin-search', {

@@ -1,6 +1,4 @@
----
-title: Manjaro 的常用软件
----
+# Manjaro 的常用软件
 
 ## TeamViewer
 
@@ -107,60 +105,6 @@ zsh 在使用时会存在一些问题:
 :::
 
 
-
-
-
-## VirtualBox
-
-### 1. 介绍
-
-一款虚拟机软件。
-
-### 2. 使用方式
-
-::: tip 步骤
-
-1. 首先需要安装 `virtualbox` 。
-
-2. 然后准备好对应系统的 `IOS` 文件启动即可。
-
-:::
-
-::: danger 注：
-virtualbox 在启动时直接失败:
-
-1. 部分错误提示信息：
-
-   ```bash
-   # Kernel driver not installed
-   # The VirtualBox Linux kernel driver (vboxdrv) is either not loaded or there is a permission problem with /dev/vboxdrv. Please reinstall the kernel module by executing
-   # '/sbin/vboxconfig'
-   # as root.
-   # ......
-   ```
-
-2. 解决步骤来源于：[VirtualBox: How To Fix Failure In Starting VM (On Manjaro Linux)](https://dev.to/nabbisen/virtualbox-how-to-solve-a-problem-about-failure-in-starting-vm-on-manjaro-linux-49fg)
-
-3. 获取操作系统版本细节
-
-   ```bash
-   uname -r
-   # 4.19.56-1-MANJARO
-   ```
-
-4. 安装软件
-
-   + virtualbox
-   + virtualbox-host-dkms
-   + linux419-virtualbox-host-modules <Badge text="对应的版本 419" type="warn"/>
-
-5. 重新执行
-
-   ```bash
-   sudo vboxreload 
-   ```
-
-:::
 
 
 

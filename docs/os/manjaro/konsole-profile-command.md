@@ -1,8 +1,5 @@
----
-title: Konsole 无法启动
----
+# Konsole 无法启动
 
-## 介绍
 
 修改了 Konsole Profile 的 Command 后无法启动。
 

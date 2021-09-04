@@ -1,8 +1,4 @@
----
-title: Manjaro 下增强 VirtualBox 工具
----
-
-## 起因
+# Manjaro 下流畅使用 VirtualBox
 
 由于钉钉、Tim 及 360浏览器的不支持，wine 已经无法支撑日常工作了，所以就需要一个虚拟机来提供日常的服务了。
 
@@ -10,11 +6,48 @@ title: Manjaro 下增强 VirtualBox 工具
 
 
 
-## 前言
+## 解决启动时失败
 
-关于安装可[参考](/os/manjaro/most-used-softwares.html#virtualbox)。
+### 1. 报错信息
 
-不过存在的问题是无法使用增强功能（剪切板、拖拽、共享文件夹）。
+```bash
+# Kernel driver not installed
+# The VirtualBox Linux kernel driver (vboxdrv) is either not loaded or there is a permission problem with /dev/vboxdrv. Please reinstall the kernel module by executing
+# '/sbin/vboxconfig'
+# as root.
+# ......
+```
+
+### 2. 解决方案
+
+该方案来源于 [VirtualBox: How To Fix Failure In Starting VM (On Manjaro Linux)](https://dev.to/nabbisen/virtualbox-how-to-solve-a-problem-about-failure-in-starting-vm-on-manjaro-linux-49fg)。
+
+查看当前操作系统信息：
+
+```bash
+uname -r
+# 4.19.56-1-MANJARO
+```
+
+安装对应的版本软件：
+
+- virtualbox
+- virtualbox-host-dkms
+- linux419-virtualbox-host-modules
+
+重新执行：
+
+```bash
+sudo vboxreload
+```
+
+
+
+
+
+## 增强 VirtualBox 工具
+
+遇到了无法使用增强功能（剪切板、拖拽、共享文件夹）。
 
 在搜寻方案的途中寻找了很多解决办法并一一尝试，所以导致尚不清楚解决问题的真正方案。
 
@@ -32,10 +65,6 @@ title: Manjaro 下增强 VirtualBox 工具
 该部分猜测是安装好了需要的增强镜像。
 
 :::
-
-
-
-## 尝试
 
 ### 1. 初试
 

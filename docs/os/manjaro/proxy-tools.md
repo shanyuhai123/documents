@@ -1,6 +1,4 @@
----
-title: 代理工具
----
+# 代理工具
 
 ## Shadowsocks
 

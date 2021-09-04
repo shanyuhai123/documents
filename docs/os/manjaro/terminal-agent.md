@@ -1,6 +1,4 @@
----
-title: 终端代理
----
+# 终端代理 proxychains
 
 ## proxychains-ng
 

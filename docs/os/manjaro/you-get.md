@@ -1,6 +1,4 @@
----
-title: You Get
----
+# 下载工具 You Get
 
 ## 介绍
 
