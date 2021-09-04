@@ -481,6 +481,7 @@ module.exports = {
         "archlinux-aur.md",
         "enhance-virtualbox-tools-on-manjaro.md",
         "fix-idea.md",
+        "install-deb-program-on-manjaro.md",
         "konsole-profile-command.md",
         "lock-screen-shortcuts.md",
         "most-used-softwares.md",
