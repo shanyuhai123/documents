@@ -1,0 +1,1 @@
+const a={key:"v-587bb47f",path:"/os/manjaro/install-deb-program-on-manjaro.html",title:"在 Manjaro 安装 deb 程序",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"操作步骤",slug:"操作步骤",children:[]}],filePathRelative:"os/manjaro/install-deb-program-on-manjaro.md",git:{updatedTime:1630771758e3,contributors:[]}};export{a as data};
