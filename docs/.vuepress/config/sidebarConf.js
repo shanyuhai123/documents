@@ -405,7 +405,8 @@ module.exports = {
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
-        "README.md"
+        "README.md",
+        "ref-type.md"
       ]
     }
   ],
