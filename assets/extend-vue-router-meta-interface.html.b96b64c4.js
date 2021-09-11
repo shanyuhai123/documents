@@ -1,1 +1,0 @@
-const e={key:"v-7fbd6690",path:"/frontend/typescript/extend-vue-router-meta-interface.html",title:"扩展 Vue Router Meta 信息",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],filePathRelative:"frontend/typescript/extend-vue-router-meta-interface.md",git:{updatedTime:1626572336e3,contributors:[]}};export{e as data};

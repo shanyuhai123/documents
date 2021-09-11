@@ -1,0 +1,1 @@
+const e={key:"v-155fce89",path:"/tools/google/",title:"谷歌",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],filePathRelative:"tools/google/README.md",git:{updatedTime:1630401726e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{e as data};

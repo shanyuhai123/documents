@@ -1,1 +1,0 @@
-const e={key:"v-dd37cd72",path:"/frontend/vite/",title:"Vite",lang:"zh-CN",frontmatter:{title:"Vite"},excerpt:"",headers:[{level:2,title:"介绍",slug:"介绍",children:[]},{level:2,title:"参考资料",slug:"参考资料",children:[]}],filePathRelative:"frontend/vite/README.md",git:{updatedTime:1625225579e3,contributors:[]}};export{e as data};

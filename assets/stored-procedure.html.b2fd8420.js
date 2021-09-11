@@ -1,1 +1,0 @@
-const e={key:"v-b197d5e2",path:"/backend/mysql/stored-procedure.html",title:"Stored Procedure",lang:"zh-CN",frontmatter:{title:"Stored Procedure"},excerpt:"",headers:[{level:2,title:"概念",slug:"概念",children:[]},{level:2,title:"创建存储过程",slug:"创建存储过程",children:[]}],filePathRelative:"backend/mysql/stored-procedure.md",git:{updatedTime:161148501e4,contributors:[]}};export{e as data};

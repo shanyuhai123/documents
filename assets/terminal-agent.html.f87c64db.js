@@ -1,1 +1,0 @@
-const e={key:"v-aee56a1c",path:"/os/manjaro/terminal-agent.html",title:"终端代理 proxychains",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"proxychains-ng",slug:"proxychains-ng",children:[]},{level:2,title:"使用",slug:"使用",children:[]}],filePathRelative:"os/manjaro/terminal-agent.md",git:{updatedTime:1630770725e3,contributors:[]}};export{e as data};

@@ -1,1 +1,0 @@
-const e={key:"v-a347063c",path:"/frontend/javascript/invocation-expression.html",title:"调用表达式",lang:"zh-CN",frontmatter:{title:"调用表达式"},excerpt:"",headers:[{level:2,title:"说明",slug:"说明",children:[]},{level:2,title:"作为值",slug:"作为值",children:[]}],filePathRelative:"frontend/javascript/invocation-expression.md",git:{updatedTime:157441796e4,contributors:[]}};export{e as data};

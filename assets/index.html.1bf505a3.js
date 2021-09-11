@@ -1,1 +1,0 @@
-const e={key:"v-38aee226",path:"/frontend/vue/",title:"前端从 Vue 开始",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"资料",slug:"资料",children:[]}],filePathRelative:"frontend/vue/README.md",git:{updatedTime:1628933297e3,contributors:[]}};export{e as data};

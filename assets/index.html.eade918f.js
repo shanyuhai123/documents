@@ -1,0 +1,1 @@
+const e={key:"v-441bf8b6",path:"/os/ubuntu/",title:"首页",lang:"zh-CN",frontmatter:{title:"首页"},excerpt:"",headers:[{level:2,title:"介绍",slug:"介绍",children:[]},{level:2,title:"配置详情",slug:"配置详情",children:[]}],filePathRelative:"os/ubuntu/README.md",git:{updatedTime:1591718736e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:6}]}};export{e as data};

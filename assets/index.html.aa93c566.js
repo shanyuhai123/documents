@@ -1,1 +1,0 @@
-const e={key:"v-de8da862",path:"/frontend/jest/",title:"JEST",lang:"zh-CN",frontmatter:{title:"JEST"},excerpt:"",headers:[{level:2,title:"碎碎念",slug:"碎碎念",children:[]},{level:2,title:"Jest 目录",slug:"jest-目录",children:[]},{level:2,title:"参考资料",slug:"参考资料",children:[]}],filePathRelative:"frontend/jest/README.md",git:{updatedTime:1618327924e3,contributors:[]}};export{e as data};

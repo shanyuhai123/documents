@@ -1,0 +1,1 @@
+const t={key:"v-b0c2ad0c",path:"/os/manjaro/zsh-can-not-find-npm.html",title:"zsh 无法找到 npm",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"解决",slug:"解决",children:[]}],filePathRelative:"os/manjaro/zsh-can-not-find-npm.md",git:{updatedTime:1630770725e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:2}]}};export{t as data};
