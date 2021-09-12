@@ -29,7 +29,8 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "1-two-sum.md"
+        "1-two-sum.md",
+        "7-reverse-integer.md"
       ]
     }
   ],
