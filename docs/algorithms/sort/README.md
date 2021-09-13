@@ -1,6 +1,4 @@
----
-title: 排序
----
+# 排序
 
 ## 交换函数
 
@@ -21,6 +19,7 @@ const bubbleSort = (arr: number[]): number[] => {
   const len = arr.length
 
   for (let i = 0; i < len; i++) {
+    // 每轮 i 循环都能确认最大值
     for (let j = 0; j < len - i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
         swap(arr, j + 1, j)
@@ -36,23 +35,23 @@ const bubbleSort = (arr: number[]): number[] => {
 
 ## 选择排序
 
-选择排序就是 “从待排序的数据中寻找最小值，将其与序列最左边的数字进行交换”。
+选择排序就是 “从待排序的数据中寻找最小值，将其放到已排序队列的末尾”。
 
 ```ts
 const selectionSort = (arr: number[]): number[] => {
   const len = arr.length
 
   for (let i = 0; i < len; i++) {
-    let k = i
+    let minIndex = i
 
-    for (let j = i; j < len; j++) {
-      if (arr[j] < arr[k]) {
-        k = j
+    for (let j = i + 1; j < len; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j
       }
     }
 
-    if (k !== i) {
-      swap(arr, i, k)
+    if (minIndex !== i) {
+      swap(arr, i, minIndex)
     }
   }
 
@@ -71,6 +70,7 @@ const insertionSort = (arr: number[]): number[] => {
   const len = arr.length
 
   for (let i = 1; i < len; i++) {
+    // 每轮 i 循环为左区域排好序
     for (let j = i; j > 0; j--) {
       if (arr[j] < arr[j - 1]) {
         swap(arr, j, j - 1)
@@ -78,6 +78,40 @@ const insertionSort = (arr: number[]): number[] => {
         break
       }
     }
+  }
+
+  return arr
+}
+```
+
+
+
+## 快速排序
+
+分区再分区。
+
+```ts
+// 分区操作
+const partition = (arr: number[], left: number, right: number) => {
+  const pivot = left
+  let index = pivot + 1
+
+  for (let i = index; i <= right; i++) {
+    if (arr[i] < arr[pivot]) {
+      swap(arr, i, index)
+      index++
+    }
+  }
+
+  swap(arr, pivot, index - 1)
+  return index - 1
+}
+
+const quickSort = (arr: number[], left = 0, right = arr.length - 1): number[] => {
+  if (left < right) {
+    const partitionIndex = partition(arr, left, right)
+    quickSort(arr, left, partitionIndex - 1)
+    quickSort(arr, partitionIndex + 1, right)
   }
 
   return arr
