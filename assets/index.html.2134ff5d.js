@@ -1,0 +1,1 @@
+import{o as a,c as e,F as r,a as n,d as s}from"./app.bbd11164.js";const d={},l=n("h1",{id:"谷歌",tabindex:"-1"},[n("a",{class:"header-anchor",href:"#谷歌","aria-hidden":"true"},"#"),s(" 谷歌")],-1),o=n("blockquote",null,[n("p",null,"谷歌有很多好的应用")],-1);d.render=function(n,s){return a(),e(r,null,[l,o],64)};export{d as default};

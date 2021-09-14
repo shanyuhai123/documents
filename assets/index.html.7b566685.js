@@ -1,1 +1,0 @@
-import{o as a,c as e,F as r,a as d,d as n}from"./app.76ed24de.js";const s={},t=d("h2",{id:"概念",tabindex:"-1"},[d("a",{class:"header-anchor",href:"#概念","aria-hidden":"true"},"#"),n(" 概念")],-1),o=d("p",null,"暂无。",-1);s.render=function(d,n){return a(),e(r,null,[t,o],64)};export{s as default};
