@@ -88,7 +88,7 @@ const insertionSort = (arr: number[]): number[] => {
 
 ## 快速排序
 
-分区再分区。
+快速排序就是 “从待排序的数据原地排序并利用分治的思想解决，有点类似冒泡的增强版”。
 
 ```ts
 // 分区操作
@@ -96,6 +96,7 @@ const partition = (arr: number[], left: number, right: number) => {
   const pivot = left
   let index = pivot + 1
 
+  // 原地排序
   for (let i = index; i <= right; i++) {
     if (arr[i] < arr[pivot]) {
       swap(arr, i, index)
@@ -103,6 +104,7 @@ const partition = (arr: number[], left: number, right: number) => {
     }
   }
 
+  // 将基准 pivot 移至中间
   swap(arr, pivot, index - 1)
   return index - 1
 }
