@@ -31,7 +31,8 @@ module.exports = {
         "README.md",
         "1-two-sum.md",
         "7-reverse-integer.md",
-        "9-palindrome-number.md"
+        "9-palindrome-number.md",
+        "13-roman-to-integer.md"
       ]
     }
   ],
