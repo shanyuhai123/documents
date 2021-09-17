@@ -542,6 +542,7 @@ module.exports = {
         "README.md",
         "commit-message.md",
         "gitignore.md",
+        "repo-tool.md",
         "submodule.md"
       ]
     }
