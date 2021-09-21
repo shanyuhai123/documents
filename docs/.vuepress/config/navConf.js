@@ -38,12 +38,7 @@ module.exports = [
     { text: 'Redis', link: '/backend/redis/' },
     { text: 'Docker', link: '/backend/docker/' },
   ]},
-  { text: '算法', children: [
-    { text: 'LeetCode', link: '/algorithms/leetcode/' },
-    { text: '排序', link: '/algorithms/sort/' },
-    { text: '分而治之', link: '/algorithms/divide-and-conquer/' },
-    { text: '动态规划', link: '/algorithms/dynamic-programming/' },
-  ]},
+  { text: '算法', link: '/algorithms/' },
   { text: '设计', children: [
     { text: '像素风', link: '/design/pixel/' },
   ]},

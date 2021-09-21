@@ -1,52 +1,4 @@
 module.exports = {
-  "/algorithms/divide-and-conquer/": [
-    {
-      "text": "DIVIDE-AND-CONQUER",
-      "title": "DIVIDE-AND-CONQUER",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
-  "/algorithms/dynamic-programming/": [
-    {
-      "text": "DYNAMIC-PROGRAMMING",
-      "title": "DYNAMIC-PROGRAMMING",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
-  "/algorithms/leetcode/": [
-    {
-      "text": "LEETCODE",
-      "title": "LEETCODE",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md",
-        "1-two-sum.md",
-        "7-reverse-integer.md",
-        "9-palindrome-number.md",
-        "13-roman-to-integer.md"
-      ]
-    }
-  ],
-  "/algorithms/sort/": [
-    {
-      "text": "SORT",
-      "title": "SORT",
-      "collapsable": false,
-      "sidebarDepth": 1,
-      "children": [
-        "README.md"
-      ]
-    }
-  ],
   "/backend/docker/": [
     {
       "text": "DOCKER",
@@ -592,6 +544,22 @@ module.exports = {
         "settings-sync.md",
         "share-code-snippet.md",
         "vetur.md"
+      ]
+    }
+  ],
+  "/algorithms/": [
+    {
+      "text": "ALGORITHMS",
+      "title": "ALGORITHMS",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "14-longest-common-prefix.md",
+        "1-two-sum.md",
+        "7-reverse-integer.md",
+        "9-palindrome-number.md",
+        "13-roman-to-integer.md"
       ]
     }
   ],
