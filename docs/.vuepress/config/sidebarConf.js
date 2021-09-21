@@ -491,8 +491,7 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "edit-file-with-workspaces.md",
-        "user-friendly-settings.md"
+        "edit-file-with-workspaces.md"
       ]
     }
   ],
