@@ -338,6 +338,18 @@ module.exports = {
       ]
     }
   ],
+  "/frontend/web/": [
+    {
+      "text": "WEB",
+      "title": "WEB",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "begin-with-cli.md"
+      ]
+    }
+  ],
   "/frontend/webpack/": [
     {
       "text": "WEBPACK",
@@ -555,11 +567,11 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "14-longest-common-prefix.md",
         "1-two-sum.md",
         "7-reverse-integer.md",
         "9-palindrome-number.md",
-        "13-roman-to-integer.md"
+        "13-roman-to-integer.md",
+        "14-longest-common-prefix.md"
       ]
     }
   ],

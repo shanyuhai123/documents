@@ -13,6 +13,7 @@ module.exports = [
     { text: 'Kubernetes', link: '/os/kubernetes/' },
   ]},
   { text: '前端', children: [
+    { text: 'Web', link: '/frontend/web/' },
     { text: 'JavaScript', link: '/frontend/javascript/' },
     { text: 'TypeScript', link: '/frontend/typescript/' },
     { text: 'CSS', link: '/frontend/css/' },
