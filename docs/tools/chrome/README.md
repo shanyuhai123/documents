@@ -14,7 +14,24 @@ Chrome 浏览器总是会提供一些 “人性化” 设置，所以我们需�
 
 
 
+## 获取 Chromium 源码
+
+可以通过 [Chromium Code Search](https://source.chromium.org/) 在线查看源码，也可以[下载](https://www.chromium.org/chromium-os/quick-start-guide)到本地查看：
+
+```bash
+cd ${SOURCE_REPO}
+repo init -u https://chromium.googlesource.com/chromiumos/manifest.git
+
+# Optional: Make any changes to .repo/local_manifests/local_manifest.xml before syncing
+repo sync
+```
+
+
+
 
 ## 参考资料
 
 1. [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+2. [The Chromium Projects](https://www.chromium.org/)
+3. [Chromium Code Search](https://source.chromium.org/)
+4. [Chromium bugs](https://bugs.chromium.org/p/chromium/issues/list)
