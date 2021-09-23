@@ -570,7 +570,8 @@ module.exports = {
         "7-reverse-integer.md",
         "9-palindrome-number.md",
         "13-roman-to-integer.md",
-        "14-longest-common-prefix.md"
+        "14-longest-common-prefix.md",
+        "20-valid-parentheses.md"
       ]
     }
   ],
