@@ -19,8 +19,8 @@ jobs:
         run: |
           export GOOGLE_GA=${{ secrets.GOOGLE_GA }} GOOGLE_SEARCH_CONSOLE=${{ secrets.GOOGLE_SEARCH_CONSOLE }}
           git --no-pager log --oneline -n 20
-          npm install
-          npm run docs:build
+          yarn
+          yarn docs:build
 
       - name: Deploy Github 🚀
         uses: peaceiris/actions-gh-pages@v3
