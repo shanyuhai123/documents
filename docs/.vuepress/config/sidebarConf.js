@@ -571,7 +571,8 @@ module.exports = {
         "9-palindrome-number.md",
         "13-roman-to-integer.md",
         "14-longest-common-prefix.md",
-        "20-valid-parentheses.md"
+        "20-valid-parentheses.md",
+        "21-merge-two-sorted-lists.md"
       ]
     }
   ],
