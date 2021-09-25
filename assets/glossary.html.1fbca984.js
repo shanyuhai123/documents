@@ -1,1 +1,0 @@
-const t={key:"v-1104d880",path:"/computer/glossary.html",title:"词汇表",lang:"zh-CN",frontmatter:{title:"词汇表"},excerpt:"",headers:[],filePathRelative:"computer/glossary.md",git:{updatedTime:1595777174e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
