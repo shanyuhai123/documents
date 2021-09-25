@@ -1,6 +1,4 @@
----
-title: 事件队列
----
+# 事件队列
 
 ## 分类
 
@@ -221,6 +219,12 @@ $outer.addEventListener('click', handler)
 ```
 
 点击`#inner`，其执行顺序是：`click` -> `promise` -> `observer` -> `click` -> `promise` -> `observer` -> `animationFrame` -> `animationFrame` -> `timeout` -> `timeout`。
+
+
+
+## 命令行效果
+
+通过命令行启动 node，它会自动执行完当前宏任务，遇到新的宏任务会将其添加到队列中，只有再次按下回车键，它才会执行下一次的宏任务，一轮事件会清空微任务队列，这都会直接输出出来。
 
 
 
