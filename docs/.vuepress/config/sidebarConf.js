@@ -585,7 +585,6 @@ module.exports = {
       "children": [
         "README.md",
         "data-write.md",
-        "glossary.md",
         "how-networks-work.md",
         "nat.md",
         "network-architecture.md",
