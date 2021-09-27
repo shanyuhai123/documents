@@ -573,7 +573,8 @@ module.exports = {
         "14-longest-common-prefix.md",
         "20-valid-parentheses.md",
         "21-merge-two-sorted-lists.md",
-        "26-remove-duplicates-from-sorted-array.md"
+        "26-remove-duplicates-from-sorted-array.md",
+        "27-remove-element.md"
       ]
     }
   ],
