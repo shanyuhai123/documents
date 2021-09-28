@@ -574,7 +574,8 @@ module.exports = {
         "20-valid-parentheses.md",
         "21-merge-two-sorted-lists.md",
         "26-remove-duplicates-from-sorted-array.md",
-        "27-remove-element.md"
+        "27-remove-element.md",
+        "28-implement-strstr.md"
       ]
     }
   ],
