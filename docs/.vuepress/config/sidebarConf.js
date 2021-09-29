@@ -575,7 +575,8 @@ module.exports = {
         "21-merge-two-sorted-lists.md",
         "26-remove-duplicates-from-sorted-array.md",
         "27-remove-element.md",
-        "28-implement-strstr.md"
+        "28-implement-strstr.md",
+        "35-search-insert-position.md"
       ]
     }
   ],
