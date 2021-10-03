@@ -346,7 +346,8 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "begin-with-cli.md"
+        "begin-with-cli.md",
+        "micro-frontends.md"
       ]
     }
   ],
@@ -576,7 +577,10 @@ module.exports = {
         "26-remove-duplicates-from-sorted-array.md",
         "27-remove-element.md",
         "28-implement-strstr.md",
-        "35-search-insert-position.md"
+        "35-search-insert-position.md",
+        "53-maximum-subarray.md",
+        "58-length-of-last-word.md",
+        "66-plus-one.md"
       ]
     }
   ],
