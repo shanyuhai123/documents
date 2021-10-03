@@ -1,0 +1,1 @@
+const e={key:"v-7c1e52eb",path:"/algorithms/66-plus-one.html",title:"加一",lang:"zh-CN",frontmatter:{autoSort:-66},excerpt:"",headers:[{level:2,title:"进位",slug:"进位",children:[]}],filePathRelative:"algorithms/66-plus-one.md",git:{updatedTime:1633263061e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{e as data};

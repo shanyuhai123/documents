@@ -1,0 +1,1 @@
+const t={key:"v-07a808c2",path:"/algorithms/58-length-of-last-word.html",title:"最后一个单词的长度",lang:"zh-CN",frontmatter:{autoSort:-58},excerpt:"",headers:[{level:2,title:"反向遍历",slug:"反向遍历",children:[]}],filePathRelative:"algorithms/58-length-of-last-word.md",git:{updatedTime:1633224284e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
