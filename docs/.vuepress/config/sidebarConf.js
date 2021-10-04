@@ -580,7 +580,9 @@ module.exports = {
         "35-search-insert-position.md",
         "53-maximum-subarray.md",
         "58-length-of-last-word.md",
-        "66-plus-one.md"
+        "66-plus-one.md",
+        "69-sqrtx.md",
+        "70-climbing-stairs.md"
       ]
     }
   ],
