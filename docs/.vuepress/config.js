@@ -1,3 +1,4 @@
+const path = require('path');
 const katex = require('markdown-it-katex')
 const pluginConf = require('./config/pluginConf.js');
 const navConf = require('./config/navConf.js');
@@ -33,6 +34,9 @@ module.exports = {
     sidebar: sidebarConf
   },
   markdown: {
+    importCode: {
+      handleImportPath: str => str.replace(/^@components/, path.resolve(__dirname, './components'))
+    },
     code: {
       lineNumbers: false
     }
