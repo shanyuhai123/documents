@@ -1,0 +1,1 @@
+const t={key:"v-ca90b64e",path:"/algorithms/69-sqrtx.html",title:"求平方根",lang:"zh-CN",frontmatter:{autoSort:-69},excerpt:"",headers:[{level:2,title:"二分查找",slug:"二分查找",children:[]}],filePathRelative:"algorithms/69-sqrtx.md",git:{updatedTime:1633328523e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
