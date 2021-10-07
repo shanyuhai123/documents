@@ -583,7 +583,8 @@ module.exports = {
         "66-plus-one.md",
         "69-sqrtx.md",
         "70-climbing-stairs.md",
-        "83-remove-duplicates-from-sorted-list.md"
+        "83-remove-duplicates-from-sorted-list.md",
+        "88-merge-sorted-array.md"
       ]
     }
   ],
