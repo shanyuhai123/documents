@@ -584,7 +584,8 @@ module.exports = {
         "69-sqrtx.md",
         "70-climbing-stairs.md",
         "83-remove-duplicates-from-sorted-list.md",
-        "88-merge-sorted-array.md"
+        "88-merge-sorted-array.md",
+        "94-binary-tree-inorder-traversal.md"
       ]
     }
   ],
