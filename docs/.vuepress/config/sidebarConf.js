@@ -586,7 +586,8 @@ module.exports = {
         "83-remove-duplicates-from-sorted-list.md",
         "88-merge-sorted-array.md",
         "94-binary-tree-inorder-traversal.md",
-        "100-same-tree.md"
+        "100-same-tree.md",
+        "101-symmetric-tree.md"
       ]
     }
   ],
