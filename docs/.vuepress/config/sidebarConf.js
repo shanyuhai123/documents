@@ -587,7 +587,9 @@ module.exports = {
         "88-merge-sorted-array.md",
         "94-binary-tree-inorder-traversal.md",
         "100-same-tree.md",
-        "101-symmetric-tree.md"
+        "101-symmetric-tree.md",
+        "104-maximum-depth-of-binary-tree.md",
+        "108-convert-sorted-array-to-binary-search-tree.md"
       ]
     }
   ],
