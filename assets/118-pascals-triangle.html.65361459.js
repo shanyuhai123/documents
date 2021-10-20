@@ -1,0 +1,1 @@
+const t={key:"v-82360ab8",path:"/algorithms/118-pascals-triangle.html",title:"杨辉三角",lang:"zh-CN",frontmatter:{autoSort:-118},excerpt:"",headers:[{level:2,title:"双循环",slug:"双循环",children:[]}],filePathRelative:"algorithms/118-pascals-triangle.md",git:{updatedTime:1634738897e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
