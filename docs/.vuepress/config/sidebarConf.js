@@ -589,7 +589,12 @@ module.exports = {
         "100-same-tree.md",
         "101-symmetric-tree.md",
         "104-maximum-depth-of-binary-tree.md",
-        "108-convert-sorted-array-to-binary-search-tree.md"
+        "108-convert-sorted-array-to-binary-search-tree.md",
+        "110-balanced-binary-tree.md",
+        "111-minimum-depth-of-binary-tree.md",
+        "112-path-sum.md",
+        "118-pascals-triangle.md",
+        "119-pascals-triangle-ii.md"
       ]
     }
   ],
