@@ -1,1 +1,0 @@
-const t={key:"v-571939b6",path:"/algorithms/53-maximum-subarray.html",title:"最大子序和",lang:"zh-CN",frontmatter:{autoSort:-53},excerpt:"",headers:[{level:2,title:"计算值",slug:"计算值",children:[]}],filePathRelative:"algorithms/53-maximum-subarray.md",git:{updatedTime:1633187816e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
