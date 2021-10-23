@@ -600,7 +600,9 @@ module.exports = {
         "136-single-number.md",
         "141-linked-list-cycle.md",
         "144-binary-tree-preorder-traversal.md",
-        "145-binary-tree-postorder-traversal.md"
+        "145-binary-tree-postorder-traversal.md",
+        "155-min-stack.md",
+        "160-intersection-of-two-linked-lists.md"
       ]
     }
   ],
