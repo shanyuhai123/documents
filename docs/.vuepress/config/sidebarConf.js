@@ -594,7 +594,10 @@ module.exports = {
         "111-minimum-depth-of-binary-tree.md",
         "112-path-sum.md",
         "118-pascals-triangle.md",
-        "119-pascals-triangle-ii.md"
+        "119-pascals-triangle-ii.md",
+        "121-best-time-to-buy-and-sell-stock.md",
+        "125-valid-palindrome.md",
+        "136-single-number.md"
       ]
     }
   ],
