@@ -1,5 +1,5 @@
 ---
-autoSort: -13
+autoSort: -14
 ---
 
 # 最长公共前缀
@@ -25,8 +25,6 @@ function longestCommonPrefix(strs: string[]): string {
   return prefix
 }
 ```
-
-
 
 ## 依次比较
 
