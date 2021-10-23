@@ -597,7 +597,10 @@ module.exports = {
         "119-pascals-triangle-ii.md",
         "121-best-time-to-buy-and-sell-stock.md",
         "125-valid-palindrome.md",
-        "136-single-number.md"
+        "136-single-number.md",
+        "141-linked-list-cycle.md",
+        "144-binary-tree-preorder-traversal.md",
+        "145-binary-tree-postorder-traversal.md"
       ]
     }
   ],
