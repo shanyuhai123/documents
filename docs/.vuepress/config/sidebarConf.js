@@ -616,7 +616,12 @@ module.exports = {
         "193-valid-phone-numbers.md",
         "195-tenth-line.md",
         "196-delete-duplicate-emails.md",
-        "197-rising-temperature.md"
+        "197-rising-temperature.md",
+        "202-happy-number.md",
+        "203-remove-linked-list-elements.md",
+        "205-isomorphic-strings.md",
+        "206-reverse-linked-list.md",
+        "217-contains-duplicate.md"
       ]
     }
   ],
