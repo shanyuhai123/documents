@@ -1,0 +1,1 @@
+const e={key:"v-33ed9b30",path:"/algorithms/27-remove-element.html",title:"移除元素",lang:"zh-CN",frontmatter:{autoSort:-27},excerpt:"",headers:[{level:2,title:"双指针",slug:"双指针",children:[]}],filePathRelative:"algorithms/27-remove-element.md",git:{updatedTime:1635051722e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:2}]}};export{e as data};

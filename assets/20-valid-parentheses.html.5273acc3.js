@@ -1,1 +1,0 @@
-const e={key:"v-623cb96d",path:"/algorithms/20-valid-parentheses.html",title:"有效括号",lang:"zh-CN",frontmatter:{autoSort:-20},excerpt:"",headers:[{level:2,title:"利用栈",slug:"利用栈",children:[]}],filePathRelative:"algorithms/20-valid-parentheses.md",git:{updatedTime:1632410496e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{e as data};

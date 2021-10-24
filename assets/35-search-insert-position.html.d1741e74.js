@@ -1,0 +1,1 @@
+const t={key:"v-f2377bf0",path:"/algorithms/35-search-insert-position.html",title:"搜索插入位置",lang:"zh-CN",frontmatter:{autoSort:-35},excerpt:"",headers:[{level:2,title:"二分法",slug:"二分法",children:[]}],filePathRelative:"algorithms/35-search-insert-position.md",git:{updatedTime:1635051722e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:2}]}};export{t as data};
