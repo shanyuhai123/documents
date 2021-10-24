@@ -1,0 +1,1 @@
+const e={key:"v-3308e7f3",path:"/algorithms/193-valid-phone-numbers.html",title:"有效电话号码",lang:"zh-CN",frontmatter:{autoSort:-193},excerpt:"",headers:[{level:2,title:"正则",slug:"正则",children:[]}],filePathRelative:"algorithms/193-valid-phone-numbers.md",git:{updatedTime:1635073443e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{e as data};
