@@ -611,7 +611,12 @@ module.exports = {
         "181-employees-earning-more-than-their-managers.md",
         "182-duplicate-emails.md",
         "183-customers-who-never-order.md",
-        "190-reverse-bits.md"
+        "190-reverse-bits.md",
+        "191-number-of-1-bits.md",
+        "193-valid-phone-numbers.md",
+        "195-tenth-line.md",
+        "196-delete-duplicate-emails.md",
+        "197-rising-temperature.md"
       ]
     }
   ],
