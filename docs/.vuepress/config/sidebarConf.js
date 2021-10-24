@@ -606,7 +606,12 @@ module.exports = {
         "167-two-sum-ii-input-array-is-sorted.md",
         "168-excel-sheet-column-title.md",
         "169-majority-element.md",
-        "171-excel-sheet-column-number.md"
+        "171-excel-sheet-column-number.md",
+        "175-combine-two-tables.md",
+        "181-employees-earning-more-than-their-managers.md",
+        "182-duplicate-emails.md",
+        "183-customers-who-never-order.md",
+        "190-reverse-bits.md"
       ]
     }
   ],
