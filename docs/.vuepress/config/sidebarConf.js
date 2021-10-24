@@ -602,7 +602,11 @@ module.exports = {
         "144-binary-tree-preorder-traversal.md",
         "145-binary-tree-postorder-traversal.md",
         "155-min-stack.md",
-        "160-intersection-of-two-linked-lists.md"
+        "160-intersection-of-two-linked-lists.md",
+        "167-two-sum-ii-input-array-is-sorted.md",
+        "168-excel-sheet-column-title.md",
+        "169-majority-element.md",
+        "171-excel-sheet-column-number.md"
       ]
     }
   ],
