@@ -19,8 +19,6 @@ function reverse (x: number): number {
 }
 ```
 
-
-
 ## 数学计算
 
 ```ts
@@ -41,4 +39,3 @@ function reverse (x: number): number {
   return res
 }
 ```
-

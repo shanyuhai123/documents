@@ -22,4 +22,3 @@ function removeDuplicates(nums: number[]): number {
   return i + 1
 }
 ```
-

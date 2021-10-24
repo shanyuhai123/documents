@@ -27,8 +27,6 @@ function isPalindrome(x: number): boolean {
 }
 ```
 
-
-
 ## 数字
 
 取出反转数字比大小。
@@ -55,6 +53,3 @@ function isPalindrome(x: number): boolean {
   return x === num || x === Math.floor(num / 10)
 }
 ```
-
-
-

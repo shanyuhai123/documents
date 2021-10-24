@@ -54,8 +54,6 @@ function longestCommonPrefix(strs: string[]): string {
 }
 ```
 
-
-
 ## 减少比较
 
 实际上仅需要比较字符串最短的那一批就好了，但最短的只有一个时还需要与次短数据比较。
@@ -112,8 +110,6 @@ function longestCommonPrefix(strs: string[]): string {
 }
 ```
 
-
-
 ## 分治
 
 ```ts
@@ -147,6 +143,3 @@ function longestCommonPrefix(strs: string[]): string {
   return lcpRec(strs)
 }
 ```
-
-
-

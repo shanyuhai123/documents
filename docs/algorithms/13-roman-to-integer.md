@@ -47,8 +47,6 @@ function romanToInt(s: string): number {
 }
 ```
 
-
-
 ## 更暴力的映射
 
 这部分来源于 [Functional Typescript Solution](https://leetcode.com/problems/roman-to-integer/discuss/1191442/Functional-Typescript-Solution)：
@@ -79,4 +77,3 @@ function romanToInt (s: string): number {
     .reduce((acc, n) => acc + n)
 }
 ```
-

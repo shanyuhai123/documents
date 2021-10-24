@@ -20,8 +20,6 @@ function twoSum(nums: number[], target: number): number[] {
 }
 ```
 
-
-
 ## 哈希表
 
 让查询操作交给其他的数据结构。
@@ -40,4 +38,3 @@ function twoSum(nums: number[], target: number): number[] {
   }
 }
 ```
-

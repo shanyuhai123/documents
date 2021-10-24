@@ -22,8 +22,6 @@ function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 }
 ```
 
-
-
 ## 迭代
 
 ```ts
@@ -48,4 +46,3 @@ function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | nul
   return dummy.next
 }
 ```
-
