@@ -621,7 +621,9 @@ module.exports = {
         "203-remove-linked-list-elements.md",
         "205-isomorphic-strings.md",
         "206-reverse-linked-list.md",
-        "217-contains-duplicate.md"
+        "217-contains-duplicate.md",
+        "219-contains-duplicate-ii.md",
+        "225-implement-stack-using-queues.md"
       ]
     }
   ],
