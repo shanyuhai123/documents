@@ -1,13 +1,12 @@
 ---
-title: 人生苦短，我用 Docker
 description: 人生苦短，我用 Docker
 ---
 
+# 人生苦短，我用 Docker
+
 ## 介绍
 
-Docker 利用了 Linux 内核特性命名空间（namespace）及控制组（cgroups）等为容器提供隔离的运行环境。
-
-
+Docker 利用了 Linux 内核特性命名空间（namespace）及控制组（cgroups）等为容器提供隔离的运行环境，在此基础上可以认为 “容器是一种特殊的进程”。
 
 ## 使用脚本快速启用 Docker
 
@@ -51,10 +50,6 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 ```
-
-
-
-
 
 ## 初始化 Docker 环境
 
@@ -106,8 +101,6 @@ systemctl restart docker
 
 执行 `docker info` 进行校验。
 
-
-
 ## 热门镜像
 
 ### Busybox
@@ -134,9 +127,9 @@ docker run -it --rm node:slim bash
 
 ```bash
 docker run --rm \
-	-p 8080:80 \
-	-v /dir/dist/:/usr/share/nginx/html \
-	nginx
+  -p 8080:80 \
+  -v /dir/dist/:/usr/share/nginx/html \
+  nginx
 ```
 
 ### MySQL
@@ -145,8 +138,8 @@ docker run --rm \
 
 ```bash
 docker run --rm \
-	-p 33006:3306 \
-	-e MYSQL_ROOT_PASSWORD=mypasswd \
+  -p 33006:3306 \
+  -e MYSQL_ROOT_PASSWORD=mypasswd \
   mysql
 ```
 
@@ -154,7 +147,7 @@ docker run --rm \
 
 ```bash
 docker run -d \
-	-p 27017:27017 \
+  -p 27017:27017 \
   --name some-mongo \
   mongo --auth
 ```
@@ -165,12 +158,10 @@ docker run -d \
 
 ```bash
 docker run -d \
-	-p 6379:6379 \
-	--name some-redis \
-	redis --requirepass "redispwd"
+  -p 6379:6379 \
+  --name some-redis \
+  redis --requirepass "redispwd"
 ```
-
-
 
 ## 移除 Docker
 
@@ -185,8 +176,6 @@ sudo yum remove docker-ce docker-ce-cli containerd.io
 # 还有 images、containers、volumes、and configurations
 sudo rm -rf /var/lib/docker
 ```
-
-
 
 ## 参考资料
 
