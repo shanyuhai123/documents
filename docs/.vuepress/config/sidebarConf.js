@@ -623,7 +623,9 @@ module.exports = {
         "206-reverse-linked-list.md",
         "217-contains-duplicate.md",
         "219-contains-duplicate-ii.md",
-        "225-implement-stack-using-queues.md"
+        "225-implement-stack-using-queues.md",
+        "226-invert-binary-tree.md",
+        "228-summary-ranges.md"
       ]
     }
   ],
