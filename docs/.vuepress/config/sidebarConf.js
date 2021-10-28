@@ -625,7 +625,9 @@ module.exports = {
         "219-contains-duplicate-ii.md",
         "225-implement-stack-using-queues.md",
         "226-invert-binary-tree.md",
-        "228-summary-ranges.md"
+        "228-summary-ranges.md",
+        "231-power-of-two.md",
+        "232-implement-queue-using-stacks.md"
       ]
     }
   ],
