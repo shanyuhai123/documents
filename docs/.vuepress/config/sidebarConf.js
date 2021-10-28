@@ -627,7 +627,9 @@ module.exports = {
         "226-invert-binary-tree.md",
         "228-summary-ranges.md",
         "231-power-of-two.md",
-        "232-implement-queue-using-stacks.md"
+        "232-implement-queue-using-stacks.md",
+        "234-palindrome-linked-list.md",
+        "235-lowest-common-ancestor-of-a-binary-search-tree.md"
       ]
     }
   ],
