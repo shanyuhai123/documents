@@ -629,7 +629,9 @@ module.exports = {
         "231-power-of-two.md",
         "232-implement-queue-using-stacks.md",
         "234-palindrome-linked-list.md",
-        "235-lowest-common-ancestor-of-a-binary-search-tree.md"
+        "235-lowest-common-ancestor-of-a-binary-search-tree.md",
+        "237-delete-node-in-a-linked-list.md",
+        "242-valid-anagram.md"
       ]
     }
   ],
