@@ -1,0 +1,1 @@
+const a={key:"v-c11fa1a4",path:"/algorithms/242-valid-anagram.html",title:"有效的字母异位词",lang:"zh-CN",frontmatter:{autoSort:-242},excerpt:"",headers:[{level:2,title:"排序",slug:"排序",children:[]}],filePathRelative:"algorithms/242-valid-anagram.md",git:{updatedTime:1635519882e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{a as data};
