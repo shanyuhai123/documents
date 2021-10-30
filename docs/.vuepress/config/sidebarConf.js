@@ -631,7 +631,9 @@ module.exports = {
         "234-palindrome-linked-list.md",
         "235-lowest-common-ancestor-of-a-binary-search-tree.md",
         "237-delete-node-in-a-linked-list.md",
-        "242-valid-anagram.md"
+        "242-valid-anagram.md",
+        "257-binary-tree-paths.md",
+        "258-add-digits.md"
       ]
     }
   ],
