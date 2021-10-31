@@ -633,7 +633,9 @@ module.exports = {
         "237-delete-node-in-a-linked-list.md",
         "242-valid-anagram.md",
         "257-binary-tree-paths.md",
-        "258-add-digits.md"
+        "258-add-digits.md",
+        "263-ugly-number.md",
+        "268-missing-number.md"
       ]
     }
   ],
