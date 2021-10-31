@@ -1,0 +1,1 @@
+const t={key:"v-d3b21a5c",path:"/algorithms/263-ugly-number.html",title:"丑数",lang:"zh-CN",frontmatter:{autoSort:-263},excerpt:"",headers:[{level:2,title:"数学",slug:"数学",children:[]}],filePathRelative:"algorithms/263-ugly-number.md",git:{updatedTime:1635656769e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
