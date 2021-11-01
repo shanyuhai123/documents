@@ -635,7 +635,10 @@ module.exports = {
         "257-binary-tree-paths.md",
         "258-add-digits.md",
         "263-ugly-number.md",
-        "268-missing-number.md"
+        "268-missing-number.md",
+        "278-first-bad-version.md",
+        "283-move-zeroes.md",
+        "290-word-pattern.md"
       ]
     }
   ],
