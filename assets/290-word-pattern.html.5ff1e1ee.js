@@ -1,0 +1,1 @@
+const t={key:"v-9e6bcf94",path:"/algorithms/290-word-pattern.html",title:"单词规律",lang:"zh-CN",frontmatter:{autoSort:-290},excerpt:"",headers:[{level:2,title:"哈希表",slug:"哈希表",children:[]}],filePathRelative:"algorithms/290-word-pattern.md",git:{updatedTime:1635782525e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};

@@ -1,0 +1,1 @@
+const e={key:"v-07d11199",path:"/algorithms/283-move-zeroes.html",title:"移动零",lang:"zh-CN",frontmatter:{autoSort:-283},excerpt:"",headers:[{level:2,title:"双指针",slug:"双指针",children:[]}],filePathRelative:"algorithms/283-move-zeroes.md",git:{updatedTime:1635781759e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{e as data};
