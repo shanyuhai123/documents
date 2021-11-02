@@ -638,7 +638,10 @@ module.exports = {
         "268-missing-number.md",
         "278-first-bad-version.md",
         "283-move-zeroes.md",
-        "290-word-pattern.md"
+        "290-word-pattern.md",
+        "292-nim-game.md",
+        "303-range-sum-query-immutable.md",
+        "326-power-of-three.md"
       ]
     }
   ],
