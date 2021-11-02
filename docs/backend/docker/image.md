@@ -1,9 +1,10 @@
 ---
-title: 了解 Docker 镜像
 description: 了解 Docker 镜像
 autoPrev: dockerfile
 sidebarDepth: 2
 ---
+
+# 了解 Docker 镜像
 
 ## 获取镜像
 
@@ -15,16 +16,12 @@ NAME 是镜像仓库名称（用来区分镜像），TAG 是镜像的标签（�
 
 :::
 
-
-
 在获取镜像前可以查询是否存在对应的镜像。
 
 ```bash
 # docker search [OPTIONS] TERM
 docker search ubuntu
 ```
-
-
 
 ## 镜像信息
 
@@ -59,8 +56,6 @@ docker inspect ubuntu:latest
 # docker history [OPTIONS] IMAGE
 docker history ubuntu:latest
 ```
-
-
 
 ## 创建镜像
 
@@ -107,10 +102,6 @@ docker build https://github.com/creack/docker-firefox
 docker build -t nginx:ttt
 ```
 
-
-
-
-
 ## 修改镜像
 
 ### 1. 添加镜像标签
@@ -144,8 +135,6 @@ docker rmi adafef2e596e
 docker image prune [OPTIONS]
 ```
 
-
-
 ## 分享镜像
 
 ### 1. save
@@ -175,3 +164,41 @@ docker tag nginx:latest username/nginx:latest
 docker push username/nginx:latest
 ```
 
+## Docker slim 优化镜像
+
+首先需要获取 [Docker Slim](https://github.com/docker-slim/docker-slim/releases)。
+
+``` sh
+# 下载
+curl -L -o ds.tar.gz https://downloads.dockerslim.com/releases/1.37.0/dist_linux.tar.gz
+
+# 解压
+tar -xvf ds.tar.gz
+
+# 移动到 bin
+mv dist_linux/docker-slim /usr/local/bin/
+mv dist_linux/docker-slim-sensor /usr/local/bin/
+
+# 校验
+docker-slim --version
+# docker-slim version linux|Transformer|1.37.0|70cc8acfcb733161ce7e685b81ad6c172643c222|2021-09-23_09:23:43AM
+
+# 或者直接使用脚本
+curl -sL https://raw.githubusercontent.com/docker-slim/docker-slim/master/scripts/install-dockerslim.sh | sudo -E bash -
+```
+
+### Node 镜像优化大小
+
+``` sh
+# 查看原大小
+docker images | grep node
+# node_app                     1.0.0               3fe14ce78d6d        1 months ago        593MB
+
+# docker slim
+docker-slim build --target node_app:1.0.0 --tag node_app:1.0.0-slim --http-probe=false
+
+# 再次查看，发现显著缩小
+docker images | grep node
+# node_app                     1.0.0-slim          061aa2d584d0        19 seconds ago      84.4MB
+# node_app                     1.0.0               3fe14ce78d6d        6 months ago        593MB
+```
