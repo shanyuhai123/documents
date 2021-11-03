@@ -23,6 +23,9 @@ module.exports = [
       map: {
         "/more/": "更多🎉"
       }
+    },
+    git: {
+      ignoreUntracked: true
     }
   }],
   ['@vuepress/plugin-search', {
