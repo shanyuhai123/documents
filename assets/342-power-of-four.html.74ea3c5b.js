@@ -1,0 +1,1 @@
+const t={key:"v-1c1008d3",path:"/algorithms/342-power-of-four.html",title:"4 的幂",lang:"zh-CN",frontmatter:{autoSort:-342},excerpt:"",headers:[{level:2,title:"按位运算",slug:"按位运算",children:[]}],filePathRelative:"algorithms/342-power-of-four.md",git:{updatedTime:1635947401e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
