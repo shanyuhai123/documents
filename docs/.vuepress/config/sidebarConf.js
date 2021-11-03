@@ -641,7 +641,9 @@ module.exports = {
         "290-word-pattern.md",
         "292-nim-game.md",
         "303-range-sum-query-immutable.md",
-        "326-power-of-three.md"
+        "326-power-of-three.md",
+        "338-counting-bits.md",
+        "342-power-of-four.md"
       ]
     }
   ],
