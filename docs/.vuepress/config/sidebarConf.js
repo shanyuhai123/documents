@@ -645,6 +645,7 @@ module.exports = {
         "338-counting-bits.md",
         "342-power-of-four.md",
         "344-reverse-string.md",
+        "345-reverse-vowels-of-a-string.md",
         "349-intersection-of-two-arrays.md",
         "350-intersection-of-two-arrays-ii.md"
       ]
