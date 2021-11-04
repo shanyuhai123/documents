@@ -643,7 +643,8 @@ module.exports = {
         "303-range-sum-query-immutable.md",
         "326-power-of-three.md",
         "338-counting-bits.md",
-        "342-power-of-four.md"
+        "342-power-of-four.md",
+        "344-reverse-string.md"
       ]
     }
   ],
