@@ -25,7 +25,7 @@ module.exports = [
       }
     },
     git: {
-      ignoreUntracked: true
+      trackStatus: 'add'
     }
   }],
   ['@vuepress/plugin-search', {

@@ -4848,10 +4848,10 @@ vue@^3.2.3:
     "@vue/server-renderer" "3.2.16"
     "@vue/shared" "3.2.16"
 
-vuepress-plugin-auto-sidebar@^2.4.0-alpha.3:
-  version "2.4.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-auto-sidebar/-/vuepress-plugin-auto-sidebar-2.4.0-alpha.3.tgz#986efcbbe7e6a08f3f11bb0c05e617a87b20755a"
-  integrity sha512-XzqqJ9H5vx91QnP8fEH4vHXyVVO8BBIQ6Ac8FjPBZ0iw57EaHbMIka26Yyf2QWl9cFP/6ozMKfGZI+aIuYoj2A==
+vuepress-plugin-auto-sidebar@^2.4.0-alpha.4:
+  version "2.4.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-auto-sidebar/-/vuepress-plugin-auto-sidebar-2.4.0-alpha.4.tgz#685aebe3e3e9feb15c3a1e467f75c43acf26badd"
+  integrity sha512-wgZ8jAgr6dSKfV0SpAVE54OzGypy9lS6LKn2JxHT3hD8lHJh//uhwstxvBqnwlpfbJq5xThXOQtoqs1LVdd90A==
   dependencies:
     colors "^1.4.0"
     execa "^5.0.0"
