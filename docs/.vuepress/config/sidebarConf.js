@@ -649,7 +649,10 @@ module.exports = {
         "349-intersection-of-two-arrays.md",
         "350-intersection-of-two-arrays-ii.md",
         "367-valid-perfect-square.md",
-        "374-guess-number-higher-or-lower.md"
+        "374-guess-number-higher-or-lower.md",
+        "383-ransom-note.md",
+        "387-first-unique-character-in-a-string.md",
+        "389-find-the-difference.md"
       ]
     }
   ],
