@@ -1,0 +1,1 @@
+const e={key:"v-eb34878a",path:"/algorithms/409-longest-palindrome.html",title:"最长回文串",lang:"zh-CN",frontmatter:{autoSort:-409},excerpt:"",headers:[{level:2,title:"奇数计数",slug:"奇数计数",children:[]}],filePathRelative:"algorithms/409-longest-palindrome.md",git:{updatedTime:1636297932e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{e as data};
