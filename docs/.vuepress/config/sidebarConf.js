@@ -655,7 +655,9 @@ module.exports = {
         "389-find-the-difference.md",
         "392-is-subsequence.md",
         "401-binary-watch.md",
-        "404-sum-of-left-leaves.md"
+        "404-sum-of-left-leaves.md",
+        "405-convert-a-number-to-hexadecimal.md",
+        "409-longest-palindrome.md"
       ]
     }
   ],
