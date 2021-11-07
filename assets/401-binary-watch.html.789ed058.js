@@ -1,0 +1,1 @@
+const t={key:"v-c6224da8",path:"/algorithms/401-binary-watch.html",title:"二进制手表",lang:"zh-CN",frontmatter:{autoSort:-401},excerpt:"",headers:[{level:2,title:"暴力",slug:"暴力",children:[]}],filePathRelative:"algorithms/401-binary-watch.md",git:{updatedTime:1636291839e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};

@@ -1,0 +1,1 @@
+const e={key:"v-7d42ea88",path:"/algorithms/392-is-subsequence.html",title:"判断子序列",lang:"zh-CN",frontmatter:{autoSort:-392},excerpt:"",headers:[{level:2,title:"双指针",slug:"双指针",children:[]}],filePathRelative:"algorithms/392-is-subsequence.md",git:{updatedTime:1636289062e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{e as data};
