@@ -652,7 +652,10 @@ module.exports = {
         "374-guess-number-higher-or-lower.md",
         "383-ransom-note.md",
         "387-first-unique-character-in-a-string.md",
-        "389-find-the-difference.md"
+        "389-find-the-difference.md",
+        "392-is-subsequence.md",
+        "401-binary-watch.md",
+        "404-sum-of-left-leaves.md"
       ]
     }
   ],
