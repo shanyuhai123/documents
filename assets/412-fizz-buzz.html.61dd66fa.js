@@ -1,0 +1,1 @@
+const t={key:"v-cd84a5f4",path:"/algorithms/412-fizz-buzz.html",title:"Fizz Buzz",lang:"zh-CN",frontmatter:{autoSort:-412},excerpt:"",headers:[{level:2,title:"字符串拼接",slug:"字符串拼接",children:[]}],filePathRelative:"algorithms/412-fizz-buzz.md",git:{updatedTime:1636372826e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
