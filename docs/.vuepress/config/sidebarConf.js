@@ -660,7 +660,9 @@ module.exports = {
         "409-longest-palindrome.md",
         "412-fizz-buzz.md",
         "414-third-maximum-number.md",
-        "415-add-strings.md"
+        "415-add-strings.md",
+        "434-number-of-segments-in-a-string.md",
+        "441-arranging-coins.md"
       ]
     }
   ],
