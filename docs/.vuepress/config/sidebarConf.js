@@ -657,7 +657,10 @@ module.exports = {
         "401-binary-watch.md",
         "404-sum-of-left-leaves.md",
         "405-convert-a-number-to-hexadecimal.md",
-        "409-longest-palindrome.md"
+        "409-longest-palindrome.md",
+        "412-fizz-buzz.md",
+        "414-third-maximum-number.md",
+        "415-add-strings.md"
       ]
     }
   ],
