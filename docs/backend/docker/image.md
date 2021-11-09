@@ -127,6 +127,13 @@ docker rm b0f36e5ede8d
 docker rmi adafef2e596e
 ```
 
+批量删除镜像：
+
+``` sh
+# 以删除 harbor 镜像示例
+docker rmi $(docker images | grep 'goharbor' | awk '{print $3}')
+```
+
 ### 3. 清理镜像
 
 系统中可能会遗留一些临时的镜像文件。
