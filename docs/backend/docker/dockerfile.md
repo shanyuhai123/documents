@@ -1,7 +1,8 @@
 ---
-title: Dockerfile
 autoPrev: README
 ---
+
+# Dockerfile 详解
 
 ## 基本结构
 
@@ -19,8 +20,6 @@ RUN make /app
 CMD python /app/app.py
 ```
 
-
-
 ## 指令说明
 
 ### 1. ARG
@@ -28,6 +27,7 @@ CMD python /app/app.py
 ```dockerfile
 ARG <name>[=<default value>]
 ```
+
 定义创建镜像过程中使用的变量。
 
 ### 2. FROM
@@ -39,6 +39,7 @@ FROM [--platform=<platform>] <image>[:<tag>] [AS <name>]
 # or
 FROM [--platform=<platform>] <image>[@<digest>] [AS <name>]
 ```
+
 指定所创建镜像的基础镜像。
 
 ### 3. LABEL
@@ -46,6 +47,7 @@ FROM [--platform=<platform>] <image>[@<digest>] [AS <name>]
 ```dockerfile
 LABEL <key>=<value> <key>=<value> <key>=<value> ...
 ```
+
 `LABEL` 指令可以为生成的镜像添加元数据标签信息。这些信息可以用来辅助过滤出特定镜像。
 
 ### 4. EXPOSE
@@ -53,6 +55,7 @@ LABEL <key>=<value> <key>=<value> <key>=<value> ...
 ```dockerfile
 EXPOSE <port> [<port>/<protocol>...]
 ```
+
 声明镜像内服务监听的端口，但并不会自动完成端口映射。
 
 ### 5. ENV
@@ -61,6 +64,7 @@ EXPOSE <port> [<port>/<protocol>...]
 ENV <key> <value>
 ENV <key>=<value> ...
 ```
+
 指定环境变量，在镜像生成过程中会被后续 `RUN` 指令使用，在镜像启动的容器中也会存在。
 
 ### 6. ENTRYPOINT
@@ -70,6 +74,7 @@ ENTRYPOINT ["executable", "param1", "param2"]
 # or
 ENTRYPOINT command param1 param2
 ```
+
 指定镜像的默认入口命令，该入口命令会在启动容器时作为根命令执行，所有传入值作为该命令的参数。
 
 ### 7. VOLUME
@@ -77,6 +82,7 @@ ENTRYPOINT command param1 param2
 ```dockerfile
 VOLUME ["/data"]
 ```
+
 创建一个数据卷挂载点。
 
 ### 8. USER
@@ -86,6 +92,7 @@ USER <user>[:<group>]
 # or
 USER <UID>[:<GID>]
 ```
+
 指定运行容器时的用户名或 `UID`，后续的 `RUN` 等指令也会使用指定的用户身份。
 
 ### 9. WORKDIR
@@ -93,6 +100,7 @@ USER <UID>[:<GID>]
 ```dockerfile
 WORKDIR /path/to/workdir
 ```
+
 为后续的 `RUN`、`CMD`、`ENTRYPOINT` 指令配置工作目录。
 可以使用多个 `WORKDIR` 指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。
 
@@ -109,6 +117,7 @@ RUN pwd
 ```dockerfile
 ONBUILD <INSTRUCTION>
 ```
+
 指定当基于所生成镜像创建子镜像时，自动执行的操作指令。
 
 ### 11. STOPSIGNAL
@@ -116,6 +125,7 @@ ONBUILD <INSTRUCTION>
 ```dockerfile
 STOPSIGNAL signal
 ```
+
 指定所创建镜像启动的容器接收退出的信号值。
 
 ### 12. HEALTHCHECK
@@ -125,6 +135,7 @@ HEALTHCHECK [OPTIONS] CMD command
 # or
 HEALTHCHECK NONE
 ```
+
 配置所启动容器如何进行健康检查。
 
 ### 13. SHELL
@@ -132,6 +143,7 @@ HEALTHCHECK NONE
 ```dockerfile
 SHELL ["executable", "parameters"]
 ```
+
 指定其他命令使用 `shell` 时的默认 `shell` 类型。
 
 ### 14. RUN（操作）
@@ -141,6 +153,7 @@ RUN <command>
 # or
 RUN ["executable", "param1", "param2"]
 ```
+
 运行指定命令。
 
 ### 15. CMD（操作）
@@ -152,6 +165,7 @@ CMD ["param1","param2"]
 # or
 CMD command param1 param2
 ```
+
 指定启动容器时默认执行的命令。
 
 ### 16. ADD（操作）
@@ -161,6 +175,7 @@ ADD [--chown=<user>:<group>] <src>... <dest>
 # or
 ADD [--chown=<user>:<group>] ["<src>",... "<dest>"]
 ```
+
 添加内容到镜像。
 
 ### 17. COPY（操作）
@@ -170,10 +185,9 @@ COPY [--chown=<user>:<group>] <src>... <dest>
 # or
 COPY [--chown=<user>:<group>] ["<src>",... "<dest>"]
 ```
+
 复制内容到镜像。
 `COPY` 与 `ADD` 指令功能类似，当使用本地目录为源目录时，推荐使用 `COPY`。
-
-
 
 ## 构建镜像
 
@@ -235,4 +249,3 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 # 打开对应的 IP 的端口 32769 进行验证
 ```
-

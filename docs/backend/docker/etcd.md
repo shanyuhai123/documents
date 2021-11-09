@@ -17,8 +17,6 @@
 + Term：某个节点成为 Leader 到下一次竞选时间，称为一个 Term
 + Index：数据项编号。Raft 中通过 Term 和 Index 来定位数据
 
-
-
 ## 部署 ETCD
 
 在部署时，不确定其他成员 IP 是常见的，可以使用[动态发现](https://etcd.io/docs/v3.4.0/dev-internal/discovery_protocol/)的方式解决。
@@ -72,8 +70,8 @@ docker run --name etcd -d \
    etcd \
     --name ${THIS_NAME} \
     --initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://0.0.0.0:2380 \
-  	--discovery ${DISCOVERY} \
-  	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+   --discovery ${DISCOVERY} \
+   --initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
 ```
 
 `node2`：
@@ -92,8 +90,8 @@ docker run --name etcd -d \
    etcd \
     --name ${THIS_NAME} \
     --initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://0.0.0.0:2380 \
-  	--discovery ${DISCOVERY} \
-  	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+   --discovery ${DISCOVERY} \
+   --initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
 ```
 
 `node3`：
@@ -112,8 +110,8 @@ docker run --name etcd -d \
    etcd \
     --name ${THIS_NAME} \
     --initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://0.0.0.0:2380 \
-  	--discovery ${DISCOVERY} \
-  	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+   --discovery ${DISCOVERY} \
+   --initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
 ```
 
 ### 基于 DNS 部署
@@ -159,7 +157,7 @@ docker run --name etcd -d \
    etcd \
     --name ${THIS_NAME} \
     --initial-advertise-peer-urls http://${THIS_URLS}:2380 --listen-peer-urls http://0.0.0.0:2380 \
-  	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+   --initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
 ```
 
 ### 校验结果
@@ -197,8 +195,6 @@ docker exec -it etcd etcdctl --write-out=table --endpoints="http://etcd1.example
 | http://etcd2.example.com:2379 |   true | 9.323943ms |       |
 +--------------------------+--------+------------+-------+
 ```
-
-
 
 ## 数据
 
@@ -242,8 +238,6 @@ hi
 shanyuhai
 ```
 
-
-
 ## 处理问题
 
 ```bash
@@ -257,4 +251,3 @@ docker logs etcd
 | `connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:2379: i/o timeout"; Reconnecting to {0.0.0.0:2379 0 <nil>}` | 主机防火墙阻止了网络通信。                                   |
 | `rafthttp: request cluster ID mismatch`                      | 运行着 etcd 实例并记录`rafthttp: request cluster ID mismatch`的节点正在尝试加入另一个由其他成员构成的集群。应该从集群中删除这个节点，然后重新添加。 |
 | `rafthttp: failed to find member`                            | 集群状态 (`/var/lib/etcd`) 包含错误信息，无法加入集群。应该从集群中删除这个节点，并删除状态目录，然后重新添加。 |
-

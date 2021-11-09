@@ -1,7 +1,8 @@
 ---
-title: Docker Compose 管理多个服务
 description: Docker Compose 管理多个服务
 ---
+
+# Docker Compose 管理多个服务
 
 ## 为什么需要 Docker Compose
 
@@ -17,8 +18,6 @@ Docker Compose 中定义的每个服务都必须通过 `image` 或 `build` 指�
 ### 2. 默认
 
 默认模板文件为 `docker-compose.yml`，默认的项目名称为所在目录名。
-
-
 
 ## 安装卸载
 
@@ -38,13 +37,9 @@ curl -L https://raw.githubusercontent.com/docker/compose/1.25.5/contrib/completi
 sudo rm /usr/local/bin/docker-compose
 ```
 
-
-
 ## 命令行
 
 在配置完成后可以执行 `docker-compose config` 来校验并查看实际运行的配置。
-
-
 
 ## 核心配置
 
@@ -62,8 +57,6 @@ services 是要定义的服务，至于服务名可以自取，我们大部分�
 
 配置容器连接的网络，如果未显示声明则会被加入所在目录及 `_default` 的网络中，例如当前目录为 `app`，那么就会加入 `app_default` 的默认网络。你会发现这其实与 service 是一致的。
 
-
-
 ## services 配置
 
 ### 1. image
@@ -79,12 +72,12 @@ services 是要定义的服务，至于服务名可以自取，我们大部分�
 ```yaml
 version: '3'
 services:
-	app:
-		build:
-			context: ./app
-			dockerfile: Dockerfile-app
-			args:
-				arg1: 'true'
+ app:
+  build:
+   context: ./app
+   dockerfile: Dockerfile-app
+   args:
+    arg1: 'true'
 ```
 
 ### 3. command
@@ -273,4 +266,3 @@ volumes:
   mydata:
   dbdata:
 ```
-

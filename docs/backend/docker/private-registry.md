@@ -1,14 +1,13 @@
 ---
-title: 使用 Harbor 构建私有镜像仓库
 description: 使用 Harbor 构建私有镜像仓库
 autoSort: -999
 ---
 
+# 使用 Harbor 构建私有镜像仓库
+
 ## 环境
 
 创建一台虚拟机为私有仓库，本机向虚拟机的仓库发起上传和下载。
-
-
 
 ## 搭建仓库
 
@@ -19,8 +18,6 @@ docker run -d --restart=always --name registry -p 5000:5000 -v /opt/data/registr
 ```
 
 后续的 `registry` 配置可见 `/etc/docker/registry/config.yml`。
-
-
 
 ## 主机测试
 
@@ -66,8 +63,6 @@ docker pull 192.168.0.107:5000/tubuntu
 # 验证
 docker images
 ```
-
-
 
 ## Harbor
 
@@ -132,8 +127,6 @@ bash install.sh
 ### 4. 用户
 
 Harbor 使用前需要注册帐号，推送镜像前需要先创建项目，邀请成员才行。
-
-
 
 ## 自签证书
 
@@ -236,4 +229,3 @@ Manjaro 下找到 SSL 设置，添加 `harbor.xxx.com.crt` 证书即可。
 # When setting up Harbor behind other proxy, such as an Nginx instance, remove the below line if the proxy already has similar settings.
 #proxy_set_header X-Forwarded-Proto $scheme;
 ```
-

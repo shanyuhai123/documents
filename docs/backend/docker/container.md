@@ -1,15 +1,14 @@
 ---
-title: 了解 Docker 容器
 description: 了解 Docker 容器
 autoPrev: image
 sidebarDepth: 2
 ---
 
+# 了解 Docker 容器
+
 ## 概念
 
 简单来说，容器是镜像的一个运行实例。所不同的是，镜像是静态的只读文件，而容器带有运行时需要的可写文件层，同时，容器中的应用进程处于运行状态。
-
-
 
 ## 状态
 
@@ -54,12 +53,6 @@ docker diff ttubuntu
 ```bash
 docker port ttubuntu
 ```
-
-
-
-
-
-
 
 ## 操作
 
@@ -149,10 +142,6 @@ docker rm ttubuntu
 docker update ttubuntu
 ```
 
-
-
-
-
 ## 进入容器
 
 在使用 `-d` 参数启动容器后，容器会进入后台，无法看到容器的输出信息，可以利用 `docker attach` 或 `docker exec` 进入容器。
@@ -162,8 +151,6 @@ docker update ttubuntu
 ```bash
 docker exec -it ttubuntu sh
 ```
-
-
 
 ## 分享
 
@@ -191,4 +178,3 @@ docker import ubuntu-latest.tar
 ```bash
 docker cp data ttubuntu:/tmp/
 ```
-
