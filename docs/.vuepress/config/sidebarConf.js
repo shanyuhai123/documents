@@ -662,7 +662,9 @@ module.exports = {
         "414-third-maximum-number.md",
         "415-add-strings.md",
         "434-number-of-segments-in-a-string.md",
-        "441-arranging-coins.md"
+        "441-arranging-coins.md",
+        "448-find-all-numbers-disappeared-in-an-array.md",
+        "455-assign-cookies.md"
       ]
     }
   ],
