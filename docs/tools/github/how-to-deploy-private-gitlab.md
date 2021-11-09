@@ -1,6 +1,6 @@
-# 如何搭建私有 gitlab
+# 如何搭建私有 GitLab
 
-## 安装 gitlab
+## 安装 GitLab
 
 ```bash
 # 创建数据目录
@@ -72,8 +72,6 @@ Notify.test_email('someone@example.com', 'Message Subject', 'Message Body').deli
 
 等待邮件发送到自己的邮箱后即可。
 
-
-
 ## hostname
 
 `hostname` 会影响仓库下载、用户注册邀请等问题。
@@ -86,8 +84,6 @@ sudo vim /srv/gitlab/config/gitlab.rb
 # 配置 external_url
 external_url 'http://gitlab.example.com'
 ```
-
-
 
 ## 备份与恢复
 
@@ -121,9 +117,9 @@ gitlab-ctl status # 验证
 gitlab-rake gitlab:backup:restore BACKUP=1607523472_2020_12_09_13.2.1
 ```
 
-
-
 ## 添加 Runner
+
+先注册 GitLab Runner：
 
 ```bash
 # 注册（删除 register 及以后可交互式注册）
@@ -134,14 +130,35 @@ docker run --rm -it \
     --url "https://gitlab.com/" \
     --registration-token "PROJECT_REGISTRATION_TOKEN" \
     --executor "docker" \
-    --docker-image alpine:latest \
+    --docker-image "docker:19.03.12" \
     --description "docker-runner" \
+    # --docker-privileged 判断是否需要
+    --docker-privileged \
     --tag-list "docker" \
     --run-untagged="true" \
     --locked="false" \
     --access-level="not_protected"
+```
 
-# 指定配置启动
+再前往 `/srv/gitlab-runner/config/config.toml` 修改 `volumes`：
+
+``` toml
+# 修改前：
+[[runners]]
+  # ...
+  [runners.docker]
+    volumes = ["/cache"]
+
+# 修改后：
+[[runners]]
+  # ...
+  [runners.docker]
+    volumes = ["/cache", "/var/run/docker.sock:/var/run/docker.sock"]
+```
+
+最后启动 Runner：
+
+``` sh
 docker run -d \
   --restart always \
   -v /srv/gitlab-runner/config:/etc/gitlab-runner \
@@ -177,4 +194,3 @@ vim /srv/gitlab-runner/config/config.toml
 # 增加 docker 本地环境引用
 volumes = ["/cache", "/var/run/docker.sock:/var/run/docker.sock"]
 ```
-
