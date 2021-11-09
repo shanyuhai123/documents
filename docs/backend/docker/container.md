@@ -27,6 +27,10 @@ docker ps
 ```bash
 # docker logs [OPTIONS] CONTAINER
 docker logs ttubuntu
+
+# -f 跟踪实时日志
+# -n 指定输出多少行日志
+docker logs -f --tail 20 ttubuntu
 ```
 
 ### 3. 容器信息
