@@ -664,7 +664,9 @@ module.exports = {
         "434-number-of-segments-in-a-string.md",
         "441-arranging-coins.md",
         "448-find-all-numbers-disappeared-in-an-array.md",
-        "455-assign-cookies.md"
+        "455-assign-cookies.md",
+        "459-repeated-substring-pattern.md",
+        "461-hamming-distance.md"
       ]
     }
   ],
