@@ -666,7 +666,8 @@ module.exports = {
         "448-find-all-numbers-disappeared-in-an-array.md",
         "455-assign-cookies.md",
         "459-repeated-substring-pattern.md",
-        "461-hamming-distance.md"
+        "461-hamming-distance.md",
+        "463-island-perimeter.md"
       ]
     }
   ],
