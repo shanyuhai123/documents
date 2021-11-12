@@ -1,0 +1,1 @@
+const e={key:"v-5a357e09",path:"/algorithms/482-license-key-formatting.html",title:"密钥格式化",lang:"zh-CN",frontmatter:{autoSort:-482},excerpt:"",headers:[{level:2,title:"遍历",slug:"遍历",children:[]}],filePathRelative:"algorithms/482-license-key-formatting.md",git:{updatedTime:1636727984e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{e as data};
