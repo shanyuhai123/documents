@@ -667,7 +667,10 @@ module.exports = {
         "455-assign-cookies.md",
         "459-repeated-substring-pattern.md",
         "461-hamming-distance.md",
-        "463-island-perimeter.md"
+        "463-island-perimeter.md",
+        "476-number-complement.md",
+        "482-license-key-formatting.md",
+        "485-max-consecutive-ones.md"
       ]
     }
   ],
