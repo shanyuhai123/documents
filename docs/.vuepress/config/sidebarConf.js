@@ -670,7 +670,11 @@ module.exports = {
         "463-island-perimeter.md",
         "476-number-complement.md",
         "482-license-key-formatting.md",
-        "485-max-consecutive-ones.md"
+        "485-max-consecutive-ones.md",
+        "492-construct-the-rectangle.md",
+        "495-teemo-attacking.md",
+        "496-next-greater-element-i.md",
+        "500-keyboard-row.md"
       ]
     }
   ],
