@@ -6,6 +6,7 @@ const sidebarConf = require('./config/sidebarConf.js');
 const headConf = require('./config/headConf.js');
 
 module.exports = {
+  theme: path.resolve(__dirname, './theme'),
   bundler: '@vuepress/vite',
   bundlerConfig: {
     vuePluginOptions: {
@@ -23,9 +24,9 @@ module.exports = {
   plugins: pluginConf,
   themeConfig: {
     logo: '/hero.jpg',
-    repo: 'shanyuhai123/documents',
     lastUpdatedText: '上次更新',
     contributorsText: '贡献者',
+    docsRepo: 'shanyuhai123/documents',
     editLinks: true,
     editLinkText: '编辑文档！',
     docsDir: 'docs',

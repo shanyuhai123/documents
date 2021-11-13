@@ -885,6 +885,18 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
+"@iconify-icons/brandico@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmmirror.com/@iconify-icons/brandico/download/@iconify-icons/brandico-1.1.0.tgz#1cdca6205fecc8248ae0cf9be59b06de7a79ff78"
+  integrity sha1-HNymIF/syCSK4M+b5ZsG3np5/3g=
+
+"@iconify/vue@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.npmmirror.com/@iconify/vue/download/@iconify/vue-3.1.0.tgz#cd1b7b198ca43202ab355c9cf01857ca4ac73f31"
+  integrity sha512-3vyIxu/Oq8VBoR9LRLMvPt/Ia6kdp9aydGRbTbvnHoREFp6B/RFLR1U64mtPVdOWNTj6DebjTun4yOx4vBkhsg==
+  dependencies:
+    cross-fetch "^3.1.4"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.nlark.com/@nodelib/fs.scandir/download/@nodelib/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -2273,6 +2285,13 @@ cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+cross-fetch@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.npmmirror.com/cross-fetch/download/cross-fetch-3.1.4.tgz#9723f3a3a247bf8b89039f3a380a9244e8fa2f39"
+  integrity sha1-lyPzo6JHv4uJA586OAqSROj6Lzk=
+  dependencies:
+    node-fetch "2.6.1"
 
 cross-spawn@^7.0.3:
   version "7.0.3"
@@ -3831,6 +3850,11 @@ no-case@^3.0.4:
   dependencies:
     lower-case "^2.0.2"
     tslib "^2.0.3"
+
+node-fetch@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.npmmirror.com/node-fetch/download/node-fetch-2.6.1.tgz?cache=0&sync_timestamp=1636395435525&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fnode-fetch%2Fdownload%2Fnode-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha1-BFvTI2Mfdu0uK1VXM5RBa2OaAFI=
 
 node-forge@^0.10.0:
   version "0.10.0"

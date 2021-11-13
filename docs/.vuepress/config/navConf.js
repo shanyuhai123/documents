@@ -55,5 +55,6 @@ module.exports = [
     { text: '导航 🎉', link: '/more/navigation.html' },
     { text: 'VuePress 侧边栏插件', link: 'https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/' },
     { text: 'VuePress 官网', link: 'https://vuepress.vuejs.org/zh/' },
-  ]}
+  ]},
+  { text: '🚇 开往', link: 'https://travellings.link' },
 ];
