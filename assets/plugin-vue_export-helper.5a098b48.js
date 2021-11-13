@@ -1,1 +1,1 @@
-var r=(r,o)=>{for(const[t,a]of o)r[t]=a;return r};export{r as _};
+var a=(r,o)=>{for(const[e,t]of o)r[e]=t;return r};export{a as _};
