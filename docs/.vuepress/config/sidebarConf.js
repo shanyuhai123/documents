@@ -674,7 +674,8 @@ module.exports = {
         "492-construct-the-rectangle.md",
         "495-teemo-attacking.md",
         "496-next-greater-element-i.md",
-        "500-keyboard-row.md"
+        "500-keyboard-row.md",
+        "501-find-mode-in-binary-search-tree.md"
       ]
     }
   ],
