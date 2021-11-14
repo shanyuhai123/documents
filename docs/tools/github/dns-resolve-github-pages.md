@@ -1,22 +1,20 @@
----
-title: DNS 解析 Github Pages
----
+# DNS 解析 Github Pages
 
 ## 前言
 
 Github Pages 访问变得愈加困难了，所以不断有人私聊我笔记网站挂了。
 
-
-
 ## DNS 解析
 
 在访问网站时，需要通过 DNS 解析网站的地址，显然可以在 DNS 解析处解决该问题，是国内 IP 访问的就解析到本地（也有选择 Gitee 和 Coding），是国外 IP 访问就解析到 Github Pages。
 
-<img :src="$withBase('/tools/github/dns-record-head.png')" alt="DNS record head">
+![dns record](./assets/dns-record.png)
 
 将域名的线路类型调整为 **境外**，再增加一条解析到国内的记录即可。
 
+使用站长工具进行测试：
 
+![website routes test](./assets/website-routes-test.png)
 
 ## HTTPS 失败
 
