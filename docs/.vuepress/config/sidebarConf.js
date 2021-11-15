@@ -676,7 +676,10 @@ module.exports = {
         "496-next-greater-element-i.md",
         "500-keyboard-row.md",
         "501-find-mode-in-binary-search-tree.md",
-        "504-base-7.md"
+        "504-base-7.md",
+        "506-relative-ranks.md",
+        "507-perfect-number.md",
+        "509-fibonacci-number.md"
       ]
     }
   ],
