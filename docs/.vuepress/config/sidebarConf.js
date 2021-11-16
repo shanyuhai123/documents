@@ -679,7 +679,8 @@ module.exports = {
         "504-base-7.md",
         "506-relative-ranks.md",
         "507-perfect-number.md",
-        "509-fibonacci-number.md"
+        "509-fibonacci-number.md",
+        "520-detect-capital.md"
       ]
     }
   ],
