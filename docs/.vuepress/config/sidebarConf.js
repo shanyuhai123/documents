@@ -682,7 +682,9 @@ module.exports = {
         "506-relative-ranks.md",
         "507-perfect-number.md",
         "509-fibonacci-number.md",
-        "520-detect-capital.md"
+        "520-detect-capital.md",
+        "521-longest-uncommon-subsequence-i.md",
+        "530-minimum-absolute-difference-in-bst.md"
       ]
     }
   ],
