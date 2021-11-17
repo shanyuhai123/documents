@@ -444,6 +444,7 @@ module.exports = {
         "install-deb-program-on-manjaro.md",
         "konsole-profile-command.md",
         "lock-screen-shortcuts.md",
+        "manjaro-with-nvidia.md",
         "most-used-softwares.md",
         "mpv.md",
         "proxy-tools.md",
