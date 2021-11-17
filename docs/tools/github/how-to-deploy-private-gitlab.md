@@ -185,12 +185,3 @@ update-ca-certificates --fresh
 
 curl https://example.com # 访问成功
 ```
-
-修改配置文件：
-
-```bash
-vim /srv/gitlab-runner/config/config.toml
-
-# 增加 docker 本地环境引用
-volumes = ["/cache", "/var/run/docker.sock:/var/run/docker.sock"]
-```
