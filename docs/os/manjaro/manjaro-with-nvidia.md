@@ -1,4 +1,4 @@
-# Ｍanjaro 下使用 Nvidia 显卡
+# Manjaro 下使用 Nvidia 显卡
 
 参考 [在 Manjaro 配置 Optimus manager 实现 Nvidia-Prime 双显卡解决方案](https://blog.kongjune.com/manjaro-prime/) 即可。
 
