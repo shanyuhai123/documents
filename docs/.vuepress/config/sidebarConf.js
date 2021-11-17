@@ -402,6 +402,7 @@ module.exports = {
       "children": [
         "README.md",
         "everything-is-a-file.md",
+        "shell.md",
         "alias.md",
         "ansible.md",
         "archiving-and-compression.md",
