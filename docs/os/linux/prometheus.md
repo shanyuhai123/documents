@@ -1,6 +1,4 @@
----
-title: Prometheus
----
+# Prometheus
 
 ## 部署
 
@@ -45,13 +43,11 @@ sudo systemctl status prometheus
 
 ```bash
 docker run --restart=always -d \
-	-p 9090:9090 \
-	-v /path/to/config:/etc/prometheus \
-	--name prometheus \
-	prom/prometheus
+  -p 9090:9090 \
+  -v /path/to/config:/etc/prometheus \
+  --name prometheus \
+  prom/prometheus
 ```
-
-
 
 ## 配置文件
 
@@ -102,8 +98,8 @@ scrape_configs:
   static_configs:
     - targets: ['10.0.0.131:8080', '10.0.0.132:8080', '10.0.0.133:8080']
   metric_relabel_configs:
-  	# 通过重新标记来删除指标
-  	- source_labels: [__name__]
+   # 通过重新标记来删除指标
+   - source_labels: [__name__]
       separator: ','
       regex: '(container_tasks_state|container_memory_failures_total)'
       action: drop
@@ -113,8 +109,6 @@ scrape_configs:
       replacement: '$1'
       target_label: container_id
 ```
-
-
 
 ## 监控示例
 
@@ -160,7 +154,7 @@ sudo systemctl status node_exporter
 
 ```yaml
 - job_name: 'node_exporter'
-		# 静态配置
+  # 静态配置
     static_configs:
     - targets:
       - 10.0.0.131:9100
@@ -174,8 +168,8 @@ sudo systemctl status node_exporter
 
 ```bash
 docker run --name cadvisor -d \
-	-p 8080:8080 \
-	-v /:/rootfs:ro \
+  -p 8080:8080 \
+  -v /:/rootfs:ro \
   -v /var/run:/var/run:ro \
   -v /sys:/sys:ro \
   -v /var/lib/docker/:/var/lib/docker:ro \
@@ -191,10 +185,10 @@ docker run --name cadvisor -d \
 
 ```bash
 docker run -dP \
-   --name myapp-mtail \
-   --volumes-from myapp \
-   -v examples:/etc/mtail \
-   mtail --logs /var/log/myapp --progs /etc/mtail
+  --name myapp-mtail \
+  --volumes-from myapp \
+  -v examples:/etc/mtail \
+  mtail --logs /var/log/myapp --progs /etc/mtail
 ```
 
 ### 4. 黑盒监控
@@ -233,14 +227,12 @@ modules:
 
 ```bash
 docker run --rm -d \
-	-p 9115:9115 \
-	-v `pwd`:/config \
-	--name blackbox_exporter \
-	prom/blackbox-exporter:master \
-	--config.file=/config/prober.yml
+ -p 9115:9115 \
+ -v `pwd`:/config \
+ --name blackbox_exporter \
+ prom/blackbox-exporter:master \
+ --config.file=/config/prober.yml
 ```
-
-
 
 ## 服务发现
 
@@ -317,22 +309,18 @@ dns2.example.com 10.0.0.132
 dns3.example.com 10.0.0.133
 ```
 
-
-
 ## 图形界面
 
 可使用 [grafana](https://hub.docker.com/r/grafana/grafana) 完成图形界面，还提供了方便的 [Dashboards](https://grafana.com/grafana/dashboards?plcmt=footer) 来导入他人的作品。
 
 ```bash
 docker run --restart=always -d \
-	-p 3000:3000 \
-	--name grafana \
-	grafana/grafana
+ -p 3000:3000 \
+ --name grafana \
+ grafana/grafana
 ```
 
 稍后访问 `10.0.0.128:3000` 并使用 `admin/admin` 进行登录，在 `Configuration` 启用 `Prometheus`，然后就可以在 `Dashboards` 的 `Manage` 中查看了。
-
-
 
 ## 警报
 
@@ -352,10 +340,10 @@ Alertmanager 会对警报进行去重、分组，然后路由到不同的接收�
 
 ```bash
 docker run --restart=always -d \
-	-p 9093:9093 \
-	-v /path/alertmanager.yml:/etc/alertmanager/alertmanager.yml \
-	--name alertmanager \
-	prom/alertmanager
+ -p 9093:9093 \
+ -v /path/alertmanager.yml:/etc/alertmanager/alertmanager.yml \
+ --name alertmanager \
+ prom/alertmanager
 ```
 
 ### 配置注意项
@@ -365,4 +353,3 @@ docker run --restart=always -d \
 `alertmanager.yml` 默认情况下所有警报都组合在一起，指定 `group_by: ['instance']` 可根据实例组合在一起。
 
 更多配置可见 [route](https://prometheus.io/docs/alerting/latest/configuration/#route)。
-

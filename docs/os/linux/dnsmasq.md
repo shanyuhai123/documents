@@ -1,14 +1,10 @@
----
-title: Dnsmasq
----
+# Dnsmasq
 
 ## 前言
 
 一开始选择了 [bind](https://www.isc.org/bind/)，试用后觉得配置麻烦就选择了更为轻量的 [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html)。
 
 该笔记基本参考 [CentOS7 安装 dnsmaqs 局域网 DNS](https://www.cnblogs.com/pyyu/p/10318334.html)。
-
-
 
 ## 安装
 
@@ -84,8 +80,6 @@ dnsmasq --test
 systemctl restart dnsmasq
 ```
 
-
-
 ## 测试
 
 切换到其他主机下：
@@ -99,4 +93,3 @@ dig @192.168.0.42 test.com
 ```bash
 telnet 192.168.0.42 53
 ```
-

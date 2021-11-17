@@ -1,6 +1,4 @@
----
-title: 首页
----
+# 为什么不试试 Linux 呢
 
 ::: danger 注意事项
 
@@ -8,16 +6,12 @@ title: 首页
 
 :::
 
-
-
 ## 介绍
 
 很多时候直接使用物理机安装 Linux 并不是一个明智的选择，因为你可能频繁的出错，导致频繁的重装系统，可以利用虚拟机打上快照来步步操作，学习 Linux 的使用。
 
 1. [Manjaro 的安装](/os/manjaro/how-to-install-manjaro-on-virtualbox.html) :cookie:
 2. [CentOS 的安装](/os/centos/how-to-install-centos-on-virtualbox.html) :tiger:
-
-
 
 ## 环境
 
@@ -27,16 +21,11 @@ title: 首页
 + Ubuntu18.04；
 + [CentOS7-1810](/os/centos/how-to-install-centos-on-virtualbox.html)。
 
-
-
-
 ## 镜像源
 
 1. [清华源](https://mirrors.tuna.tsinghua.edu.cn/)
 2. [中科大源](http://mirrors.ustc.edu.cn/)
 3. [阿里云](https://developer.aliyun.com/mirror/)
-
-
 
 ## 参考资料
 

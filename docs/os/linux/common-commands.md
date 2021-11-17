@@ -1,14 +1,8 @@
----
-title: 常用命令
----
-
-## 说明
+# Linux 常用命令
 
 终究还是要提取出常用命令，记忆越来越差了。
 
 发现一篇更好的总结 [初次登录 Linux 服务器马上要做的 9 件事](https://linux.cn/article-12959-1.html)。
-
-
 
 ## 第一次接触
 
@@ -25,8 +19,6 @@ ip addr
 sudo hostnamectl set-hostname shanyuhai
 ```
 
-
-
 ## 有人登录在上面吗
 
 ```bash
@@ -35,8 +27,6 @@ who -Hu
 # 过滤具有访问权限
 grep sh$ /etc/passwd
 ```
-
-
 
 ## 物理机还是虚拟机
 
@@ -50,8 +40,6 @@ cat /sys/class/dmi/id/product_name
 cat /sys/class/dmi/id/sys_vendor
 ```
 
-
-
 ## 硬件
 
 ```bash
@@ -63,8 +51,6 @@ lshw
 lspci
 dmidecode
 ```
-
-
 
 ## 网络连接
 
@@ -81,8 +67,6 @@ iptables -L -n
 cat /etc/resolv.conf
 ```
 
-
-
 ## 日志
 
 ```bash
@@ -90,4 +74,3 @@ dmesg
 tail -f /var/log/messages
 journalctl
 ```
-

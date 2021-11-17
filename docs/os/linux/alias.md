@@ -1,14 +1,8 @@
----
-title: 别名 alias
----
-
-## 介绍
+# 别名 alias
 
 alias 可用于设置指令的别名，固化则需要存放于 `~/.bashrc` 或 `~/.zshrc` 中。
 
 > 有的时候命令历史提示会更好用，也就是需要更加了解 `zsh` 的生态。
-
-
 
 ## 常用规则
 
@@ -27,8 +21,6 @@ alias gfw="export ALL_PROXY=socks5://127.0.0.1:1080 && curl ipinfo.io"
 alias ugfw="unset ALL_PROXY"
 ```
 
-
-
 ## docker
 
 ```bash
@@ -38,4 +30,3 @@ function docker_ip() {
 
 # docker_ip some-container
 ```
-

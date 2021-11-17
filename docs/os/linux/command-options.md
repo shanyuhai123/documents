@@ -1,8 +1,4 @@
----
-title: 命令选项
----
-
-## 介绍
+# 命令选项
 
 Linux 中命令繁多，记住所有的命令实在是太过困难，使用 `man` 命令或 `--help` 查看详细的使用说明来得更为快捷。以 `ls` 示例：
 
@@ -15,9 +11,7 @@ ls --help
 
 关于命令行参数 「-」和「--」有一个[讨论](https://www.zhihu.com/question/267095526/answers/updated)。
 
-
-
-## 命令选项
+## 选项示例
 
 ### 1. -a
 
@@ -26,6 +20,7 @@ ls --help
 + append：附加
 
 ### 2. -b
+
 + blocksize：块大小
 + batch：批处理模式
 
@@ -47,6 +42,7 @@ ls --help
 + exclude：排除
 
 ### 6. -f
+
 + force：强制
 + file：文件
 + configuration file：指定配置文件

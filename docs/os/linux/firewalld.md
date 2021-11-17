@@ -1,8 +1,4 @@
----
-title: 防火墙 firewalld
----
-
-## 介绍
+# 防火墙 firewalld
 
 firewalld 是 CentOS 7 新增的特性，其支持动态更新，且添加了防火墙 "zones" 的概念。
 
@@ -14,8 +10,6 @@ firewalld 的配置文件存放在 `/usr/lib/firewalld/` 和 `/etc/firewalld/` �
 # 安装
 yum install firewalld firewall-config
 ```
-
-
 
 ## 指令
 
@@ -43,8 +37,6 @@ firewall-cmd [Options ... ]
 | ------------------------ | ------------------------------------------------------------ |
 | --get-log-denied         | 获取记录被拒绝的日志。                                       |
 | --set-log-denied=value | 设置记录被拒绝的日志，只能为 'all','unicast','broadcast','multicast','off' 其中的一个。 |
-
-
 
 ## 操作
 
@@ -137,4 +129,3 @@ rule [family="<rule family>"]
     [ audit ]
     [ accept|reject|drop ]
 ```
-

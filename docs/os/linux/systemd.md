@@ -1,18 +1,12 @@
----
-title: 守护系统 systemd
----
-
-## 概述
+# 守护系统 systemd
 
 Systemd 设计的目标是，为系统的启动和管理提供一整套的完整解决方案。
 
 根据 Linux 惯例，字母 `d` 是守护进程（daemon）的缩写。Systemd 这个名字的含义，就是它要守护整个系统。
 
-Systemd 的优点是功能强大，使用方便，缺点是体系庞大，非常复杂。事实上，现在还有很多人反对使用 Systemd，理由就是它过于复杂，与操作系统的其他部分强耦合，违反 ”keep simple，keep stupid“ 的 Unix 哲学。 
+Systemd 的优点是功能强大，使用方便，缺点是体系庞大，非常复杂。事实上，现在还有很多人反对使用 Systemd，理由就是它过于复杂，与操作系统的其他部分强耦合，违反 ”keep simple，keep stupid“ 的 Unix 哲学。
 
 > 原文实在是太详细了，实在没必要重复整理。
-
-
 
 ## 实战
 
@@ -46,8 +40,6 @@ sudo systemctl daemon-reload
 # 重启相关服务
 sudo systemctl restart foobar
 ```
-
-
 
 ## 系统管理
 
@@ -153,8 +145,6 @@ loginctl list-users
 # 列出显示指定用户的信息
 loginctl show-user ruanyf
 ```
-
-
 
 ## Unit
 
@@ -414,8 +404,6 @@ Directive2=value
 
 Unit 配置文件的完整字段清单，请参考[官方文档](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)。
 
-
-
 ## Target
 
 启动计算机的时候，需要启动大量的 Unit。如果每一次启动，都要一一写明本次启动需要哪些 Unit，显然非常不方便。Systemd 的解决方案就是 Target。
@@ -464,8 +452,6 @@ Runlevel 6           |    runlevel6.target -> reboot.target
 **（2）启动脚本的位置**，以前是`/etc/init.d`目录，符号链接到不同的 RunLevel 目录 （比如`/etc/rc3.d`、`/etc/rc5.d`等），现在则存放在`/lib/systemd/system`和`/etc/systemd/system`目录。
 
 **（3）配置文件的位置**，以前`init`进程的配置文件是`/etc/inittab`，各种服务的配置文件存放在`/etc/sysconfig`目录。现在的配置文件主要存放在`/lib/systemd`目录，在`/etc/systemd`目录里面的修改可以覆盖原始设置。
-
-
 
 ## 日志管理
 
@@ -555,8 +541,6 @@ sudo journalctl --vacuum-size=1G
 # 指定日志文件保存多久
 sudo journalctl --vacuum-time=1years
 ```
-
-
 
 ## 参考文章
 

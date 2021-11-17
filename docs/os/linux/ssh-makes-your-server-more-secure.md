@@ -1,13 +1,10 @@
 ---
-title: SSH 让你的服务器更安全
 description: SSH 让你的服务器更安全
 ---
 
-## 正在探索
+# SSH 让你的服务器更安全
 
 安全是相对而言的，正在不断探索中。
-
-
 
 ## SSH 架构
 
@@ -82,8 +79,6 @@ Host aliyun # 一个便于你区别这是哪台机器的名字
 ssh aliyun
 ```
 
-
-
 ## 加固服务器的操作
 
 这部分主要是对服务器端 `/etc/ssh/sshd_config` 进行修改，修改完成后记得重启 `sshd` 服务：
@@ -149,8 +144,6 @@ ssh -L localhost:8080:172.21.0.2:80 user@hostname -N
 
 如果有黑客持续爆破你的服务器，那么可以使用 [fail2ban](/os/linux/fail2ban.html) 来限制他的 IP。
 
-
-
 ## 处理一些问题
 
 ### 修复 ssh-add 存在的问题
@@ -168,4 +161,3 @@ Identity added: /home/yuan/.ssh/id_rsa_new (your_email@example.com)
 # 6. 测试是否成功
 ssh-add -l
 ```
-

@@ -1,16 +1,10 @@
----
-title: 如何启用硬盘
----
+# 如何启用硬盘
 
 该项仅在虚拟机下进行测试，与实体机有一定区别。
-
-
 
 ## 准备环境
 
 + 虚拟机：VirtualBox（6.0.10）
-
-
 
 ## 新增磁盘工作
 
@@ -26,8 +20,6 @@ title: 如何启用硬盘
 6. 分配期望的大小；
 7. 确认创建。
 
-
-
 ## 磁盘进行 RAID
 
 为了数据更安全，更快捷，需要进行 [RAID](/os/linux/raid.html)。
@@ -38,8 +30,6 @@ title: 如何启用硬盘
 2. [Intel 主板中 BIOS 中启用 RAID](https://www.intel.cn/content/www/cn/zh/support/articles/000006748/boards-and-kits/desktop-boards.html)；
 
 需要补充的是，虽然很多资料都说明硬件 RAID 更具优势，但是在现在高速 Nvme 硬盘的情况下是否依然效率更高呢 :boy:？
-
-
 
 ## 磁盘分区工作
 
@@ -103,8 +93,6 @@ title: 如何启用硬盘
 47. 输入 `w` 保存分区结果；
 48. 输入 `partprobe /dev/sdb` 通知分区信息修改了，或者重启虚拟机。
 
-
-
 ## 磁盘分区类型
 
 磁盘的分区类型往往决定该分区具体的作用。
@@ -123,8 +111,6 @@ title: 如何启用硬盘
 10. 输入 `w` 保存分区结果；
 11. 输入 `partprobe /dev/sdb` 通知分区信息修改了，或者重启虚拟机。
 
-
-
 ## 分区文件系统
 
 磁盘需要借助[文件系统](https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)才能实现磁盘管理，[数据存取](/computer/data-write.html)。
@@ -142,8 +128,6 @@ title: 如何启用硬盘
 > 当存放文件提示：no space left on device，可能是 inodes 数量满了。
 >
 > 排查二连：`df -h`，`df -i`。
-
-
 
 ## 挂载磁盘分区
 
@@ -169,8 +153,6 @@ title: 如何启用硬盘
 6. 或使用分区也可 `/dev/sdb2                                 /mnt                    xfs     defaults        0 0`；
 7. 重启输入 `cat /proc/mounts` 或 `df -h` 挂载结果。
 
-
-
 ## 补充：扩展 swap
 
 发现 swap 早期分配的太小了不够用可以追加。
@@ -183,6 +165,3 @@ title: 如何启用硬盘
 4. 输入 `mkswap /dev/sdb3` 格式化分区为 swap；
 5. 输入 `swapon -a /dev/sdb3` 启用 swap 分区；
 6. 输入 `free -m` 验证结果。
-
-
-

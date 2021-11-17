@@ -1,12 +1,8 @@
----
-title: 远程同步文件
----
+# 远程同步文件
 
 ## Rsync
 
 [Rsync](https://zh.wikipedia.org/wiki/Rsync)（Remote Sync），使用其 “Quick Check” 算法实现增量复制数据。可以使用 rsync 在不同目录（本地），不同服务器（远程）之前实现数据备份。在 3.x 版本可以做到一边对比差异一边复制。
-
-
 
 ### 1. 选项（特性）
 
@@ -47,7 +43,7 @@ Rsync 具有很多优异的特性，例如保持文件属性、权限；使用 r
 rsync [OPTION]    SRC    DEST
 rsync [OPTION]    SRC    [USER@]host:DEST
 rsync [OPTION]    [USER@]HOST:SRC    DEST
-rsync [OPTION]	  [USER@]HOST::SRC   DEST
+rsync [OPTION]   [USER@]HOST::SRC   DEST
 rsync [OPTION]    SRC    [USER@]HOST::DEST
 rsync [OPTION]    rsync://[USER@]HOST[:PORT]/SRC    [DEST]
 ```
@@ -106,13 +102,9 @@ rsync [OPTION]    rsync://[USER@]HOST[:PORT]/SRC    [DEST]
 1. [Best way to copy millions of files between 2 servers](https://superuser.com/questions/291803/best-way-to-copy-millions-of-files-between-2-servers)
 2. [How to speed up rsync for small files](https://serverfault.com/questions/365103/how-to-speed-up-rsync-for-small-files)
 
-
-
 ## Scp
 
 `rsync` 虽然可以增量下载，速度快一些，还有更多的功能，但是 `scp` 非常不占资源，`rsync` 在小文件众多时会导致磁盘 `I/O` 非常高。
-
-
 
 ### 1. 语法
 
@@ -162,8 +154,6 @@ scp (选项) (源文件) (目标文件)
   ```bash
   scp -i ~/.ssh/id_rsa_xxx shanyuhai@47.111.23.259:/home/shanyuhai/downloads/hi.png pictures
   ```
-
-
 
 > 还可以使用 `lrzsz` 来进行本地和远程的文件交互，不过需要双端都安装 `lrzsz`：
 >

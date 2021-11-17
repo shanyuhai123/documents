@@ -1,6 +1,4 @@
----
-title: 查看文本内容
----
+# 查看文本内容
 
 ## cat
 
@@ -56,8 +54,6 @@ cat [选项] 文件名
   EOF
   ```
 
-
-
 ## more
 
 如果要查看内容较多的文本，用 cat 就难以阅读了，这时候就可以使用 more 了。
@@ -89,8 +85,6 @@ more [选项] 文件名
 ```bash
 more long-test.txt
 ```
-
-
 
 ## less
 
@@ -133,8 +127,6 @@ less [选项] 文件名
 less -N long-test.txt
 ```
 
-
-
 ## head
 
 head 命令常用于查看文本的前 n 行。
@@ -161,8 +153,6 @@ head -n 20 package-lock.json
 head -20 package-lock.json # 简写
 ```
 
-
-
 ## tail
 
 tail 命令常用于查看纯文本文件的后 n 行，与 head 相反。
@@ -182,8 +172,6 @@ tail [选项] 文件名
 ### 3. 示例
 
 与 head 基本一致。
-
-
 
 ## wc
 

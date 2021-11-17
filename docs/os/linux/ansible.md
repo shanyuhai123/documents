@@ -1,8 +1,4 @@
----
-title: 分发脚本 ansible
----
-
-## 介绍
+# 分发脚本 ansible
 
 虽然也可以自己写 Shell 实现分发脚本，但由于缺乏运维系统概念，混乱、零碎的写法总是让人难受，一接触到 ansible 就知道很难回去了。
 
@@ -15,8 +11,6 @@ vim /etc/ansible/ansible.cfg
 # 修改以下内容
 host_key_checking = False # 取消注释
 ```
-
-
 
 ## install
 
@@ -86,8 +80,6 @@ source .py3-a2.8-env/bin/activate # 加载 py3
 source .py3-a2.8-env/ansible/hacking/env-setup -q # 加载 ansible
 ansible --version # 验证
 ```
-
-
 
 ## inventory
 
@@ -214,8 +206,6 @@ all:
 |      ansible_shell_type      | 目标系统的shell类型。                        |
 |  ansible_python_interpreter  | 目标主机python路径。                         |
 
-
-
 ## ad-hoc
 
 ad-hoc 可以帮助完成临时任务，很多时候并不需要 Ansible 的强大力量（playbook）。
@@ -244,7 +234,6 @@ ansible t1 -m command -a "cat redhat-release"
 ### 2. [shell](https://docs.ansible.com/ansible/latest/modules/shell_module.html)
 
 Execute shell commands on targets。
-
 
 实践：
 
@@ -334,8 +323,6 @@ ansible webservers -m command -a "crontab -l" # 验证
 ansible webservers -m cron -a "name='sync time' state=absent" 
 ansible webservers -m command -a "crontab -l" # 验证
 ```
-
-
 
 ## playbooks
 

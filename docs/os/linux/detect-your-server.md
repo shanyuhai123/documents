@@ -1,12 +1,6 @@
----
-title: 检测服务器通达
----
-
-## 准备
+# 检测服务器通达
 
 首先需要确认服务端、客户端的配置均没有问题。
-
-
 
 ## 检测
 
@@ -45,6 +39,3 @@ telnet [ip] [port]
    ```bash
    systemctl status firewalld
    ```
-
-   
-
