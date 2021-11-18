@@ -684,7 +684,8 @@ module.exports = {
         "509-fibonacci-number.md",
         "520-detect-capital.md",
         "521-longest-uncommon-subsequence-i.md",
-        "530-minimum-absolute-difference-in-bst.md"
+        "530-minimum-absolute-difference-in-bst.md",
+        "541-reverse-string-ii.md"
       ]
     }
   ],
