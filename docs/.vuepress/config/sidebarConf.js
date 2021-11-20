@@ -198,8 +198,7 @@ module.exports = {
       "collapsable": false,
       "sidebarDepth": 1,
       "children": [
-        "README.md",
-        "hello-d3.md"
+        "README.md"
       ]
     }
   ],
