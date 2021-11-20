@@ -2,8 +2,6 @@
 
 插件安装位置为 `~/.vscode/extensions/` 下。
 
-
-
 ## 喜欢的配置
 
 ### 1. 隐藏菜单栏
@@ -38,8 +36,6 @@
 
 先按下 `CTRL + K`，再按下 `CTRL + S` 即可进入快捷键设置。输入 `newFile` 绑定按键 `CTRL + N`，在搜索 `newFolder` 绑定按键 `CTRL + SHIFT + N`，当然也可以选择你喜欢的。
 
-
-
 ## 快捷键
 
 ### 切换工作区
@@ -56,8 +52,6 @@
 
 菜单（调试）：`Ctrl + Shift + D`
 
-
-
 ## 主题配置
 
 作为视觉动物，一个良好的配色可以帮助你更快的识别问题。
@@ -65,8 +59,6 @@
 ### 1. 区分项目
 
 可利用 `Title Bar Colors` 的 `激活、未激活` 颜色来区分开启的多个 `VSCode` 窗口，可在[中国色](http://zhongguose.com/)选取喜欢的颜色。
-
-
 
 ## 版本提升
 
@@ -102,8 +94,6 @@
   "editor.suggest.previewMode": "subwordDiff"
 }
 ```
-
-
 
 ## 参考资料
 

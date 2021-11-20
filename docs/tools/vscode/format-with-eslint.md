@@ -2,8 +2,6 @@
 
 格式化插件 [ESLint](https://eslint.org/)。
 
-
-
 ## ESLint 依赖
 
 安装依赖：
@@ -42,8 +40,6 @@ npx eslint yourfile.js --fix
 
 至于在 `git hooks` 处添加 `lint`，此处就不展开了。
 
-
-
 ## 启用插件
 
 以上都是命令行完成的。当希望在编辑器 `VSCode` 中获得更好的展示则需要安装一些插件：
@@ -77,8 +73,6 @@ npx eslint yourfile.js --fix
   "source.fixAll.eslint": true,
 }
 ```
-
-
 
 ## 配置文件说明
 
@@ -143,7 +137,7 @@ module.exports = {
 
 ```js
 module.exports = {
-	plugins: [
+ plugins: [
     'vue',
     '@typescript-eslint'
   ]
@@ -153,8 +147,6 @@ module.exports = {
 ### 规则 rules
 
 当 `extends` 中部分规则不合你口味时可在此一一修改。
-
-
 
 ## 插件 Prettier
 
@@ -184,11 +176,10 @@ yarn add eslint-plugin-prettier -D
 
 ```js
 module.exports = {
-	plugins: [
+ plugins: [
     'standard',
     'plugin:vue/essential',
     'plugin:prettier/recommended' // 放在最后可以覆盖之前规则
   ]
 }
 ```
-

@@ -4,8 +4,6 @@
 
 在 VSCode 官网也提供了该项的[说明](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson)。
 
-
-
 ## 配置文件
 
 在项目根目录下新建 `jsconfig.json`：
@@ -26,4 +24,3 @@
   ]
 }
 ```
-

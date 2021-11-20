@@ -4,8 +4,6 @@
 
 > 表面上是介绍 `Fira Code` 字体，实际上是安利一个好用的站点 [slant](https://www.slant.co/)。
 
-
-
 ## 步骤
 
 ### 1. 下载字体

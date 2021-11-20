@@ -22,15 +22,11 @@ cat /etc/sysctl.d/50-max_user_watches.conf
 fs.inotify.max_user_watches = 19200 # 利用 vim 修改后重启成功
 ```
 
-
-
 ## 空文件夹折叠
 
 在一次更新之后 VSCode 添加了新的特性 `Compact Folders`，这种行为与 Chrome 浏览器擅自遮挡 `www` 一样恶心。
 
 打开 `Settings`，输入 `Compact Folders` 取消选中即可。
-
-
 
 ## 删除文件/文件夹时卡顿
 
@@ -39,4 +35,3 @@ fs.inotify.max_user_watches = 19200 # 利用 vim 修改后重启成功
 ```bash
 export ELECTRON_TRASH=gio
 ```
-
