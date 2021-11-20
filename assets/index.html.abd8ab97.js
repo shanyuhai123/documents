@@ -1,0 +1,1 @@
+const e={key:"v-32a6b011",path:"/backend/mongodb/",title:"MongoDB",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u53C2\u8003\u8D44\u6599",slug:"\u53C2\u8003\u8D44\u6599",children:[]}],filePathRelative:"backend/mongodb/README.md",git:{updatedTime:1637393574e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:4}]}};export{e as data};
