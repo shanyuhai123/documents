@@ -1,29 +1,18 @@
----
-title: 导航 🎉
----
+# 导航 🎉
 
 > 整理了下浏览器书签
-
-
 
 ## 比技术更重要的
 
 <CardsGrid :sites="life" />
 
-
-
 ## 有趣的
 
 <CardsGrid :sites="interesting" />
 
-
-
 ## 社区
 
 <CardsGrid :sites="communities" />
-
-
-
 
 ## 前端开发
 
@@ -33,14 +22,10 @@ title: 导航 🎉
 + [CodeSandbox](https://codesandbox.io/)
 + [favicon](https://www.favicon.cc/?action=icon_list)
 
-
-
 ## 正则
 
 + [regex101](https://regex101.com/)
 + [regexr](https://regexr.com/)
-
-
 
 ## CSS
 
@@ -48,8 +33,6 @@ title: 导航 🎉
 + [Clippy](https://bennettfeely.com/clippy/)
 + [box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Background_and_Borders/Box-shadow_generator)
 + [border-radius](https://9elements.github.io/fancy-border-radius/full-control.html)
-
-
 
 ## 图标
 
@@ -62,8 +45,6 @@ title: 导航 🎉
 | OpenGameArt    | [opengameart.org](https://opengameart.org)                   | 游戏图标，其中一款 [RPG](https://opengameart.org/content/98-pixel-art-rpg-icons) |
 | Emojipedia     | [https://emojipedia.org](https://emojipedia.org)             | emoji 图标                                                   |
 
-
-
 ## 插画
 
 | 名称       | 网址                                                       | 说明         |
@@ -72,7 +53,6 @@ title: 导航 🎉
 | unDraw     | [undraw.co/illustrations](https://undraw.co/illustrations) | 风格统一     |
 | Humaaans   | [www.humaaans.com](https://www.humaaans.com/)              | 人物         |
 | Pngtree    | [pngtree.com](https://pngtree.com)                         | 量大管饱     |
-
 
 <script>
 export default {
