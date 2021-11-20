@@ -1,29 +1,26 @@
 ---
-title: 从 Nginx 切换到 Traefik
 description: 从 Nginx 切换到 Traefik，让服务迁移变的更自由
 tags:
   - Traefik
 sidebarDepth: 2
 ---
 
+# 从 Nginx 切换到 Traefik
+
 ## 为什么选择 Traefik
 
 如果追求极致的性能那自然选择 Nginx，但对于个人而言 Traefik 也是一个良好的选择，尤其是其服务发现的能力很好的解决了前端、后端应用增加、减少时需修改配置文件的问题。
 
-
-
 ## Traefik 的架构
 
-<img :src="$withBase('/backend/traefik-architecture-overview.png')" alt="https://traefik.tech/assets/img/architecture-overview.png">
+![traefik architecture overview](./assets/traefik-architecture-overview.png)
 
 由图所示，Traefik 会监听入口点（`EntryPoints`），路由器（`Routers`）连接到这些入口点，分析传入的请求，以查看它们是否与一组规则（`Rule`）匹配。如果匹配，则有中间件先经过中间件（`Middlewares`），再转发给对应的服务（`Services`）。
 
 其中配置与 `Nginx` 相似，分为两部分：
 
 + 静态配置：`traefik.toml`，与 `nginx.conf` 类似
-+ 动态配置：`config/*.toml`，与 ` conf.d/*.conf` 类似
-
-
++ 动态配置：`config/*.toml`，与 `conf.d/*.conf` 类似
 
 ## 以 whoami 为示例
 
@@ -117,8 +114,6 @@ networks:
     external: true
 ```
 
-
-
 可为动态配置抽象一些会公共使用的，增加 `config.default.toml` 文件。
 
 ### 1. 基础认证
@@ -146,7 +141,7 @@ htpasswd -nb yourname yourpassword
 [http.middlewares.default-auth-user.basicAuth]
 removeHeader = true
 users = [
-	"yourname:$apr1$NbtntO7x$43xzoIsnsgH.Sn2Utw33g."
+  "yourname:$apr1$NbtntO7x$43xzoIsnsgH.Sn2Utw33g."
 ]
 ```
 
@@ -156,15 +151,15 @@ users = [
 version: '3.7'
 
 services: 
-	traefik:
-		# 省略其他
-		labels:
-			- "traefik.http.routers.traefik-dashboard-default.middlewares=default-auth-user@file"
-			- "traefik.http.routers.traefik-dashboard-api.middlewares=default-auth-user@file"
-	whoami:
-	  # 省略其他
-		labels:
-			- "traefik.http.routers.whoami.middlewares=default-auth-user@file"
+  traefik:
+    # 省略其他
+    labels:
+      - "traefik.http.routers.traefik-dashboard-default.middlewares=default-auth-user@file"
+      - "traefik.http.routers.traefik-dashboard-api.middlewares=default-auth-user@file"
+  whoami:
+    # 省略其他
+    labels:
+      - "traefik.http.routers.whoami.middlewares=default-auth-user@file"
 ```
 
 ### 2. 升级为 HTTPS
@@ -184,17 +179,17 @@ services:
    version: '3.7'
    
    services:
-   	traefik:
-   	  # 忽略其他
-   		volumes:
-   			- ./ssl/:/data/ssl/:ro
-   	whoami:
-       # 忽略其他
-   		labels:
-         # https entrypoints
-         - "traefik.http.routers.whoami-secure.entrypoints=websecure"
-         - "traefik.http.routers.whoami-secure.rule=Host(`whoami.example.com`)"
-         - "traefik.http.routers.whoami-secure.tls=true"
+    traefik:
+      # 忽略其他
+      volumes:
+        - ./ssl/:/data/ssl/:ro
+    whoami:
+      # 忽略其他
+      labels:
+        # https entrypoints
+        - "traefik.http.routers.whoami-secure.entrypoints=websecure"
+        - "traefik.http.routers.whoami-secure.rule=Host(`whoami.example.com`)"
+        - "traefik.http.routers.whoami-secure.tls=true"
    ```
 
    修改动态配置：
@@ -237,15 +232,15 @@ services:
    
    services: 
      traefik:
-     	command:
-     		# tls
+       command:
+         # tls
          - "--certificatesresolvers.letsencrypt.acme.email=acme@example.com"
          - "--certificatesresolvers.letsencrypt.acme.storage=acme.json"
          - "--certificatesresolvers.letsencrypt.acme.keyType=EC384"
          - "--certificatesresolvers.letsencrypt.acme.httpChallenge.entryPoint=web"
          - "--entrypoints.websecure.http.tls.certResolver=letsencrypt"
        labels:
-       	# dashboard https
+         # dashboard https
          - "traefik.http.routers.traefik-dashboard-default.entrypoints=websecure"
          - "traefik.http.routers.traefik-dashboard-default.rule=Host(`traefik.example.com`)"
          - "traefik.http.routers.traefik-dashboard-default.service=dashboard@internal"
@@ -253,7 +248,7 @@ services:
          - "traefik.http.routers.traefik-dashboard-api.entrypoints=websecure"
    ```
 
-   重启服务后查看网页发现 `https` 已生效，且 `acme.json` 已被写入配置。 
+   重启服务后查看网页发现 `https` 已生效，且 `acme.json` 已被写入配置。
 
 3. 针对单个服务
 
@@ -262,12 +257,12 @@ services:
    
    services: 
      traefik:
-     	# 省略其他
-     	command:
-     		# 移除
+       # 省略其他
+       command:
+         # 移除
         # - "--entrypoints.websecure.http.tls.certResolver=letsencrypt"
        labels:
-       	# 增加
+         # 增加
          - "traefik.http.routers.traefik-dashboard-secure.tls=true"
          - "traefik.http.routers.traefik-dashboard-secure.tls.certresolver=letsencrypt"
    ```
@@ -290,9 +285,9 @@ version: '3.7'
 
 services: 
   traefik:
-  	# 省略其他
+    # 省略其他
     labels:
-    	# 增加
+      # 增加
       - "traefik.http.routers.traefik-dash-default.middlewares=https-redirect@file"
 ```
 
@@ -390,10 +385,6 @@ networks:
   traefik:
     external: true
 ```
-
-
-
-
 
 ## 参考资料
 

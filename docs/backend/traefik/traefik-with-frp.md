@@ -1,12 +1,6 @@
----
-title: Traefik 代理 frp 服务
----
-
-## 目标
+# Traefik 代理 frp 服务
 
 期望代理域名为 `*.frp.example.com`。
-
-
 
 ## FRP 配置
 
@@ -39,9 +33,9 @@ services:
     networks:
       - traefik
     ports:
-    	# frps server
+      # frps server
       - 7000:7000
-    	# vhost
+      # vhost
       - 80
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -81,8 +75,6 @@ networks:
     external: true
 ```
 
-
-
 ## Traefik 配置
 
 创建文件：
@@ -114,7 +106,7 @@ services:
 
 第一次执行 `docker-compose up` 后可以获取 `acme-dns` 信息：
 
-```
+```text
 {
     "frp.example.com": {
         "FullDomain": "187gf679-4961-4ave-a211-bc77ead16918.auth.acme-dns.io",
@@ -128,8 +120,6 @@ services:
 登录到你的 DNS 帐号，创建一条 CNAME 记录 `_acme-challenge.frp` 指向 `187gf679-4961-4ave-a211-bc77ead16918.auth.acme-dns.io`，再次执行 `docker-compose up`。
 
 稍后可在 `acme.json` 文件中找到对应的记录，即证书签发成功。
-
-
 
 ## 参考资料
 
