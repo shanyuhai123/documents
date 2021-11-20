@@ -1,6 +1,4 @@
----
-title: 快速上手 NuxtJS
----
+# 快速上手 NuxtJS
 
 ## 使用模板快速开始
 
@@ -8,8 +6,6 @@ title: 快速上手 NuxtJS
 # 根据你的需求进行选择
 yarn create nuxt-app nuxt-test
 ```
-
-
 
 ## 使用想法
 
@@ -47,7 +43,7 @@ layouts
 
 ```js
 export default {
-	layout: '10/1/default'
+  layout: '10/1/default'
 }
 ```
 
@@ -64,9 +60,6 @@ pages
 
 相当于 `/games/:module/:id`。
 
-
-
 ## 参考资料
 
 + [NuxtJS](https://nuxtjs.org/)
-
