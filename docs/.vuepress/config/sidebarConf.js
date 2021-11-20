@@ -520,7 +520,6 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "config-github-hosts.md",
         "dns-resolve-github-pages.md",
         "download-huge-project-from-github.md",
         "how-to-deploy-private-gitlab.md",

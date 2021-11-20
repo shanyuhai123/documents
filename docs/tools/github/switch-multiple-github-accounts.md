@@ -1,6 +1,4 @@
----
-title: 切换多个 github 账号
----
+# 切换多个 github 账号
 
 ## 使用场景
 
@@ -12,7 +10,7 @@ title: 切换多个 github 账号
 
 2. 将 public key 上传至服务器(名字随意即可)
 
-   ![](/git/github-add-ssh-key.png)
+   ![github add ssh key](./assets/github-add-ssh-key.png)
 
 3. 在 `~/.ssh/` 目录下创建 config 文件
 
@@ -22,7 +20,7 @@ title: 切换多个 github 账号
 
 4. config 内容
 
-   ```
+   ``` bash
    # 正常使用的 rsa
    Host github.com
    HostName github.com
@@ -46,4 +44,3 @@ title: 切换多个 github 账号
 6. push 项目
 
    因为在一开始 clone 的时候已经配置好了，所以 push 时就无需配置了。不过我们还需要 `git config` 修改一下本地的 `user.name` 和 `user.email` 来保证是同一个人修改了, 否则会应用全局的 `config` 设置
-

@@ -1,6 +1,4 @@
----
-title: 同步一个 fork
----
+# 同步一个 fork
 
 ## 配置 upstream
 
@@ -12,16 +10,12 @@ git remote add upstream https://github.com/vueComponent/ant-design-vue.git
 git remote -v # 验证
 ```
 
-
-
 ## 同步 upstream
 
 ```bash
 git fetch upstream # fetch
 git merge upstream/master # merge
 ```
-
-
 
 ## 推送
 
