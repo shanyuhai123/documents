@@ -18,8 +18,6 @@
 
 可以注意到 `Lock Session` 的快捷键配置从空白变为了  `Win + R`，所以直接改该配置也是可以的。至于为什么此处命名为 `Lock Session` 就不得而知了。
 
-
-
 ## 命令配置
 
 当然可以直接使用命令来完成锁屏功能。
@@ -38,5 +36,4 @@ xdg-screensaver lock
 
 `Shortcuts` > `Custom Shortcuts` > `Edit` > `New` > `Global Shortcuts` > `Command/URL`。
 
-依次配置好 `Trigger（触发器 Shortcuts "Win + L"）` 和 `Action（命令 Command "xdg-screensaver lock"）` ，测试结果成功。 
-
+依次配置好 `Trigger（触发器 Shortcuts "Win + L"）` 和 `Action（命令 Command "xdg-screensaver lock"）` ，测试结果成功。

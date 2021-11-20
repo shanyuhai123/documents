@@ -4,8 +4,6 @@
 
 选择了对配置要求较低的 win7。
 
-
-
 ## 解决启动时失败
 
 ### 1. 报错信息
@@ -40,10 +38,6 @@ uname -r
 ```bash
 sudo vboxreload
 ```
-
-
-
-
 
 ## 增强 VirtualBox 工具
 

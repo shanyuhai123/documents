@@ -4,8 +4,6 @@
 
 一款很棒的[下载工具](https://github.com/soimort/you-get)。
 
-
-
 ## 简单使用
 
 跳过安装部分。
@@ -35,8 +33,6 @@ you-get -i 'url' --debug
 you-get --playlist 'url'
 ```
 
-
-
 ## 在线观看
 
 除了将视频保存下来，还可以在线播放(`-p`/`--player`)。
@@ -52,8 +48,6 @@ you-get -p vlc url
 ```bash
 you-get -p chromium url
 ```
-
-
 
 ## 更多参数
 

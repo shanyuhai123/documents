@@ -17,8 +17,6 @@ unsafe state. Please resume and shutdown Windows fully (no hibernation
 or fast restarting.)
 ```
 
-
-
 ## 修复
 
 可利用 `ntfs` 自带的修复工具：

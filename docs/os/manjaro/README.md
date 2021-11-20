@@ -6,8 +6,6 @@
 
 > 安利下 [Ventoy](https://github.com/ventoy/Ventoy)。
 
-
-
 ### 1. 获取 U 盘路径
 
 ```bash
@@ -27,8 +25,6 @@ mkfs.[type] /dev/sdc # [type] 为需要的类型，如 fat32、ext4、ntfs，例
 ```bash
 dd if=/path/ubuntu-20.04-live-server-amd64.iso of=/dev/sdc
 ```
-
-
 
 ## 虚拟机安装 Manjaro
 
@@ -72,8 +68,6 @@ dd if=/path/ubuntu-20.04-live-server-amd64.iso of=/dev/sdc
 
 当虚拟机测试完毕后，真机自是同理了。
 
-
-
 ## 修改软件源
 
 默认软件源非国内，需要进行调整：
@@ -109,8 +103,6 @@ sudo pacman -Syy
 界面配置：
 
 `Octopi` > `工具` > `软件源编辑器`。
-
-
 
 ## 优化 Arch 使用
 
@@ -161,12 +153,8 @@ sudo pacman -S noto-fonts-emoji
 </fontconfig>
 ```
 
-
-
-
-
 ## 切换到 Arch
 
 在长期使用 `Manjaro` 后不妨试试 `Arch`。必读 [WIKI](https://wiki.archlinux.org/)。
 
-<img :src="$withBase('/os/arch/manjaro-arch.png')" alt="arch" style="display:block;margin:0 auto;">
+![arch](./assets/manjaro-arch.png)

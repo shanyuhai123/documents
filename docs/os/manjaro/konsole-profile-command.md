@@ -1,10 +1,8 @@
 # Konsole 无法启动
 
-
 修改了 Konsole Profile 的 Command 后无法启动。
 
-<img :src="$withBase('/os/manjaro/konsole-profile-command.png')" alt="Konsole 无法启动">
-
+![Konsole 无法启动](./assets/konsole-profile-command.png)
 
 ## 排查问题
 
@@ -42,4 +40,3 @@ StartInCurrentSessionDir=true
 ```
 
 重启启动 `Konsole`，启用成功。
-

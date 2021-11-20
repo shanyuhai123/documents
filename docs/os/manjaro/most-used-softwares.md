@@ -13,12 +13,12 @@
 ### 3. 解决方案
 
 ::: tip 一行解决
+
 ```sh
 sudo teamviewer --daemon enable
 ```
+
 :::
-
-
 
 ## rdesktop
 
@@ -29,17 +29,19 @@ sudo teamviewer --daemon enable
 ### 2. 使用方式
 
 ::: tip 步骤
+
 1. 首先需要安装 `rdesktop`
 2. 接着直接使用 `rdesktop ip:port -u username`
+
 :::
+
 ::: danger 注：
+
 1. 添加 -f 参数可以以全屏模式进入
 2. 在全屏模式下按 `ctrl+alt+enter` 可以退出全屏（这个才是想记录的……）
 3. 其余参数见谷歌
 
 :::
-
-
 
 ## FileZilla Client
 
@@ -54,6 +56,7 @@ sudo teamviewer --daemon enable
 ### 3. 解决方案
 
 ::: tip 步骤
+
 1. 点击左上角 `文件`
 
 2. 点击站点管理器
@@ -65,8 +68,6 @@ sudo teamviewer --daemon enable
 5. 确定
 
 :::
-
-
 
 ## Zsh
 
@@ -81,6 +82,7 @@ sudo teamviewer --daemon enable
 ### 3. 解决方案
 
 ::: tip 操作
+
 ```bash
 # 从 bash 切换到 zsh
 exec zsh
@@ -94,6 +96,7 @@ chsh -s /bin/zsh
 # 可以在 shells 中查看有哪些可以切换
 cat /etc/shells
 ```
+
 :::
 ::: danger 注：
 zsh 在使用时会存在一些问题:
@@ -103,10 +106,6 @@ zsh 在使用时会存在一些问题:
    安装 `fortune-mod` 即可
 
 :::
-
-
-
-
 
 ## VMware Workstation
 
@@ -118,7 +117,7 @@ zsh 在使用时会存在一些问题:
 
 1. 启动虚拟机失败：
 
-   ```
+   ```text
    Could not open dev/vmmon | Unable to open kernel device | Failed to initialize monitor device
    ```
 
@@ -145,7 +144,7 @@ zsh 在使用时会存在一些问题:
 
 2. 创建虚拟机后无法联网：
 
-   ```
+   ```text
    Could not connect 'Ethernet0' to virtual network '/dev/vmnet8'. More information can be found in the vmware.log file. Failed to connect virtual device 'Ethernet0'.
    ```
 

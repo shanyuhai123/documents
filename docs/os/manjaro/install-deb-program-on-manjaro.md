@@ -2,8 +2,6 @@
 
 虽然很多程序已经支持了 Linux 平台，但大多数仅提供了 `deb` 包。
 
-
-
 ## 操作步骤
 
 安装 `debtap`：
@@ -29,6 +27,3 @@ debtap example_2.8.0.0_x86_64.publish.deb
 ```bash
 sudo pacman -U example_2.8.0.0_x86_64.pkg.tar.zst
 ```
-
-
-

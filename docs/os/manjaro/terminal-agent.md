@@ -33,8 +33,6 @@ sudo vim /etc/proxychains.conf
 socks5 127.0.0.1 1080
 ```
 
-
-
 ## 使用
 
 1. curl
@@ -54,6 +52,3 @@ socks5 127.0.0.1 1080
    ```bash
    proxychains yay -S microsoft-edge
    ```
-
-   
-

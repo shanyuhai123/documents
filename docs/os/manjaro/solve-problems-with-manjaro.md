@@ -12,9 +12,7 @@
 `系统设置` > `硬件` > `显示和监控` > `混成器` > `避免撕裂(垂直同步)` > `从不`
 :::
 
-![录屏闪烁](/os/manjaro/screen-flashing-when-recording.png)
-
-
+![录屏闪烁](./assets/screen-flashing-when-recording.png)
 
 ## 禁用笔记本键盘
 
@@ -25,6 +23,7 @@
 ### 2. 解决方案
 
 ::: tip 初级方案  
+
 ```bash
 # manjaro 下 xinput 被 xorg-xinput 替代
 sudo pacman -S xorg-xinput
@@ -36,13 +35,12 @@ xinput list-props 'AT Translated Set 2 keyboard'
 xinput set-prop 17 'Device Enabled' 0
 # 再次查看设备信息即可
 ```
+
 :::
 
 ::: danger 终极方案
 `关电源` > `打开后盖` > `拆除笔记本键盘排线`
 :::
-
-
 
 ## 修复文件夹名为英文
 
@@ -77,8 +75,6 @@ source ~/.config/user-dirs.dirs
 
 应该是哪次更新系统顺手给安装上去了。
 
-
-
 ## 风扇起飞
 
 ### 1. 问题情况
@@ -101,15 +97,13 @@ source ~/.config/user-dirs.dirs
 
    除了命令行还可以在 `系统` =》 `查找` 中找到该配置项。
 
-
-
 ## 旧系统内核无法删除
 
 ### 1. 问题情况
 
 卸载时出现以下提示：
 
-``` 
+```sh
 checking dependencies...
 :: removing linux510-headers breaks dependency 'linux510-headers' required by linux-latest-headers
 :: removing linux510-r8168 breaks dependency 'linux510-r8168' required by linux-latest-r8168
@@ -119,10 +113,9 @@ checking dependencies...
 
 参考 [Cannot remove linux57 - breaks dependency .. required by linux-latest-[something]](https://forum.manjaro.org/t/cannot-remove-linux57-breaks-dependency-required-by-linux-latest-something/7679)，执行：
 
-```bash
+```sh
 sudo pacman -Rcsnu linux510-headers
 sudo pacman -Rcsnu linux510-r8168
 ```
 
 再次尝试后即可。
-

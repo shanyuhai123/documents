@@ -6,8 +6,6 @@ AUR（Arch User Repository ），Arch 社区软件仓库，包含了一些非官
 
 Arch 的包管理器 pacman 不直接支持 AUR，支持 AUR 的工具常常被称之为 `AUR 助手`。
 
-
-
 ## AUR 助手
 
 早期使用的是 Yaourt，不过其已经不再维护，所以切换到 [yay](https://github.com/Jguer/yay)。
@@ -36,10 +34,10 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 
 |             Command             | Description                                                  |
 | :-----------------------------: | ------------------------------------------------------------ |
-|      `yay <Search Term> `       | Present package-installation selection menu.                 |
+|      `yay <Search Term>`       | Present package-installation selection menu.                 |
 |            `yay -Ps`            | Print system statistics.                                     |
 |            `yay -Yc`            | Clean unneeded dependencies.                                 |
-|            `yay -G `            | Download PKGBUILD from ABS or AUR.                           |
+|            `yay -G`            | Download PKGBUILD from ABS or AUR.                           |
 |        `yay -Y --gendb`         | Generate development package database used for devel update. |
 | `yay -Syu --devel --timeupdate` | Perform system upgrade, but also check for development package updates and use PKGBUILD modification time (not version number) to determine update. |
 
@@ -48,4 +46,3 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 **搜索：**`yay -Ss <package-name>`
 
 **安装：** `yay -S <package-name>`
-

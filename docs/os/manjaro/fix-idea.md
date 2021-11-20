@@ -23,4 +23,3 @@ sudo mv ~/download/jbr my-jbr
 2. 输入 `Choose Runtime`
 3. 选择下载的 `/opt/intellij-idea-ultimate-edition/my-jbr`
 4. 重启即可
-

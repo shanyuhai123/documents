@@ -43,13 +43,9 @@ systemctl start shadowsocks@config
 systemctl enable shadowsocks@config
 ```
 
-
-
 ## Qv2ray
 
 > Qv2ray 在 manjaro 下经常一更新系统就崩，伤透了心
-
-
 
 ## Clash
 
@@ -112,4 +108,3 @@ WantedBy=multi-user.target
 sudo systemctl start clash.service
 sudo systemctl enable clash.service
 ```
-

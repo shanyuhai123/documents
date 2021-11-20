@@ -1,9 +1,6 @@
 # zsh 无法找到 npm
 
-
 一直以来都是开机使用 `bash`，在之后再切换到 `zsh`。最近设置为开机切换到 `zsh`，就导致使用 `npm` 命令时提示 `zsh: command not found`。
-
-
 
 ## 解决
 
@@ -27,4 +24,3 @@ less ~/.bashrc
 source ~/.zshrc
 npm -v # 6.12.0
 ```
-
