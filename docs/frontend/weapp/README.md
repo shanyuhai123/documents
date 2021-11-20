@@ -1,6 +1,4 @@
----
-title: 微信小程序
----
+# 微信小程序
 
 ## 微信环境
 
@@ -10,8 +8,6 @@ title: 微信小程序
 
 1. `ln` 软连接到共享文件夹，由于微信开发者工具不能直接打开共享文件夹，采用 [FreeFileSync](https://freefilesync.org/) 同步两个文件夹
 2. 或许直接外部数据方案会更好一些
-
-
 
 ## 构成
 
@@ -33,8 +29,6 @@ title: 微信小程序
 + `project.config.json`
 
   开发者工具的配置，可理解为 `.vscode`、 `tsconfig.json` 及 `package.json` 的集合体。
-
-
 
 ## 参考资料
 
