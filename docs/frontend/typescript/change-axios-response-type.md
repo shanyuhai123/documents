@@ -25,8 +25,6 @@ type T = typeof res
 // type T = AxiosPromise<any>
 ```
 
-
-
 ## 解决方案
 
 解决方案参考：[How to use Axios with TypeScript when using response interceptors (AxiosResponse issue)](https://github.com/axios/axios/issues/1510)
@@ -120,4 +118,3 @@ type T = typeof res
 ```
 
 如果在响应拦截做了处理，则可以省略这一部分，毕竟每个 `interface` 都加这个还是有些麻烦的。
-

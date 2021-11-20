@@ -6,8 +6,6 @@ description: TypeScript 类型挑战
 
 以下来自于 [type-challenges](https://github.com/type-challenges/type-challenges) 这个项目，来点 TypeScript 类型体操练习吧。
 
-
-
 ## 辅助工具
 
 该项目提供了一些基础的工具来帮助测试。
@@ -56,8 +54,6 @@ export type ExpectValidArgs<FUNC extends (...args: any[]) => any, ARGS extends a
 
 export type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (k: infer I) => void ? I : never
 ```
-
-
 
 ## 开始练习
 
@@ -272,4 +268,3 @@ type cases = [
   Expect<Equal<1 | 2, MyReturnType<typeof fn1>>>,
 ]
 ```
-

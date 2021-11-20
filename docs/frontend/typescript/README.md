@@ -8,8 +8,6 @@ description: 更好维护的 TypeScript
 
 接触了 TypeScript，JavaScript 便成为了备选。
 
-
-
 ## Interface & Type Aliases
 
 `Type Aliases`，即 “类型别名”，注意它是别名而不是真正的类型。
@@ -105,8 +103,6 @@ type Pick<T, K extends keyof T> = {
 }
 ```
 
-
-
 ## 使用 Unknow 替代 any
 
 每当想使用 `any` 时，都应先考虑 `unknown`，它是 `any` 类型对应的安全类型，即在对 `unknown` 类型的值执行大多数操作之前，我们必须进行某种形式的检查。
@@ -177,8 +173,6 @@ type I6 = unknown & undefined // undefined
 type I7 = unknown & never // never
 ```
 
-
-
 ## 内置的工具类型
 
 想成为一个好的 TypeScript 开发者，那必须熟练使用它的工具类型。
@@ -224,7 +218,7 @@ type F = typeof f
 // type F = () => {x: number; y: number;}
 ```
 
-#### 3. Indexed Access Types 
+#### 3. Indexed Access Types
 
 索引类型为 type 增加类似于 JavaScript 对象数组的索引。
 
@@ -428,8 +422,6 @@ const todo2 = updateTodo(todo1, {
 })
 ```
 
-
-
 #### 2. Readonly
 
 Define：
@@ -457,8 +449,6 @@ const todo: MyReadonly<Todo> = {
 todo.title = 'Hello' // ERROR
 // Cannot assign to 'title' because it is a read-only property.
 ```
-
-
 
 #### 3. Record
 
@@ -488,8 +478,6 @@ const nav: Record<Page, PageInfo> = {
   home: { title: 'home' }
 }
 ```
-
-
 
 #### 4. Pick
 
@@ -521,8 +509,6 @@ const todo: TodoPreview = {
 }
 ```
 
-
-
 #### 5. Exclude
 
 Define：
@@ -544,8 +530,6 @@ type T1 = Exclude<'a' | 'b' | 'c', 'a' | 'b'>
 type T2 = Exclude<string | number | (() => void), Function>
 // type T2 = string | number
 ```
-
-
 
 #### 6. Omit
 
@@ -577,8 +561,6 @@ const todo: TodoPreview = {
 }
 ```
 
-
-
 #### 7. Extract
 
 Define：
@@ -599,8 +581,6 @@ type T1 = Extract<string | number | (() => void), Function>;
 // type T1 = () => void
 ```
 
-
-
 #### 8. NonNullable
 
 Define：
@@ -620,8 +600,6 @@ type T0 = NonNullable<string | number | undefined>;
 type T1 = NonNullable<string[] | null | undefined>;
 // type T1 = string[]
 ```
-
-
 
 #### 9. Parameters
 
@@ -663,8 +641,6 @@ type T7 = Parameters<Function>; // ERROR
 // type T7 = never
 ```
 
-
-
 #### 10. ConstructorParameters
 
 Define：
@@ -693,8 +669,6 @@ type T4 = ConstructorParameters<Function>; // ERROR
 // Type 'Function' provides no match for the signature 'new (...args: any): any'.
 // type T4 = never
 ```
-
-
 
 #### 11. ReturnType
 
@@ -738,8 +712,6 @@ type T8 = ReturnType<Function>;
 // type T8 = any
 ```
 
-
-
 #### 12. InstanceType
 
 Define：
@@ -774,8 +746,6 @@ type T4 = InstanceType<Function>;
 // type T4 = any
 ```
 
-
-
 #### 13. Required
 
 Define：
@@ -803,8 +773,6 @@ const obj2: Required<Props> = { a: 5 }
 // Property 'b' is missing in type '{ a: number; }' but required in type 'Required<Props>'.
 ```
 
-
-
 #### 14. ThisParameterType
 
 Define：
@@ -828,8 +796,6 @@ function numberToString (n: ThisParameterType<typeof toHex>) {
 }
 ```
 
-
-
 #### 15. OmitThisParameter
 
 Define：
@@ -852,8 +818,6 @@ const fiveToHex: OmitThisParameter<typeof toHex> = toHex.bind(5)
 
 console.log(fiveToHex())
 ```
-
-
 
 #### 16. ThisType
 
@@ -897,8 +861,6 @@ obj.y = 20;
 obj.moveBy(5, 5);
 ```
 
-
-
 ## TypeScript 工具
 
 + [TypeScript Playground](https://www.typescriptlang.org/play)
@@ -908,8 +870,6 @@ obj.moveBy(5, 5);
 + [JSON TO TS](http://www.jsontots.com/)
 
   根据 JSON 生成 typescript 的工具，很赞
-
-
 
 ## 参考资料
 

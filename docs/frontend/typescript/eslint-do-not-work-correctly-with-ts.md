@@ -6,8 +6,6 @@ description: 处理 ESLint 在 TypeScript 未能好好工作
 
 ESLint 的提示在 TypeScript 下没有好好工作。
 
-
-
 ## enum is defined but never used
 
 ```tsx
@@ -31,8 +29,6 @@ module.exports = {
 
 ```
 
-
-
 ## Cannot read property 'loc' of undefined
 
 参考 [Cannot read property 'loc' of undefined](https://github.com/microsoft/vscode-eslint/issues/1149) 修改：
@@ -50,8 +46,6 @@ module.exports = {
 }
 ```
 
-
-
 ## Cannot read property 'body' of null
 
 ```tsx
@@ -63,4 +57,3 @@ module.exports = {
   }
 }
 ```
-

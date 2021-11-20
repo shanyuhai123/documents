@@ -34,4 +34,3 @@ declare module 'vue-router' {
   }
 }
 ```
-

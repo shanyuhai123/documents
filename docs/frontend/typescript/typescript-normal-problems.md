@@ -35,8 +35,6 @@ createSquare({ colour: 'red', width: 100 }) // ERROR
 
 解释似乎很有道理，对象字面量仅在此处使用，应当严格限制，而引用的对象可能来自其他地方，如果你对其进行修改那么可能造成其余地方出现问题。
 
-
-
 ## 提供 js 后缀
 
 在 HTML 中使用 `type="module"` 时：
@@ -76,4 +74,3 @@ import { method1 } from "./modules/m1"
 根据  [TypeScript 编译器 tsc 命令能够自动补全完整的 js 后缀？](https://segmentfault.com/q/1010000038671707#) 在导入时增加 `.js` 后缀，最后生效了。
 
 TypeScript 社区也对此进行了长期的讨论，并给出了一份[总结](https://github.com/microsoft/TypeScript/issues/16577#issuecomment-703190339)。
-
