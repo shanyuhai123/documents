@@ -17,8 +17,6 @@ interface Ref<T = any> {
 }
 ```
 
-
-
 ## 推断 infer
 
 [infer](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types) 可在 `extends` 条件语句中进行推断：
@@ -27,8 +25,6 @@ interface Ref<T = any> {
 type Flatten<Type> = Type extends Array<infer Item> ? Item : Type
 ```
 
-
-
 ## 使用泛型来推导结果
 
 有 `ref` 函数：
@@ -36,7 +32,7 @@ type Flatten<Type> = Type extends Array<infer Item> ? Item : Type
 ```ts
 export function ref(value: any) {
   return {
-		value
+    value
   }
 }
 
@@ -49,7 +45,7 @@ type C = typeof count.value // any
 ```ts
 export function ref<T>(value: T): Ref<T> {
   return {
-		value
+    value
   }
 }
 
@@ -59,14 +55,12 @@ const str = ref('1')
 type S = typeof str.value // string
 ```
 
-
-
 ## ref 值嵌套
 
 ```ts
 export function ref<T>(value: T): Ref<T> {
   return {
-		value
+    value
   }
 }
 
@@ -87,7 +81,7 @@ type UnwrapRef<T> = T extends Ref<infer R> ? R : T
 
 export function ref<T>(value: T): Ref<UnwrapRef<T>> {
   return {
-		value
+    value
   } as any
 }
 
@@ -102,8 +96,6 @@ type C = typeof count.value // number
 const str = ref(ref(ref('1')))
 type S = typeof str.value // string
 ```
-
-
 
 ## ref 对象嵌套
 
@@ -133,8 +125,8 @@ type OB = typeof obj.value.bar // Ref<string>
 
 ```ts
 type UnwrapRef<T> = T extends Ref<infer R>
-	? UnwrapRefSimple<R>
-	: UnwrapRefSimple<T>
+  ? UnwrapRefSimple<R>
+  : UnwrapRefSimple<T>
                                   
 // UnwrapRef 仅作 infer，其余交给 UnwrapRefSimple
 type UnwrapRefSimple<T> = T extends Ref
@@ -174,8 +166,6 @@ obj.value.arr.forEach(a => {
 })
 ```
 
-
-
 ## 对比结果
 
 ```ts
@@ -184,8 +174,8 @@ interface Ref<T = any> {
 }
 
 type UnwrapRef<T> = T extends Ref<infer R>
-	? UnwrapRefSimple<R>
-	: UnwrapRefSimple<T>
+  ? UnwrapRefSimple<R>
+  : UnwrapRefSimple<T>
 
 type UnwrapRefSimple<T> = T extends Ref
   ? T
@@ -197,7 +187,7 @@ type UnwrapRefSimple<T> = T extends Ref
     
 export function ref<T>(value: T): Ref<UnwrapRef<T>> {
   return {
-		value
+    value
   } as any
 }
 ```
