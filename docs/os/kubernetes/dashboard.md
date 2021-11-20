@@ -1,6 +1,4 @@
----
-title: Dashboard
----
+# Kubernetes Dashboard
 
 ## 安装
 
@@ -43,8 +41,6 @@ kubernetes-dashboard   NodePort   10.97.38.169   <none>        443:32576/TCP   1
 访问该主机和暴露出的 32576 即可。
 
 > 注意：Chrome 访问被拒绝，可使用 Firefox。
-
-
 
 ## 权限
 

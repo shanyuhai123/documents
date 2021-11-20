@@ -1,6 +1,4 @@
----
-title: 部署 MySQL
----
+# Kubernetes 部署 MySQL
 
 ::: danger
 
@@ -8,13 +6,11 @@ title: 部署 MySQL
 
 :::
 
-
-
 ## 准备环境
 
 ### Cluster
 
-```
+```text
 10.0.0.140 k8s-master
 10.0.0.141 k8s-node1
 10.0.0.142 k8s-node2
@@ -51,8 +47,6 @@ showmount -e
 # nfs
 yum install -y nfs-utils
 ```
-
-
 
 ## 安装 mysql
 
@@ -139,8 +133,6 @@ spec:
           claimName: mysql-pv-claim
 ```
 
-
-
 ## 执行测试
 
 ```bash
@@ -203,4 +195,3 @@ select * from itcource.user;
 |  100 |
 +------+
 ```
-

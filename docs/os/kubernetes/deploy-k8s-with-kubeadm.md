@@ -1,14 +1,10 @@
----
-title: kubeadm 部署 k8s 集群
----
-
-## 前言
+# kubeadm 部署 k8s 集群
 
 虽然 kubeadm 屏蔽了细节，遇到问题难以排查，但是它简单快捷。
 
 规划为单 master 三 node 的集群，并在 master 中设置 hosts。
 
-```
+```sh
 hostnamectl set-hostname k8s-master
 ```
 
@@ -20,8 +16,6 @@ cat >> /etc/hosts << EOF
 10.0.0.143 k8s-node3
 EOF
 ```
-
-
 
 ## 初始化操作
 
@@ -74,8 +68,6 @@ sysctl --system  # 生效
 yum install ntpdate -y
 ntpdate ntp1.aliyun.com
 ```
-
-
 
 ## 安装依赖
 
@@ -133,8 +125,6 @@ systemctl daemon-reload
 systemctl restart kubelet
 ```
 
-
-
 ## 部署
 
 ### 1. 在 master 进行 init
@@ -191,15 +181,13 @@ kubectl get pods -n kube-system
 
 最后得到：
 
-```
+```sh
 NAME         STATUS     ROLES    AGE    VERSION
 k8s-master   Ready      master   3m8s   v1.18.0
 k8s-node1    Ready      <none>   55s    v1.18.0
 k8s-node2    Ready      <none>   54s    v1.18.0
 k8s-node3    Ready      <none>   51s    v1.18.0
 ```
-
-
 
 ## 清理
 
@@ -238,8 +226,6 @@ kubectl delete node k8s-node1
 kubectl delete node k8s-node2
 kubectl delete node k8s-node3
 ```
-
-
 
 ## 测试
 

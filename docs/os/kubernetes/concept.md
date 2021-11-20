@@ -1,6 +1,4 @@
----
-title: 重要概念
----
+# 重要概念
 
 ## Cluster
 
@@ -8,19 +6,13 @@ Cluster 是计算、存储和网络资源的集合，Kubernetes 允许以 “抽
 
 ![img](https://d33wubrfki0l68.cloudfront.net/283cc20bb49089cb2ca54d51b4ac27720c1a7902/34424/docs/tutorials/kubernetes-basics/public/images/module_01_cluster.svg)
 
-
-
 ## Master
 
 Master 的职责是调度整个 Cluster。Master 协调 Cluster 中的所有活动，例如调度应用、维护应用的所需状态、应用扩容以及推出新的更新。
 
-
-
 ## Node
 
 Node 的职责是运行容器化的应用。Node 是一个物理机或 VM，每个 Node 都有 Kubelet，它管理 Node 并且是 Node 与 Master 通信的代理。
-
-
 
 ## Pod
 
@@ -42,8 +34,6 @@ Pods 有两种使用方式：
 
 1. 运行单一容器
 2. 运行多个容器
-
-
 
 ## Controller
 
@@ -69,8 +59,6 @@ StatefulSet 能够保证 Pod 的每个副本在整个生命周期中的名称是
 
 Job 用于运行结束就删除的应用。
 
-
-
 ## Service
 
 Deployment 可以部署多个副本，每个 Pod 都有自己的 IP，外界如何访问这些副本的 IP 呢？要知道 Pod 很可能会被频繁的销毁和重启，它们的 IP 也会随之变化，用 IP 来访问很不现实。
@@ -78,8 +66,6 @@ Deployment 可以部署多个副本，每个 Pod 都有自己的 IP，外界如�
 如果在 Pod 前增加一个 Service 则可以很好的解决这个问题，只需要去访问 Service 的 IP 及 Port 即可。
 
 故，Kubernetes 运行容器与访问容器分别由 Controller 和 Service 执行。
-
-
 
 ## Namespace
 
