@@ -1,6 +1,4 @@
----
-title: INSERT、UPDATE & DELETE
----
+# INSERT、UPDATE & DELETE
 
 ## INSERT
 
@@ -10,13 +8,11 @@ title: INSERT、UPDATE & DELETE
 
 ```sql
 INSERT INTO customers
-	(cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country)
+  (cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country)
 VALUES
-	('Pep E. LaPew', '100 Main Street', 'Los Angeles', 'CA', '90046', 'USA'),
+  ('Pep E. LaPew', '100 Main Street', 'Los Angeles', 'CA', '90046', 'USA'),
   ('M. Martian', '42 Galaxy', 'New York', 'NY', '11213', 'USA')
 ```
-
-
 
 ## UPDATE
 
@@ -29,12 +25,10 @@ VALUES
 ```sql
 UPDATE customers
 SET 
-	cust_name = 'The Fudd',
-	cust_email = 'elmer@fudd.com'
+  cust_name = 'The Fudd',
+  cust_email = 'elmer@fudd.com'
 WHERE cust_id = 10005
 ```
-
-
 
 ## DELETE
 
@@ -44,4 +38,3 @@ WHERE cust_id = 10005
 DELETE FROM customers
 WHERE cust_id = 10006
 ```
-

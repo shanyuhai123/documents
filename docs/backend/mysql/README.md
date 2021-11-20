@@ -1,12 +1,8 @@
----
-title: 首页
----
+# MySQL
 
 ## 介绍
 
 主要用于解决在使用 MySQL 时遇到的问题，以及是怎么解决的。
-
-
 
 ## 环境
 
@@ -14,9 +10,9 @@ title: 首页
 
 ```bash
 docker run -d \
-	-p 33006:3306 \
-	-e MYSQL_ROOT_PASSWORD=mypasswd \
-	--name some-mysql \
+  -p 33006:3306 \
+  -e MYSQL_ROOT_PASSWORD=mypasswd \
+  --name some-mysql \
   mysql:8.0
 ```
 
@@ -32,8 +28,6 @@ docker exec -it some-mysql bash
 mysql -u yourname -p
 # 根据提示输入密码即可
 ```
-
-
 
 ## 参考资料
 

@@ -1,8 +1,4 @@
----
-title: VIEWS
----
-
-## 概念
+# VIEWS
 
 视图是虚拟的表。
 
@@ -14,8 +10,6 @@ title: VIEWS
 + 保护数据
 + 更改数据格式和表示
 
-
-
 ## 使用
 
 ### 简单示例
@@ -24,28 +18,26 @@ title: VIEWS
 
 ```sql
 CREATE VIEW product_customers AS
-	SELECT
-		cust_name,
-		cust_contact,
-		prod_id
-	FROM customers c 
-	JOIN orders o
-		USING(cust_id)
-	JOIN orderitems oi
-		USING(order_num)
+  SELECT
+    cust_name,
+    cust_contact,
+    prod_id
+  FROM customers c 
+  JOIN orders o
+    USING(cust_id)
+  JOIN orderitems oi
+    USING(order_num)
 ```
 
 使用视图：
 
 ```sql
 SELECT
-	cust_name,
+  cust_name,
   cust_contact
 FROM product_customers
 WHERE prod_id = 'TNT2'
 ```
-
-
 
 ## 可更新视图
 
@@ -58,4 +50,3 @@ WHERE prod_id = 'TNT2'
 + 聚集函数
 + DISTINCT
 + 导出计算列
-

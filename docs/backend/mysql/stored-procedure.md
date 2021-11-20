@@ -1,8 +1,4 @@
----
-title: Stored Procedure
----
-
-## 概念
+# Stored Procedure
 
 存储过程三大作用：
 
@@ -17,8 +13,6 @@ title: Stored Procedure
 + [为什么阿里巴巴Java开发手册里要求禁止使用存储过程？](https://www.zhihu.com/question/57545650/answer/325422160)
 
 但基础的还是要了解的。
-
-
 
 ## 创建存储过程
 
@@ -43,4 +37,3 @@ DELIMITER ;
 ```sql
 CALL get_customer_by_id(10003)
 ```
-

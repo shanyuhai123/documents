@@ -1,14 +1,8 @@
----
-title: TRIGGER
----
-
-## 概念
+# TRIGGER
 
 触发器是在  INSERT、UPDATE、DELETE 语句前后自动执行的一段。
 
 每个表每个事件每次只允许一个触发器，因此每个表最多支持 6 个触发器（每条 INSERT、UPDATE、DELETE 的之前和之后）。
-
-
 
 ## 实践
 
@@ -22,7 +16,7 @@ DROP TRIGGER IF EXISTS orders_after_insert;
 DELIMITER //
 
 CREATE TRIGGER orders_after_insert
-	AFTER INSERT ON orders
+  AFTER INSERT ON orders
   FOR EACH ROW
 BEGIN
     SELECT NEW.order_num INTO @order;
@@ -39,7 +33,7 @@ DROP TRIGGER IF EXISTS vendors_before_update;
 DELIMITER //
 
 CREATE TRIGGER vendors_before_update
-	BEFORE UPDATE ON vendors
+  BEFORE UPDATE ON vendors
     FOR EACH ROW
 BEGIN
     SET NEW.vend_state = upper(NEW.vend_state);
@@ -47,4 +41,3 @@ END//
 
 DELIMITER ;
 ```
-
