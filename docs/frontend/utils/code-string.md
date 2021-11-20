@@ -1,7 +1,8 @@
 ---
-title: 字符串
 sidebarDepth: 2
 ---
+
+# 字符串
 
 ## 长度
 
@@ -27,8 +28,6 @@ const byteSize = str => new Blob([str]).size;
 byteSize('😀'); // 4
 byteSize('Hello World'); // 11
 ```
-
-
 
 ## 判断
 
@@ -165,8 +164,6 @@ yesNo('yes'); // true
 yesNo('No'); // false
 yesNo('Foo', true); // true
 ```
-
-
 
 ## 格式
 
@@ -439,8 +436,6 @@ toTitleCase('some-package-name'); // 'Some Package Name'
 toTitleCase('some-mixed_string with spaces_underscores-and-hyphens'); // 'Some Mixed String With Spaces Underscores And Hyphens'
 ```
 
-
-
 ## 空格
 
 ### 1. containsWhitespace
@@ -488,8 +483,6 @@ const compactWhitespace = str => str.replace(/\s{2,}/g, ' ');
 compactWhitespace('Lorem    Ipsum'); // 'Lorem Ipsum'
 compactWhitespace('Lorem \n Ipsum'); // 'Lorem Ipsum'
 ```
-
-
 
 ## CSV
 
@@ -552,8 +545,6 @@ const CSVToJSON = (data, delimiter = ',') => {
 CSVToJSON('col1,col2\na,b\nc,d'); // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
 CSVToJSON('col1;col2\na;b\nc;d', ';'); // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
 ```
-
-
 
 ## 转义
 
@@ -666,8 +657,6 @@ const stripHTMLTags = str => str.replace(/<[^>]*>/g, '');
 ```js
 stripHTMLTags('<p><em>lorem</em> <strong>ipsum</strong></p>'); // 'lorem ipsum'
 ```
-
-
 
 ## 扩展
 

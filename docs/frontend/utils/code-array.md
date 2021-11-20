@@ -1,7 +1,8 @@
 ---
-title: 数组
 sidebarDepth: 2
 ---
+
+# 数组
 
 ## 判断
 
@@ -196,8 +197,6 @@ isSorted([4, 3, 2]); // -1
 isSorted([4, 3, 5]); // 0
 ```
 
-
-
 ## 格式转换
 
 ### 1. arrayToCSV
@@ -281,8 +280,6 @@ const normalizeLineEndings = (str, normalized = '\r\n') => str.replace(/\r?\n/g,
 splitLines('This\r\nis a\nmultiline\nstring.\r\n'); // 'This\r\nis a\r\nmultiline\r\nstring.\r\n'
 splitLines('This\r\nis a\nmultiline\nstring.\r\n', '\n'); // 'This\nis a\nmultiline\nstring.\n'
 ```
-
-
 
 ## 生成
 
@@ -458,8 +455,6 @@ const reduceSuccessive = (arr, fn, acc) =>
 reduceSuccessive([1, 2, 3, 4, 5, 6], (acc, val) => acc + val, 0); // [0, 1, 3, 6, 10, 15, 21]
 ```
 
-
-
 ## 分组
 
 ### 1. aperture（指定长度）
@@ -589,8 +584,6 @@ const bifurcateBy = (arr, fn) =>
 bifurcateBy(['beep', 'boop', 'foo', 'bar'], x => x[0] === 'b'); // [ ["boop", "foo"], ["beep", "bar"]]
 ```
 
-
-
 ## 分类
 
 ### 1. groupBy（by）
@@ -682,8 +675,6 @@ const numbers = [1, 1, 3, 3, 4, 5, 5, 5];
 partitionBy(numbers, n => n % 2 === 0); // [[1, 1, 3, 3], [4], [5, 5, 5]]
 partitionBy(numbers, n => n); // [[1, 1], [3, 3], [4], [5, 5, 5]]
 ```
-
-
 
 ## 移除
 
@@ -947,8 +938,6 @@ const takeRightWhile = (arr, func) =>
 takeRightWhile([1, 2, 3, 4], n => n < 3); // [3, 4]
 ```
 
-
-
 ## 插入
 
 ### 1. insertAt
@@ -979,8 +968,6 @@ insertAt(myArray, 2, 5); // myArray = [1, 2, 3, 5, 4]
 let otherArray = [2, 10];
 insertAt(otherArray, 0, 4, 6, 8); // otherArray = [2, 4, 6, 8, 10]
 ```
-
-
 
 ## 改序
 
@@ -1059,8 +1046,6 @@ const stableSort = (arr, compare) =>
 const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const stable = stableSort(arr, () => 0); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
-
-
 
 ## 过滤
 
@@ -1320,8 +1305,6 @@ const without = (arr, ...args) => arr.filter(v => !args.includes(v));
 without([2, 1, 2, 3], 1, 2); // [3]
 ```
 
-
-
 ## 去重
 
 ### 1. filterNonUnique
@@ -1539,8 +1522,6 @@ uniqueElementsByRight(
   (a, b) => a.id == b.id
 ); // [ { id: 0, value: 'e' }, { id: 1, value: 'd' }, { id: 2, value: 'c' } ]
 ```
-
-
 
 ## 查询
 
@@ -1927,8 +1908,6 @@ const sortedLastIndexBy = (arr, n, fn) => {
 sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 1
 ```
 
-
-
 ## 统计[频率]
 
 ### 1. countOccurrences（指定）
@@ -2007,8 +1986,6 @@ countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
 countBy(['a', 'b', 'a', 'c', 'a', 'a', 'b'], str => str.slice()); // {a: 4, b: 2, c: 1}
 ```
 
-
-
 ## 展平
 
 ### 1. flatten（指定深度）
@@ -2056,8 +2033,6 @@ const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFla
 ```js
 deepFlatten([1, [2], [[3], 4], 5]); // [1, 2, 3, 4, 5]
 ```
-
-
 
 ## 差异/相同
 
@@ -2336,8 +2311,6 @@ uniqueSymmetricDifference([1, 2, 3], [1, 2, 4]); // [3, 4]
 uniqueSymmetricDifference([1, 2, 2], [1, 3, 1]); // [2, 3]
 ```
 
-
-
 ## 排列/组合
 
 ### 1. permutations（排列）
@@ -2392,8 +2365,6 @@ const xProd = (a, b) => a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), [])
 ```js
 xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 ```
-
-
 
 ## 随机
 
@@ -2508,8 +2479,6 @@ const weightedSample = (arr, weights) => {
 weightedSample([3, 7, 9, 11], [0.1, 0.2, 0.6, 0.1]); // 9
 ```
 
-
-
 ## 覆盖原生
 
 ### 1. shank（splice）
@@ -2540,8 +2509,6 @@ const namesAndDelta = shank(names, 1, 0, 'delta'); // [ 'alpha', 'delta', 'bravo
 const namesNoBravo = shank(names, 1, 1); // [ 'alpha', 'charlie' ]
 console.log(names); // ['alpha', 'bravo', 'charlie']
 ```
-
-
 
 ## 打包（zip）
 
@@ -2689,8 +2656,6 @@ const unzipWith = (arr, fn) =>
 unzipWith([[1, 10, 100], [2, 20, 200]], (...args) => args.reduce((acc, v) => acc + v, 0)); // [3, 30, 300]
 ```
 
-
-
 ## 待整理
 
 ### 1. toHash
@@ -2731,8 +2696,6 @@ managers.forEach(
 );
 managers; // [ { manager:1, employees: [ { id: 2, first: "Joe" }, { id: 3, first: "Moe" } ] } ]
 ```
-
-
 
 ## 低意义
 

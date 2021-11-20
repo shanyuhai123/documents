@@ -1,7 +1,8 @@
 ---
-title: Node
 sidebarDepth: 2
 ---
+
+# Node
 
 ## base64
 
@@ -40,8 +41,6 @@ const atob = str => Buffer.from(str, 'base64').toString('binary');
 ```js
 atob('Zm9vYmFyMQ=='); // 'foobar1'1
 ```
-
-
 
 ## 控制台
 
@@ -85,8 +84,6 @@ console.log(colorize('foo').red); // 'foo' (red letters)
 console.log(colorize('foo', 'bar').bgBlue); // 'foo bar' (blue background)
 console.log(colorize(colorize('foo').yellow, colorize('foo').green).bgWhite); // 'foo bar' (first word in yellow letters, second word in green letters, white background for both)
 ```
-
-
 
 ## 操作
 
@@ -178,8 +175,6 @@ const untildify = str => str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$
 untildify('~/node'); // '/Users/aUser/node'
 ```
 
-
-
 ## crypto
 
 ### 1. hashNode（哈希）
@@ -235,8 +230,6 @@ const UUIDGeneratorNode = () =>
 UUIDGeneratorNode(); // '79c7c136-60ee-40a2-beb2-856f1feabefc'
 ```
 
-
-
 ## 环境
 
 ### 1. hasFlags
@@ -278,8 +271,6 @@ const isTravisCI = () => 'TRAVIS' in process.env && 'CI' in process.env;
 ```js
 isTravisCI(); // true (if code is running on Travis CI)
 ```
-
-
 
 ## 判断流
 

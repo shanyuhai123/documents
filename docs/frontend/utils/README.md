@@ -1,12 +1,6 @@
----
-title: 首页
----
-
-## 介绍
+# JavaScript 工具集
 
 关于 JavaScript 的一些工具代码。
-
-
 
 ## 参考资料
 

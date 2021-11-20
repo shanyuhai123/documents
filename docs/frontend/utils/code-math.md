@@ -1,7 +1,8 @@
 ---
-title: 数学
 sidebarDepth: 2
 ---
+
+# 数学
 
 ## 求和
 
@@ -130,8 +131,6 @@ const factorial = n =>
 factorial(6); // 720
 ```
 
-
-
 ## 均值
 
 ### 1. average
@@ -181,8 +180,6 @@ const averageBy = (arr, fn) =>
 averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n); // 5
 averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 5
 ```
-
-
 
 ## 相等
 
@@ -255,8 +252,6 @@ isPowerOfTwo(1); // true
 isPowerOfTwo(8); // true
 ```
 
-
-
 ## 随机
 
 ### 1. randomHexColorCode（颜色）
@@ -306,8 +301,6 @@ const randomIntArrayInRange = (min, max, n = 1) =>
 ```js
 randomIntArrayInRange(12, 35, 10); // [ 34, 14, 27, 17, 30, 27, 20, 26, 21, 14 ]
 ```
-
-
 
 ## 区间
 
@@ -436,8 +429,6 @@ toSafeInteger('3.2'); // 3
 toSafeInteger(Infinity); // 9007199254740991
 ```
 
-
-
 ## 向量
 
 ### 1. vectorAngle（角度）
@@ -488,8 +479,6 @@ const vectorDistance = (x, y) =>
 ```js
 vectorDistance([10, 0, 5], [20, 0, 10]); // 11.180339887498949
 ```
-
-
 
 ## 转换
 
@@ -689,8 +678,6 @@ const sdbm = str => {
 ```js
 sdbm('name'); // -3521204949
 ```
-
-
 
 ## Math
 
@@ -980,8 +967,6 @@ const standardDeviation = (arr, usePopulation = false) => {
 standardDeviation([10, 2, 38, 23, 38, 23, 21]); // 13.284434142114991 (sample)
 standardDeviation([10, 2, 38, 23, 38, 23, 21], true); // 12.29899614287479 (population)
 ```
-
-
 
 ## 最值
 

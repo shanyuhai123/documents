@@ -1,7 +1,8 @@
 ---
-title: 浏览器
 sidebarDepth: 2
 ---
+
+# 浏览器
 
 ## 表单处理
 
@@ -48,14 +49,6 @@ const formToObject = form =>
 ```js
 formToObject(document.querySelector('#form')); // { email: 'test@email.com', name: 'Test Name' }
 ```
-
-
-
-
-
-
-
-
 
 ## URL
 
@@ -119,8 +112,6 @@ const getBaseURL = url =>
 getBaseURL('http://url.com/page?name=Adam&surname=Smith'); // 'http://url.com/page'
 ```
 
-
-
 ## 数组转为列表
 
 ### 1. arrayToHtmlList
@@ -148,8 +139,6 @@ const arrayToHtmlList = (arr, selector) =>
 ```js
 arrayToHtmlList(['item 1', 'item 2'], 'myListID');
 ```
-
-
 
 ## 剪切板
 
@@ -205,8 +194,6 @@ data.items.add("Howdy, partner!", "text/plain");
 navigator.clipboard.write(data);
 ```
 
-
-
 ## 数值变化动画
 
 ### 1. counter
@@ -236,8 +223,6 @@ const counter = (selector, start, end, step = 1, duration = 2000) => {
 ```js
 counter('#my-id', 1, 1000, 5, 2000); // Creates a 2-second timer for the element with id="my-id"
 ```
-
-
 
 ## 事件
 
@@ -361,12 +346,6 @@ document.body.addEventListener('click', fn);
 off(document.body, 'click', fn); // no longer logs '!' upon clicking on the page
 ```
 
-
-
-
-
-
-
 ## 检测
 
 ### 1. detectDeviceType（设备类型）
@@ -469,10 +448,6 @@ const supportsTouchEvents = () =>
 ```js
 supportsTouchEvents(); // true
 ```
-
-
-
-
 
 ## DOM 操作
 
@@ -609,8 +584,6 @@ smoothScroll('#fooBar'); // scrolls smoothly to the element with the id fooBar
 smoothScroll('.fooBar'); // scrolls smoothly to the first element with a class of fooBar
 ```
 
-
-
 ## DOM 关系
 
 ### 1. bottomVisible（页面底部）
@@ -678,8 +651,6 @@ const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
 elementIsVisibleInViewport(el); // false - (not fully visible)
 elementIsVisibleInViewport(el, true); // true - (partially visible)
 ```
-
-
 
 ## DOM 获取
 
@@ -759,8 +730,6 @@ toggleClass(document.querySelector('p.special'), 'special');
 // The paragraph will not have the 'special' class anymore
 ```
 
-
-
 ## 获取滚动条位置
 
 ### 1. getScrollPosition
@@ -783,8 +752,6 @@ const getScrollPosition = (el = window) => ({
 ```js
 getScrollPosition(); // {x: 0, y: 200}
 ```
-
-
 
 ## HTTP 请求
 
@@ -963,8 +930,6 @@ const httpsRedirect = () => {
 httpsRedirect(); // If you are on http://mydomain.com, you are redirected to https://mydomain.com
 ```
 
-
-
 ## cookie
 
 ### 1. parseCookie（解析）
@@ -1009,8 +974,6 @@ const serializeCookie = (name, val) => `${encodeURIComponent(name)}=${encodeURIC
 ```js
 serializeCookie('foo', 'bar'); // 'foo=bar'
 ```
-
-
 
 ## 全屏
 
@@ -1122,8 +1085,6 @@ const getFullscreenElement = () => {
 getFullscreenElement(); // <section class="full"></section>
 ```
 
-
-
 ## 语音
 
 ### 1. speechSynthesis（文字）
@@ -1147,8 +1108,6 @@ const speechSynthesis = message => {
 ```js
 speechSynthesis('Hello, World');
 ```
-
-
 
 ## 处理
 
@@ -1197,8 +1156,6 @@ const UUIDGeneratorBrowser = () =>
 ```js
 UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 ```
-
-
 
 ## 未理解
 

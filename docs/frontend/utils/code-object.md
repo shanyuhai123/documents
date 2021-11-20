@@ -1,7 +1,8 @@
 ---
-title: 对象
 sidebarDepth: 2
 ---
+
+# 对象
 
 ## 绑定
 
@@ -41,8 +42,6 @@ const view = {
 bindAll(view, 'click');
 jQuery(element).on('click', view.click); // Logs 'clicked docs' when clicked.
 ```
-
-
 
 ## 拷贝
 
@@ -103,8 +102,6 @@ const a = { foo: 'bar', obj: { a: 1, b: 2 } };
 const b = deepClone(a); // a !== b, a.obj !== b.obj
 ```
 
-
-
 ## 冻结
 
 ### 1. deepFreeze（深）
@@ -139,8 +136,6 @@ o[0] = 3; // not allowed
 o[1][0] = 4; // not allowed as well
 ```
 
-
-
 ## 合并
 
 ### 1. nest
@@ -174,8 +169,6 @@ const comments = [
 ];
 const nestedComments = nest(comments); // [{ id: 1, parent_id: null, children: [...] }]
 ```
-
-
 
 ## 转换
 
@@ -304,8 +297,6 @@ transform(
 ); // { '1': ['a', 'c'], '2': ['b'] }
 ```
 
-
-
 ## 相等
 
 ### 1. equals（深）
@@ -394,8 +385,6 @@ matchesWith(
   (oV, sV) => isGreeting(oV) && isGreeting(sV)
 ); // true
 ```
-
-
 
 ## omit/pick
 
@@ -496,8 +485,6 @@ const pickBy = (obj, fn) =>
 ```js
 pickBy({ a: 1, b: '2', c: 3 }, x => typeof x === 'number'); // { 'a': 1, 'c': 3 }
 ```
-
-
 
 ## 查询
 
@@ -733,8 +720,6 @@ size('size'); // 4
 size({ one: 1, two: 2, three: 3 }); // 3
 ```
 
-
-
 ## 修改
 
 ### 1. mapValues（value）
@@ -962,8 +947,6 @@ const users = [{ name: 'fred', age: 48 }, { name: 'barney', age: 36 }, { name: '
 orderBy(users, ['name', 'age'], ['asc', 'desc']); // [{name: 'barney', age: 36}, {name: 'fred', age: 48}, {name: 'fred', age: 40}]
 orderBy(users, ['name', 'age']); // [{name: 'barney', age: 36}, {name: 'fred', age: 40}, {name: 'fred', age: 48}]
 ```
-
-
 
 ## 修改 key
 

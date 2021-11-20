@@ -1,7 +1,8 @@
 ---
-title: 类型判断处理
 sidebarDepth: 2
 ---
+
+# 类型判断处理
 
 ## 判断
 
@@ -239,16 +240,6 @@ isValidJSON('{"name":"Adam","age":20}'); // true
 isValidJSON('{"name":"Adam",age:"20"}'); // false
 isValidJSON(null); // true
 ```
-
-
-
-
-
-
-
-
-
-
 
 ## 处理
 

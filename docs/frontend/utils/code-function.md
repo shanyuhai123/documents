@@ -1,7 +1,8 @@
 ---
-title: 函数
 sidebarDepth: 2
 ---
+
+# 函数
 
 ## 高阶
 
@@ -228,8 +229,6 @@ const rearged = rearg(
 rearged(...['b', 'c', 'a']); // ['a', 'b', 'c']
 ```
 
-
-
 ## 对象
 
 ### 1. checkProp（属性）
@@ -269,8 +268,6 @@ noLength([]); // false
 noLength({}); // true
 noLength(new Set()); // true
 ```
-
-
 
 ## 函数
 
@@ -390,8 +387,6 @@ const timeTaken = callback => {
 ```js
 timeTaken(() => Math.pow(2, 10)); // 1024, (logged): timeTaken: 0.02099609375ms
 ```
-
-
 
 ## 组合
 
@@ -555,8 +550,6 @@ const multiplyAndAdd5 = composeRight(
 );
 multiplyAndAdd5(5, 2); // 15
 ```
-
-
 
 ## 延时
 
@@ -738,8 +731,6 @@ window.addEventListener(
 ); // Will log the window dimensions at most every 250ms
 ```
 
-
-
 ## 缓存
 
 ### 1. memoize
@@ -775,8 +766,6 @@ anagramsCached('javascript'); // returns virtually instantly since it's now cach
 console.log(anagramsCached.cache); // The cached anagrams map
 ```
 
-
-
 ## 闭包
 
 ### 1. once（单次调用）
@@ -810,8 +799,6 @@ const startApp = function(event) {
 };
 document.body.addEventListener('click', once(startApp)); // only runs `startApp` once upon click
 ```
-
-
 
 ## 链式
 
@@ -856,8 +843,6 @@ chainAsync([
   }
 ]);
 ```
-
-
 
 ## 柯里化
 
@@ -912,8 +897,6 @@ const add = x => y => z => x + y + z;
 const uncurriedAdd = uncurry(add, 3);
 uncurriedAdd(1, 2, 3); // 6
 ```
-
-
 
 ## 原生模拟
 

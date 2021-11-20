@@ -1,7 +1,8 @@
 ---
-title: 日期
 sidebarDepth: 2
 ---
+
+# 日期
 
 ## 常规
 
