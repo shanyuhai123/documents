@@ -1,17 +1,9 @@
----
-title: 像素
----
+# 像素画
 
->  像素风感觉上手更简单一些。
-
-
+> 曾经以为像素画会相对于其他画更容易上手，但没想到这对光、影、层次的把握要求更高了。
 
 ## 资料
 
-1. [pixilart](https://www.pixilart.com/)
-
-2. [piskelapp](https://www.piskelapp.com/)
-
-3. [aseprite](https://github.com/aseprite/aseprite)
-
-
++ [pixilart](https://www.pixilart.com/)
++ [piskelapp](https://www.piskelapp.com/)
++ [aseprite](https://github.com/aseprite/aseprite)
