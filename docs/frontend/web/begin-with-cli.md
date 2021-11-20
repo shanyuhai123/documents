@@ -2,8 +2,6 @@
 
 > CLI(Command-Line Interface) 虽可手动监听用户输入，但从头开始则显得过于麻烦了，借助社区的力量吧。
 
-
-
 ## 工具包
 
 |                             工具                             | 作用                                         |
@@ -18,8 +16,6 @@
 | [yaml-front-matter](https://www.npmjs.com/package/yaml-front-matter) | 解析文件内的 `frontmatter`                   |
 |    [portfinder](https://www.npmjs.com/package/portfinder)    | 寻找可用端口号                               |
 |        [semver](https://www.npmjs.com/package/semver)        | 校验版本                                     |
-
-
 
 ## 简单 CLI
 
@@ -126,7 +122,7 @@ yarn add chalk
 
 ```js
 program
-	.action(async name => {
+  .action(async name => {
     const { ok, color } = await inquirer.prompt([
       {
         name: 'ok',
@@ -158,7 +154,7 @@ yarn add ora
 
 ```js
 program
-	.action(async name => {
+  .action(async name => {
     const { ok, color } = await inquirer.prompt([
       {
         name: 'ok',
@@ -185,4 +181,3 @@ program
     }
   })
 ```
-
