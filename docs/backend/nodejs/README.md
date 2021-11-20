@@ -1,5 +1,4 @@
 ---
-title: 快速尝鲜 NodeJS
 description: 快速尝鲜 NodeJS
 tags:
   - nodejs
@@ -7,11 +6,11 @@ tags:
 sidebarDepth: 2
 ---
 
+# 快速尝鲜 NodeJS
+
 ## 安装
 
 虽然可以直接从 [Node 官网](https://nodejs.org/) 下载并安装它，但更推荐的使用方式是利用 [nvm](https://github.com/creationix/nvm) 来处理它，因为 `nvm` 还提供了多版本的共存的解决方式，可以更快捷的切换、尝鲜。
-
-
 
 ### 1. 安装 nvm
 
@@ -57,8 +56,6 @@ nvm install v12.16.3 --reinstall-packages-from=v12.4.0
 
 在利用 `npm install -g npm` 升级时同样会导致全局包丢失，所以在任何情况都应该通过 `nvm` 升级。
 
-
-
 ## 切换源
 
 在缺乏代理的情况下 npm 默认源的速度会比较慢，设置为淘宝源会有比较理想的速度；在私建 npm 服务的情况下，有时部分依赖包需要去私服下载，频繁切换也会麻烦。
@@ -70,8 +67,6 @@ nvm install v12.16.3 --reinstall-packages-from=v12.4.0
 ```bash
 npm config set registry https://registry.npmjs.org/
 ```
-
-
 
 ### 1. 安装
 
@@ -111,8 +106,6 @@ nrm test
 ```bash
 nrm use taobao
 ```
-
-
 
 ## 参考资料
 

@@ -1,20 +1,17 @@
 ---
-title: 使用 Lerna 维护关联的模块
 description: 使用 Lerna 维护关联的模块
 tags:
   - lerna
 sidebarDepth: 2
 ---
 
-## 说明
+# 使用 Lerna 维护关联的模块
 
 > Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
 >
 > -- [lerna](https://github.com/lerna/lerna)
 
 对于维护多个 `package` 来说，都会遇到一个选择，是选择 `mono-repo` 还是 `multi-repo`。`multi-repo` 一个模块（module）一个仓库（repository），而 `mono-repo` 是所有模块整合在一个仓库，[语义来源](https://en.wikipedia.org/wiki/Monorepo)。
-
-
 
 ## 使用
 
@@ -39,8 +36,6 @@ lerna create pkg-1 -y
 lerna create pkg-2 -y
 ```
 
-
-
 ## 依赖
 
 ### 1. 工具依赖
@@ -62,7 +57,7 @@ lerna create pkg-2 -y
    ```bash
    lerna add module1 packages/pkg-1
    ```
-   
+
 3. 卸载
 
    ```bash
@@ -106,8 +101,6 @@ lerna create pkg-2 -y
 ```
 
 `lerna bootstrap` 也提供了参数 [--nohoist](https://github.com/chinanf-boy/lerna-zh/blob/master/commands/bootstrap/README.zh.md#--nohoist-glob)。
-
-
 
 ## 更多命令
 

@@ -1,5 +1,4 @@
 ---
-title: 简单聊聊 NPM 和 YARN 的命令
 description: 简单聊聊 NPM 和 YARN 的命令
 tags:
   - npm
@@ -7,6 +6,8 @@ tags:
   - npx
 sidebarDepth: 2
 ---
+
+# 简单聊聊 NPM 和 YARN 的命令
 
 ## 熟悉而又陌生的 npx
 
@@ -28,8 +29,6 @@ npx -h
 
 1. `--no-install`：强制使用本地模块，不存在则报错
 2. `--ignore-existing`：强制使用远程模块
-
-
 
 ## 认识一下 yarn
 
@@ -74,8 +73,6 @@ if (!/yarn\.js$/.test(process.env.npm_execpath || '')) {
 
 执行 `yarn link:add` 即可。
 
-
-
 ## npm 的传参
 
 常见的命令行传参是这样：
@@ -95,8 +92,6 @@ npm run test -- --grep="pattern"
 ```
 
 在正常的传参前增加 `--` 即可达成。
-
-
 
 ## 从模板到 create 命令
 
@@ -143,8 +138,6 @@ npm create some-example-app
 
 那我们常用的 `yarn create @vitejs/app` 呢？前往 `npm` 可以看到有一个 [@vitejs/create-app](https://www.npmjs.com/package/@vitejs/create-app)，符合查看帮助的最后一项。
 
-
-
 ## 版本
 
 一个标准的版本号：`MAJOR.MINOR.PATCH`，版本规范参考 [semver](https://semver.org/)。
@@ -176,8 +169,6 @@ npm dist-tag add some-package@1.0.0 latest
 npm version patch -m "chore: 发布 tag %s"
 ```
 
-
-
 ## 回归 npm
 
 一些常用命令：
@@ -189,6 +180,3 @@ npm list -g --depth 0
 # npm install 失败时强制清理
 npm cache clean --force
 ```
-
-
-

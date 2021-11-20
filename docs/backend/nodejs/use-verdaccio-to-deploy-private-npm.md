@@ -1,15 +1,12 @@
 ---
-title: 使用 verdaccio 搭建私有 npm
 description: 使用 verdaccio 搭建私有 npm
 tags:
   - verdaccio
 ---
 
-## 起始
+# 使用 verdaccio 搭建私有 npm
 
 搭建私有 NPM 的方案有几个，此处选取 [Verdaccio](https://verdaccio.org/zh-CN/)。
-
-
 
 ## 尝试
 
@@ -22,8 +19,6 @@ verdaccio
 ```
 
 接着在 `4873` 端口就可以看到它的页面。
-
-
 
 ## 持久化
 
@@ -52,13 +47,9 @@ systemctl status pm2-shanyuhai.service
 
 当然可能更好的选择是使用 `docker`，`verdaccio` 为我们提供了其使用方式。
 
-
-
 ## 使用
 
 其使用如 `npm` 一般，利用 `npm adduser --registry http://localhost:4873` 即可以注册用户了。
-
-
 
 ::: tip
 
@@ -180,4 +171,3 @@ logs:
 ```bash
 verdaccio -c config.yaml
 ```
-
