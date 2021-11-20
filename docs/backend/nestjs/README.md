@@ -1,12 +1,8 @@
----
-title: 首页
----
+# 全面的 NestJS
 
-## 介绍
+> while plenty of superb libraries, helpers, and tools exist for Node (and server-side JavaScript), none of them effectively solve the main problem of - **Architecture**.
 
-如果之前没有完整的后端经验，那么强烈建议耐心把文档过一遍。
-
-
+正如 `Nest` 所称，它是为了解决架构问题，所以会提供一些良好的实践。
 
 ## CLI
 
@@ -47,8 +43,6 @@ nest g s user
 # 附加 dto 及 entities
 nest g res user
 ```
-
-
 
 ## 参考资料
 

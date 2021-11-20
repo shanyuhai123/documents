@@ -76,7 +76,6 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "architecture.md",
         "typeorm.md"
       ]
     }

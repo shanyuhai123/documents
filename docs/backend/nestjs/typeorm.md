@@ -1,6 +1,4 @@
----
-title: TypeORM
----
+# TypeORM
 
 ## 介绍
 
@@ -15,8 +13,6 @@ title: TypeORM
 ```
 
 以下有一些特性（好处）的说明，但糟糕的是学习 ORM 的成本并不低，于是有了这篇抄写（相对原文筛减）。
-
-
 
 ## 分步指南
 
@@ -68,7 +64,7 @@ import { Entity, BaseEntity, Column } from 'typeorm'
 
 @Entity()
 export class Photo extends BaseEntity {
-	@Column()
+  @Column()
   id: number
   
   @Column()
@@ -101,7 +97,7 @@ import { Entity, BaseEntity, PrimaryColumn, Column } from 'typeorm'
 
 @Entity()
 export class Photo extends BaseEntity {
-	@PrimaryColumn()
+  @PrimaryColumn()
   id: number
   
   @Column()
@@ -130,7 +126,7 @@ import { Entity, BaseEntity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity()
 export class Photo extends BaseEntity {
-	@PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn()
   id: number
   
   @Column()
@@ -159,7 +155,7 @@ import { Entity, BaseEntity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity()
 export class Photo extends BaseEntity {
-	@PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn()
   id: number
   
   @Column({
@@ -461,8 +457,6 @@ await photo.save();
 await Photo.findOne(id, { relations: ['album'] })
 ```
 
-
-
 ## 实体
 
 基本实体由列和关系组成。每个实体必须有一个主列，否则该实体不会在数据库中生成对应的表。
@@ -708,8 +702,6 @@ const parent = await getTreeRepository(Category).findAncestorsTree(a11)
 ```
 
 更多查询参考 [使用树实体](https://typeorm.io/#/tree-entities/%E4%BD%BF%E7%94%A8%E6%A0%91%E5%AE%9E%E4%BD%93)。
-
-
 
 ## 关系
 
