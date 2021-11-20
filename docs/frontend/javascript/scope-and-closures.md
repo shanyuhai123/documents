@@ -1,6 +1,4 @@
----
-title: 作用域与闭包
----
+# 作用域与闭包
 
 ## 编译器理论
 
@@ -24,8 +22,6 @@ var a = 2;
 2. 然后编译器为引擎生成稍后执行的代码，来处理赋值 `a = 2`,。引擎运行的代码首先让作用域去查看在当前作用域集合中是否有一个称为 `a` 的变量可以访问。如果有，引擎就使用这个变量；如果没有，引擎就查看其他地方。
 3. 如果引擎最终找到变量 `a`，就会将 2 赋值给 `a`。否则引擎就会抛出一个异常。
 
-
-
 ## 编译器术语
 
 在上面的示例中，引擎将会对变量 `a` 进行一个 “LHS(left-hand side)” 查询，另一种查询称为 “RHS(right-hand side)”。总得来说，就是变量出现在赋值操作左边时，进行 “LHS” 查询，当变量出现在赋值操作右边时，进行 “RHS” 查询。准确来说，“RHS” 是查询变量的值，“LHS” 查询则是找到变量的容器本身，从而可以对其赋值。
@@ -40,7 +36,7 @@ a = 2;
 // 这里指向 `a` 的引用是一个 LHS 引用，因为我们实际上不关心当前的值是什么，我们只是想找到这个变量，将它作为 `= 2` 赋值操作的目标。
 
 function foo(a) {
-	console.log(a); // 2
+  console.log(a); // 2
 }
 
 foo(2);
@@ -53,8 +49,6 @@ foo(2);
 > 失败的 ”RHS“ 引用会导致抛出 ReferenceError 异常，如查询成功，但进行不正确的操作，例如引用 null 或 undefined 的属性，则会抛出 TypeError。
 >
 > 非严格模式下，失败的 "LHS" 引用会导致隐式地创建一个全局变量；严格模式下， 失败的 "LHS" 引用会抛出 ReferenceError 异常。
-
-
 
 ## 词法作用域
 
@@ -88,12 +82,12 @@ foo();
 
 ```js
 function foo(a) {
-	var b = a * 2;
-	function bar(c) {
-		console.log( a, b, c );
-	}
+  var b = a * 2;
+  function bar(c) {
+    console.log( a, b, c );
+  }
 
-	bar(b * 3);
+  bar(b * 3);
 }
 
 foo( 2 ); // 2 4 12
@@ -104,8 +98,6 @@ foo( 2 ); // 2 4 12
 1. 全局作用域，一个标识符：`foo`。
 2. `foo` 作用域，三个标识符：`a`、`bar`、`b`。
 3. `bar` 作用域，一个标识符：`c`。
-
-
 
 ## 执行上下文
 
@@ -124,8 +116,6 @@ JavaScript 中存在三种执行上下文类型：
 其拥有栈的性质。
 
 当 JavaScript 开始解释执行代码（进入 JS 文件）时，首先遇到的自然是全局代码，所以全局执行上下文永远在栈底，直到关闭浏览器时最后被抛出。
-
-
 
 ## 编译在先
 
@@ -168,7 +158,7 @@ foo(); // TypeError: foo is not a function
 bar(); // ReferenceError: bar is not defined
 
 var foo = function bar() {
-	// ...
+  // ...
 };
 ```
 
@@ -181,28 +171,26 @@ foo(); // TypeError
 bar(); // ReferenceError
 
 foo = function() {
-	var bar = ...self...
-	// ...
+  var bar = ...self...
+  // ...
 }
 ```
-
-
 
 ## 定时器影响
 
 ```js
 function wait(message) {
   setTimeout(function timer() {
-  	console.log(message);
+    console.log(message);
   }, 1000);
 }
 
 wait("Hello, closure!"); // Hello, closure!
 
 for (var i=1; i<=5; i++) {
-	setTimeout(function timer() {
-		console.log(i);
-	}, i * 1000 );
+  setTimeout(function timer() {
+    console.log(i);
+  }, i * 1000 );
 }
 
 // 6 6 6 6 6
@@ -214,13 +202,12 @@ for (var i=1; i<=5; i++) {
 
 ```js
 for (var i=1; i<=5; i++) {
-	(function (i) {
-		setTimeout(function timer() {
-			console.log(i);
-		}, i * 1000 );
+  (function (i) {
+    setTimeout(function timer() {
+      console.log(i);
+    }, i * 1000 );
   })(i);
 }
 ```
 
 由于是作用域的问题，所以也可以利用新增的 `let`、`const` 生成块级作用域。
-

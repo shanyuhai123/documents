@@ -1,6 +1,4 @@
----
-title: currying
----
+# currying
 
 > 复杂的看 [lodash](https://github.com/lodash/lodash/blob/es/curry.js)
 
@@ -9,8 +7,6 @@ title: currying
 ```js
 sum(1)(2,3).sumOf() // 6
 ```
-
-
 
 ## 发散
 
@@ -82,4 +78,3 @@ const sum = (...args) => {
   return add
 }
 ```
-

@@ -1,8 +1,4 @@
----
-title: Decorator
----
-
-## 前言
+# 装饰器 Decorator
 
 一直以来对 [Class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) 存在偏见，只做到简单了解，但在了解 `Decorator` 后我觉得 `Class` 又行了。
 
@@ -32,8 +28,6 @@ type Decorator = (value: Input, context: {
   defineMetadata(key: string | symbol | number, value: unknown);
 }) => Output | void;
 ```
-
-
 
 ## Decorator
 
@@ -327,8 +321,6 @@ export default function readonly(...args) {
 }
 ```
 
-
-
 ## Reflect
 
 看一下被编译的代码：
@@ -368,4 +360,3 @@ Log = __decorate([
 ### Metadata
 
 简单来说，可以通过装饰器来给类添加一些自定义的信息，然后通过反射将这些信息添加/提取出来。
-

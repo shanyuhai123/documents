@@ -20,9 +20,7 @@
 
 ### 3. 其他
 
-+ UI rendering(Browser)，其会在 `microtask queue` 之后，`macrotask queue` 之前 
-
-
++ UI rendering(Browser)，其会在 `microtask queue` 之后，`macrotask queue` 之前
 
 ## Browser Event Loop
 
@@ -46,7 +44,7 @@
 
 简化概览：
 
-```
+```text
    ┌───────────────────────────┐
 ┌─>│           timers          │
 │  └─────────────┬─────────────┘
@@ -75,8 +73,6 @@
 + poll：检索新的 I/O 事件；执行与 I/O 相关的回调（几乎所有情况下，除了关闭的回调函数，那些由计时器和 `setImmediate` 调度之外的），其余情况 node 将在适当的时候在此阻塞
 + check：`setImmdiate` 回调函数在此执行
 + close callbacks：一次关闭的回调函数，如 `socket.on('close', () => {})`
-
-
 
 ### 1. setTimeout 和 setImmdiate
 
@@ -114,10 +110,6 @@ fs.readFile(__filename, () => {
 // timeout
 ```
 
-
-
-
-
 ## 案例分析
 
 ### demo-1
@@ -126,38 +118,38 @@ fs.readFile(__filename, () => {
 console.log('a');
 
 setTimeout(function() {
-    console.log('b');
-    process.nextTick(function() {
-        console.log('c');
-    })
-    new Promise(function(resolve) {
-        console.log('d');
-        resolve();
-    }).then(function() {
-        console.log('e')
-    })
+  console.log('b');
+  process.nextTick(function() {
+    console.log('c');
+  })
+  new Promise(function(resolve) {
+    console.log('d');
+    resolve();
+  }).then(function() {
+    console.log('e')
+  })
 })
 process.nextTick(function() {
-    console.log('f');
+  console.log('f');
 })
 new Promise(function(resolve) {
-    console.log('g');
-    resolve();
+  console.log('g');
+  resolve();
 }).then(function() {
-    console.log('h')
+  console.log('h')
 })
 
 setTimeout(function() {
-    console.log('i');
-    process.nextTick(function() {
-        console.log('j');
-    })
-    new Promise(function(resolve) {
-        console.log('k');
-        resolve();
-    }).then(function() {
-        console.log('l')
-    })
+  console.log('i');
+  process.nextTick(function() {
+    console.log('j');
+  })
+  new Promise(function(resolve) {
+    console.log('k');
+    resolve();
+  }).then(function() {
+    console.log('l')
+  })
 })
 ```
 
@@ -220,13 +212,9 @@ $outer.addEventListener('click', handler)
 
 点击`#inner`，其执行顺序是：`click` -> `promise` -> `observer` -> `click` -> `promise` -> `observer` -> `animationFrame` -> `animationFrame` -> `timeout` -> `timeout`。
 
-
-
 ## 命令行效果
 
 通过命令行启动 node，它会自动执行完当前宏任务，遇到新的宏任务会将其添加到队列中，只有再次按下回车键，它才会执行下一次的宏任务，一轮事件会清空微任务队列，这都会直接输出出来。
-
-
 
 ## 参考
 

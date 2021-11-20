@@ -1,13 +1,10 @@
----
-title: typeof
----
-
-## 判断类型
+# typeof
 
 `typeof` 操作符会返回数据类型的字符串。
 
 JavaScript 数据类型分为原始类型（值类型）和引用类型，其中原始类型包含：`Number`、`String`、`Boolean`、`Undefined`、`Null`、`Symbol`、`BigInt`（以后可能还会扩展）。
 
+## 示例
 
 ```js
 typeof 1 // "number"
@@ -29,8 +26,6 @@ typeof class App {} // "function"
 ```
 
 综上 `typeof` 可以得到除 `Null` 之外的所有原始类型，后续再追加原始类型也一样；对于所有的引用类型可以识别出 `"function"`，其余不再细分统一为 `"object"`。
-
-
 
 ## 注意事项
 

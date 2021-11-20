@@ -1,14 +1,8 @@
----
-title: 函数调用
----
-
-## 函数
+# 函数调用
 
 函数定义从 `function` 关键字开始，构成函数主体的 JavaScript 代码在定义之时并不会执行，只有调用该函数时，它们才会执行。
 
 > var 只有变量声明提前，变量的初始化代码仍然在原来的位置；然而 function 则会使函数名称和函数体均提前。
-
-
 
 ## 调用函数的方式
 
@@ -39,7 +33,7 @@ var calculator = { // 对象直接量
   operand1: 1,
   operand2: 1,
   add: function() {
-		// this 指向当前对象
+    // this 指向当前对象
     this.result = this.operand1 + this.operand2;
   }
 }
@@ -98,4 +92,3 @@ o.constructor === Object; // true
 ### 4. 间接调用
 
 JavaScript 中的函数也是对象，和其他 JavaScript 对象没有什么两样，函数对象也可以包含方法。其中两个方法 `call` 和 `apply` 可以用来间接地调用函数。两个方法都允许显式指定调用所需的 this 值，也就是说，任何函数可以作为任何对象的方法调用，哪怕这个函数不是那个对象的方法。两个方法都可以指定调用的实参，`call` 方法使用它自有的实参列表作为函数的参数，`apply` 方法则要求以数组的形式传入参数。
-

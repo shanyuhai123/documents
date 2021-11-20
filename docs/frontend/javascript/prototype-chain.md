@@ -1,8 +1,4 @@
----
-title: 原型链
----
-
-## 原型
+# 原型链
 
 每一个 JavaScript 对象（null 除外）都和另一个对象相关联。“另一个” 对象即我们所熟知的原型，每一个对象都从原型继承属性。
 
@@ -18,8 +14,6 @@ title: 原型链
 
 :::
 
-
-
 ## 原型的继承
 
 对象除了 “自有属性（own property）”，还有一些属性是从原型对象继承来的。
@@ -32,7 +26,7 @@ title: 原型链
 
 ```js
 var anotherObject = {
-	a: 2
+  a: 2
 };
 
 var myObject = Object.create(anotherObject);
@@ -53,9 +47,7 @@ myObject.hasOwnProperty("a"); // true
 
 虽然 `myObject.a++` 看起来应当通过委托查询并原地递增 `anotherObject.a` 的属性，但 `++` 操作符实际上等价于 `myObject.a = myObject.a + 1`，导致为 `myObject` 增加了 `a` 属性。
 
-
-
-## 原型链
+## 关于链
 
 每个函数都有一个 `prototype` 属性，其指向一个对象，而这个对象就是函数（构造函数）创建的实例的原型；而每个对象都有一个 `__proto__` 属性，除了 null（虽然 `typeof null` 为 `object`，但这是一个错误结果），这个属性会指向该对象的原型：
 
@@ -86,7 +78,7 @@ Foo.prototype.__proto__.constructor === Object; // true
 Object.prototype.__proto__ === null; // true
 ```
 
-<img :src="$withBase('/frontend/javascript/prototype-chains.jpg')" alt="prototype-chains">
+![prototype chains](./assets/prototype-chains.jpg)
 
 ### 1. 存在的问题
 
@@ -109,4 +101,4 @@ Object.__proto__ === Function.prototype; // true
 Foo.__proto__ === Function.prototype; // true
 ```
 
-<img :src="$withBase('/frontend/javascript/prototype-chains-function.jpg')" alt="prototype-chains-function">
+![prototype chains function](./assets/prototype-chains-function.jpg)

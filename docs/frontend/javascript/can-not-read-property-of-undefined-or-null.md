@@ -1,8 +1,4 @@
----
-title: 无法访问 undefined、null 的属性
----
-
-## 介绍
+# 无法访问 undefined、null 的属性
 
 经常会遇到报错信息：
 
@@ -12,8 +8,6 @@ Uncaught TypeError: Cannot read property 'xxx' of undefined
 ```
 
 而访问另外三个原始类型（Number、String、Number）则不会存在问题。
-
-
 
 ## 包装对象
 
@@ -34,8 +28,6 @@ const B = new Boolean();
 typeof N === typeof S === typeof B === "object"
 ```
 
-
-
 > 引申：
 >
 > ```js
@@ -43,4 +35,3 @@ typeof N === typeof S === typeof B === "object"
 > ```
 >
 > 按照 JavaScript 中类型的划分应当返回为 `null`，这是 JavaScript 中一直存在的 bug，但永远都不会修复了，因为有太多已经在运行代码依赖于这个 bug。
-

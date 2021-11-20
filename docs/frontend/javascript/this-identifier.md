@@ -1,8 +1,4 @@
----
-title: this
----
-
-## 什么是 this
+# 什么是 this
 
 虽然 `this` 可能经常看起来是与 “面向对象模式” 有关的，但在 JavaScript 中 `this` 是一个不同的概念。
 
@@ -12,17 +8,15 @@ title: this
 
 ```js
 function identify() {
-	return this.name.toUpperCase();
+  return this.name.toUpperCase();
 }
 
 var you = {
-	name: "Reader"
+  name: "Reader"
 };
 
 identify.call(you); // READER
 ```
-
-
 
 ## 调用点
 
@@ -57,32 +51,30 @@ function foo() {
 baz(); // <-- `baz` 的调用点
 ```
 
-
-
 ## this 绑定规则
 
 ### 1. 直白的
 
 ```js
 function foo() {
-	console.log( this.bar );
+  console.log( this.bar );
 }
 
 var bar = "global";
 var obj1 = {
-	bar: "obj1",
-	foo: foo
+  bar: "obj1",
+  foo: foo
 };
 var obj2 = {
-	bar: "obj2"
+  bar: "obj2"
 };
 
 // --------
 
-foo();				// "global"
-obj1.foo();			// "obj1"
-foo.call(obj2);		// "obj2"
-new foo();			// undefined
+foo();    // "global"
+obj1.foo();   // "obj1"
+foo.call(obj2);  // "obj2"
+new foo();   // undefined
 ```
 
 规则说明：
@@ -101,12 +93,12 @@ new foo();			// undefined
 
 ```js
 function foo() {
-	console.log(this.a);
+  console.log(this.a);
 }
 
 var obj = {
-	a: 2,
-	foo: foo
+  a: 2,
+  foo: foo
 };
 
 var bar = obj.foo; // 函数引用！
@@ -120,26 +112,24 @@ bar(); // "oops, global"
 
 ```js
 function foo() {
-	console.log(this.a);
+  console.log(this.a);
 }
 
 function doFoo(fn) {
-	// `fn` 只不过 `foo` 的另一个引用
+  // `fn` 只不过 `foo` 的另一个引用
 
-	fn(); // <-- 调用点!
+  fn(); // <-- 调用点!
 }
 
 var obj = {
-	a: 2,
-	foo: foo
+  a: 2,
+  foo: foo
 };
 
 var a = "oops, global"; // `a` 也是一个全局对象的属性
 
 doFoo(obj.foo); // "oops, global"
 ```
-
-
 
 ## 词法 this
 
@@ -149,25 +139,25 @@ doFoo(obj.foo); // "oops, global"
 
 ```js
 var obj1 = {
-	a: 2
+  a: 2
 };
 
 var obj2 = {
-	a: 3
+  a: 3
 };
 
 function fooArrow() {
   // 返回一个箭头函数
-	return (a) => {
+  return (a) => {
     // 这里的 `this` 是词法上从 `foo()` 采用的
-		console.log(this.a);
-	};
+    console.log(this.a);
+  };
 }
 
 function fooNormal() {
-	// 返回一个 function 函数
+  // 返回一个 function 函数
   return function(a) {
-		console.log(this.a);
+    console.log(this.a);
   }
 }
 
@@ -176,4 +166,3 @@ var bar2 = fooNormal.call(obj1);
 bar1.call(obj2); // 2, 不是3!
 bar2.call(obj2); // 3
 ```
-

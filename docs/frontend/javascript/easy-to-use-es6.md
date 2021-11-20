@@ -1,11 +1,10 @@
 ---
-title: ES6 的简单使用
 sidebarDepth: 2
 ---
 
+# ES6 的简单使用
+
 > 作为一个前端，你需要牢记 ES6 的每个 API，尤其是数组、对象、字符串。
-
-
 
 ## 基础语法
 
@@ -26,8 +25,6 @@ const foo = () => ({ bar: 'baz' });
 #### 禁止构造函数
 
 箭头函数都没有自己的 `this`、`arguments`、`super` 和 `new.target`，你是要搞哪样？
-
-
 
 ## 数组方法
 
@@ -69,8 +66,6 @@ range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map(x => String.fromCharCode(x));
 + `Array.prototype.sort`
 + `Array.prototype.splice`
 
-
-
 ## 对象方法
 
 在 ES5 时存在三种：
@@ -85,8 +80,6 @@ range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map(x => String.fromCharCode(x));
 2. `exotic object` （外来对象），与“普通对象”相反，所以一个对象不是“普通对象”，就是“外来对象”。
 3. `standard object` （标准对象），规范定义的对象（？）。
 4. `built-in object` （内置对象），同 ES5。
-
-
 
 ## 字符串方法
 
@@ -126,4 +119,3 @@ anyString.codePointAt(); // 66
 anyString.codePointAt(1); // 114
 anyString.codePointAt(999); // undefined
 ```
-

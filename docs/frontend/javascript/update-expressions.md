@@ -1,13 +1,11 @@
----
-title: 自增/减
----
-
-## 自增/减
+# 自增/减
 
 自增/减操作分为两种：
 
 + 前置递增/减：`a++/a--`
 + 后置递增/减：`++a/--a`
+
+## 错误的说明
 
 对于自增/减操作，初学时总是看到这样错误的说明：
 
@@ -23,13 +21,11 @@ const uid = ++id; // 1
 
 其实稍微翻一下 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) 或其余的书都可以得到：后置递增/减的优先级为 18，前置递增/减的优先级为 17，而赋值操作的优先级为 3。
 
-
-
 ## 原理定义
 
 在 [ECMA](https://tc39.es/ecma262/#sec-update-expressions) 标准中可以找到如下：
 
-```
+```text
 # 12.4.5 Postfix Decrement Operator（后置递增）
 1. Let lhs be the result of evaluating LeftHandSideExpression.
 
@@ -42,7 +38,7 @@ const uid = ++id; // 1
 5. Return oldValue.
 ```
 
-```
+```text
 # 12.4.7 Prefix Decrement Operator（前置递增）
 1. Let expr be the result of evaluating UnaryExpression.
 

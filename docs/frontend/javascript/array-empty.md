@@ -1,8 +1,4 @@
----
-title: 数组空位
----
-
-## 介绍
+# 数组空位
 
 数组空位，指数组的该位置没有任何值，而非 `undefined`。
 
@@ -22,8 +18,6 @@ Array(5);
 0 in [undefined, undefined, undefined] // true
 0 in [, , ,] // false
 ```
-
-
 
 ## 处理空位
 
@@ -98,4 +92,3 @@ for (const el of [,,]) {
 // findIndex
 [,'a'].findIndex(x => true) // 0
 ```
-

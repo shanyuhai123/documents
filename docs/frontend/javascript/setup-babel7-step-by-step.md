@@ -1,14 +1,8 @@
----
-title: 一步步启用 babel7
----
-
-## 概念
+# 一步步启用 babel7
 
 > Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
 >
 > [babel](https://babeljs.io/docs/en/)
-
-
 
 在 `babel` 的**使用**当中有两个核心概念：`presets`、`plugins`，此处使用的 `babel` 版本为 `babel7（7.10.5）`。
 
@@ -16,8 +10,6 @@ title: 一步步启用 babel7
 
 1. 语法层。`const`、`class`、箭头函数等。
 2. API 方法层。`Promise` 或 `Object`、 `Array` 原型链上新增的方法。
-
-
 
 ## 初始化
 
@@ -60,8 +52,6 @@ npx babel source.js
 
 # const fn = () => 1;
 ```
-
-
 
 ### 1. plugins
 
@@ -188,8 +178,6 @@ const fn = () => 1;
 
 :::
 
-
-
 ## polyfill
 
 `polyfill` 主要是处理 `babel` 应对的第二种情况 “新增 API”。
@@ -255,8 +243,6 @@ require("core-js/modules/es6.object.to-string");
 
 var name = Promise.resolve("shanyuhai");
 ```
-
-
 
 ## 提取辅助函数
 

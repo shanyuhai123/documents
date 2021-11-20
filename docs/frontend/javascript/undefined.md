@@ -1,8 +1,4 @@
----
-title: 全局属性 undefined
----
-
-## 描述
+# 全局属性 undefined
 
 ::: danger 要考的
 
@@ -21,8 +17,6 @@ function test(a) {
 test(); // undefined
 ```
 
-
-
 ## 变量名
 
 由于 `undefiled` 不是一个保留字，所以它可能在非全局作用域中被当作变量名来使用。
@@ -32,8 +26,7 @@ var undefined = "a";
 console.log(undefined); // undefined
 
 (function() {
-	var undefined = "a";
+  var undefined = "a";
   console.log(undefined, typeof undefined); // a string
 })();
 ```
-
