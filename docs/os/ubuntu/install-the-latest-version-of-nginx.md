@@ -1,14 +1,10 @@
----
-title: Ubuntu 下安装最新版本的 Nginx
----
+# Ubuntu 下安装最新版本的 Nginx
 
 ## 安装依赖
 
 ```sh
 sudo apt install curl gnupg2 ca-certificates lsb-release
 ```
-
-
 
 ## 更新源
 
@@ -22,8 +18,6 @@ echo "deb http://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" \
     | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
 
-
-
 ## 验证 Nginx
 
 ```sh
@@ -36,8 +30,6 @@ sudo apt-key fingerprint ABF5BD827BD9BF62
 # uid   [ unknown] nginx signing key <signing-key@nginx.com>
 ```
 
-
-
 ## 安装 Nginx
 
 ```bash
@@ -47,4 +39,3 @@ sudo apt install nginx # 安装
 nginx -v # 验证
 # nginx version: nginx/1.17.3
 ```
-

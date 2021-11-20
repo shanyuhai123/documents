@@ -1,12 +1,6 @@
----
-title: 修复时间显示
----
-
-## 介绍
+# 修复时间显示
 
 初步安装系统后日期时间显示的并非当前时区。
-
-
 
 ## 解决方案
 
@@ -24,8 +18,6 @@ sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # 再次执行 date -R 即可看到正确时间
 ```
 
-
-
 ## 扩展
 
 + 常用的时间格式：
@@ -33,5 +25,3 @@ sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
   ```bash
   date "+%Y-%m-%d %H:%M:%S"
   ```
-
-  

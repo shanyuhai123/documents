@@ -1,8 +1,4 @@
----
-title: FRP
----
-
-## 介绍
+# 内网穿透 FRP
 
 ::: tip
 
@@ -13,8 +9,6 @@ FRP（Fast Reverse Proxy）is a fast reverse proxy to help you expose a local se
 :::
 
 此处仅以配置 SSH 服务为示例。
-
-
 
 ## 准备
 
@@ -32,8 +26,6 @@ FRP（Fast Reverse Proxy）is a fast reverse proxy to help you expose a local se
 
 + `bind_port/server_port`
 + `remote_port`
-
-
 
 ## 配置
 
@@ -77,7 +69,7 @@ remote_port = 6000
 配置解释：
 
 + `server_addr` 为 `frp` 服务端 `ip` 地址，也可以是域名
-+ `server_port` 为 `frp` 服务端的 `bind_port` 
++ `server_port` 为 `frp` 服务端的 `bind_port`
 + `local_ip` 为 `frp` 客户端的 `ip` 或 `127.0.0.1`
 + `local_port` 为 `frp` 客户端的 ssh 端口，其默认为 22，在安全设置时可能修改为其他
 + `remote_port` 为 `frp` 客户端挂载到 `frp` 服务端的端口。在此示例中访问服务端 `6000` 端口相当于访问客户端 `22` 端口
@@ -100,10 +92,6 @@ kill -9 72029
 # 验证
 ps -aux | grep frp | grep -v grep
 ```
-
-
-
-
 
 ## 使用
 
@@ -128,8 +116,6 @@ ssh private
 # 配置该 config 时可以认识到 `local_port` 与 `remote_port` 之间的关系
 ssh aliyun2private
 ```
-
-
 
 ## systemd
 
@@ -185,4 +171,3 @@ sudo systemctl daemon-reload
 # 开启
 sudo systemctl start frps
 ```
-

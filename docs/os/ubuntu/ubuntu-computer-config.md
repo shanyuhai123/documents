@@ -1,6 +1,4 @@
----
-title: Ubuntu 计算机配置
----
+# Ubuntu 计算机配置
 
 ## 笔记本合盖不休眠
 
@@ -25,4 +23,3 @@ sudo systemctl restart systemd-logind
 # 或者直接重启电脑
 reboot
 ```
-

@@ -1,12 +1,6 @@
----
-title: 修改 swap 分区大小
----
-
-## 介绍
+# 修改 swap 分区大小
 
 有时系统（`ubuntu20.04`）部分应用提示 502。
-
-
 
 ## 步骤
 
@@ -75,4 +69,3 @@ sudo vim /etc/fstab
 sudo reboot
 sudo rm -f /swap.img # 确认后删除旧 swap
 ```
-

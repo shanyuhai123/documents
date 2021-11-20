@@ -1,14 +1,6 @@
----
-title: 配置网络 netplan
----
+# 配置网络 netplan
 
-
-
-## 版本
-
-`Ubuntu20.04`
-
-
+环境为：`Ubuntu20.04`
 
 ## ETH netplan
 
@@ -52,8 +44,6 @@ sudo netplan apply
 
 配置完后同段内的机器可以 ping 通，并通过 ssh 进一步测试。
 
-
-
 ## 安装驱动
 
 如果有 WIFI 网卡，则可跳过安装驱动。
@@ -82,7 +72,7 @@ lshw -C network
        resources: memory:e3500000-e3507fff
 ```
 
-```
+```sh
 sudo apt install firmware-b43-installer
 ```
 
@@ -101,8 +91,6 @@ blacklist ssb
 ```
 
 如果还有问题，可能需要修改 BIOS 的 `secrety root` 为 `disabled`。
-
-
 
 ## WIFI netplan
 
