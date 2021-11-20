@@ -1,12 +1,8 @@
----
-title: margin
----
-
-## 概述
+# margin
 
 `margin` 属性为给定元素设置外边距属性。
 
-```
+```css
 形式语法: [ <length> | <percentage> | auto ]{1,4}
 
 margin: style                  /*单值语法  所有边缘 */  举例： margin: 1em; 
@@ -16,8 +12,6 @@ margin: top right bottom left  /*四值语法 上 右 下 左*/  举例： margi
 
 margin: inherit
 ```
-
-
 
 ## 边距折叠
 
@@ -150,4 +144,3 @@ div {
   margin: auto;
 }
 ```
-

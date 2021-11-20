@@ -1,6 +1,4 @@
----
-title: 锚点
----
+# 锚点
 
 ## 选项卡
 
@@ -28,13 +26,13 @@ title: 锚点
 </style>
 
 <section class="anchor-demo-1 tabs">
-	<div class="tab" id="anchor-demo-one">内容1</div>
+  <div class="tab" id="anchor-demo-one">内容1</div>
   <div class="tab" id="anchor-demo-two">内容2</div>
   <div class="tab" id="anchor-demo-three">内容3</div>
 </section>
 
 <section class="anchor-demo-1 links">
-	<a class="link" href="#anchor-demo-one">1</a>
+  <a class="link" href="#anchor-demo-one">1</a>
   <a class="link" href="#anchor-demo-two">2</a>
   <a class="link" href="#anchor-demo-three">3</a>
 </section>
@@ -64,22 +62,19 @@ title: 锚点
 }
 </style>
 
-
 <section class="anchor-demo-1 tabs">
-	<div class="tab" id="anchor-demo-one">内容1</div>
+  <div class="tab" id="anchor-demo-one">内容1</div>
   <div class="tab" id="anchor-demo-two">内容2</div>
   <div class="tab" id="anchor-demo-three">内容3</div>
 </section>
 
 <section class="anchor-demo-1 links">
-	<a class="link" href="#anchor-demo-one">1</a>
+  <a class="link" href="#anchor-demo-one">1</a>
   <a class="link" href="#anchor-demo-two">2</a>
   <a class="link" href="#anchor-demo-three">3</a>
 </section>
 
 :::
-
-
 
 ## 回到顶部
 

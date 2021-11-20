@@ -1,15 +1,12 @@
 ---
-title: font-face
 autoPrev: README
 ---
 
-## 概述
+# font-face
 
 `@font-face` 可以为网页制定在线字体。其不仅可以放在在CSS的最顶层, 也可以放在 @规则 的 [条件规则组](https://developer.mozilla.org/zh-CN/docs/CSS/At-rule#Conditional_Group_Rules) 中。
 
-
-
-```
+```css
 @font-face {
   [ font-family: <family-name>; ] ||
   [ src: <src>; ] ||
@@ -24,8 +21,6 @@ autoPrev: README
 where 
 <family-name> = <string> | <custom-ident>+
 ```
-
-
 
 ## 使用
 
@@ -59,8 +54,6 @@ where
 ### 2. src
 
 常用 `url` 来指定在线字体，也可以利用 `local` 指定用户本地的字体。
-
-
 
 ## 其他
 

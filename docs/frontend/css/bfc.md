@@ -1,12 +1,6 @@
----
-title: BFC
----
-
-## 概念
+# BFC
 
 **块格式化上下文（Block Formatting Context，BFC）** ，其可以处理外边距折叠和清除浮动。
-
-
 
 ## 产生
 
