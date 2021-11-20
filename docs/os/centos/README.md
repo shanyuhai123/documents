@@ -27,10 +27,10 @@
 
 + INSTALLATION SOURCE：无需改动；
 + SOFTWARE SELECTION：Minimal Install
-  - [x] Debugging Tools（调试工具）
-  - [x] Compatibility Libraries（兼容库）
-  - [x] Development Tools（开发工具）
-  - [x] System Administration Tools（管理员工具）
+  + [x] Debugging Tools（调试工具）
+  + [x] Compatibility Libraries（兼容库）
+  + [x] Development Tools（开发工具）
+  + [x] System Administration Tools（管理员工具）
 
 ### 3. SYSTEM
 
@@ -55,8 +55,6 @@
 
 接着点击同意，开始安装即可。在安装期间可以配置 root 密码，及创建新的用户账号及密码。
 最后重启即可成功。
-
-
 
 ## 初始化 CentOS
 
@@ -110,8 +108,6 @@ yum groupinstall "Cinnamon" -y
 yum install tree nmap dos2unix lrzsz nc lsof wget tcpdump htop iftop iotop sysstat nethogs psmisc net-tools bash-completion vim-enhanced -y
 ```
 
-
-
 ## 修改 CentOS 配置
 
 ### 1. 网卡名 ethX
@@ -128,4 +124,3 @@ CentOS7 之前的 ethX 数字编号的网卡命名往往不一定准确对应网
    ```
 
 2. [形式二](/os/centos/modify-the-network-named-eth.html)。
-

@@ -18,8 +18,6 @@ vim ifcfg-eth0
 cat ifcfg-eth0 # 验证
 ```
 
-
-
 ## 修改 grub 配置
 
 ```bash
@@ -33,8 +31,6 @@ cat /etc/sysconfig/grub # 验证
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-
-
 ## 验证
 
 ```bash
@@ -42,4 +38,3 @@ shutdown -r now # 重启
 ip addr
 # eth0
 ```
-

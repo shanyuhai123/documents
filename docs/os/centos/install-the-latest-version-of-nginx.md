@@ -6,8 +6,6 @@
 sudo yum install yum-utils
 ```
 
-
-
 ## 更新源
 
 ```sh
@@ -29,16 +27,12 @@ enabled=0
 gpgkey=https://nginx.org/keys/nginx_signing.key
 ```
 
-
-
 ## 启用配置
 
 ```bash
 sudo yum-config-manager --enable nginx-mainline
 # 或 nginx-stable
 ```
-
-
 
 ## 安装 Nginx
 
@@ -48,4 +42,3 @@ sudo yum install nginx
 nginx -v # 验证
 # nginx version: nginx/1.17.3
 ```
-
