@@ -1,8 +1,4 @@
----
-title: 网络体系结构
----
-
-## 概念
+# 网络体系结构
 
 `OSI` 的七层协议体系结构的概念清楚，理论完善，但它既复杂又不实用，而 `TCP/IP` 体系结构已得到非常广泛的应用。
 
@@ -10,9 +6,7 @@ title: 网络体系结构
 
 在学习计算机网络的原理时往往采取这种的办法，即综合 `OSI` 和 `TCP/IP` 的优点，采用一种只有五层协议的体系结构，这样既简洁又能将概念阐述清楚。
 
-<img :src="$withBase('/computer/network-architecture-1.jpeg')" alt="network-architecture-1">
-
-
+![network architecture 1](./assets/network-architecture-1.jpeg)
 
 ## 五层协议
 
@@ -58,4 +52,4 @@ title: 网络体系结构
 
 在因特网所使用的各种协议中，最重要和最著名的就是 `TCP` 和 `IP` 两个协议。在线经常提到的 `TCP/IP` 并不一定是单指 `TCP` 和 `IP` 这两个具体的协议，而往往是表示因特网所使用的整个 `TCP/IP` 协议族（protocol suite）。
 
-<img :src="$withBase('/computer/network-architecture-2.jpeg')" alt="数据在各层之间的传递过程">
+![数据在各层之间的传递过程](./assets/network-architecture-2.jpeg)
