@@ -1,14 +1,10 @@
----
-title: 简单打包分析
----
+# Webpack 打包分析
 
 ## 前置
 
 为了避免模块中文件被 `eval` 包裹导致不便查看，可以在设置中添加 `devtool: 'source-map'`。
 
 生成的文件在去除注释后可以看到是一个 [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)。
-
-
 
 ## 单文件
 
@@ -105,7 +101,7 @@ title: 简单打包分析
   return __webpack_require__(__webpack_require__.s = "./src/index.js");
 })
   ({
-  	// key(模块的路径) value(函数)
+    // key(模块的路径) value(函数)
     "./src/index.js": (function (module, exports) {
       console.log(`hello shanyuhai123`);
     })
@@ -113,9 +109,7 @@ title: 简单打包分析
 //# sourceMappingURL=bundle.js.map
 ```
 
-
-
-### 自定义 require 上的属性 
+### 自定义 require 上的属性
 
 1. m：传入的参数对象
 2. c：缓存的模块
@@ -125,8 +119,6 @@ title: 简单打包分析
 6. t：根据不同的 mode 处理
 7. n：如果模块拥有 `__esModule` 属性，即 `esModule` 模块
 8. p：设置 `publicPath`，用于加载被分割出去的异步代码
-
-
 
 ## 多文件
 
@@ -235,7 +227,5 @@ title: 简单打包分析
 ```
 
 基本与单文件一致，多了 `__webpack_require__` 来生成 `getter` 获取其返回值。
-
-
 
 > TODO 后续完善

@@ -1,12 +1,11 @@
----
-title: Webpack 的 loader 配置
----
+# Webpack 的 loader 配置
 
 ## 加载 CSS
 
 ::: danger 所需依赖
 
 :tada: LOADERS
+
 1. `less-loader/sass-loader/stylus-loader`
 2. `postcss-loader`
 3. `css-loader`
@@ -14,6 +13,7 @@ title: Webpack 的 loader 配置
 5. `MiniCssExtractPlugin.loader`
 
 :tada: PLUGINS
+
 1. `mini-css-extract-plugin`
 2. `autoprefixer`
 
@@ -186,7 +186,7 @@ rules: [
 
 ### 1. 加载 Font 的两种方式
 
-1. 使用 `file-loader` 
+1. 使用 `file-loader`
 
    ```js
    // webpack.config.js
