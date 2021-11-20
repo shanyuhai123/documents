@@ -1,12 +1,8 @@
----
-title: HTTP
----
+# 网络基础 HTTP
 
 ## 说明
 
 待处理，暂丢到一起。
-
-
 
 ## 过期
 
@@ -16,4 +12,3 @@ title: HTTP
 + `last-modified` 是设置上次的更新时间，每次都会向服务器查询最近的更新时间
 
 > 让人难过的事情莫过于在理解后，才发现别人早已对这部分有[很好的概括了](https://blog.csdn.net/eroswang/article/details/8302191)。
-
