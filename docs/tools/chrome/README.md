@@ -12,8 +12,6 @@ Chrome 浏览器总是会提供一些 “人性化” 设置，所以我们需�
 
 在 `93.0.4577.63` 中已经找不到对应的设置了，仅可以右键地址栏然后选择 “总是选择完整地址”。
 
-
-
 ## 获取 Chromium 源码
 
 可以通过 [Chromium Code Search](https://source.chromium.org/) 在线查看源码，也可以[下载](https://www.chromium.org/chromium-os/quick-start-guide)到本地查看：
@@ -25,9 +23,6 @@ repo init -u https://chromium.googlesource.com/chromiumos/manifest.git
 # Optional: Make any changes to .repo/local_manifests/local_manifest.xml before syncing
 repo sync
 ```
-
-
-
 
 ## 参考资料
 
