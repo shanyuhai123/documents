@@ -14,8 +14,6 @@ repo sync
 
 其使用到了 [repo](https://source.android.google.cn/setup/develop/repo?hl=zh-cn) 工具。
 
-
-
 ## 安装
 
 ```bash
@@ -29,4 +27,3 @@ sudo chmod +x repo
 # 校验
 repo --version
 ```
-

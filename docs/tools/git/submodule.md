@@ -4,8 +4,6 @@
 
 而 `submodule` 可以做到该行为。
 
-
-
 ## 使用 submodule
 
 ```bash
@@ -13,8 +11,6 @@ git submodule -h
 
 git submodule [--quiet] add [-b <branch>] [-f|--force] [--name <name>] [--reference <repository>] [--] <repository> [<path>]
 ```
-
-
 
 ## 移除 submodule
 

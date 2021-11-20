@@ -122,8 +122,6 @@ npx commitizen init cz-conventional-changelog --yarn --dev --exact
   ✖   type may not be empty [type-empty]
   ```
 
-
-
 ## 生成 CHANGELOG
 
 根据规则生成 CHANGELOG 的前提是 commit 规范化。
@@ -179,8 +177,6 @@ npm run changelog -- -r minor
 git remote add origin git@github.com:yourname/project.git
 ```
 
-
-
 ## 代码校验
 
 前面已经打好了铺垫，加上代码校验也是顺理成章的事情。
@@ -209,4 +205,3 @@ npx husky add .husky/pre-commit "npx --no-install lint-staged"
 ```
 
 如果还想加些什么，可以手动追加，例如 [stylelint](https://github.com/stylelint/stylelint)。
-

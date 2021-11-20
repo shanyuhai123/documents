@@ -2,12 +2,11 @@
 
 版本控制可以记录文件的变化，方便快捷的查看、回退指定版本的内容。
 
-
-
 ## Git 生命周期
 
 随着使用你会渐渐加深对其生命周期的理解。
-<img :src="$withBase('/git/git-lifecycle.png')" alt="git 概念图">
+
+![git 生命周期](./assets/git-lifecycle.png)
 
 Git 仓库中，工作目录下的每一个文件不外乎两种状态：未跟踪（Untracked）或已跟踪（Tracked）。
 
@@ -17,19 +16,15 @@ Git 仓库中，工作目录下的每一个文件不外乎两种状态：未跟�
 
 初次克隆某个仓库时，工作目录中所有的文件都属于已跟踪文件，并处于未修改状态。
 
-
-
 ## Git 状态模型
 
 在状态模型中进行了更详细的说明。
 
-<img :src="$withBase('/git/git-state-model.png')" alt="git 状态模型">
+![git 状态模型](./assets/git-state-model.png)
 
 关于上图一些概念的说明。
 
-
-
-### 1. 工作区（workspace）：
+### 1. 工作区（workspace）
 
 当前工作空间，即当前能在本地文件夹下面可以看到的文件结构。初始化工作空间或者工作空间 `clean` 的时候，文件内容和暂存区（index）是一致的，随着修改，工作区文件没有执行 `git add` 到暂存区的时候，工作区域将和暂存区不一致。
 
@@ -56,8 +51,6 @@ git 是分布式版本控制系统，和其他版本控制系统不同的是他�
 ### 4. 远程仓库（remote repository）
 
 远程中心仓库，可使得仓库分享给其他人。结构大体和本地仓库一样。
-
-
 
 ## Git 常用命令
 
@@ -139,8 +132,6 @@ git push
 
 [Git飞行规则(Flight Rules)](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md) 可以用来指导一些常见的问题。
 
-
-
 ## 为 Git 添加代理
 
 clone 大项目时总是乏力，下载速度极慢，这时就需要为其设置代理了。
@@ -172,11 +163,8 @@ alias uproxygit="git config --global --unset http.proxy"
 
 git 代理支持多种协议：http、https、socks、socks5，本机通过 ss 启用了 socks5。
 
-
-
 ## 参考资料
 
-1. [Github](https://help.github.com/en)
-2. [Git-scm](https://git-scm.com/book/zh/v2)
-2. [shafiul Community Book](https://shafiul.github.io/gitbook/index.html)
-
++ [Github](https://help.github.com/en)
++ [Git-scm](https://git-scm.com/book/zh/v2)
++ [shafiul Community Book](https://shafiul.github.io/gitbook/index.html)
