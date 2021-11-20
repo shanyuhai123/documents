@@ -1,12 +1,8 @@
----
-title: JEST
----
+# JEST
 
 ## 碎碎念
 
 虽然一直很看好 TDD 的开发流程，但以此作为实践实在有些难。
-
-
 
 ## Jest 目录
 
@@ -53,9 +49,6 @@ title: JEST
     ├── Jest Cli Options
     └── Environment Variables
 ```
-
-
-
 
 ## 参考资料
 
