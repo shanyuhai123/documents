@@ -1,13 +1,10 @@
 ---
-title: websocket 反向代理
 description: websocket 反向代理
 ---
 
-## 介绍
+# websocket 反向代理
 
 在理解[反向代理与负载均衡](/backend/nginx/nginx-upstream.html)后就可以快速实现 websocket 的反向代理。
-
-
 
 ## [config](http://nginx.org/en/docs/http/websocket.html)
 
@@ -16,27 +13,24 @@ vim /etc/nginx/conf.d/default.conf
 
 # 修改为以下内容
 server {
-    listen       80;
-    server_name  nginx.example.com;
+  listen       80;
+  server_name  nginx.example.com;
 
-    #charset koi8-r;
-    access_log  /var/log/nginx/nginx.access.log  main;
-    error_log  /var/log/nginx/nginx.error.log warn;
+  #charset koi8-r;
+  access_log  /var/log/nginx/nginx.access.log  main;
+  error_log  /var/log/nginx/nginx.error.log warn;
 
-    location /chat/ {
-        proxy_pass http://echo.websocket.org;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-    }
+  location /chat/ {
+    proxy_pass http://echo.websocket.org;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+  }
 }
 
 nginx -s reload # 重载配置
 ```
 
-
-
 ## test
 
 接着在[测试页面](http://www.websocket.org/echo.html)将 Location 中的 `ws://echo.websocket.org` 替换为目标地址 `ws://nginx.example.com/chat/` （需要修改本地 DNS），Connect 成功即为成功。
-

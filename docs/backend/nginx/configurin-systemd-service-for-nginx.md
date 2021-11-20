@@ -1,13 +1,10 @@
 ---
-title: 为 Nginx 配置 systemd 服务
 description: 为 Nginx 配置 systemd 服务
 ---
 
-## 介绍
+# 为 Nginx 配置 systemd 服务
 
 当使用[编译安装 Nginx](/backend/nginx/install-nginx.html#编译安装) 后，同样希望将 Nginx 加入至 systemd 进行管理，如果可以的话希望进一步对该 Nginx 进行区分。
-
-
 
 ## 阅读
 
@@ -53,8 +50,6 @@ PrivateTmp=true
 [Install]
 WantedBy=multi-user.target
 ```
-
-
 
 ## 操作
 
@@ -121,4 +116,3 @@ systemctl start nginx-compile.service
 systemctl enable nginx-compile.service
 systemctl status nginx-compile.service # 验证
 ```
-

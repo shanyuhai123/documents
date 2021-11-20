@@ -1,7 +1,8 @@
 ---
-title: root 与 alias 区别
 description: root 与 alias 区别
 ---
+
+# root 与 alias 区别
 
 ## 前言
 
@@ -13,17 +14,15 @@ alias 与 [root](https://nginx.org/en/docs/http/ngx_http_core_module.html#root) 
 
 ```nginx
 # alias
-Syntax:	alias path;
+Syntax: alias path;
 Default: —
 Context: location
 
 # root
-Syntax:	root path;
+Syntax: root path;
 Default: root html;
 Context: http, server, location, if in location
 ```
-
-
 
 ## 区别
 

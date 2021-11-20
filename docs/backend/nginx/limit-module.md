@@ -1,8 +1,8 @@
 ---
-title: Nginx 的限制模块
 description: Nginx 的限制模块
 ---
 
+# Nginx 的限制模块
 
 ## 请求限制
 
@@ -13,7 +13,7 @@ description: Nginx 的限制模块
 首先需要在 `http` 作用域定义 `limit_req_zone`。
 
 ```nginx
-Syntax:	limit_req_zone key zone=name:size rate=rate [sync];
+Syntax: limit_req_zone key zone=name:size rate=rate [sync];
 Default: —
 Context: http
 
@@ -26,7 +26,7 @@ limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
 再在指定的作用域启用。
 
 ```nginx
-Syntax:	limit_req zone=name [burst=number] [nodelay | delay=number];
+Syntax: limit_req zone=name [burst=number] [nodelay | delay=number];
 Default: —
 Context: http, server, location
 
@@ -46,8 +46,6 @@ server {
 
 `$binary_remote_addr` 相对 `remote_addr` 占用的空间更少。
 
-
-
 ## 连接限制
 
 [limit_conn_module](https://nginx.org/en/docs/http/ngx_http_limit_conn_module.html) 步骤基本与请求限制一致。
@@ -55,7 +53,7 @@ server {
 ### 1. limit_conn_zone
 
 ```nginx
-Syntax:	limit_conn_zone key zone=name:size;
+Syntax: limit_conn_zone key zone=name:size;
 Default: —
 Context: http
 
@@ -66,7 +64,7 @@ limit_conn_zone $binary_remote_addr zone=addr:10m;
 ### 2. limit_zone
 
 ```nginx
-Syntax:	limit_zone name $variable size;
+Syntax: limit_zone name $variable size;
 Default: —
 Context: http
 
@@ -80,18 +78,16 @@ server {
 }
 ```
 
-
-
 ## 访问 IP 限制
 
 [access_module](https://nginx.org/en/docs/http/ngx_http_access_module.html) 可用来限制访问的 IP，用法比较简单。
 
 ```nginx
-Syntax:	allow address | CIDR | unix: | all;
+Syntax: allow address | CIDR | unix: | all;
 Default: —
 Context: http, server, location, limit_except
 
-Syntax:	deny address | CIDR | unix: | all;
+Syntax: deny address | CIDR | unix: | all;
 Default: —
 Context: http, server, location, limit_except
 
@@ -104,8 +100,6 @@ location / {
   deny  all;
 }
 ```
-
-
 
 ## 访问 账号 限制
 
@@ -130,11 +124,11 @@ cat /etc/nginx/auth_conf # 验证
 ### 2. 限制说明
 
 ```nginx
-Syntax:	auth_basic string | off;
+Syntax: auth_basic string | off;
 Default: auth_basic off;
 Context: http, server, location, limit_except
 
-Syntax:	auth_basic_user_file file;
+Syntax: auth_basic_user_file file;
 Default: —
 Context: http, server, location, limit_except
 
@@ -144,6 +138,3 @@ location / {
   auth_basic_user_file auth_conf;
 }
 ```
-
-
-

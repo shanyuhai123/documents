@@ -1,9 +1,10 @@
 ---
-title: 快速开启 Nginx
 description: 快速开启 Nginx
 tags:
   - nginx
 ---
+
+# 快速开启 Nginx
 
 ## 一些重要的事
 
@@ -13,8 +14,8 @@ tags:
 
 ```nginx
 server {
-	listen    80 default_server; # 在 listen 后追加，而非 server_name
-	server_name  xxx.example.com example.com;
+  listen    80 default_server; # 在 listen 后追加，而非 server_name
+  server_name  xxx.example.com example.com;
 }
 ```
 
@@ -28,8 +29,6 @@ server {
   return 444;
 }
 ```
-
-
 
 ## 安装 Nginx
 
@@ -103,8 +102,6 @@ make install # 安装
 /home/shanyuhai/nginx/sbin/nginx -V # 验证
 ```
 
-
-
 ## 必须知道的基本操作
 
 ### 启用安全组
@@ -126,7 +123,7 @@ ps -ef | grep nginx
 netstat -lntup
 ```
 
- ### 启动
+### 启动
 
 ```bash
 # 直接启动
@@ -162,8 +159,6 @@ nginx -s reload
 systemctl restart nginx.service
 ```
 
-
-
 ## 内置变量
 
 Nginx 提供了丰富的[内置变量](https://nginx.org/en/docs/varindex.html)，如果引入了其他模块还会有对应模块的变量。
@@ -184,8 +179,6 @@ Nginx 提供了丰富的[内置变量](https://nginx.org/en/docs/varindex.html)�
 |      `$scheme`      |                          | 请求中的协议，例 `http`、`https`                             |
 
 指定 `module` 时基本上都有 `ngx_http_core_module`。
-
-
 
 ## 参考资料
 

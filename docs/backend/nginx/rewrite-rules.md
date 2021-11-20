@@ -1,16 +1,15 @@
 ---
-title: Nginx 的 rewrite 规则
 description: Nginx 的 rewrite 规则
 ---
 
-## 介绍
+# Nginx 的 rewrite 规则
 
 `rewrite` 常用于 `url` 重写，以及重定向。准确来说 `rewrite` 是作用于 `$request_uri`。
 
 其实理解完修改的是 `$request_uri` 部分即可理解，我之前是卡在这里了。
 
 ```nginx
-Syntax:	rewrite regex replacement [flag];
+Syntax: rewrite regex replacement [flag];
 Default: —
 Context: server, location, if
 
@@ -21,8 +20,6 @@ if ($http_user_agent ~ Chrome) {
   rewrite ^(.*)$ /chrome/$1 break;
 }
 ```
-
-
 
 ## flag
 

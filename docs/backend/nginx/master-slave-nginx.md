@@ -1,7 +1,8 @@
 ---
-title: 主从 Nginx
 description: 主从 Nginx
 ---
+
+# 主从 Nginx
 
 ## 准备
 
@@ -34,8 +35,6 @@ firewall-cmd --zone=public --add-port=80/tcp
 curl -i 10.0.0.133
 curl -i 10.0.0.134
 ```
-
-
 
 ## 配置主从
 
@@ -149,8 +148,6 @@ chmod +x /etc/keepalived/nginx_check.sh
 ll /etc/keepalived # 验证
 ```
 
-
-
 ## 测试
 
 ### 1. 启用服务
@@ -198,6 +195,3 @@ ip addr # 验证
 curl -i 10.0.0.100 # 虚拟 ip
 # <h1>Welcome to nginx2!</h1>
 ```
-
-
-

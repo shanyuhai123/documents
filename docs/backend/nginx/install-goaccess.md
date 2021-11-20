@@ -1,16 +1,13 @@
 ---
-title: 使用 goaccess 可视化查看日志
 description: 使用 goaccess 可视化查看日志
 tags:
   - nginx
   - goaccess
 ---
 
-## 介绍
+# 使用 goaccess 可视化查看日志
 
 虽然 Nginx 已经提供 access 日志来查阅，但是不得不说很难看清，常规的正则过滤又显得较为麻烦。于是就找到了这么一款实时网络日志分析器 [GoAccess](https://github.com/allinurl/goaccess)。
-
-
 
 ## 安装
 
@@ -24,8 +21,6 @@ sudo apt-get install goaccess
 
 goaccess --version # 验证 GoAccess - 1.3.
 ```
-
-
 
 ## 使用
 
@@ -77,4 +72,3 @@ ll /var/www/html/report
 ```
 
 接着就可以在浏览器访问对应的地址了。
-

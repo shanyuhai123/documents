@@ -1,7 +1,8 @@
 ---
-title: Nginx 的 proxy_pass 规则
 description: Nginx 的 proxy_pass 规则
 ---
+
+# Nginx 的 proxy_pass 规则
 
 ## 前言
 
@@ -21,24 +22,22 @@ description: Nginx 的 proxy_pass 规则
 
 ```nginx
 location /api {   
-    proxy_set_header Host $http_host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Scheme $scheme;
-  
-    # 路径重写
-    rewrite  /api/(.*)  /$1  break;
-    proxy_pass http://localhost:8123;
+  proxy_set_header Host $http_host;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Scheme $scheme;
+
+  # 路径重写
+  rewrite  /api/(.*)  /$1  break;
+  proxy_pass http://localhost:8123;
 }
 ```
 
 但探索一下 `location` + `proxy_pass` 也是不错的选择。
 
-
-
 ## 规则
 
 ```nginx
-Syntax:	proxy_pass URL;
+Syntax: proxy_pass URL;
 Default: —
 Context: location, if in location, limit_except
 ```
@@ -140,4 +139,3 @@ server {
 | `localhost:8086/api/user`   | `/api/user`   | `/app/user`                           |
 
 可以观测到少了匹配到的 `api` 部分，而作为路径的 `/` 未匹配到显得多余起来，解决的方案是使 `location` 匹配到 `/` 即可。
-

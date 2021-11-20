@@ -1,13 +1,14 @@
 ---
-title: Nginx 的 location 规则
 description: Nginx 的 location 规则
 ---
+
+# Nginx 的 location 规则
 
 ## 规则
 
 ```nginx
-Syntax:	location [ = | ~ | ~* | ^~ ] uri { ... }
-		location @name { ... }
+Syntax: location [ = | ~ | ~* | ^~ ] uri { ... }
+    location @name { ... }
 Default: —
 Context: server, location
 ```
@@ -65,8 +66,6 @@ location /abc {
   # localhost/abc/a/b # 匹配
 }
 ```
-
-
 
 ## 顺序
 

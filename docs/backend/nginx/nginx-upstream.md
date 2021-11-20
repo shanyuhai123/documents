@@ -1,15 +1,12 @@
 ---
-title: Nginx 反向代理与负载均衡
 description: Nginx 反向代理与负载均衡
 ---
 
-## 介绍
+# Nginx 反向代理与负载均衡
 
 反向代理主要是利用 [upstream](https://nginx.org/en/docs/http/ngx_http_upstream_module.html)、server 模块指定上游服务地址来实现负载均衡，当然反向代理是前置条件。
 
 指定的上游服务器地址中，地址可以是域名、IP 地址或 unix socket 地址。
-
-
 
 ## server parameters
 
@@ -21,8 +18,6 @@ description: Nginx 反向代理与负载均衡
 | fail_timeout | number | 在经历了 max_fails 次失败后，暂停服务的时间。                |
 |    backup    |        | 指定当前 server 为备份服务器，仅当非备份服务器不可用时才启用。 |
 |     down     |        | 将服务器标记为永久不可用。                                   |
-
-
 
 ## config
 
@@ -86,8 +81,6 @@ server {
 nginx -s reload # 重载配置
 ```
 
-
-
 ## test
 
 简单的重复测试，查看负载均衡情况。
@@ -107,8 +100,6 @@ curl -i nginx.example.com
 
 # 持续多次结果按照以上循环出现
 ```
-
-
 
 ## load balancing methods
 
@@ -140,11 +131,9 @@ upstream backend {
 > 在之前了解到 `split_client` 可以用于处理 AB 测试，但是疑惑的是无法指定某一批用户，那么配合上 hash 算法能否实现更好的 AB 测试呢。
 
 ```nginx
-Syntax:	hash key [consistent];
+Syntax: hash key [consistent];
 # 如果 consistent 指定了参数，则将使用 ketama 一致性哈希方法。该方法可确保在将服务器添加到组中或从组中删除服务器时，只有很少的键将被重新映射到不同的服务器。这有助于为缓存服务器获得更高的缓存命中率。
 ```
-
-
 
 ## upstream module directives
 

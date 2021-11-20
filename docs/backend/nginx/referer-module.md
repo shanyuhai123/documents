@@ -1,20 +1,17 @@
 ---
-title: Nginx 防盗链
 description: Nginx 防盗链
 ---
 
-## 介绍
+# Nginx 防盗链
 
 referer （引用页），常用于防盗链，当使用 CDN、OSS 时经常会碰到类似的提示。
 
 > referer 正确英文为 referrer，但由于早期 HTTP 规范的拼写错误，为了保持向后兼容也就将错就错了。
 
-
-
 ## 配置
 
 ```nginx
-Syntax:	valid_referers none | blocked | server_names | string ...;
+Syntax: valid_referers none | blocked | server_names | string ...;
 Default: —
 Context: server, location
 
@@ -28,8 +25,6 @@ location / {
   return 200 'valid_referers\n';
 }
 ```
-
-
 
 ## 测试
 
@@ -80,4 +75,3 @@ curl -ie 'http://nginx.example.top/foo/aa' nginx.example.com
 # HTTP/1.1 200 OK
 # valid_referers
 ```
-

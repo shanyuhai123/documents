@@ -1,13 +1,10 @@
 ---
-title: 升级 HTTP 至 HTTPS
-description: 升级 HTTP 至 HTTPS
+description: Nginx 至 HTTPS
 ---
 
-## 介绍
+# Nginx 至 HTTPS
 
 HTTPS（HyperText Transfer Protocol Secure）即超文本传输安全协议。HTTPS 经由 HTTP 进行通信，但利用 SSL/TLS 来加密数据包。
-
-
 
 ## 增加 SSL 模块
 
@@ -36,8 +33,6 @@ cp ./objs/nginx /path/sbin/
 # 再验证
 /path/sbin/nginx -V
 ```
-
-
 
 ## 阿里云证书
 
@@ -73,23 +68,23 @@ sudo mv 2813835_blog.shanyuhai.top.key blog.shanyuhai.top.key
 sudo vim /etc/nginx/conf.d/blog.conf
 # 添加如下内容
 server {
-    listen 443 ssl;
-    server_name blog.shanyuhai.top;
-    # 证书文件
-    ssl_certificate certs/blog.shanyuhai.top.pem;
-    # 秘钥文件
-    ssl_certificate_key certs/blog.shanyuhai.top.key;
+  listen 443 ssl;
+  server_name blog.shanyuhai.top;
+  # 证书文件
+  ssl_certificate certs/blog.shanyuhai.top.pem;
+  # 秘钥文件
+  ssl_certificate_key certs/blog.shanyuhai.top.key;
 
-    ssl_session_timeout 5m;
-    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-    ssl_prefer_server_ciphers on;
+  ssl_session_timeout 5m;
+  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl_prefer_server_ciphers on;
 
 
-    location / {
-        root /var/www/html/blog;
-        index index.html; 
-    }
+  location / {
+    root /var/www/html/blog;
+    index index.html;
+  }
 }
 
 # 接着访问 https://blog.shanyuhai.top 验证
@@ -100,19 +95,16 @@ server {
 ```bash
 # 将 80 端口的虚拟机修改为以下内容
 server {
-    listen       80;
-    server_name  blog.shanyuhai.top;
+  listen       80;
+  server_name  blog.shanyuhai.top;
 
-    access_log  /var/log/nginx/blog.access.log  main;
-    rewrite ^(.*) https://$host$1 permanent;
-
+  access_log  /var/log/nginx/blog.access.log  main;
+  rewrite ^(.*) https://$host$1 permanent;
 }
 
 sudo nginx -s reload # 重启 nginx 服务
 # 接着访问 http://blog.shanyuhai.top 验证
 ```
-
-
 
 ## Let's Encrypt 证书
 
@@ -157,4 +149,3 @@ Let’s Encrypt 证书的有效期为 90 天，所以需要自动续订。
 ```bash
 sudo certbot renew --dry-run
 ```
-

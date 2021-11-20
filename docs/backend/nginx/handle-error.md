@@ -1,7 +1,8 @@
 ---
-title: 处理 Nginx ERR
 description: 处理 Nginx ERR
 ---
+
+# 处理 Nginx ERR
 
 ## Net::ERR_INCOMPLETE_CHUNKED_ENCODING
 
@@ -24,4 +25,3 @@ Filesystem      Size  Used Avail Use% Mounted on
 ```
 
 清理出一部分空间即可使用了。
-
