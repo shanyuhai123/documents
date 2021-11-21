@@ -7,6 +7,7 @@ module.exports = [
   ]},
   { text: '系统', children: [
     { text: 'Linux', link: '/os/linux/' },
+    { text: 'Arch', link: '/os/arch/' },
     { text: 'Manjaro', link: '/os/manjaro/' },
     { text: 'Ubuntu', link: '/os/ubuntu/' },
     { text: 'CentOS', link: '/os/centos/' },

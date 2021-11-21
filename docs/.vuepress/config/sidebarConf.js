@@ -362,6 +362,18 @@ module.exports = {
       ]
     }
   ],
+  "/os/arch/": [
+    {
+      "text": "ARCH",
+      "title": "ARCH",
+      "collapsable": false,
+      "sidebarDepth": 1,
+      "children": [
+        "README.md",
+        "arch-support-emoji.md"
+      ]
+    }
+  ],
   "/os/centos/": [
     {
       "text": "CENTOS",
