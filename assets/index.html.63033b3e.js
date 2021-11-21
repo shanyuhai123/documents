@@ -1,0 +1,1 @@
+const t={key:"v-0b1006b2",path:"/os/arch/",title:"Arch \u795E\u6559",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],filePathRelative:"os/arch/README.md",git:{updatedTime:1637465289e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:1}]}};export{t as data};
