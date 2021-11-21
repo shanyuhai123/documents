@@ -696,7 +696,8 @@ module.exports = {
         "521-longest-uncommon-subsequence-i.md",
         "530-minimum-absolute-difference-in-bst.md",
         "541-reverse-string-ii.md",
-        "543-diameter-of-binary-tree.md"
+        "543-diameter-of-binary-tree.md",
+        "551-student-attendance-record-i.md"
       ]
     }
   ],
