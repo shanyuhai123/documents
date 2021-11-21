@@ -370,7 +370,8 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "arch-support-emoji.md"
+        "arch-support-emoji.md",
+        "use-sunlogin.md"
       ]
     }
   ],
