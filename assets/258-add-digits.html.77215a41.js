@@ -1,0 +1,10 @@
+import{e as n}from"./app.56a3880c.js";import{_ as s}from"./plugin-vue_export-helper.5a098b48.js";const a={},t=n(`<h1 id="\u5404\u4F4D\u76F8\u52A0" tabindex="-1"><a class="header-anchor" href="#\u5404\u4F4D\u76F8\u52A0" aria-hidden="true">#</a> \u5404\u4F4D\u76F8\u52A0</h1><p>\u8981\u6C42\u5E38\u6570\u65F6\u95F4\u590D\u6742\u5EA6\uFF0C\u90A3\u4E48\u53EA\u80FD\u8003\u8651\u6570\u5B66\u65B9\u6CD5\u4E86\u3002</p><h2 id="\u53D6\u6A21" tabindex="-1"><a class="header-anchor" href="#\u53D6\u6A21" aria-hidden="true">#</a> \u53D6\u6A21</h2><div class="language-typescript ext-ts"><pre class="language-typescript"><code><span class="token keyword">function</span> <span class="token function">addDigits</span><span class="token punctuation">(</span>num<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+  <span class="token comment">// \u4E2A\u4F4D\u6570\u76F4\u63A5\u8FD4\u56DE</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> num
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 10 -&gt; 1, 11 -&gt; 2, 18 -&gt; 9</span>
+  <span class="token keyword">return</span> num <span class="token operator">%</span> <span class="token number">9</span> <span class="token operator">===</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token number">9</span> <span class="token operator">:</span> num <span class="token operator">%</span> <span class="token number">9</span>
+<span class="token punctuation">}</span>
+</code></pre></div>`,4);function p(e,o){return t}var l=s(a,[["render",p]]);export{l as default};
