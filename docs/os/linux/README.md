@@ -29,7 +29,7 @@
 
 ## 参考资料
 
-1. [Red Hat CentOS 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) <Badge text="核心" type="error"/>
+1. [Red Hat CentOS 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) <Badge text="核心" type="danger"/>
 2. 《Linux 入门很简单》
 3. 《Ubuntu 标准教程》
 4. 《老男孩：核心基础》

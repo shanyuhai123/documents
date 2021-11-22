@@ -44,7 +44,7 @@
 
 + NETWORK & HOST NAME：可在此处查看到之前 tab 修改的网卡命名是否生效了，Host name 改为喜欢的名字即可。
 
-  修改完 Host name，接着点击 Configure 进行配置 <Badge text="勿忘" type="error"/>：
+  修改完 Host name，接着点击 Configure 进行配置 <Badge text="勿忘" type="danger"/>：
 
   1. General：启用 Automatically connect；
   2. IPv4 Settings：Method 修改为 Manual，点击 Add 添加[私有网络](https://zh.wikipedia.org/wiki/%E4%B8%93%E7%94%A8%E7%BD%91%E7%BB%9C)，配置对应的 Address、Netmask、Gateway、DNS。如果你对此不了解，可以还原为默认配置（Automatic DHCP），自动分配一个 IP 地址给你。

@@ -10,7 +10,7 @@
 
 ## 脚本
 
-<a href="javascript: document.querySelectorAll('*').forEach(q => q.style.outline = q.style.outline ? '' : '1px solid red')"><Badge text="外边框" type="error" vertical="middle"/></a>
+<a href="javascript: document.querySelectorAll('*').forEach(q => q.style.outline = q.style.outline ? '' : '1px solid red')"><Badge text="外边框" type="danger" vertical="middle"/></a>
 
 ::: details 说明
 
@@ -18,7 +18,7 @@
 
 :::
 
-<a href="javascript: document.querySelectorAll('a').forEach(a=>{if(!a.style.pointerEvents){a.setAttribute('markPointerEvents',true);a.style.pointerEvents='none';return;}if(a.getAttribute('markPointerEvents')&&a.style.pointerEvents==='none'){a.removeAttribute('markPointerEvents');a.style.pointerEvents='';return;}})"><Badge text="阻止链接跳转" type="error" vertical="middle"/></a>
+<a href="javascript: document.querySelectorAll('a').forEach(a=>{if(!a.style.pointerEvents){a.setAttribute('markPointerEvents',true);a.style.pointerEvents='none';return;}if(a.getAttribute('markPointerEvents')&&a.style.pointerEvents==='none'){a.removeAttribute('markPointerEvents');a.style.pointerEvents='';return;}})"><Badge text="阻止链接跳转" type="danger" vertical="middle"/></a>
 
 ::: details 说明
 
