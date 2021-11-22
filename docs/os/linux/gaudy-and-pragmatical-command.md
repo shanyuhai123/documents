@@ -7,6 +7,19 @@ cp test.txt{,.bak}
 ls -al test.txt* # 验证
 ```
 
+很多时候更希望以时间作为区分进行备份：
+
+```sh
+cp test{,_`date +%y%m%d_%H%M`}
+```
+
+这样有些麻烦，可将其制作为一个脚本，可通过类似 `bash cpfile.sh test` 调用：
+
+```sh
+#!/bin/bash
+sudo cp $1 $1_`date +%y%m%d_%H%M`
+```
+
 ## 清空文件
 
 ```bash
