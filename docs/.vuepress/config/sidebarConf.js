@@ -697,7 +697,8 @@ module.exports = {
         "530-minimum-absolute-difference-in-bst.md",
         "541-reverse-string-ii.md",
         "543-diameter-of-binary-tree.md",
-        "551-student-attendance-record-i.md"
+        "551-student-attendance-record-i.md",
+        "557-reverse-words-in-a-string-iii.md"
       ]
     }
   ],
