@@ -1,0 +1,11 @@
+import{e as n}from"./app.366e609d.js";import{_ as s}from"./plugin-vue_export-helper.5a098b48.js";const a={},t=n(`<h1 id="\u53EA\u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57" tabindex="-1"><a class="header-anchor" href="#\u53EA\u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57" aria-hidden="true">#</a> \u53EA\u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57</h1><p>\u4E0D\u770B\u9898\u89E3\u60F3\u4E0D\u5230\u5E38\u6570\u7A7A\u95F4\u590D\u6742\u5EA6\u7684\u7B54\u6848\u3002</p><h2 id="\u4F4D\u8FD0\u7B97" tabindex="-1"><a class="header-anchor" href="#\u4F4D\u8FD0\u7B97" aria-hidden="true">#</a> \u4F4D\u8FD0\u7B97</h2><div class="language-typescript ext-ts"><pre class="language-typescript"><code><span class="token keyword">function</span> <span class="token function">singleNumber</span><span class="token punctuation">(</span>nums<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+  <span class="token comment">// \u4EFB\u4F55\u6570\u4E0E 0 \u4F5C\u5F02\u6216\u8FD0\u7B97\uFF0C\u4ECD\u4E3A\u5176\u672C\u8EAB</span>
+  <span class="token keyword">let</span> single <span class="token operator">=</span> <span class="token number">0</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    single <span class="token operator">^=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> single
+<span class="token punctuation">}</span>
+</code></pre></div>`,4);function p(e,o){return t}var l=s(a,[["render",p]]);export{l as default};
