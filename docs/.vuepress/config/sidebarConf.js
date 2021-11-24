@@ -698,7 +698,8 @@ module.exports = {
         "541-reverse-string-ii.md",
         "543-diameter-of-binary-tree.md",
         "551-student-attendance-record-i.md",
-        "557-reverse-words-in-a-string-iii.md"
+        "557-reverse-words-in-a-string-iii.md",
+        "559-maximum-depth-of-n-ary-tree.md"
       ]
     }
   ],
