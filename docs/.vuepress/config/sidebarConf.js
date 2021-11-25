@@ -699,7 +699,12 @@ module.exports = {
         "543-diameter-of-binary-tree.md",
         "551-student-attendance-record-i.md",
         "557-reverse-words-in-a-string-iii.md",
-        "559-maximum-depth-of-n-ary-tree.md"
+        "559-maximum-depth-of-n-ary-tree.md",
+        "561-array-partition-i.md",
+        "563-binary-tree-tilt.md",
+        "566-reshape-the-matrix.md",
+        "572-subtree-of-another-tree.md",
+        "575-distribute-candies.md"
       ]
     }
   ],
