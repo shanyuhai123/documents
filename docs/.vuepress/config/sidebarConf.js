@@ -708,7 +708,8 @@ module.exports = {
         "589-n-ary-tree-preorder-traversal.md",
         "590-n-ary-tree-postorder-traversal.md",
         "594-longest-harmonious-subsequence.md",
-        "595-big-countries.md"
+        "595-big-countries.md",
+        "596-classes-more-than-5-students.md"
       ]
     }
   ],
