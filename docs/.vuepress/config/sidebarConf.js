@@ -704,7 +704,11 @@ module.exports = {
         "563-binary-tree-tilt.md",
         "566-reshape-the-matrix.md",
         "572-subtree-of-another-tree.md",
-        "575-distribute-candies.md"
+        "575-distribute-candies.md",
+        "589-n-ary-tree-preorder-traversal.md",
+        "590-n-ary-tree-postorder-traversal.md",
+        "594-longest-harmonious-subsequence.md",
+        "595-big-countries.md"
       ]
     }
   ],
