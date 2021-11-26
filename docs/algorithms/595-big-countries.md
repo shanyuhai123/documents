@@ -8,9 +8,9 @@ autoSort: -595
 
 ```sql
 SELECT
- name,
- population,
- area
+  name,
+  population,
+  area
 FROM
   World
 WHERE
