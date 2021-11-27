@@ -709,7 +709,10 @@ module.exports = {
         "590-n-ary-tree-postorder-traversal.md",
         "594-longest-harmonious-subsequence.md",
         "595-big-countries.md",
-        "596-classes-more-than-5-students.md"
+        "596-classes-more-than-5-students.md",
+        "598-range-addition-ii.md",
+        "599-minimum-index-sum-of-two-lists.md",
+        "605-can-place-flowers.md"
       ]
     }
   ],
