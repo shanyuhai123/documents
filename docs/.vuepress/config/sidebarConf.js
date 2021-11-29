@@ -712,7 +712,10 @@ module.exports = {
         "596-classes-more-than-5-students.md",
         "598-range-addition-ii.md",
         "599-minimum-index-sum-of-two-lists.md",
-        "605-can-place-flowers.md"
+        "605-can-place-flowers.md",
+        "606-construct-string-from-binary-tree.md",
+        "617-merge-two-binary-trees.md",
+        "620-not-boring-movies.md"
       ]
     }
   ],
