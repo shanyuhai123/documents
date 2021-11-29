@@ -715,7 +715,9 @@ module.exports = {
         "605-can-place-flowers.md",
         "606-construct-string-from-binary-tree.md",
         "617-merge-two-binary-trees.md",
-        "620-not-boring-movies.md"
+        "620-not-boring-movies.md",
+        "627-swap-salary.md",
+        "628-maximum-product-of-three-numbers.md"
       ]
     }
   ],
