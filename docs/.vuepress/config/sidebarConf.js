@@ -567,7 +567,8 @@ module.exports = {
         "set-the-font.md",
         "settings-sync.md",
         "share-code-snippet.md",
-        "vetur.md"
+        "vetur.md",
+        "vscode-markdown-copilot-tab-do-not-work.md"
       ]
     }
   ],
@@ -717,7 +718,11 @@ module.exports = {
         "617-merge-two-binary-trees.md",
         "620-not-boring-movies.md",
         "627-swap-salary.md",
-        "628-maximum-product-of-three-numbers.md"
+        "628-maximum-product-of-three-numbers.md",
+        "637-average-of-levels-in-binary-tree.md",
+        "643-maximum-average-subarray-i.md",
+        "645-set-mismatch.md",
+        "653-two-sum-iv-input-is-a-bst.md"
       ]
     }
   ],
