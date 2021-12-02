@@ -723,7 +723,9 @@ module.exports = {
         "643-maximum-average-subarray-i.md",
         "645-set-mismatch.md",
         "653-two-sum-iv-input-is-a-bst.md",
-        "657-robot-return-to-origin.md"
+        "657-robot-return-to-origin.md",
+        "661-image-smoother.md",
+        "671-second-minimum-node-in-a-binary-tree.md"
       ]
     }
   ],
