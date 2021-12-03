@@ -725,7 +725,9 @@ module.exports = {
         "653-two-sum-iv-input-is-a-bst.md",
         "657-robot-return-to-origin.md",
         "661-image-smoother.md",
-        "671-second-minimum-node-in-a-binary-tree.md"
+        "671-second-minimum-node-in-a-binary-tree.md",
+        "674-longest-continuous-increasing-subsequence.md",
+        "680-valid-palindrome-ii.md"
       ]
     }
   ],
