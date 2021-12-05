@@ -101,8 +101,10 @@ docker exec -t <container name> gitlab-backup create
 ```bash
 crontab -e
 
-# 周末凌晨4点备份
-0 4 * * 0 docker exec -t gitlab gitlab-backup create &> /dev/null
+# 每天凌晨4点备份
+0 4 * * * docker exec -t gitlab gitlab-backup create &> /dev/null
+# 每天凌晨4点备份删除 7 天前备份
+0 4 * * * find /srv/gitlab/data/backups/ -mtime +7 -name "*gitlab_backup.tar" -delete &> /dev/null
 ```
 
 根据备份恢复数据：
