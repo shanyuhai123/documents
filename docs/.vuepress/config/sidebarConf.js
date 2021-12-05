@@ -729,7 +729,8 @@ module.exports = {
         "674-longest-continuous-increasing-subsequence.md",
         "680-valid-palindrome-ii.md",
         "682-baseball-game.md",
-        "693-binary-number-with-alternating-bits.md"
+        "693-binary-number-with-alternating-bits.md",
+        "700-search-in-a-binary-search-tree.md"
       ]
     }
   ],
