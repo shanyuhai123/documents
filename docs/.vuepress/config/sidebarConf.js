@@ -730,7 +730,12 @@ module.exports = {
         "680-valid-palindrome-ii.md",
         "682-baseball-game.md",
         "693-binary-number-with-alternating-bits.md",
-        "700-search-in-a-binary-search-tree.md"
+        "700-search-in-a-binary-search-tree.md",
+        "709-to-lower-case.md",
+        "724-find-pivot-index.md",
+        "747-largest-number-at-least-twice-of-others.md",
+        "771-jewels-and-stones.md",
+        "1816-truncate-sentence.md"
       ]
     }
   ],
