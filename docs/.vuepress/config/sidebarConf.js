@@ -735,6 +735,9 @@ module.exports = {
         "724-find-pivot-index.md",
         "747-largest-number-at-least-twice-of-others.md",
         "771-jewels-and-stones.md",
+        "807-max-increase-to-keep-city-skyline.md",
+        "1154-day-of-the-year.md",
+        "1688-count-of-matches-in-tournament.md",
         "1816-truncate-sentence.md"
       ]
     }
