@@ -1,1 +1,0 @@
-const e={key:"v-0b1006b2",path:"/os/arch/",title:"Arch \u795E\u6559",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u914D\u7F6E\u9632\u706B\u5899",slug:"\u914D\u7F6E\u9632\u706B\u5899",children:[]}],filePathRelative:"os/arch/README.md",git:{updatedTime:163776681e4,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:2}]}};export{e as data};
