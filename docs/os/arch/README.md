@@ -19,3 +19,7 @@ sudo firewall-config
 1. 配置切换到 “永久”
 2. 在右下角的 “服务” 中找到 `kdeconnect`，勾选即可
 3. 在左上角 “选项” 中重载防火墙
+
+## 在用的小工具
+
++ 使用 [btop](https://github.com/aristocratos/btop) 替代 top
