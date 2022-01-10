@@ -19,4 +19,4 @@ actionLink: /guide/
 
 :tada: [视频地址](https://www.bilibili.com/video/av43316513/) :tada:
 
-<p style="text-align:center;">MIT Licensed | Copyright © 2018-2020 飞跃高山与大洋的鱼 | ICP证：<a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">皖ICP备19002167号</a></p>
+<p style="text-align:center;">MIT Licensed | Copyright © 2018-2022 飞跃高山与大洋的鱼 | ICP证：<a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">皖ICP备19002167号</a></p>
