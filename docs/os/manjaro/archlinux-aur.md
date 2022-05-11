@@ -46,3 +46,5 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 **搜索：**`yay -Ss <package-name>`
 
 **安装：** `yay -S <package-name>`
+
+**更新已安装：** `yay -Sua`
