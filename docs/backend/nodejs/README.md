@@ -3,6 +3,7 @@ description: 快速尝鲜 NodeJS
 tags:
   - nodejs
   - nvm
+  - curl
 sidebarDepth: 2
 ---
 
@@ -45,6 +46,17 @@ node -v
 # 切换版本
 nvm use v13.13.0
 ```
+
+当下载速度不够理想时，你可以修改 `~/.curlrc` 配置：
+
+```sh
+# socks5
+socks5 = "127.0.0.1:1080"
+# 或 http
+proxy = "127.0.0.1:9999"
+```
+
+这是因为 `nvm` 通过 [curl](https://stackoverflow.com/questions/42244572/nvm-proxy-settings-configuration-file) 来安装 `node`。
 
 ### 3. nvm 全局包迁移
 
