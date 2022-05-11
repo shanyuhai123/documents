@@ -1,0 +1,7 @@
+import{e as a}from"./app.915a3542.js";import{_ as n}from"./plugin-vue_export-helper.5a098b48.js";const s={},e=a(`<h1 id="\u4E0A\u5347\u7684\u6E29\u5EA6" tabindex="-1"><a class="header-anchor" href="#\u4E0A\u5347\u7684\u6E29\u5EA6" aria-hidden="true">#</a> \u4E0A\u5347\u7684\u6E29\u5EA6</h1><h2 id="\u65E5\u671F\u6BD4\u8F83" tabindex="-1"><a class="header-anchor" href="#\u65E5\u671F\u6BD4\u8F83" aria-hidden="true">#</a> \u65E5\u671F\u6BD4\u8F83</h2><p>\u501F\u52A9\u65E5\u671F\u6BD4\u8F83\u51FD\u6570\u3002</p><div class="language-sql ext-sql"><pre class="language-sql"><code><span class="token keyword">SELECT</span>
+  w1<span class="token punctuation">.</span>id
+<span class="token keyword">FROM</span>
+  Weather w1<span class="token punctuation">,</span>
+  Weather w2
+<span class="token keyword">WHERE</span> DATEDIFF<span class="token punctuation">(</span>w1<span class="token punctuation">.</span>recordDate<span class="token punctuation">,</span> w2<span class="token punctuation">.</span>recordDate<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">AND</span> w1<span class="token punctuation">.</span>temperature <span class="token operator">&gt;</span> w2<span class="token punctuation">.</span>temperature
+</code></pre></div>`,4);function t(p,o){return e}var u=n(s,[["render",t]]);export{u as default};
