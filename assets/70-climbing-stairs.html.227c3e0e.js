@@ -1,0 +1,31 @@
+import{e as n}from"./app.b4873699.js";import{_ as s}from"./plugin-vue_export-helper.5a098b48.js";const a={},p=n(`<h1 id="\u722C\u697C\u68AF" tabindex="-1"><a class="header-anchor" href="#\u722C\u697C\u68AF" aria-hidden="true">#</a> \u722C\u697C\u68AF</h1><h2 id="\u9012\u5F52" tabindex="-1"><a class="header-anchor" href="#\u9012\u5F52" aria-hidden="true">#</a> \u9012\u5F52</h2><p>\u6700\u540E\u4E00\u6B65\u53EF\u80FD\u662F\u8DE8\u4E86\u4E00\u7EA7\u53F0\u9636\uFF0C\u4E5F\u80AF\u80FD\u662F\u4E24\u7EA7\uFF0C\u6240\u4EE5\u53EF\u4EE5\u5F97\u5230: <code>$f(x) = f(x - 1) + f(x -2)$</code> \u516C\u5F0F\u3002</p><p>\u518D\u914D\u5408\u57FA\u7840\u7684 <code>f(1) = 1</code>\uFF0C<code>f(2) = 2</code>\u3002</p><div class="language-typescript ext-ts"><pre class="language-typescript"><code><span class="token comment">// \u7F13\u5B58\u6570\u636E\uFF0C\u5426\u5219\u5BB9\u6613\u8D85\u65F6</span>
+<span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">2</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> value
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="\u52A8\u6001\u89C4\u5212" tabindex="-1"><a class="header-anchor" href="#\u52A8\u6001\u89C4\u5212" aria-hidden="true">#</a> \u52A8\u6001\u89C4\u5212</h2><div class="language-typescript ext-ts"><pre class="language-typescript"><code><span class="token keyword">function</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> n
+
+  <span class="token comment">// \u521D\u59CB\u5316\u72B6\u6001</span>
+  <span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token number">2</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// \u72B6\u6001\u8F6C\u79FB</span>
+    <span class="token keyword">const</span> sum <span class="token operator">=</span> p <span class="token operator">+</span> q
+    p <span class="token operator">=</span> q
+    q <span class="token operator">=</span> sum
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> q
+<span class="token punctuation">}</span>
+</code></pre></div>`,7);function t(o,e){return p}var r=s(a,[["render",t]]);export{r as default};
