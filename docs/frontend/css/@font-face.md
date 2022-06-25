@@ -1,8 +1,8 @@
 ---
-autoPrev: README
+description: 自定义字体 @font-face
 ---
 
-# font-face
+# 自定义字体
 
 `@font-face` 可以为网页制定在线字体。其不仅可以放在在CSS的最顶层, 也可以放在 @规则 的 [条件规则组](https://developer.mozilla.org/zh-CN/docs/CSS/At-rule#Conditional_Group_Rules) 中。
 
@@ -27,7 +27,8 @@ where
 以往经常以图标的方式来调用它，例如使用阿里巴巴图标库下载 `iconfont.css`：
 
 ```css
-@font-face {font-family: "iconfont";
+@font-face {
+  font-family: "iconfont";
   src: url('iconfont.eot'); /* IE9 */
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('base64') format('woff2'), /* base64 省略 */

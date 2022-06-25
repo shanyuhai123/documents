@@ -185,9 +185,7 @@ module.exports = {
       "children": [
         "README.md",
         "@font-face.md",
-        "anchor.md",
-        "bfc.md",
-        "margin.md"
+        "anchor.md"
       ]
     }
   ],
@@ -597,6 +595,7 @@ module.exports = {
         "38-count-and-say.md",
         "48-rotate-image.md",
         "53-maximum-subarray.md",
+        "55-jump-game.md",
         "58-length-of-last-word.md",
         "66-plus-one.md",
         "69-sqrtx.md",
@@ -743,12 +742,15 @@ module.exports = {
         "682-baseball-game.md",
         "693-binary-number-with-alternating-bits.md",
         "700-search-in-a-binary-search-tree.md",
+        "705-design-hashset.md",
+        "706-design-hashmap.md",
         "709-to-lower-case.md",
         "724-find-pivot-index.md",
         "746-min-cost-climbing-stairs.md",
         "747-largest-number-at-least-twice-of-others.md",
         "771-jewels-and-stones.md",
         "807-max-increase-to-keep-city-skyline.md",
+        "999-available-captures-for-rook.md",
         "1137-n-th-tribonacci-number.md",
         "1154-day-of-the-year.md",
         "1688-count-of-matches-in-tournament.md",
