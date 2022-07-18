@@ -6,3 +6,4 @@
 
 + [Golang](https://golang.org/doc/)
 + 《Head First Go 语言程序设计》
++ [Go 语言简明教程](https://geektutu.com/post/quick-golang.html)
