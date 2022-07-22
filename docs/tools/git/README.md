@@ -128,6 +128,14 @@ git commit  -m"docs(git): 新增 git 简单使用"
 git push
 ```
 
+### 统计信息
+
+```bash
+# 所有分支指定用户指定时间范围提交信息
+# 更多的 formats 可见 https://git-scm.com/docs/pretty-formats
+git log --all --author="你的名称" --after="2022-07-16" --before="2022-07-23" --no-merges --pretty=format:"%an(%ae) %as: %s"
+```
+
 ### Git 飞行规则
 
 [Git飞行规则(Flight Rules)](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md) 可以用来指导一些常见的问题。
