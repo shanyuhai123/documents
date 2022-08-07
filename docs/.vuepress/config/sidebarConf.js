@@ -343,6 +343,7 @@ module.exports = {
       "children": [
         "README.md",
         "begin-with-cli.md",
+        "drag-and-drop.md",
         "micro-frontends.md"
       ]
     }
