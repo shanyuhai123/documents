@@ -120,6 +120,23 @@ const draw = (event: MouseEvent, originCanvas: HTMLCanvasElement, zoomCanvas: HT
 }
 ```
 
+## 内置 API
+
+> 标记部分曾带来困扰的
+
+### drawImage
+
+语法支持三种传参：
+
+```js
+// s => source image
+// d => destination canvas
+ctx.drawImage(image, dx, dy)
+ctx.drawImage(image, dx, dy, dWidth, dHeight)
+// 该形式常用于 sprite image
+ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+```
+
 ## 参考资料
 
 + [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial)
