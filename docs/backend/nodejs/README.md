@@ -119,6 +119,16 @@ nrm test
 nrm use taobao
 ```
 
+## 一些命令
+
+```bash
+# 查看安装在全局 npm 包
+npm list -g --depth 0
+
+# npm install 失败时强制清理
+npm cache clean --force
+```
+
 ## 参考资料
 
 1. [Node.js](https://nodejs.org/dist/latest-v10.x/docs/api/)

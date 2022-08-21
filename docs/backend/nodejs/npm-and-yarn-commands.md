@@ -168,15 +168,3 @@ npm dist-tag add some-package@1.0.0 latest
 # premajor、preminor、prepatch、prerelease --preid=<alpha|beta|rc>
 npm version patch -m "chore: 发布 tag %s"
 ```
-
-## 回归 npm
-
-一些常用命令：
-
-```bash
-# 查看安装在全局 npm 包
-npm list -g --depth 0
-
-# npm install 失败时强制清理
-npm cache clean --force
-```
