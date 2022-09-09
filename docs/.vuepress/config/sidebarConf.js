@@ -369,6 +369,7 @@ module.exports = {
       "sidebarDepth": 1,
       "children": [
         "README.md",
+        "archlinux-system-migration.md",
         "arch-support-emoji.md",
         "use-sunlogin.md"
       ]
