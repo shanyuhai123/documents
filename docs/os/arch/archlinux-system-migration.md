@@ -157,3 +157,15 @@ grub-install --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
 # LANG=C grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+## 其他方式
+
+> 未曾尝试
+
+```sh
+# disk
+dd if=/dev/sdx of=/dev/sdy conv=noerror,sync
+# image
+dd if=/dev/sdx of=/run/media/shanyuhai/xxx/sys.img
+dd if=sys.img of=/dev/sdy
+```
