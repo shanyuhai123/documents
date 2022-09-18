@@ -13,29 +13,32 @@ xargs 能够处理管道或 stdin（标准输入）并将其转为特定的命�
 |  -n  | 指定项数。         |
 |  -L  | 指定行数。         |
 
-## 日常使用
+## 简单使用
 
-其实基本上只配合 `rm`、`wget` 作为日常使用。
-
-### 1. 删除
+### 1. 配合 rm 批量删除
 
 ```bash
 touch test{1..5}.txt
 find . -type f -name "test[2-3]*" | xargs -p rm
-ls # 验证
 ```
 
-### 2. 下载
+### 2. 配合 wget 批量下载
 
 ```bash
+# 存储图片列表到文件
 cat << EOF >> meitu.txt
 http://hd.wallpaperswide.com/thumbs/im_hungry-t2.jpg
 http://hd.wallpaperswide.com/thumbs/river_aerial_view-t2.jpg
 http://hd.wallpaperswide.com/thumbs/space_eye-t2.jpg
 EOF
 
-cat meitu.txt
+# 下载到 images 文件夹
 mkdir images
 cat meitu.txt | xargs wget -c -P images
-# 打开文件夹查看吧
+```
+
+### 3. 配合 git 批量删除分支
+
+```sh
+git branch | grep "reg-branches" | xargs git branch -D
 ```
