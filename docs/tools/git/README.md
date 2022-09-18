@@ -136,6 +136,14 @@ git push
 git log --all --author="你的名称" --after="2022-07-16" --before="2022-07-23" --no-merges --pretty=format:"%an(%ae) %as: %s"
 ```
 
+### 清理分支
+
+一个多人长期合作的项目会有很多的远程分支，影响命令行提示及 VSCode 分支管理混乱的界面。
+
+```sh
+git fetch --prune
+```
+
 ### Git 飞行规则
 
 [Git飞行规则(Flight Rules)](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md) 可以用来指导一些常见的问题。
