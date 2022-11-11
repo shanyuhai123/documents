@@ -162,13 +162,13 @@ gfw
 
 ### Git 代理
 
-在 Git 官网可获得提示 `http.proxy`，虽然在其余地方搜索还得到提示 `https.proxy`，但在官网并没有搜到对应内容，怀疑是误传。
-
 ```bash
 # 设置代理 
 git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
 # 取消代理
 git config --global --unset http.proxy
+git config --global --unset https.proxy
 
 # 更好的形式当然是设置为 alias
 alias proxygit="git config --global http.proxy socks5://127.0.0.1:1080"
