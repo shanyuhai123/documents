@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-38aee226","path":"/frontend/vue/","title":"前端从 Vue 开始","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"资料","slug":"资料","link":"#资料","children":[]}],"git":{"updatedTime":1637398403000,"contributors":[{"name":"shanyuhai123","email":"864299347@qq.com","commits":3}]},"filePathRelative":"frontend/vue/README.md"}');export{e as data};

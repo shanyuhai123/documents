@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-63353581","path":"/design/pixel/","title":"像素画","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"资料","slug":"资料","link":"#资料","children":[]}],"git":{"updatedTime":1637385365000,"contributors":[{"name":"shanyuhai123","email":"864299347@qq.com","commits":3}]},"filePathRelative":"design/pixel/README.md"}');export{e as data};

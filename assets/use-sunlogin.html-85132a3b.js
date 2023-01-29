@@ -1,0 +1,4 @@
+import{_ as e,p as a,q as s,a1 as n}from"./framework-49860b1b.js";const c={},t=n(`<h1 id="使用向日葵远程控制" tabindex="-1"><a class="header-anchor" href="#使用向日葵远程控制" aria-hidden="true">#</a> 使用向日葵远程控制</h1><p>通过 <code>yay</code> 进行安装客户端：</p><div class="language-bash" data-ext="sh"><pre class="language-bash"><code>yay <span class="token parameter variable">-S</span> sunloginclient
+</code></pre></div><h2 id="启动失败" tabindex="-1"><a class="header-anchor" href="#启动失败" aria-hidden="true">#</a> 启动失败</h2><p>这需要启动它的服务：</p><div class="language-bash" data-ext="sh"><pre class="language-bash"><code>systemctl start runsunloginclient.service
+</code></pre></div><p>对于该软件，个人倾向于在使用后立即停止：</p><div class="language-bash" data-ext="sh"><pre class="language-bash"><code>systemctl stop runsunloginclient.service
+</code></pre></div>`,8),r=[t];function l(d,i){return a(),s("div",null,r)}const h=e(c,[["render",l],["__file","use-sunlogin.html.vue"]]);export{h as default};

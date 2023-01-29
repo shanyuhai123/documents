@@ -1,0 +1,1 @@
+import{_ as t,p as n,q as o,Q as e,t as a}from"./framework-49860b1b.js";const c={},s=e("h1",{id:"谷歌",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#谷歌","aria-hidden":"true"},"#"),a(" 谷歌")],-1),r=e("blockquote",null,[e("p",null,"谷歌有很多好的应用")],-1),_=[s,r];function d(l,i){return n(),o("div",null,_)}const u=t(c,[["render",d],["__file","index.html.vue"]]);export{u as default};

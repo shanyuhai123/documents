@@ -1,1 +1,0 @@
-const e={key:"v-dd37cd72",path:"/frontend/vite/",title:"\u5FEB\u901F\u7684 Vite",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u53C2\u8003\u8D44\u6599",slug:"\u53C2\u8003\u8D44\u6599",children:[]}],filePathRelative:"frontend/vite/README.md",git:{updatedTime:1637398339e3,contributors:[{name:"shanyuhai123",email:"864299347@qq.com",commits:2}]}};export{e as data};

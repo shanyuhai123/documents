@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-a94a8cca","path":"/computer/","title":"计算机基础","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"参考资料","slug":"参考资料","link":"#参考资料","children":[]}],"git":{"updatedTime":1637395653000,"contributors":[{"name":"shanyuhai123","email":"864299347@qq.com","commits":3}]},"filePathRelative":"computer/README.md"}');export{e as data};

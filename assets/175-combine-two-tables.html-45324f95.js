@@ -1,0 +1,9 @@
+import{_ as a,p as n,q as s,a1 as e}from"./framework-49860b1b.js";const t={},o=e(`<h1 id="组合两个表" tabindex="-1"><a class="header-anchor" href="#组合两个表" aria-hidden="true">#</a> 组合两个表</h1><p>数据库<a href="/backend/mysql/join-and-union">多表查询</a>。</p><h2 id="outer-join" tabindex="-1"><a class="header-anchor" href="#outer-join" aria-hidden="true">#</a> outer join</h2><div class="language-sql" data-ext="sql"><pre class="language-sql"><code><span class="token keyword">SELECT</span>
+  p<span class="token punctuation">.</span>FirstName<span class="token punctuation">,</span>
+  p<span class="token punctuation">.</span>LastName<span class="token punctuation">,</span>
+  a<span class="token punctuation">.</span>City<span class="token punctuation">,</span>
+  a<span class="token punctuation">.</span>State
+<span class="token keyword">FROM</span> Person p
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> Address a
+  <span class="token keyword">ON</span> p<span class="token punctuation">.</span>PersonId <span class="token operator">=</span> a<span class="token punctuation">.</span>PersonId
+</code></pre></div>`,4),p=[o];function c(r,i){return n(),s("div",null,p)}const d=a(t,[["render",c],["__file","175-combine-two-tables.html.vue"]]);export{d as default};

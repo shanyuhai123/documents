@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-61aa12f3","path":"/computer/nat.html","title":"NAT 是什么","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1637395653000,"contributors":[{"name":"shanyuhai123","email":"864299347@qq.com","commits":2}]},"filePathRelative":"computer/nat.md"}');export{t as data};

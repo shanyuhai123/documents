@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-441bf8b6","path":"/os/ubuntu/","title":"Ubuntu","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"配置详情","slug":"配置详情","link":"#配置详情","children":[]}],"git":{"updatedTime":1637399796000,"contributors":[{"name":"shanyuhai123","email":"864299347@qq.com","commits":7}]},"filePathRelative":"os/ubuntu/README.md"}');export{t as data};
