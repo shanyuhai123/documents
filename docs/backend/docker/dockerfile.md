@@ -180,6 +180,8 @@ ADD [--chown=<user>:<group>] ["<src>",... "<dest>"]
 
 ### 17. COPY（操作）
 
+`COPY` 的 `src` 是相对于 `build` 命令指定的 `path` 位置，与 `Dockfile` 文件位置无关。
+
 ```dockerfile
 COPY [--chown=<user>:<group>] <src>... <dest>
 # or
@@ -228,6 +230,8 @@ COPY ./index.html /usr/share/nginx/html
 ```
 
 ### 3. build
+
+`build` 时指定的 `path` 会作为 `Dockfile` 内的操作的上下文。
 
 ```bash
 docker build -t nginx-dockerfile-image .
