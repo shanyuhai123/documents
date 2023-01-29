@@ -6,12 +6,26 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15]
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Pnpm Action 🛎️
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Install and Build 🔧
         env:
@@ -19,8 +33,8 @@ jobs:
         run: |
           export GOOGLE_GA=${{ secrets.GOOGLE_GA }} GOOGLE_SEARCH_CONSOLE=${{ secrets.GOOGLE_SEARCH_CONSOLE }}
           git --no-pager log --oneline -n 20
-          yarn
-          yarn docs:build
+          pnpm install
+          pnpm docs:build
 
       - name: Deploy Github 🚀
         uses: peaceiris/actions-gh-pages@v3
