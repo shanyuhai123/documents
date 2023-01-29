@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   { text: '首页', link: '/' },
   { text: '先看', link: '/pre-reading.html' },
   { text: '计算机', link: '/computer/' },

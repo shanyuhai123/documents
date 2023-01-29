@@ -1,5 +1,5 @@
 :root {
-  --c-brand: #2486b9 !important;
+  --c-brand: #2486b9;
 }
 
 strong {
@@ -19,17 +19,17 @@ pre[class*="language-"]::before {
   width: 10px;
   position: absolute;
   top: 12px;
-  left: 3.7rem;
+  left: 3rem;
   border-radius: 50%;
   display: inline-block;
   background: #ff4742;
 }
 pre[class*="language-"]::before {
-  left: 1.5rem;
+  left: 1rem;
   background: #b300eb;
 }
 pre[class*="language-"]::after {
-  left: 2.6rem;
+  left: 2rem;
   background: #fcd019;
 }
 

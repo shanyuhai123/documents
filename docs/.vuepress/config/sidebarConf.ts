@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "/backend/docker/": [
     {
       "text": "DOCKER",

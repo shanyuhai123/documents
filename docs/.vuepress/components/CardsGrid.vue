@@ -32,6 +32,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
+      padding: 0;
     }
     .desc {
       color: #333;
