@@ -8,6 +8,14 @@ description: 更好维护的 TypeScript
 
 接触了 TypeScript，JavaScript 便成为了备选。
 
+## 配置文件
+
+如果一个目录下存在 `tsconfig.json`，那么被识别为 `TypeScript` 项目的根目录。
+
+### references
+
+当一个大型项目想对不同模块、文件分别编译时，可以使用脚本，也可以使用在 `v3` 中新增的顶层属性 `references`，配合上 `includes` 即可快速实现需求。
+
 ## Interface & Type Aliases
 
 `Type Aliases`，即 “类型别名”，注意它是别名而不是真正的类型。
