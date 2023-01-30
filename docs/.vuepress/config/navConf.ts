@@ -57,5 +57,5 @@ export default [
     { text: 'VuePress 侧边栏插件', link: 'https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/' },
     { text: 'VuePress 官网', link: 'https://vuepress.vuejs.org/zh/' },
   ]},
-  { text: '🚇 开往', link: 'https://travellings.cn' },
+  { text: '🚇 开往', link: 'https://www.travellings.cn/go.html' },
 ];
