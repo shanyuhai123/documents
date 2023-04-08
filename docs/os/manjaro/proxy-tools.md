@@ -108,3 +108,19 @@ WantedBy=multi-user.target
 sudo systemctl start clash.service
 sudo systemctl enable clash.service
 ```
+
+### 5. premium 版
+
+越来越多的服务提供了 `proxy-groups` 及 `tun` 功能，这会导致普通版本的 `clash` 解析配置失败。
+
+```sh
+# 移除原有服务
+sudo pacman -R clash
+sudo systemctl stop clash.service
+sudo systemctl disable clash.service
+
+# 安装 premium 版
+yay -S clash-premium-bin
+sudo systemctl start clash.service
+sudo systemctl enable clash.service
+```
