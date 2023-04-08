@@ -1,4 +1,4 @@
-import{_ as t,M as o,p,q as c,Q as s,t as a,N as r,a1 as n}from"./framework-49860b1b.js";const l={},i=n(`<h1 id="代理工具" tabindex="-1"><a class="header-anchor" href="#代理工具" aria-hidden="true">#</a> 代理工具</h1><h2 id="shadowsocks" tabindex="-1"><a class="header-anchor" href="#shadowsocks" aria-hidden="true">#</a> Shadowsocks</h2><h3 id="_1-安装" tabindex="-1"><a class="header-anchor" href="#_1-安装" aria-hidden="true">#</a> 1. 安装</h3><p>通过任意形式安装即可。</p><h3 id="_2-配置" tabindex="-1"><a class="header-anchor" href="#_2-配置" aria-hidden="true">#</a> 2. 配置</h3><p>配置文件在 <code>/etc/shadowsocks/config.json</code>：</p><div class="language-json" data-ext="json"><pre class="language-json"><code><span class="token punctuation">{</span>
+import{_ as t,M as o,p,q as c,Q as s,t as a,N as l,a1 as n}from"./framework-49860b1b.js";const r={},i=n(`<h1 id="代理工具" tabindex="-1"><a class="header-anchor" href="#代理工具" aria-hidden="true">#</a> 代理工具</h1><h2 id="shadowsocks" tabindex="-1"><a class="header-anchor" href="#shadowsocks" aria-hidden="true">#</a> Shadowsocks</h2><h3 id="_1-安装" tabindex="-1"><a class="header-anchor" href="#_1-安装" aria-hidden="true">#</a> 1. 安装</h3><p>通过任意形式安装即可。</p><h3 id="_2-配置" tabindex="-1"><a class="header-anchor" href="#_2-配置" aria-hidden="true">#</a> 2. 配置</h3><p>配置文件在 <code>/etc/shadowsocks/config.json</code>：</p><div class="language-json" data-ext="json"><pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">&quot;server&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xxx.xxx.xxx.xxx&quot;</span><span class="token punctuation">,</span>
   <span class="token property">&quot;server_port&quot;</span><span class="token operator">:</span> port<span class="token punctuation">,</span>
   <span class="token property">&quot;local_address&quot;</span><span class="token operator">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
@@ -37,4 +37,13 @@ INFO<span class="token punctuation">[</span>0000<span class="token punctuation">
 </code></pre></div><p>启动：</p><div class="language-bash" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 其他一致</span>
 <span class="token function">sudo</span> systemctl start clash.service
 <span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> clash.service
-</code></pre></div>`,14);function h(k,g){const e=o("ExternalLinkIcon");return p(),c("div",null,[i,s("p",null,[a("在 "),s("a",d,[a("release"),r(e)]),a(" 中选择一个适合你的，并解压。")]),u])}const f=t(l,[["render",h],["__file","proxy-tools.html.vue"]]);export{f as default};
+</code></pre></div><h3 id="_5-premium-版" tabindex="-1"><a class="header-anchor" href="#_5-premium-版" aria-hidden="true">#</a> 5. premium 版</h3><p>越来越多的服务提供了 <code>proxy-groups</code> 及 <code>tun</code> 功能，这会导致普通版本的 <code>clash</code> 解析配置失败。</p><div class="language-bash" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 移除原有服务</span>
+<span class="token function">sudo</span> pacman <span class="token parameter variable">-R</span> clash
+<span class="token function">sudo</span> systemctl stop clash.service
+<span class="token function">sudo</span> systemctl disable clash.service
+
+<span class="token comment"># 安装 premium 版</span>
+yay <span class="token parameter variable">-S</span> clash-premium-bin
+<span class="token function">sudo</span> systemctl start clash.service
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> clash.service
+</code></pre></div>`,17);function h(k,b){const e=o("ExternalLinkIcon");return p(),c("div",null,[i,s("p",null,[a("在 "),s("a",d,[a("release"),l(e)]),a(" 中选择一个适合你的，并解压。")]),u])}const g=t(r,[["render",h],["__file","proxy-tools.html.vue"]]);export{g as default};
