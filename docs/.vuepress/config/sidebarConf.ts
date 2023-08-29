@@ -450,7 +450,6 @@ export default {
       "sidebarDepth": 1,
       "children": [
         "README.md",
-        "archlinux-aur.md",
         "enhance-virtualbox-tools-on-manjaro.md",
         "fix-idea.md",
         "install-deb-program-on-manjaro.md",

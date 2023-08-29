@@ -32,8 +32,6 @@ SDL_IM_MODULE DEFAULT=fcitx
 export QT_IM_MODULE=fcitx5v
 ```
 
-
-
 主题与词库：
 
 ```sh
@@ -63,6 +61,18 @@ sudo firewall-config
 1. 配置切换到 “永久”
 2. 在右下角的 “服务” 中找到 `kdeconnect`，勾选即可
 3. 在左上角 “选项” 中重载防火墙
+
+## AUR 社区仓库
+
+使用 `paru` 替代 `yay` 对 `aur` 包进行管理。
+
+```sh
+# 安装已更新
+paru -Sua
+
+# 清理
+paru --clean
+```
 
 ## 在用的小工具
 
