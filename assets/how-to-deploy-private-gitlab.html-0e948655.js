@@ -64,7 +64,7 @@ gitlab-ctl status <span class="token comment"># 验证</span>
 
 <span class="token comment"># 指定数据</span>
 gitlab-rake gitlab:backup:restore <span class="token assign-left variable">BACKUP</span><span class="token operator">=</span>1607523472_2020_12_09_13.2.1
-</code></pre></div><h2 id="快速而简单的升级" tabindex="-1"><a class="header-anchor" href="#快速而简单的升级" aria-hidden="true">#</a> 快速而简单的升级</h2>`,19),m={href:"https://hub.docker.com/r/gitlab/gitlab-ce/tags",target:"_blank",rel:"noopener noreferrer"},b={href:"https://docs.gitlab.com/ee/update/#upgrade-paths",target:"_blank",rel:"noopener noreferrer"},h=e(`<div class="language-bash" data-ext="sh"><pre class="language-bash"><code><span class="token function">docker-compose</span> down
+</code></pre></div><h2 id="快速而简单的升级" tabindex="-1"><a class="header-anchor" href="#快速而简单的升级" aria-hidden="true">#</a> 快速而简单的升级</h2>`,19),m={href:"https://hub.docker.com/r/gitlab/gitlab-ce/tags",target:"_blank",rel:"noopener noreferrer"},b={href:"https://docs.gitlab.com/ee/update/#upgrade-paths",target:"_blank",rel:"noopener noreferrer"},h={href:"https://gitlab-com.gitlab.io/support/toolbox/upgrade-path",target:"_blank",rel:"noopener noreferrer"},v=e(`<div class="language-bash" data-ext="sh"><pre class="language-bash"><code><span class="token function">docker-compose</span> down
 <span class="token function">docker-compose</span> up
 
 <span class="token comment"># 等待完成</span>
@@ -102,7 +102,7 @@ gitlab-rake gitlab:backup:restore <span class="token assign-left variable">BACKU
   <span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\\</span>
   <span class="token parameter variable">--name</span> gitlab-runner <span class="token punctuation">\\</span>
   gitlab/gitlab-runner:latest
-</code></pre></div><h3 id="privileged" tabindex="-1"><a class="header-anchor" href="#privileged" aria-hidden="true">#</a> privileged</h3><p>当存在 <code>error during connect no such host</code> 报错时修改 runner config 的 <code>privileged</code> 属性为 <code>true</code>。</p><h3 id="自签证书" tabindex="-1"><a class="header-anchor" href="#自签证书" aria-hidden="true">#</a> 自签证书</h3>`,11),v={href:"https://docs.gitlab.com/runner/configuration/tls-self-signed.html",target:"_blank",rel:"noopener noreferrer"},_=e(`<div class="language-bash" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 宿主机</span>
+</code></pre></div><h3 id="privileged" tabindex="-1"><a class="header-anchor" href="#privileged" aria-hidden="true">#</a> privileged</h3><p>当存在 <code>error during connect no such host</code> 报错时修改 runner config 的 <code>privileged</code> 属性为 <code>true</code>。</p><h3 id="自签证书" tabindex="-1"><a class="header-anchor" href="#自签证书" aria-hidden="true">#</a> 自签证书</h3>`,11),_={href:"https://docs.gitlab.com/runner/configuration/tls-self-signed.html",target:"_blank",rel:"noopener noreferrer"},f=e(`<div class="language-bash" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 宿主机</span>
 <span class="token function">docker</span> <span class="token function">cp</span> /etc/gitlab-runner/certs/ca.crt gitlab-runner-node:/usr/local/share/ca-certificates/ca.crt
 
 <span class="token comment"># 容器内</span>
@@ -110,4 +110,4 @@ gitlab-rake gitlab:backup:restore <span class="token assign-left variable">BACKU
 update-ca-certificates <span class="token parameter variable">--fresh</span>
 
 <span class="token function">curl</span> https://example.com <span class="token comment"># 访问成功</span>
-</code></pre></div>`,1);function f(x,q){const s=o("ExternalLinkIcon");return c(),l("div",null,[i,n("p",null,[a("多家对比后选择了"),n("a",u,[a("腾讯企业邮箱"),t(s)]),a("，依次进入 "),k,a("，再回到 "),d,a(" 获取授权码即可（至于配置域名，邮件配置可另行谷歌）。")]),g,n("p",null,[a("使用 Docker Compose 进行维护，找到新的"),n("a",m,[a("镜像"),t(s)]),a("替换上，注意大版本的升级变动，需按照"),n("a",b,[a("升级路径"),t(s)]),a("进行升级。")]),h,n("p",null,[a("根据 "),n("a",v,[a("tls-self-signed"),t(s)]),a(" 去信任 ca：")]),_])}const T=p(r,[["render",f],["__file","how-to-deploy-private-gitlab.html.vue"]]);export{T as default};
+</code></pre></div>`,1);function x(q,y){const s=o("ExternalLinkIcon");return c(),l("div",null,[i,n("p",null,[a("多家对比后选择了"),n("a",u,[a("腾讯企业邮箱"),t(s)]),a("，依次进入 "),k,a("，再回到 "),d,a(" 获取授权码即可（至于配置域名，邮件配置可另行谷歌）。")]),g,n("p",null,[a("使用 Docker Compose 进行维护，找到新的"),n("a",m,[a("镜像"),t(s)]),a("替换上，注意大版本的升级变动，需按照"),n("a",b,[a("升级路径"),t(s)]),a("进行升级，另外可参考"),n("a",h,[a("升级路径"),t(s)]),a("工具。")]),v,n("p",null,[a("根据 "),n("a",_,[a("tls-self-signed"),t(s)]),a(" 去信任 ca：")]),f])}const w=p(r,[["render",x],["__file","how-to-deploy-private-gitlab.html.vue"]]);export{w as default};
