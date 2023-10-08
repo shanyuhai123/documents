@@ -121,7 +121,7 @@ gitlab-rake gitlab:backup:restore BACKUP=1607523472_2020_12_09_13.2.1
 
 ## 快速而简单的升级
 
-使用 Docker Compose 进行维护，找到新的[镜像](https://hub.docker.com/r/gitlab/gitlab-ce/tags)替换上，注意大版本的升级变动，需按照[升级路径](https://docs.gitlab.com/ee/update/#upgrade-paths)进行升级。
+使用 Docker Compose 进行维护，找到新的[镜像](https://hub.docker.com/r/gitlab/gitlab-ce/tags)替换上，注意大版本的升级变动，需按照[升级路径](https://docs.gitlab.com/ee/update/#upgrade-paths)进行升级，另外可参考[升级路径](https://gitlab-com.gitlab.io/support/toolbox/upgrade-path)工具。
 
 ```sh
 docker-compose down
