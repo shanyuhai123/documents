@@ -71,7 +71,7 @@ gitlab-rake gitlab:backup:restore <span class="token assign-left variable">BACKU
 <span class="token function">docker-compose</span> logs <span class="token parameter variable">-f</span>
 </code></pre></div><h2 id="添加-runner" tabindex="-1"><a class="header-anchor" href="#添加-runner" aria-hidden="true">#</a> 添加 Runner</h2><p>先注册 GitLab Runner：</p><div class="language-bash" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 注册（删除 register 及以后可交互式注册）</span>
 <span class="token function">docker</span> run <span class="token parameter variable">--rm</span> <span class="token parameter variable">-it</span> <span class="token punctuation">\\</span>
-  <span class="token parameter variable">-v</span> /srv/gitlab-runner/config:/etc/gitlab-runner <span class="token punctuation">\\</span>
+  <span class="token parameter variable">-v</span> /srv/gitlab-runner:/etc/gitlab-runner <span class="token punctuation">\\</span>
   gitlab/gitlab-runner:latest register <span class="token punctuation">\\</span>
     --non-interactive <span class="token punctuation">\\</span>
     <span class="token parameter variable">--url</span> <span class="token string">&quot;https://gitlab.com/&quot;</span> <span class="token punctuation">\\</span>
@@ -85,7 +85,7 @@ gitlab-rake gitlab:backup:restore <span class="token assign-left variable">BACKU
     --run-untagged<span class="token operator">=</span><span class="token string">&quot;true&quot;</span> <span class="token punctuation">\\</span>
     <span class="token parameter variable">--locked</span><span class="token operator">=</span><span class="token string">&quot;false&quot;</span> <span class="token punctuation">\\</span>
     --access-level<span class="token operator">=</span><span class="token string">&quot;not_protected&quot;</span>
-</code></pre></div><p>再前往 <code>/srv/gitlab-runner/config/config.toml</code> 修改 <code>volumes</code>：</p><div class="language-toml" data-ext="toml"><pre class="language-toml"><code><span class="token comment"># 修改前：</span>
+</code></pre></div><p>再前往 <code>/srv/gitlab-runner/config.toml</code> 修改 <code>volumes</code>：</p><div class="language-toml" data-ext="toml"><pre class="language-toml"><code><span class="token comment"># 修改前：</span>
 <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token table class-name">runners</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
   <span class="token comment"># ...</span>
   <span class="token punctuation">[</span><span class="token table class-name">runners.docker</span><span class="token punctuation">]</span>
@@ -98,7 +98,7 @@ gitlab-rake gitlab:backup:restore <span class="token assign-left variable">BACKU
     <span class="token key property">volumes</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">&quot;/cache&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span><span class="token punctuation">]</span>
 </code></pre></div><p>最后启动 Runner：</p><div class="language-bash" data-ext="sh"><pre class="language-bash"><code><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\\</span>
   <span class="token parameter variable">--restart</span> always <span class="token punctuation">\\</span>
-  <span class="token parameter variable">-v</span> /srv/gitlab-runner/config:/etc/gitlab-runner <span class="token punctuation">\\</span>
+  <span class="token parameter variable">-v</span> /srv/gitlab-runner:/etc/gitlab-runner <span class="token punctuation">\\</span>
   <span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\\</span>
   <span class="token parameter variable">--name</span> gitlab-runner <span class="token punctuation">\\</span>
   gitlab/gitlab-runner:latest
