@@ -138,7 +138,7 @@ docker-compose logs -f
 ```bash
 # 注册（删除 register 及以后可交互式注册）
 docker run --rm -it \
-  -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+  -v /srv/gitlab-runner:/etc/gitlab-runner \
   gitlab/gitlab-runner:latest register \
     --non-interactive \
     --url "https://gitlab.com/" \
@@ -154,7 +154,7 @@ docker run --rm -it \
     --access-level="not_protected"
 ```
 
-再前往 `/srv/gitlab-runner/config/config.toml` 修改 `volumes`：
+再前往 `/srv/gitlab-runner/config.toml` 修改 `volumes`：
 
 ``` toml
 # 修改前：
@@ -175,7 +175,7 @@ docker run --rm -it \
 ``` sh
 docker run -d \
   --restart always \
-  -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+  -v /srv/gitlab-runner:/etc/gitlab-runner \
   -v /var/run/docker.sock:/var/run/docker.sock \
   --name gitlab-runner \
   gitlab/gitlab-runner:latest
