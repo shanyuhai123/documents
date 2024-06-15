@@ -1,5 +1,9 @@
 # fail2ban
 
+::: danger 重要
+使得 fail2ban 生效，需要启用 firewalld 服务。
+:::
+
 服务器安全一直是一个问题，常使用 [fail2ban](https://github.com/fail2ban/fail2ban) 来防止 SSH 暴力破解。
 
 在启用 Web 服务后，常常会有一些脚本前来扫描是否存在漏洞，可以利用 `fail2ban` 禁用访问的 IP。还可以后端放出一些陷阱数据，正常用户界面不会展示，而一旦有爬虫访问了该数据，则禁用对应的 IP。
