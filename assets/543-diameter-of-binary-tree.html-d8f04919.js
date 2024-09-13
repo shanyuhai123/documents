@@ -1,0 +1,17 @@
+import{_ as a,p as s,q as t,a1 as p}from"./framework-e3e34937.js";const o={};function e(c,n){return s(),t("div",null,n[0]||(n[0]=[p(`<h1 id="二叉树的直径" tabindex="-1"><a class="header-anchor" href="#二叉树的直径" aria-hidden="true">#</a> 二叉树的直径</h1><p>参考<a href="./104-maximum-depth-of-binary-tree">二叉树的最大深度</a>。</p><h2 id="递归" tabindex="-1"><a class="header-anchor" href="#递归" aria-hidden="true">#</a> 递归</h2><p>注：从根节点开始不一定最大。</p><div class="language-typescript" data-ext="ts"><pre class="language-typescript"><code><span class="token keyword">function</span> <span class="token function">diameterOfBinaryTree</span><span class="token punctuation">(</span>root<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> max <span class="token operator">=</span> <span class="token number">0</span>
+
+  <span class="token keyword">const</span> maxDepth <span class="token operator">=</span> <span class="token punctuation">(</span>root<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span>
+
+    <span class="token keyword">const</span> left <span class="token operator">=</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> right <span class="token operator">=</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+    max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span><span class="token punctuation">,</span> max<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> max
+<span class="token punctuation">}</span>
+</code></pre></div>`,5)]))}const l=a(o,[["render",e],["__file","543-diameter-of-binary-tree.html.vue"]]);export{l as default};
