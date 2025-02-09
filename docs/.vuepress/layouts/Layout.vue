@@ -20,6 +20,5 @@ import GithubIcon from '@iconify-icons/brandico/github'
   align-items: center;
   margin: 0 -0.8rem 0 0.6rem;
   padding: 0 6px;
-  color: var(--c-text);
 }
 </style>

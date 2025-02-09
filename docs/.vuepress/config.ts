@@ -1,6 +1,8 @@
 import path from 'path'
 import katex from 'markdown-it-katex'
-import { defineUserConfig, defaultTheme, viteBundler } from 'vuepress'
+import { defineUserConfig } from 'vuepress'
+import { defaultTheme } from '@vuepress/theme-default'
+import { viteBundler } from '@vuepress/bundler-vite'
 import navConf from './config/navConf'
 import sidebarConf from './config/sidebarConf'
 import pluginConf from './config/pluginConf'
@@ -42,9 +44,6 @@ export default defineUserConfig({
     importCode: {
       handleImportPath: str => str.replace(/^@components/, path.resolve(__dirname, './components'))
     },
-    code: {
-      lineNumbers: false
-    }
   },
   extendsMarkdown(md) {
     md.use(katex)

@@ -1,8 +1,9 @@
 import path from 'path'
 import * as dotenv from 'dotenv'
-import searchPlugin from '@vuepress/plugin-search';
-import googleAnalyticsPlugin from '@vuepress/plugin-google-analytics';
-import registerComponentsPlugin from '@vuepress/plugin-register-components';
+import { searchPlugin } from '@vuepress/plugin-search';
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics';
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components';
+import { prismjsPlugin } from '@vuepress/plugin-prismjs'
 
 dotenv.config()
 
@@ -34,6 +35,9 @@ export default [
   }),
   registerComponentsPlugin({
     componentsDir: path.resolve(__dirname, '../components'),
+  }),
+  prismjsPlugin({
+    lineNumbers: false
   })
   // // ["vuepress-plugin-auto-sidebar", {
   // //   output: {
