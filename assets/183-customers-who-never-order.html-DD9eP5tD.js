@@ -1,0 +1,9 @@
+import{_ as a,c as n,a as e,o as t}from"./app-DNXRdI82.js";const o={};function r(p,s){return t(),n("div",null,s[0]||(s[0]=[e(`<h1 id="从不订购的客户" tabindex="-1"><a class="header-anchor" href="#从不订购的客户"><span>从不订购的客户</span></a></h1><h2 id="not-in" tabindex="-1"><a class="header-anchor" href="#not-in"><span>NOT IN</span></a></h2><div class="language-sql" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre><code><span class="line"><span class="token keyword">SELECT</span></span>
+<span class="line">  name <span class="token keyword">as</span> <span class="token string">&#39;Customers&#39;</span></span>
+<span class="line"><span class="token keyword">FROM</span> Customers c</span>
+<span class="line"><span class="token keyword">WHERE</span> c<span class="token punctuation">.</span>id <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span></span>
+<span class="line">  <span class="token keyword">SELECT</span></span>
+<span class="line">    customerId</span>
+<span class="line">  <span class="token keyword">FROM</span> Orders</span>
+<span class="line"><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre></div>`,3)]))}const c=a(o,[["render",r],["__file","183-customers-who-never-order.html.vue"]]),i=JSON.parse('{"path":"/algorithms/183-customers-who-never-order.html","title":"从不订购的客户","lang":"zh-CN","frontmatter":{"autoSort":-183},"headers":[{"level":2,"title":"NOT IN","slug":"not-in","link":"#not-in","children":[]}],"git":{"updatedTime":1635067070000,"contributors":[{"name":"shanyuhai123","username":"shanyuhai123","email":"864299347@qq.com","commits":1,"url":"https://github.com/shanyuhai123"}]},"filePathRelative":"algorithms/183-customers-who-never-order.md"}');export{c as comp,i as data};

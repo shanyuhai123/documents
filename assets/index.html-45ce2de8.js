@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-155fce89","path":"/tools/google/","title":"谷歌","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1637399162000,"contributors":[{"name":"shanyuhai123","email":"864299347@qq.com","commits":2}]},"filePathRelative":"tools/google/README.md"}');export{t as data};

@@ -1,0 +1,24 @@
+import{_ as s,c as a,a as e,o as l}from"./app-DNXRdI82.js";const p={};function t(i,n){return l(),a("div",null,n[0]||(n[0]=[e(`<h1 id="centos-下安装最新版本的-nginx" tabindex="-1"><a class="header-anchor" href="#centos-下安装最新版本的-nginx"><span>CentOS 下安装最新版本的 Nginx</span></a></h1><h2 id="安装依赖" tabindex="-1"><a class="header-anchor" href="#安装依赖"><span>安装依赖</span></a></h2><div class="language-bash" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre><code><span class="line"><span class="token function">sudo</span> yum <span class="token function">install</span> yum-utils</span>
+<span class="line"></span></code></pre></div><h2 id="更新源" tabindex="-1"><a class="header-anchor" href="#更新源"><span>更新源</span></a></h2><div class="language-bash" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre><code><span class="line"><span class="token function">vim</span> /etc/yum.repos.d/nginx.repo</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 配置内容为</span></span>
+<span class="line"><span class="token punctuation">[</span>nginx-stable<span class="token punctuation">]</span></span>
+<span class="line"><span class="token assign-left variable">name</span><span class="token operator">=</span>nginx stable repo</span>
+<span class="line"><span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://nginx.org/packages/centos/<span class="token variable">$releasever</span>/<span class="token variable">$basearch</span>/</span>
+<span class="line"><span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span></span>
+<span class="line"><span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span></span>
+<span class="line"><span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>https://nginx.org/keys/nginx_signing.key</span>
+<span class="line"></span>
+<span class="line"><span class="token punctuation">[</span>nginx-mainline<span class="token punctuation">]</span></span>
+<span class="line"><span class="token assign-left variable">name</span><span class="token operator">=</span>nginx mainline repo</span>
+<span class="line"><span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://nginx.org/packages/mainline/centos/<span class="token variable">$releasever</span>/<span class="token variable">$basearch</span>/</span>
+<span class="line"><span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span></span>
+<span class="line"><span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">0</span></span>
+<span class="line"><span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>https://nginx.org/keys/nginx_signing.key</span>
+<span class="line"></span></code></pre></div><h2 id="启用配置" tabindex="-1"><a class="header-anchor" href="#启用配置"><span>启用配置</span></a></h2><div class="language-bash" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre><code><span class="line"><span class="token function">sudo</span> yum-config-manager <span class="token parameter variable">--enable</span> nginx-mainline</span>
+<span class="line"><span class="token comment"># 或 nginx-stable</span></span>
+<span class="line"></span></code></pre></div><h2 id="安装-nginx" tabindex="-1"><a class="header-anchor" href="#安装-nginx"><span>安装 Nginx</span></a></h2><div class="language-bash" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre><code><span class="line"><span class="token function">sudo</span> yum <span class="token function">install</span> nginx</span>
+<span class="line"></span>
+<span class="line">nginx <span class="token parameter variable">-v</span> <span class="token comment"># 验证</span></span>
+<span class="line"><span class="token comment"># nginx version: nginx/1.17.3</span></span>
+<span class="line"></span></code></pre></div>`,9)]))}const o=s(p,[["render",t],["__file","install-the-latest-version-of-nginx.html.vue"]]),r=JSON.parse('{"path":"/os/centos/install-the-latest-version-of-nginx.html","title":"CentOS 下安装最新版本的 Nginx","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"安装依赖","slug":"安装依赖","link":"#安装依赖","children":[]},{"level":2,"title":"更新源","slug":"更新源","link":"#更新源","children":[]},{"level":2,"title":"启用配置","slug":"启用配置","link":"#启用配置","children":[]},{"level":2,"title":"安装 Nginx","slug":"安装-nginx","link":"#安装-nginx","children":[]}],"git":{"updatedTime":1637395909000,"contributors":[{"name":"shanyuhai123","username":"shanyuhai123","email":"864299347@qq.com","commits":3,"url":"https://github.com/shanyuhai123"}]},"filePathRelative":"os/centos/install-the-latest-version-of-nginx.md"}');export{o as comp,r as data};
