@@ -371,7 +371,8 @@ export default {
         "README.md",
         "archlinux-system-migration.md",
         "arch-support-emoji.md",
-        "use-sunlogin.md"
+        "use-sunlogin.md",
+        "cherry-studio-spawn-node.md"
       ]
     }
   ],
