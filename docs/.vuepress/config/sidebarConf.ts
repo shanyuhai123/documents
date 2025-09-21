@@ -458,11 +458,9 @@ export default {
         "lock-screen-shortcuts.md",
         "manjaro-with-nvidia.md",
         "most-used-softwares.md",
-        "mpv.md",
         "proxy-tools.md",
         "readonly-after-mount-the-disk.md",
         "solve-problems-with-manjaro.md",
-        "terminal-agent.md",
         "you-get.md",
         "zsh-can-not-find-npm.md"
       ]
