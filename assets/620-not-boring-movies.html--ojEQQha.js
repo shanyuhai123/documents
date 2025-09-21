@@ -1,8 +1,0 @@
-import{_ as a,c as n,a as e,o}from"./app-BCSwjUcF.js";const t={};function r(p,s){return o(),n("div",null,s[0]||(s[0]=[e(`<h1 id="有趣的电影" tabindex="-1"><a class="header-anchor" href="#有趣的电影"><span>有趣的电影</span></a></h1><h2 id="order-by" tabindex="-1"><a class="header-anchor" href="#order-by"><span>ORDER BY</span></a></h2><div class="language-sql" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre><code><span class="line"><span class="token keyword">SELECT</span></span>
-<span class="line">  <span class="token operator">*</span></span>
-<span class="line"><span class="token keyword">FROM</span></span>
-<span class="line">  cinema</span>
-<span class="line"><span class="token keyword">WHERE</span></span>
-<span class="line">  description <span class="token operator">!=</span> <span class="token string">&#39;boring&#39;</span> <span class="token operator">AND</span> id <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">1</span></span>
-<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> rating <span class="token keyword">DESC</span></span>
-<span class="line"></span></code></pre></div>`,3)]))}const i=a(t,[["render",r]]),c=JSON.parse('{"path":"/algorithms/620-not-boring-movies.html","title":"有趣的电影","lang":"zh-CN","frontmatter":{"autoSort":-620},"headers":[{"level":2,"title":"ORDER BY","slug":"order-by","link":"#order-by","children":[]}],"git":{"updatedTime":1638192610000,"contributors":[{"name":"shanyuhai123","username":"shanyuhai123","email":"864299347@qq.com","commits":1,"url":"https://github.com/shanyuhai123"}]},"filePathRelative":"algorithms/620-not-boring-movies.md"}');export{i as comp,c as data};

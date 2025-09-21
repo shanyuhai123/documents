@@ -1,0 +1,22 @@
+import{_ as s,c as a,a as p,o as t}from"./app-DLCc4AGN.js";const e={};function o(c,n){return t(),a("div",null,[...n[0]||(n[0]=[p(`<h1 id="学生出勤记录-i" tabindex="-1"><a class="header-anchor" href="#学生出勤记录-i"><span>学生出勤记录 I</span></a></h1><h2 id="遍历" tabindex="-1"><a class="header-anchor" href="#遍历"><span>遍历</span></a></h2><div class="language-typescript" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre><code><span class="line"><span class="token keyword">function</span> <span class="token function">checkRecord</span><span class="token punctuation">(</span>s<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">let</span> ac <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// 统计 A</span></span>
+<span class="line">  <span class="token keyword">let</span> lc <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// 统计 L</span></span>
+<span class="line"></span>
+<span class="line">  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">&#39;A&#39;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      ac<span class="token operator">++</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">&#39;L&#39;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      lc<span class="token operator">++</span></span>
+<span class="line">    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">      lc <span class="token operator">=</span> <span class="token number">0</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>ac <span class="token operator">===</span> <span class="token number">2</span> <span class="token operator">||</span> lc <span class="token operator">===</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token keyword">return</span> <span class="token boolean">false</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">  <span class="token keyword">return</span> <span class="token boolean">true</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre></div>`,3)])])}const i=s(e,[["render",o]]),r=JSON.parse('{"path":"/algorithms/551-student-attendance-record-i.html","title":"学生出勤记录 I","lang":"zh-CN","frontmatter":{"autoSort":-551},"headers":[{"level":2,"title":"遍历","slug":"遍历","link":"#遍历","children":[]}],"git":{"updatedTime":1637507883000,"contributors":[{"name":"shanyuhai123","username":"shanyuhai123","email":"864299347@qq.com","commits":1,"url":"https://github.com/shanyuhai123"}]},"filePathRelative":"algorithms/551-student-attendance-record-i.md"}');export{i as comp,r as data};
