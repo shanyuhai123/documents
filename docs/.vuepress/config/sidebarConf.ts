@@ -371,6 +371,7 @@ export default {
         "README.md",
         "archlinux-system-migration.md",
         "arch-support-emoji.md",
+        "clash-proxy.md",
         "use-sunlogin.md",
         "cherry-studio-spawn-node.md"
       ]
@@ -458,7 +459,6 @@ export default {
         "lock-screen-shortcuts.md",
         "manjaro-with-nvidia.md",
         "most-used-softwares.md",
-        "proxy-tools.md",
         "readonly-after-mount-the-disk.md",
         "solve-problems-with-manjaro.md",
         "you-get.md",
