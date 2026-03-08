@@ -23,28 +23,44 @@ sudo pacman -S fcitx5-im fcitx5-chinese-addons
 配置环境变量并重新登入：
 
 ```sh
-# vim ~/.pam_environment
-GTK_IM_MODULE DEFAULT=fcitx
-QT_IM_MODULE  DEFAULT=fcitx
-XMODIFIERS    DEFAULT=\@im=fcitx
-SDL_IM_MODULE DEFAULT=fcitx
-# vim ~/.xprofile
-export QT_IM_MODULE=fcitx5v
+# vim /etc/environment
+GTK_IM_MODULE=fcitx
+QT_IM_MODULES=wayland;fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
 ```
 
-主题与词库：
+主题：
 
 ```sh
 # 皮肤
-fcitx5-material-color
-# 词库
-# 1. 在拼音中启用云拼音并修改后端为 baidu
-# 2. 离线词库，安装完成后词典自动启用
-sudo pacman -S fcitx5-pinyin-zhwiki # 46.92 MiB
-yay -S fcitx5-pinyin-sougou # 183.87 MiB
+sudo pacman -S fcitx5-material-color
 ```
 
-在 `Kernel: 5.18.6-arch1-1`、`DE: Plasma 5.25.1` 版本，输入法的配置在 `系统设置 => 区域设置 => 输入法` 下可进行配置。
+输入法引擎及词库
+
+```sh
+sudo pacman -S fcitx5-rime
+paru -S rime-ice-git
+
+# 启用配置
+mkdir ~/.local/share/fcitx5/rime/
+cd ~/.local/share/fcitx5/rime/
+vim default.custom.yaml
+# patch:
+#   # 仅使用「雾凇拼音」的默认配置，配置此行即可
+#   __include: rime_ice_suggestion:/
+#   # 以下根据自己所需自行定义，仅做参考。
+#   # 针对对应处方的定制条目，请使用 <recipe>.custom.yaml 中配置，例如 rime_ice.custom.yaml
+#   __patch:
+#     key_binder/bindings/+:
+#       # 开启逗号句号翻页
+#       - { when: paging, accept: comma, send: Page_Up }
+#       - { when: has_menu, accept: period, send: Page_Down }
+```
+
+**前往系统设置 > 输入与输出 > 键盘 > 虚拟键盘，选择 Fcitx 5 Wayland 启动器**
 
 ## 配置防火墙
 
